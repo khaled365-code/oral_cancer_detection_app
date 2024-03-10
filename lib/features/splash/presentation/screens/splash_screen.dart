@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/features/splash/presentation/componants/custom_button.dart';
 import 'package:graduation_project/features/splash/presentation/componants/custom_container.dart';
 import 'package:graduation_project/features/splash/presentation/componants/row_title.dart';
@@ -48,6 +50,7 @@ class SplashPage extends StatelessWidget {
             ),
             CustomButton(
               onTap: (){
+                navigate(context: context, route: Routes.onBoard);
 
               },
               buttonText: 'Get Started',

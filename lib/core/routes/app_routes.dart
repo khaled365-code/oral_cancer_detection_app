@@ -16,6 +16,8 @@ import 'package:graduation_project/features/splash/presentation/screens/splash_s
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/home_screen.dart';
 
+import '../../features/splash/presentation/screens/onboearding_screen.dart';
+
 class Routes
 {
 
@@ -28,6 +30,7 @@ class Routes
   static const String feedbackscreen='/feedback_screen';
   static const String privacypolicyscreen='/privacy_policy_screen';
   static const String communityhomescreen='/community_home_screen';
+  static const String onBoard='/onBoarding_screen';
 
 
 
@@ -48,7 +51,8 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen(),);
-
+      case Routes.onBoard:
+        return MaterialPageRoute(builder: (context) => OnboardingScreen(),);
       case Routes.splash:
         return MaterialPageRoute(builder: (context) => const SplashPage(),);
 
@@ -70,7 +74,7 @@ class AppRoutes
 
 
       default:
-        return MaterialPageRoute(builder: (context) => Center(child: Text('No screen found')),);
+        return MaterialPageRoute(builder: (context) => const Center(child: Text('No screen found')),);
 
     }
 
