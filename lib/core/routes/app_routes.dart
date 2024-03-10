@@ -11,6 +11,7 @@ import 'package:graduation_project/features/profile/presentation/screens/privacy
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
+import 'package:graduation_project/features/splash/presentation/screens/splash_screen.dart';
 
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/home_screen.dart';
@@ -19,6 +20,7 @@ class Routes
 {
 
   static const String home='/';
+  static  const String splash  = 'splash_Page';
   static const String editProfilescreen='/edit_profile';
   static const String settings='/setting_screen';
   static const String aboutApp='/about_app_screen';
@@ -46,6 +48,9 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen(),);
+
+      case Routes.splash:
+        return MaterialPageRoute(builder: (context) => const SplashPage(),);
 
       case Routes.editProfilescreen:
         return MaterialPageRoute(builder: (context) => EditProfileScreen(),);

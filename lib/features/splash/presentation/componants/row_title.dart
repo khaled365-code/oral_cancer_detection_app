@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/splash/presentation/componants/custom_container.dart';
 
@@ -12,7 +13,7 @@ class RowTitle extends StatelessWidget {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomContainer(conHeight:43,conWidth:56,conImage:'assets/plus.png'),
+        CustomContainer(conHeight:43,conWidth:56,conImage:AppAssets.plus),
         Text(
           ' Consult',
           textAlign: TextAlign.center,

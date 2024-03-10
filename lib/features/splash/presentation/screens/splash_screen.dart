@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/splash/presentation/componants/custom_button.dart';
 import 'package:graduation_project/features/splash/presentation/componants/custom_container.dart';
@@ -6,8 +7,6 @@ import 'package:graduation_project/features/splash/presentation/componants/row_t
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
-
-  static String id = 'SplashPage';
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class SplashPage extends StatelessWidget {
           children: [
             const RowTitle(),
             const SizedBox(height:90,),
-            const  CustomContainer(conHeight:190,conWidth:230,conImage:'assets/splash1.jpg'),
+            const  CustomContainer(conHeight:190,conWidth:230,conImage:AppAssets.splash),
             const SizedBox(
               height:14,
             ),
