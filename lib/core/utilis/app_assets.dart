@@ -32,6 +32,12 @@ class AppAssets
   static const String hospital='assets/images/hospital.png';
   static const String chatting='assets/images/chatting.png';
   static const String report2='assets/images/report2.png';
+  static const String splash='assets/images/splash1.jpg';
+  static const String plus='assets/images/plus.png';
+  static const String onBoard1='assets/images/onboard1.jpg';
+  static const String onBoard2='assets/images/onboard2.jpg';
+
+
 
 
 
