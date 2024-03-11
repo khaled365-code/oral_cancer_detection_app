@@ -4,6 +4,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/features/auth/presentation/screens/log_as_screen.dart';
+import 'package:graduation_project/features/auth/presentation/screens/login_screen.dart';
+import 'package:graduation_project/features/auth/presentation/screens/regisrer_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
@@ -22,7 +25,7 @@ class Routes
 {
 
   static const String home='/';
-  static  const String splash  = 'splash_Page';
+  static  const String splash  = '/splash_Page';
   static const String editProfilescreen='/edit_profile';
   static const String settings='/setting_screen';
   static const String aboutApp='/about_app_screen';
@@ -31,6 +34,9 @@ class Routes
   static const String privacypolicyscreen='/privacy_policy_screen';
   static const String communityhomescreen='/community_home_screen';
   static const String onBoard='/onBoarding_screen';
+  static const String logAs='/Log_as_screen';
+  static const String loginScreen='/Login_screen';
+  static const String registerScreen='/register_screen';
 
 
 
@@ -55,6 +61,13 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => OnboardingScreen(),);
       case Routes.splash:
         return MaterialPageRoute(builder: (context) => const SplashPage(),);
+      case Routes.logAs:
+        return MaterialPageRoute(builder: (context) => const LogAs(),);
+      case Routes.loginScreen:
+        return MaterialPageRoute(builder: (context) => const LoginPage(),);
+      case Routes.registerScreen:
+        return MaterialPageRoute(builder: (context) => const RegisterPage(),);
+
 
       case Routes.editProfilescreen:
         return MaterialPageRoute(builder: (context) => EditProfileScreen(),);

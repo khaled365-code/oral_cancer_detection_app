@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
-import 'package:graduation_project/features/splash/presentation/componants/custom_container.dart';
+import 'package:graduation_project/core/widgets/custom_container.dart';
 
 class RowTitle extends StatelessWidget {
   const RowTitle({
