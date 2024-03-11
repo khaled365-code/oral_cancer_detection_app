@@ -38,6 +38,7 @@ class AppAssets
   static const String onBoard2='assets/images/onboard2.jpg';
   static const String logAs='assets/images/logAs.png';
   static const String login1='assets/images/login1.png';
+  static const String lock='assets/images/lock.jpg';
 
 
 

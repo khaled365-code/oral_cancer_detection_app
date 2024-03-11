@@ -123,7 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             const Text("Already have an account?"),
                             GestureDetector(
                               onTap: (){
-                                navigate(context: context, route: Routes.loginScreen);
+                                navigate(context: context, route: Routes.logAs);
                               },
                               child:const Text('Login',style:TextStyle(color:AppColors.primary),
                               ),

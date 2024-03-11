@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/screens/log_as_screen.dart';
 import 'package:graduation_project/features/auth/presentation/screens/login_screen.dart';
 import 'package:graduation_project/features/auth/presentation/screens/regisrer_screen.dart';
+import 'package:graduation_project/features/auth/presentation/screens/reset_pass_screen.dart';
+import 'package:graduation_project/features/auth/presentation/screens/send_code_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
@@ -37,6 +39,8 @@ class Routes
   static const String logAs='/Log_as_screen';
   static const String loginScreen='/Login_screen';
   static const String registerScreen='/register_screen';
+  static const String resetNewPass='/reset_new_pass';
+  static const String sendCode='/sendCode';
 
 
 
@@ -57,6 +61,10 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen(),);
+      case Routes.resetNewPass:
+        return MaterialPageRoute(builder: (context) => const ResetPassword(),);
+      case Routes.sendCode:
+        return MaterialPageRoute(builder: (context) => const SendCode(),);
       case Routes.onBoard:
         return MaterialPageRoute(builder: (context) => OnboardingScreen(),);
       case Routes.splash:

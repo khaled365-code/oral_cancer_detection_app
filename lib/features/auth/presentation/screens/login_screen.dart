@@ -11,7 +11,7 @@ import 'package:graduation_project/core/widgets/row_title.dart';
 class LoginPage extends StatefulWidget{
   const LoginPage({super.key});
 
-  static String id='LoginPage';
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -75,7 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                             const Icon(Icons.visibility),),
                         ),
                         const SizedBox(height: 8,),
-                        TextButton(onPressed: () {},
+                        TextButton(onPressed: () {
+                          navigate(context: context, route: Routes.sendCode);
+                        },
                           child: const Text('Forget Password?',
                             style: TextStyle(
                               color:AppColors.primary,

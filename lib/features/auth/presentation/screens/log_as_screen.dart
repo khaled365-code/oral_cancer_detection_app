@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
 
@@ -28,9 +30,13 @@ class LogAs extends StatelessWidget{
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomTextButton(textState:'patient',onPressed: (){},),
+                  CustomTextButton(textState:'patient',onPressed: (){
+                    navigate(context: context, route: Routes.loginScreen);
+                  },),
                   const SizedBox(width:14,),
-                  CustomTextButton(textState:'Doctor',onPressed: (){}),
+                  CustomTextButton(textState:'Doctor',onPressed: (){
+                    navigate(context: context, route: Routes.loginScreen);
+                  }),
                 ],
               ),
 

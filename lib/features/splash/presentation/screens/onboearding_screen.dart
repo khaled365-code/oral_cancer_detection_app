@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
+import 'package:graduation_project/core/utilis/commons.dart';
 
 import '../../../../core/utilis/app_colors.dart';
 import '../componants/onboarding_component.dart';
@@ -106,9 +108,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
 
           onPressed: () {
             if (currentPage == _pages.length - 1) {
-              // Handle last page action (e.g., sign up, navigate to home)
-              // You can replace the below line with your desired action
-              print('Onboarding completed');
+              navigate(context: context, route: Routes.registerScreen);
             } else {
               pageController.nextPage(
                 duration: const Duration(milliseconds: 300),
