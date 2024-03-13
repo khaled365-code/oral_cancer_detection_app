@@ -39,6 +39,14 @@ class AppAssets
   static const String logAs='assets/images/logAs.png';
   static const String login1='assets/images/login1.png';
   static const String lock='assets/images/lock.jpg';
+  static const String doc1='assets/images/doc1.jpg';
+  static const String doc2='assets/images/doc2.jpg';
+  static const String doc3='assets/images/doc3.jpg';
+  static const String doc4='assets/images/doc4.jpg';
+  static const String uploadBackground='assets/images/uploadBackground.png';
+  static const String empty='assets/images/empty.png';
+
+
 
 
 

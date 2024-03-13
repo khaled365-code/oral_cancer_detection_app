@@ -89,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                         CustomButton(buttonText: 'Login', onTap:(){
                           if(formKey.currentState!.validate()){
                             print('Login done');
+                            navigate(context: context, route: Routes.home);
                             // here login user function preformed like chat app
                           }
 

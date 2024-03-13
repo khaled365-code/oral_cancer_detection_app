@@ -1,7 +1,4 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/screens/log_as_screen.dart';
@@ -10,6 +7,8 @@ import 'package:graduation_project/features/auth/presentation/screens/regisrer_s
 import 'package:graduation_project/features/auth/presentation/screens/reset_pass_screen.dart';
 import 'package:graduation_project/features/auth/presentation/screens/send_code_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
+import 'package:graduation_project/features/home/presentation/screens/doctor_screen.dart';
+import 'package:graduation_project/features/home/presentation/screens/home_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
@@ -28,6 +27,7 @@ class Routes
 
   static const String home='/';
   static  const String splash  = '/splash_Page';
+  static  const String doctor  = '/Doctor_Page';
   static const String editProfilescreen='/edit_profile';
   static const String settings='/setting_screen';
   static const String aboutApp='/about_app_screen';
@@ -60,7 +60,7 @@ class AppRoutes
     switch(routeSettings.name)
     {
       case Routes.home:
-        return MaterialPageRoute(builder: (context) => HomeScreen(),);
+        return MaterialPageRoute(builder: (context) =>const HomePage(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.sendCode:
@@ -75,7 +75,8 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => const LoginPage(),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);
-
+      case Routes.doctor:
+        return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
       case Routes.editProfilescreen:
         return MaterialPageRoute(builder: (context) => EditProfileScreen(),);
