@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
-import 'package:graduation_project/features/home/presentation/screens/news_screen.dart';
-import 'package:graduation_project/features/home/presentation/screens/upload_Image_View.dart';
+
+import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
 import 'doctor_screen.dart';
+import 'news_screen.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});

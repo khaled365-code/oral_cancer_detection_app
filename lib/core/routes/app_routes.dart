@@ -1,30 +1,28 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/features/auth/presentation/screens/log_as_screen.dart';
-import 'package:graduation_project/features/auth/presentation/screens/login_screen.dart';
-import 'package:graduation_project/features/auth/presentation/screens/regisrer_screen.dart';
-import 'package:graduation_project/features/auth/presentation/screens/reset_pass_screen.dart';
-import 'package:graduation_project/features/auth/presentation/screens/send_code_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
-import 'package:graduation_project/features/home/presentation/screens/doctor_screen.dart';
-import 'package:graduation_project/features/home/presentation/screens/home_screen.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
-import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
-import 'package:graduation_project/features/splash/presentation/screens/splash_screen.dart';
-
+import 'package:graduation_project/features/splash/presentation/views/splash_screen.dart';
+import '../../features/auth/presentation/views/log_as_screen.dart';
+import '../../features/auth/presentation/views/login_screen.dart';
+import '../../features/auth/presentation/views/regisrer_screen.dart';
+import '../../features/auth/presentation/views/reset_pass_screen.dart';
+import '../../features/auth/presentation/views/send_code_screen.dart';
+import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
+import '../../features/diagnosis/presentation/views/text_question_view.dart';
+import '../../features/home/presentation/views/doctor_screen.dart';
+import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
-import '../../features/profile/presentation/screens/home_screen.dart';
-
-import '../../features/splash/presentation/screens/onboearding_screen.dart';
+import '../../features/splash/presentation/views/onboearding_screen.dart';
 
 class Routes
 {
-
   static const String home='/';
   static  const String splash  = '/splash_Page';
   static  const String doctor  = '/Doctor_Page';
@@ -41,14 +39,9 @@ class Routes
   static const String registerScreen='/register_screen';
   static const String resetNewPass='/reset_new_pass';
   static const String sendCode='/sendCode';
-
-
-
-
-
-
-
-
+  static const String radioQueastion='/radioQueastion';
+  static const String textQuestion='/textQuestion';
+  static const String result='/result';
 
 }
 
@@ -61,6 +54,12 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) =>const HomePage(),);
+      case Routes.result:
+        return MaterialPageRoute(builder: (context) =>const ResultScreen(),);
+      case Routes.radioQueastion:
+        return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
+      case Routes.textQuestion:
+        return MaterialPageRoute(builder: (context) =>const QuestionText(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.sendCode:
@@ -92,9 +91,6 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => PrivacyPolicyScreen(),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),);
-
-
-
       default:
         return MaterialPageRoute(builder: (context) => const Center(child: Text('No screen found')),);
 

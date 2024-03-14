@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
+import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
 
@@ -30,7 +32,10 @@ class UploadImageBody extends StatelessWidget {
               //const SizedBox(width:16,),
               CustomTextButton(textState:'NEXT',
                 bIcon:const Icon(Icons.arrow_forward_rounded ,color: Colors.white,) ,
-                onPressed:(){},),
+                onPressed:(){
+                navigate(context: context, route: Routes.radioQueastion);
+
+                },),
             ],
           ),
         ],

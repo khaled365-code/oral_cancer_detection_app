@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
-import 'package:graduation_project/features/home/presentation/componants/doctor_card.dart';
+
+import 'componants/doctor_card.dart';
 
 class DoctorPage extends StatelessWidget{
   const DoctorPage({super.key});

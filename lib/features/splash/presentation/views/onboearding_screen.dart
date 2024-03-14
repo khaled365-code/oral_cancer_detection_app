@@ -5,7 +5,7 @@ import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
 
 import '../../../../core/utilis/app_colors.dart';
-import '../componants/onboarding_component.dart';
+import 'componants/onboarding_component.dart';
 
 
 class OnboardingScreen extends StatefulWidget {

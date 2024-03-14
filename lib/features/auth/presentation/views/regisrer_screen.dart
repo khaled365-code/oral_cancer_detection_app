@@ -5,9 +5,11 @@ import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
-import 'package:graduation_project/features/auth/presentation/componants/date_function.dart';
-import 'package:graduation_project/features/auth/presentation/componants/gender_textfield.dart';
+
 import 'package:intl/intl.dart';
+
+import 'componants/date_function.dart';
+import 'componants/gender_textfield.dart';
 
 class RegisterPage extends StatefulWidget{
   const RegisterPage({super.key});
