@@ -12,11 +12,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions:  [IconButton(onPressed: () {
-        navigate(context: context, route: Routes.home);
-        }, icon: const Icon(Icons.home),)
-      ],
-      ),
+
       backgroundColor: AppColors.background,
       body:
       Padding(
@@ -52,7 +48,9 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50,),
-            CustomElevatedButton(onpress: (){},style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.primary)), child: const Text("Finish"),)
+            CustomElevatedButton(onpress: (){
+              navigate(context: context, route: Routes.home);
+            },style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.primary)), child: const Text("Back To Home"),)
 
 
           ],),
