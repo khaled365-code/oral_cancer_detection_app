@@ -32,7 +32,7 @@ class SendCode extends StatelessWidget {
                 TextStyle(color: Colors.black54,fontSize: 14),),
               ),
               const SizedBox(height: 10,),
-             CustomTextFormField(obscureValue: true,
+              const CustomTextFormField(obscureValue: true,
                 hintText: 'Enter your email',
               ),
 
@@ -44,7 +44,7 @@ class SendCode extends StatelessWidget {
                 }
 
 
-              ,style: ButtonStyle(
+              ,style:const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(AppColors.primary)
               ), child: const Text("Send Code "),
               ),

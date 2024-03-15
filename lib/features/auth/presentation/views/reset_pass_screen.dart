@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:pinput/pinput.dart';
@@ -17,6 +18,7 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
+  bool isSecured=true;
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKey=GlobalKey();
@@ -36,7 +38,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 children: [
 
                   ClipOval(
-                    child: Image.network('https://i.pinimg.com/736x/ba/dd/08/badd08ad2cfb4eb9169f07bf88e4e9c6.jpg',width: 100,),),
+                  child:Image.asset(AppAssets.lock ,width: 100,),),
                   const SizedBox(height: 20,),
                   const Text("Create New Password",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
 
@@ -46,18 +48,26 @@ class _ResetPasswordState extends State<ResetPassword> {
                     TextStyle(color: Colors.black54,fontSize: 14),),
                   ),
                   const SizedBox(height: 10,),
-                  CustomTextFormField(obscureValue: true,
+                  CustomTextFormField(obscureValue:isSecured,
                     hintText: 'Enter a new password',
-
                     prefixIcon: const Icon(Icons.lock),
-                    suffixIcon:IconButton(icon: const Icon(Icons.visibility_off),onPressed: (){},),
+                    suffixIcon:IconButton(
+                      icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                        onPressed: (){
+                        isSecured=!isSecured;
+                        setState(() {});
+                        },),
                   ),
                   const SizedBox(height: 20,),
-                  CustomTextFormField(obscureValue: true,
+                  CustomTextFormField(obscureValue:isSecured,
                     hintText: 'Confirm your  password',
-
                     prefixIcon: const Icon(Icons.lock),
-                    suffixIcon:  IconButton(icon: const Icon(Icons.visibility_off),onPressed: (){},),
+                    suffixIcon:IconButton(
+                      icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                        onPressed: (){
+                          isSecured=!isSecured;
+                          setState(() {});
+                        },),
                   ),
                   const SizedBox(height: 10,),
                   Pinput(
@@ -78,7 +88,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     onPressed: (){
                       if(formKey.currentState!.validate()) {
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return CongratulationScreen();
+                          return const  CongratulationScreen();
                         }));
                       }
                     },style: const ButtonStyle(
