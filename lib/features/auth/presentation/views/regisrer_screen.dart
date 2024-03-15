@@ -26,6 +26,14 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController dateController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    birthDate = DateTime.now();
+    dateController.text = DateFormat('MM/dd/yyyy').format(birthDate!);
+
+  }
+
+  @override
   void dispose() {
     dateController.dispose();
     super.dispose();
@@ -83,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             if (pickedDate != null) {
                               setState(() {
                                 birthDate = pickedDate;
-                                dateController.text = DateFormat('MM/dd/yyyy').format(pickedDate);
+                                dateController.text = DateFormat('MM/dd/yyyy').format(birthDate!);
                               });
                               print('date selected');
                             }
@@ -130,7 +138,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               child:const Text('Login',style:TextStyle(color:AppColors.primary),
                               ),
                             ),
-                            const SizedBox(height: 5,),
 
                           ],
                         ),
