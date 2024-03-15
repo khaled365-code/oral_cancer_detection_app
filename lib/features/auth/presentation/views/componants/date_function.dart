@@ -4,7 +4,7 @@ import 'package:graduation_project/core/utilis/app_colors.dart';
 class DateFunction {
   DateTime birthDate = DateTime.now();
 
-  Future<DateTime?> selectDueDate(BuildContext context) async {
+  Future<DateTime?> selectBirthDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: birthDate,

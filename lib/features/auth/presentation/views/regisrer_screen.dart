@@ -26,19 +26,20 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController dateController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    birthDate = DateTime.now();
-    dateController.text = DateFormat('MM/dd/yyyy').format(birthDate!);
-
-  }
-
-  @override
   void dispose() {
     dateController.dispose();
     super.dispose();
   }
-
+  Future<void> _selectDate() async {
+    final pickedDate = await DateFunction().selectBirthDate(context);
+    if (pickedDate != null) {
+      setState(() {
+        birthDate = pickedDate;
+        dateController.text = DateFormat('MM/dd/yyyy').format(pickedDate);
+      });
+      print('date selected');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,28 +81,19 @@ class _RegisterPageState extends State<RegisterPage> {
                           style:TextStyle(fontSize:16,),
                         ),
                         const SizedBox(height:16,),
-                        CustomTextFormField(labelText:'UserName', hintText:'Enter your name'),
+                        const CustomTextFormField(labelText:'UserName', hintText:'Enter your name'),
                         const SizedBox(height:10,),
                         const GenderSelectTextField(),
                         const SizedBox(height:10,),
                         CustomTextFormField(labelText:'Date of Birth', hintText:'mm/dd/yyyy',
                           controller: dateController,
-                          suffixIcon:IconButton(onPressed:() async{
-                            final pickedDate = await DateFunction().selectDueDate(context);
-                            if (pickedDate != null) {
-                              setState(() {
-                                birthDate = pickedDate;
-                                dateController.text = DateFormat('MM/dd/yyyy').format(birthDate!);
-                              });
-                              print('date selected');
-                            }
-                          },
+                          suffixIcon:IconButton(onPressed:_selectDate,
                               icon:const Icon(Icons.calendar_month)) ,
                         ),
                         const SizedBox(height:10,),
-                        CustomTextFormField(labelText:'phone number', hintText:'Enter phone number'),
+                        const CustomTextFormField(labelText:'phone number', hintText:'Enter phone number'),
                         const SizedBox(height:10,),
-                        CustomTextFormField(labelText:'Email', hintText:'Enter your email'),
+                        const CustomTextFormField(labelText:'Email', hintText:'Enter your email'),
                         const SizedBox(height:10,),
                         CustomTextFormField(labelText:'password', hintText:'Enter your name',
                           suffixIcon:IconButton(onPressed: (){
