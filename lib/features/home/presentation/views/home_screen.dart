@@ -7,6 +7,7 @@ import 'package:graduation_project/features/community/presentation/screens/commu
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
+import '../../../../core/widgets/drawer_app_bar.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
 
@@ -37,6 +38,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: const Size(double.infinity, 50),
+          child: DrawerAppBar()),
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
         child: Column(
@@ -51,14 +55,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor:AppColors.primary,
         unselectedItemColor: Colors.white,
         onTap: onItemTapped,
-        items:const[
+        items:const [
           BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.stethoscope),
               label: 'Diagnosis'),
           BottomNavigationBarItem(icon: Icon(Icons.mark_unread_chat_alt),
             label: 'Community',),
           BottomNavigationBarItem(icon: Icon(Icons.newspaper_sharp),
               label: 'News'),
-          BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.userDoctor),
+          BottomNavigationBarItem(icon: Icon(Icons.newspaper_sharp),
               label: 'Doctors'),
         ],
       ),

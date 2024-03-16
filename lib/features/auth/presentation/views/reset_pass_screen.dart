@@ -19,22 +19,21 @@ class ResetPassword extends StatefulWidget {
 
 class _ResetPasswordState extends State<ResetPassword> {
   bool isSecured=true;
+  GlobalKey<FormState> formKey=GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formKey=GlobalKey();
     double height=MediaQuery.of(context).size.height;
     double width=MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Form(
-              key: formKey,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 50,left: 20,right: 20),
+          child: Form(
+            key: formKey,
+            child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-
                 children: [
 
                   ClipOval(
@@ -48,27 +47,31 @@ class _ResetPasswordState extends State<ResetPassword> {
                     TextStyle(color: Colors.black54,fontSize: 14),),
                   ),
                   const SizedBox(height: 10,),
-                  CustomTextFormField(obscureValue:isSecured,
+                  CustomTextFormField(
+                    obscureValue:isSecured,
                     hintText: 'Enter a new password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon:IconButton(
                       icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
-                        onPressed: (){
+                      onPressed: (){
                         isSecured=!isSecured;
                         setState(() {});
-                        },),
+                      },),
                   ),
                   const SizedBox(height: 20,),
-                  CustomTextFormField(obscureValue:isSecured,
+                  CustomTextFormField(
+                    obscureValue:isSecured,
                     hintText: 'Confirm your  password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon:IconButton(
                       icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
-                        onPressed: (){
-                          isSecured=!isSecured;
-                          setState(() {});
-                        },),
+                      onPressed: (){
+                        isSecured=!isSecured;
+                        setState(() {});
+                      },),
+                    controller: TextEditingController(),
                   ),
+
                   const SizedBox(height: 10,),
                   Pinput(
                     onCompleted: (pin)=> debugPrint(pin),
@@ -81,9 +84,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
 
                   ),
-
                   const SizedBox(height: 20,),
-                  const SizedBox(height:30 ,),
                   ElevatedButton(
                     onPressed: (){
                       if(formKey.currentState!.validate()) {
@@ -94,7 +95,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     },style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(AppColors.primary)
                   ),
-                    child: const Text("Change "),
+                    child: const Text("Change"),
                   )
 
 

@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.only(top: 8),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: AppColors.background,
           title: const RowTitle(),

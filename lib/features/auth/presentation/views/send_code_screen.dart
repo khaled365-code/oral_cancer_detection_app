@@ -18,10 +18,11 @@ class SendCode extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Form(
           key: formKey,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipOval(
-                child: Image.asset(AppAssets.lock),
+                child: Image.asset(AppAssets.lock,width: 100,),
               ),
               const SizedBox(height: 20,),
               const Text("Forgot Password?",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
@@ -46,7 +47,7 @@ class SendCode extends StatelessWidget {
 
               ,style:const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(AppColors.primary)
-              ), child: const Text("Send Code "),
+              ), child: const Text("Send Code ",style: TextStyle(color: Colors.white,fontSize: 14),),
               ),
 
 

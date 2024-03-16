@@ -42,7 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(S.of(context).settings,style:AppTextStyles.font20.copyWith(color: AppColors.primary),),
+              Text('settings',style:AppTextStyles.font20.copyWith(color: AppColors.primary),),
               SizedBox(height: 25,),
               Container(
               child: Column(

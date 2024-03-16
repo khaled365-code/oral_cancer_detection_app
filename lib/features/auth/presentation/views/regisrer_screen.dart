@@ -47,6 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: const EdgeInsets.only(top: 8),
       child: Scaffold(
         appBar:AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: AppColors.background,
           title: const RowTitle(),
