@@ -73,7 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                             setState(() {});
                           },
                             icon: isSecured ? const Icon(Icons.visibility_off) :
-                            const Icon(Icons.visibility),),
+                            const Icon(Icons.visibility),
+                          ),
                         ),
                         const SizedBox(height: 8,),
                         TextButton(onPressed: () {

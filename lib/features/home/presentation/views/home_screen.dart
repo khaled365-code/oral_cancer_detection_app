@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:graduation_project/core/widgets/custom_app_bar.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
 
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
@@ -38,9 +40,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar:PreferredSize(
           preferredSize: const Size(double.infinity, 50),
-          child: DrawerAppBar()),
+          child: DrawerAppBar()
+      ),
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
         child: Column(
@@ -68,6 +71,39 @@ class _HomePageState extends State<HomePage> {
       ),
 
     );
+  }
+  PreferredSize showAppBar(){
+    if(selectedIndex==0){
+      return PreferredSize(
+          preferredSize: const Size(double.infinity, 50),
+          child: DrawerAppBar()
+      );
+    }
+    else if(selectedIndex==1){
+      return  PreferredSize(
+          preferredSize: Size(double.infinity, 50),
+          child: AppBar(title:Text('Welcome') ,centerTitle: true,elevation: 0,
+            backgroundColor: AppColors.transparent
+            ));
+      
+    }
+    else if(selectedIndex==2){
+      return PreferredSize(
+          preferredSize: Size(double.infinity, 50),
+          child: AppBar(title:Text('Medical News') ,centerTitle: true,elevation: 0,
+              backgroundColor: AppColors.primary
+          ));
+
+    }
+    else{
+      return PreferredSize(
+          preferredSize: Size(double.infinity, 50),
+          child: AppBar(title:Text('Recommended Doctors') ,centerTitle: true,elevation: 0,
+              backgroundColor: AppColors.primary
+          ));
+
+    }
+
   }
 }
 

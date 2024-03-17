@@ -45,6 +45,7 @@ class AppAssets
   static const String doc4='assets/images/doc4.jpg';
   static const String uploadBackground='assets/images/uploadBackground.png';
   static const String empty='assets/images/empty.png';
+  static const String medicalNewsImg='assets/images/empty.png';
 
 
 

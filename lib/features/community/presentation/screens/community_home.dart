@@ -17,30 +17,30 @@ class CommunityScreen extends StatelessWidget {
 
     return Scaffold(
 
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
-        child: Builder(
-          builder: (BuildContext context) {
-            return AppBar(
-              automaticallyImplyLeading: false,
-              leading: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: InkWell(
-                  onTap: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child:CircleAvatar(
-                    radius: 20,
-                    backgroundImage: AssetImage(AppAssets.profilePic),
-                  ),
-                ),
-              ),
-              title: Text('Welcome!',style: AppTextStyles.font16.copyWith()),
-              centerTitle: true,
-            );
-          },
-        ),
-      ),
+      // appBar: PreferredSize(
+      //   preferredSize: Size(double.infinity, 50),
+      //   child: Builder(
+      //     builder: (BuildContext context) {
+      //       return AppBar(
+      //         automaticallyImplyLeading: false,
+      //         leading: Padding(
+      //           padding: const EdgeInsets.only(left: 20),
+      //           child: InkWell(
+      //             onTap: () {
+      //               Scaffold.of(context).openDrawer();
+      //             },
+      //             child:CircleAvatar(
+      //               radius: 20,
+      //               backgroundImage: AssetImage(AppAssets.profilePic),
+      //             ),
+      //           ),
+      //         ),
+      //         title: Text('Welcome!',style: AppTextStyles.font16.copyWith()),
+      //         centerTitle: true,
+      //       );
+      //     },
+      //   ),
+      // ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(bottom: 20),
