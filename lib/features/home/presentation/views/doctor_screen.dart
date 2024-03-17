@@ -11,19 +11,19 @@ class DoctorPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:AppColors.background,
-      appBar: AppBar(
-        elevation: 0 ,
-        backgroundColor:AppColors.background,
-        centerTitle: true,
-        title:const  Text('Recommended Doctors',
-          style:TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
-            color: AppColors.primary,
-          ),
-        ),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0 ,
+      //   backgroundColor:AppColors.background,
+      //   centerTitle: true,
+      //   title:const  Text('Recommended Doctors',
+      //     style:TextStyle(
+      //       fontSize: 24,
+      //       fontWeight: FontWeight.bold,
+      //       fontStyle: FontStyle.italic,
+      //       color: AppColors.primary,
+      //     ),
+      //   ),
+      // ),
       body: Padding(
         padding:const EdgeInsets.only(top:16,right: 16,left: 16 ),
         child:SingleChildScrollView(
