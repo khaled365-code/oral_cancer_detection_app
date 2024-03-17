@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 class DoctorCard extends StatelessWidget{
   DoctorCard({super.key , required this.image, required this.doctorName,
@@ -50,17 +51,13 @@ class DoctorCard extends StatelessWidget{
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(doctorName,
-                      style:const TextStyle(
-                        fontSize:20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                      style:AppTextStyles.font20.copyWith(
+                          color: AppColors.white ,),
                     ),
                     Text(docDegree ,
-                      style:const TextStyle(
-                        fontSize:16,
-                        color: Colors.white,
-                      ),
+                      style:AppTextStyles.font16.copyWith(
+                        color: AppColors.white ,
+                        fontFamily: 'lato'),
                     ),
                   ],
                 ),
@@ -73,24 +70,18 @@ class DoctorCard extends StatelessWidget{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(' About: $aboutDoc',
-                    style:const TextStyle(
-                      fontSize:14,
-                      color: Colors.white,
-                    ),
+                    style:AppTextStyles.font14.copyWith(
+                      color: AppColors.white ,),
                   ),
                   const SizedBox(height:8,),
                   Text(' Contact info: $docNumber',
-                    style:const TextStyle(
-                      fontSize:14,
-                      color: Colors.white,
-                    ),
+                    style:AppTextStyles.font14.copyWith(
+                      color: AppColors.white ,),
                   ),
                   const SizedBox(height:8,),
                   Text(' Address: $docAddress',
-                    style:const TextStyle(
-                      fontSize:14,
-                      color: Colors.white,
-                    ),
+                    style:AppTextStyles.font14.copyWith(
+                      color: AppColors.white ,),
                   ),
                 ],
               ),

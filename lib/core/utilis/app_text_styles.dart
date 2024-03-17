@@ -27,13 +27,13 @@ class AppTextStyles
   static const TextStyle font15 = TextStyle(
       fontSize: 15,
       // fontFamily: 'lato',
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       color: AppColors.black);
 
   static const TextStyle font16 = TextStyle(
       fontSize: 16,
       // fontFamily: 'lato',
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       color: AppColors.black);
   static const TextStyle font17 = TextStyle(
       fontSize: 17,
@@ -44,11 +44,13 @@ class AppTextStyles
   static const TextStyle font18 = TextStyle(
       fontSize: 18,
       // fontFamily: 'lato',
-      fontWeight: FontWeight.w600,
+      //bold
+      fontWeight: FontWeight.w700,
       color: AppColors.black);
 
   static const TextStyle font20 = TextStyle(
       fontSize: 20,
+      //bold
       fontWeight: FontWeight.w700,
       // fontFamily: 'lato',
       color: AppColors.black);

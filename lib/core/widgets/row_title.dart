@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 
 class RowTitle extends StatelessWidget {
@@ -10,17 +11,16 @@ class RowTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomContainer(conHeight:43,conWidth:56,conImage:AppAssets.plus),
+        const  CustomContainer(conHeight:43,conWidth:56,conImage:AppAssets.plus),
         Text(
-          ' Consult',
+          'Stay Safe',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: AppColors.primary,
+          style:AppTextStyles.font22.copyWith(
+              color: AppColors.primary,
+              fontFamily: 'lato',
           ),
         ),
       ],

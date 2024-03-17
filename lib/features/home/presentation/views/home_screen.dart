@@ -49,9 +49,9 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex:selectedIndex ,
-        selectedItemColor:Colors.grey,
-        backgroundColor:AppColors.primary,
-        unselectedItemColor: Colors.white,
+        selectedItemColor:AppColors.primary,
+        backgroundColor:AppColors.white,
+        unselectedItemColor:AppColors.black,
         onTap: onItemTapped,
         items:const [
           BottomNavigationBarItem(icon: Icon(FontAwesomeIcons.stethoscope),

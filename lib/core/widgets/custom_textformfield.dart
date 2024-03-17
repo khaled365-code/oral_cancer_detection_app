@@ -12,6 +12,7 @@ class CustomTextFormField extends StatefulWidget {
     this.prefixIcon,
     this.inputType,
     this.onChangeee,
+    this.readOnly=false,
   }) : super(key: key);
 
   final String? labelText;
@@ -22,6 +23,7 @@ class CustomTextFormField extends StatefulWidget {
   final Icon? prefixIcon;
   final TextInputType? inputType;
   final Function(String)? onChangeee;
+  final bool readOnly;
 
   @override
   State<CustomTextFormField>  createState() => _CustomTextFormFieldState();
@@ -31,6 +33,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: widget.readOnly,
       controller: widget.controller,
       validator: (value) {
         if (value == null || value.isEmpty) {

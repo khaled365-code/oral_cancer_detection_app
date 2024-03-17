@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 class GenderSelectTextField extends StatefulWidget {
   const  GenderSelectTextField({super.key ,});
@@ -20,13 +21,9 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
       style:const TextStyle( color: Colors.black ,),
       decoration: InputDecoration(
         labelText:'Gender',
-        labelStyle:const TextStyle(
-          color: Colors.black ,
-          fontSize: 16 ,) ,
+        labelStyle:AppTextStyles.font16,
         hintText:'Select Gender',
-        hintStyle:const TextStyle(
-          color: Colors.black ,
-          fontSize:16 ,) ,
+        hintStyle:AppTextStyles.font16,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide:const BorderSide(color:AppColors.primary),

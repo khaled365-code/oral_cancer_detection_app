@@ -26,11 +26,13 @@ class UploadImageBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CustomTextButton(textState:'UPLOAD',
+              CustomTextButton(
+                  textState:'UPLOAD',
                   bIcon:const Icon(Icons.upload ,color: Colors.white,),
                   onPressed:(){}),
               //const SizedBox(width:16,),
-              CustomTextButton(textState:'NEXT',
+              CustomTextButton(
+                textState:'NEXT',
                 bIcon:const Icon(Icons.arrow_forward_rounded ,color: Colors.white,) ,
                 onPressed:(){
                 navigate(context: context, route: Routes.radioQueastion);

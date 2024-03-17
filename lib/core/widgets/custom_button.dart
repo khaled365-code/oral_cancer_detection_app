@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({super.key , required this.buttonText , this.onTap});
@@ -20,7 +21,9 @@ class CustomButton extends StatelessWidget {
         width:308,
         height:58,
         child: Center(child: Text(buttonText,
-          style:const TextStyle(color: Colors.white,fontSize: 20),
+          style:AppTextStyles.font20.copyWith(
+              color: AppColors.white,
+              fontWeight: FontWeight.w500),
         ),
         ),
       ),

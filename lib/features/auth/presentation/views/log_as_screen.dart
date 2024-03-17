@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
@@ -23,8 +24,8 @@ class LogAs extends StatelessWidget{
             children: [
               const CustomContainer(conHeight:220,conWidth:230,conImage:AppAssets.logAs),
               const SizedBox(height:10,),
-              const Text('Please Tell Us Are You ' ,
-                style: TextStyle(fontSize:18,fontWeight: FontWeight.bold),
+              Text('Please Tell Us Are You ' ,
+                style: AppTextStyles.font18.copyWith(fontFamily: 'lato'),
               ),
               const SizedBox(height:20,),
               Row(
@@ -45,7 +46,6 @@ class LogAs extends StatelessWidget{
           ),
         ),
       ),
-
 
     );
 
