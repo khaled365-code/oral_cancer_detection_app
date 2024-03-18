@@ -39,7 +39,7 @@ class MyDrawerHeader extends StatelessWidget {
             ),
             Text(
               S.of(context).khaledemail,
-              style: AppTextStyles.font14,
+              style: AppTextStyles.font14.copyWith(color: AppColors.white),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import '../../../../core/utilis/app_colors.dart';
@@ -35,9 +36,9 @@ class QuestionChoiceState extends State<QuestionChoice> {
 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("$questionCounter /9",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: AppColors.primary),)
+            children: [Text("$questionCounter /9",style: AppTextStyles.font18.copyWith(color: AppColors.primary))
               ,const SizedBox(height: 20,),
-              const Text(" Do You use tobacco?",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
+              const Text(" Do You use tobacco?",style: AppTextStyles.font24,),
               const SizedBox(height: 20,),
               Column(
                 children: answersList
@@ -46,7 +47,7 @@ class QuestionChoiceState extends State<QuestionChoice> {
                     activeColor: AppColors.primary,
 
                     title: Text(answer
-                      ,style: const TextStyle(fontSize: 20),
+                      ,style: AppTextStyles.font20,
                     ),
                     value: answersList.indexOf(answer),
                     groupValue: selectedAnswerIndex,
@@ -61,11 +62,11 @@ class QuestionChoiceState extends State<QuestionChoice> {
               ),const SizedBox(height: 40,),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomElevatedButton( onpress: (){},style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.primary)), child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
+                  CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
                   CustomElevatedButton( onpress: (){
                     navigate(context: context, route: Routes.textQuestion);
                   },
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.primary)), child:  const Row(children: [Text("Next"),Icon(Icons.arrow_forward),]),)
+                   buttonBackground: AppColors.primary, child:  const Row(children: [Text("Next"),Icon(Icons.arrow_forward),]),)
                 ],
               )
 

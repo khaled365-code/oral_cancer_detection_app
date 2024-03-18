@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 
 class OnboardingPage extends StatelessWidget {
@@ -20,24 +21,17 @@ class OnboardingPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath),
+          Image.asset(imagePath,width: 350,),
           const SizedBox(height: 20),
           Text( textAlign: TextAlign.center,
-
             title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+            style:AppTextStyles.font24
           ),
           const SizedBox(height: 16),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
+            style: AppTextStyles.font16.copyWith(color: Colors.grey)
           ),
         ],
       ),

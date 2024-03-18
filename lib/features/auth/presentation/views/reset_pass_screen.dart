@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/commons.dart';
+import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
-import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:pinput/pinput.dart';
-
-
 import '../../../../core/utilis/app_colors.dart';
-import '../../../splash/presentation/views/onboearding_screen.dart';
+
 
 
 class ResetPassword extends StatefulWidget {
@@ -18,7 +19,8 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  bool isSecured=true;
+  bool isShowed1=true;
+  bool isShowed2=true;
   GlobalKey<FormState> formKey=GlobalKey();
 
   @override
@@ -39,42 +41,43 @@ class _ResetPasswordState extends State<ResetPassword> {
                   ClipOval(
                   child:Image.asset(AppAssets.lock ,width: 100,),),
                   const SizedBox(height: 20,),
-                  const Text("Create New Password",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
+                  const Text("Create New Password",style: AppTextStyles.font24),
 
-                  const Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 38,vertical: 10),
+                   Padding(
+                    padding:  const EdgeInsets.symmetric(horizontal: 38,vertical: 10),
                     child: Text("Your New Password Should be different from Previously used Password",textAlign: TextAlign.center,style:
-                    TextStyle(color: Colors.black54,fontSize: 14),),
+                   AppTextStyles.font14.copyWith(color: AppColors.semiBlack)),
                   ),
                   const SizedBox(height: 10,),
                   CustomTextFormField(
-                    obscureValue:isSecured,
+                    obscureValue:isShowed1,
                     hintText: 'Enter a new password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon:IconButton(
-                      icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                      icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
                       onPressed: (){
-                        isSecured=!isSecured;
+                        isShowed1=!isShowed1;
                         setState(() {});
                       },),
                   ),
                   const SizedBox(height: 20,),
                   CustomTextFormField(
-                    obscureValue:isSecured,
+                    obscureValue:isShowed2,
                     hintText: 'Confirm your  password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon:IconButton(
-                      icon:isSecured?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                      icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
                       onPressed: (){
-                        isSecured=!isSecured;
+                        isShowed2=!isShowed2;
                         setState(() {});
                       },),
-                    controller: TextEditingController(),
+
                   ),
 
                   const SizedBox(height: 10,),
                   Pinput(
-                    onCompleted: (pin)=> debugPrint(pin),
+                    keyboardType: TextInputType.number,
+                    pinAnimationType: PinAnimationType.slide,
                     defaultPinTheme: PinTheme(width: 60,height: 60,
                         decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),borderRadius: BorderRadius.circular(16))),
@@ -85,20 +88,15 @@ class _ResetPasswordState extends State<ResetPassword> {
 
                   ),
                   const SizedBox(height: 20,),
-                  ElevatedButton(
-                    onPressed: (){
+                  CustomElevatedButton(
+                    onpress: (){
                       if(formKey.currentState!.validate()) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return const  CongratulationScreen();
-                        }));
+                       navigate(context: context, route: Routes.congratulationScreen);
                       }
-                    },style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(AppColors.primary)
-                  ),
+                    },
                     child: const Text("Change"),
+                    buttonBackground: AppColors.primary,
                   )
-
-
 
                 ],),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:lottie/lottie.dart';
 
@@ -24,11 +25,13 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: 
-      Column(
-        children: [
-          Lottie.asset('assets/images/animation.json'),
-          const Text("Congratulation!")
-        ],
+      Center(
+        child: Column(
+          children: [
+            Lottie.asset('assets/images/animation.json'),
+            const Text("Congratulation!",style: AppTextStyles.font26,)
+          ],
+        ),
       ),
     );
   }

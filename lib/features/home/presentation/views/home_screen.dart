@@ -15,11 +15,11 @@ class HomePage extends StatefulWidget{
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => HomePageState();
 
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
 
   int selectedIndex =0;
   final List<Widget> pages=[
@@ -70,18 +70,18 @@ class _HomePageState extends State<HomePage> {
   PreferredSize showAppBar(){
     if(selectedIndex==0){
 
-      return const PreferredSize(preferredSize: Size(double.infinity, 50),
-      child: DefaultAppBar(title: Text("Welcome"),actions: [Padding(
-        padding: EdgeInsets.only(right: 40),
-        child: Icon(Icons.person,size: 35,),
+      return  PreferredSize(preferredSize: const Size(double.infinity, 50),
+      child: DefaultAppBar(title: const Text("Welcome"),actions: [Padding(
+        padding: const EdgeInsets.only(right: 40),
+        child: IconButton(onPressed: () {  }, icon: const Icon(Icons.person,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
       
-      return  const PreferredSize(preferredSize:  Size(double.infinity, 50,),
-      child: DefaultAppBar(title: Text('Community'),actions: [Padding(
-        padding: EdgeInsets.only(right: 40,),
-        child: Icon(Icons.search,size: 35,),
+      return   PreferredSize(preferredSize:  const Size(double.infinity, 50,),
+      child: DefaultAppBar(title: const Text('Community'),actions: [Padding(
+        padding: const EdgeInsets.only(right: 40,),
+        child: IconButton(onPressed: () {  }, icon: const Icon(Icons.search,size: 35,),),
       )],backgroundColor: AppColors.primary,));
       
     }
