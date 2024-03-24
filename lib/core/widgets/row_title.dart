@@ -16,7 +16,7 @@ class RowTitle extends StatelessWidget {
       children: [
         const  CustomContainer(conHeight:43,conWidth:56,conImage:AppAssets.plus),
         Text(
-          'Stay Safe',
+          ' Stay Safe',
           textAlign: TextAlign.center,
           style:AppTextStyles.font22.copyWith(
               color: AppColors.primary,
