@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
@@ -44,6 +45,7 @@ class Routes
   static const String textQuestion='/textQuestion';
   static const String result='/result';
   static const String congratulationScreen='/congratulationScreen';
+  static const String questionsView='/questionsView';
 
 }
 
@@ -56,12 +58,14 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) =>const HomePage(),);
+      case Routes.questionsView:
+        return MaterialPageRoute(builder: (context) =>const QuestionsView(),);
       case Routes.congratulationScreen:
         return MaterialPageRoute(builder: (context) =>const CongratulationScreen(),);
       case Routes.result:
         return MaterialPageRoute(builder: (context) =>const ResultScreen(),);
-      case Routes.radioQueastion:
-        return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
+      // case Routes.radioQueastion:
+      //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
       case Routes.textQuestion:
         return MaterialPageRoute(builder: (context) =>const QuestionText(),);
       case Routes.resetNewPass:

@@ -35,7 +35,7 @@ class UploadImageBody extends StatelessWidget {
                 textState:'NEXT',
                 bIcon:const Icon(Icons.arrow_forward_rounded ,color: Colors.white,) ,
                 onPressed:(){
-                navigate(context: context, route: Routes.radioQueastion);
+                navigate(context: context, route: Routes.questionsView);
 
                 },),
             ],

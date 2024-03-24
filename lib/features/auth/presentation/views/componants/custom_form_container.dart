@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
 class CustomFormContainer extends StatelessWidget {
-  const CustomFormContainer({super.key, required this.child});
+  const CustomFormContainer({super.key, this.borderRadius,required this.child,this.height,this.width});
 
   final Widget child;
+  final double? width;
+  final double? height;
+   final BorderRadiusGeometry? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.2),
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(40),
-            topLeft: Radius.circular(40),
-          ),
+          borderRadius: borderRadius
         ),
         child: child,
       ),

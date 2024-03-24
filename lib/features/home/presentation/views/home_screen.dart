@@ -4,23 +4,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
-
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
-
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
-
   @override
   State<HomePage> createState() => HomePageState();
-
 }
-
 class HomePageState extends State<HomePage> {
-
   int selectedIndex =0;
   final List<Widget> pages=[
     const UploadImageView(),
@@ -28,13 +22,11 @@ class HomePageState extends State<HomePage> {
     const MedicalNews(),
     const DoctorPage(),
   ];
-
   void onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,11 +52,9 @@ class HomePageState extends State<HomePage> {
             label: 'Community',),
           BottomNavigationBarItem(icon: Icon(Icons.newspaper_sharp),
               label: 'News'),
-          BottomNavigationBarItem(icon: Icon(Icons.newspaper_sharp),
-              label: 'Doctors'),
+          BottomNavigationBarItem(icon: Icon(Icons.newspaper_sharp), label: 'Doctors'),
         ],
       ),
-
     );
   }
   PreferredSize showAppBar(){
@@ -72,31 +62,25 @@ class HomePageState extends State<HomePage> {
 
       return  PreferredSize(preferredSize: const Size(double.infinity, 50),
       child: DefaultAppBar(title: const Text("Welcome"),actions: [Padding(
-        padding: const EdgeInsets.only(right: 40),
+        padding: const EdgeInsets.only(right: 20),
         child: IconButton(onPressed: () {  }, icon: const Icon(Icons.person,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
-      
       return   PreferredSize(preferredSize:  const Size(double.infinity, 50,),
       child: DefaultAppBar(title: const Text('Community'),actions: [Padding(
-        padding: const EdgeInsets.only(right: 40,),
+        padding: const EdgeInsets.only(right: 20,),
         child: IconButton(onPressed: () {  }, icon: const Icon(Icons.search,size: 35,),),
       )],backgroundColor: AppColors.primary,));
-      
     }
     else if(selectedIndex==2){
       return  const PreferredSize(preferredSize: Size(double.infinity, 50),
       child: DefaultAppBar(title: Text('Medical News'),backgroundColor:AppColors.primary ,));
-
     }
     else{
-      
       return  const PreferredSize(preferredSize: Size(double.infinity, 50),
       child: DefaultAppBar(title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
-
     }
-
   }
 }
 // return PreferredSize(

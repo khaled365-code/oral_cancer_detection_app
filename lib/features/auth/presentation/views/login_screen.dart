@@ -34,6 +34,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Form(
             key: formKey,
             child: CustomFormContainer(
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40)),
+              width: double.infinity,
+              height: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
                 child: SingleChildScrollView(

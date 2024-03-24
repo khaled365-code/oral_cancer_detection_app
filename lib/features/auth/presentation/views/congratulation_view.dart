@@ -25,13 +25,12 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: 
-      Center(
-        child: Column(
-          children: [
-            Lottie.asset('assets/images/animation.json'),
-            const Text("Congratulation!",style: AppTextStyles.font26,)
-          ],
-        ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset('assets/images/animation.json'),
+          const Text("Congratulation!",style: AppTextStyles.font26,)
+        ],
       ),
     );
   }

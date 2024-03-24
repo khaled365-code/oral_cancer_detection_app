@@ -23,7 +23,9 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
              Text("Please note that this result is not definitive and it is important to consult a doctor for further testing and evaluation , we can suggest a professional doctors for you...",textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
-            TextButton(onPressed: (){}, child: const Text("Click here to show them",style: TextStyle(color: AppColors.black,decoration: TextDecoration.underline),)),
+            TextButton(onPressed: (){
+              navigate(context: context, route: Routes.doctor);
+            }, child: const Text("Click here to show them",style: TextStyle(color: AppColors.black,decoration: TextDecoration.underline),)),
             const SizedBox(height: 60,),
             Container(
               decoration: const BoxDecoration(
