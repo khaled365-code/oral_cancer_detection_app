@@ -8,8 +8,29 @@ import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
+
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +61,35 @@ class SplashPage extends StatelessWidget {
             const SizedBox(
               height:50,
             ),
-            CustomButton(
-              onTap: (){
-                navigate(context: context, route: Routes.onBoard);
-
+            AnimatedBuilder(
+              animation: slidingAnimation,
+              builder: (context,_){
+                return SlideTransition(
+                    position: slidingAnimation,
+                   child: CustomButton(
+                    onTap: (){
+                      navigate(context: context, route: Routes.onBoard);
+                    },
+                    buttonText: 'Get Started',
+                  ),
+                );
               },
-              buttonText: 'Get Started',
+
             ),
           ],
         ),
       ),
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController=AnimationController(
+      vsync: this,
+      duration:const Duration(seconds:3),
+    );
+    slidingAnimation=
+        Tween<Offset>(begin:const Offset(0,20),end:const Offset(0, 0)).animate(animationController);
+    animationController.forward();
   }
 }
 
