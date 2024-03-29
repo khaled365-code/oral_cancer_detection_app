@@ -22,6 +22,7 @@ import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/splash/presentation/views/onboearding_screen.dart';
+import '../../main.dart';
 
 class Routes
 {

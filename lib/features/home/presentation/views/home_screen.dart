@@ -33,8 +33,10 @@ class HomePageState extends State<HomePage> {
       appBar: showAppBar()  ,
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
-        child: Column(
-          children: [MyDrawerHeader(), MyDrawerBody()],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [MyDrawerHeader(), MyDrawerBody()],
+          ),
         ),
       ),
       body:pages[selectedIndex],

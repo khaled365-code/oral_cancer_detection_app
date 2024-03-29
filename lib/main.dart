@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 
 import 'core/routes/app_routes.dart';
+import 'features/profile/presentation/screens/settings_screen.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -10,13 +11,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(textTheme: const TextTheme()),
+      theme: ThemeData(
+          textTheme: const TextTheme()),
       locale: const Locale('en'),
       localizationsDelegates: const [
         S.delegate,
