@@ -46,7 +46,7 @@ class SendCode extends StatelessWidget {
                 buttonBackground: AppColors.primary,
                   onpress: (){
                 if(formKey.currentState!.validate()){
-                 navigate(context: context, route: Routes.resetNewPass);
+                 navigate(context: context, route: Routes.otpScreen);
                   }
                 }, child: Text("Send Code",style:AppTextStyles.font14.copyWith(color: AppColors.white) ,),
               )
