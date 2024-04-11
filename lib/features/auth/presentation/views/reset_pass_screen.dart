@@ -29,12 +29,12 @@ class _ResetPasswordState extends State<ResetPassword> {
     double width=MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 50,left: 20,right: 20),
-          child: Form(
-            key: formKey,
-            child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 50,left: 20,right: 20),
+            child: Form(
+              key: formKey,
               child: Column(
                 children: [
 
@@ -71,20 +71,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                         isShowed2=!isShowed2;
                         setState(() {});
                       },),
-
-                  ),
-
-                  const SizedBox(height: 10,),
-                  Pinput(
-                    keyboardType: TextInputType.number,
-                    pinAnimationType: PinAnimationType.slide,
-                    defaultPinTheme: PinTheme(width: 60,height: 60,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.3),borderRadius: BorderRadius.circular(16))),
-                    focusedPinTheme: PinTheme(width: 60,height: 60,
-                        decoration:
-                        BoxDecoration(color: AppColors.primary,borderRadius: BorderRadius.circular(16))
-                    ),
 
                   ),
                   const SizedBox(height: 20,),

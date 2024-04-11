@@ -47,13 +47,28 @@ dependencies:
   dio: ^5.3.3
   url_launcher: ^6.0.10
   cached_network_image: ^3.3.1
+  flutter_native_splash:
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
 
+  color: "#FFFFFF"
+#  background_image: "assets/images/white.jpg"
+  image: "assets/images/nativeImage.JPG"
 
 
 
 
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/launcher_icon.png"
+
   flutter_test:
     sdk: flutter
 

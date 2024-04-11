@@ -1,13 +1,9 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../generated/l10n.dart';
 import '../components/notification_container.dart';
@@ -15,17 +11,17 @@ import '../components/notification_container.dart';
 class SettingsScreen extends StatefulWidget {
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<SettingsScreen> createState() => SettingsScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
 
-
+    bool darkModeSwitch=false;
     bool noteSwitch=true;
     bool updateSwitch=true;
-    bool darkMode=false;
+
     String country='EGY';
 
     return Scaffold(
@@ -147,10 +143,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Spacer(),
                 Switch(
                   activeColor: AppColors.primary,
-                  value: darkMode, onChanged: (value)
+                  value: darkModeSwitch, onChanged: (value)
                 {
                   setState(() {
-                    darkMode=value;
+                    darkModeSwitch=value;
                   });
                 },),
               ]),
