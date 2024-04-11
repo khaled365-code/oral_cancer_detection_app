@@ -42,7 +42,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         return null;
       },
       style: const TextStyle(
-        color: Colors.black,
+        color: AppColors.background,
       ),
       keyboardType:widget.inputType,
       onChanged:widget.onChangeee,
@@ -50,21 +50,21 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: const TextStyle(
-          color: Colors.black,
+          color:AppColors.background ,
           fontSize: 16,
         ),
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-          color: Colors.black,
+          color:AppColors.background,
           fontSize: 16,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color:AppColors.primary),
+          borderSide: const BorderSide(color:AppColors.background),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color:AppColors.primary),
+          borderSide: const BorderSide(color:AppColors.background),
         ),
         prefixIcon:widget.prefixIcon,
         suffixIcon: widget.suffixIcon,

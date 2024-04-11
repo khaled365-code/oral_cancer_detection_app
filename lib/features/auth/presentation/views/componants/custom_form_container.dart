@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 
 class CustomFormContainer extends StatelessWidget {
   const CustomFormContainer({super.key, this.borderRadius,required this.child,this.height,this.width});
@@ -15,8 +16,11 @@ class CustomFormContainer extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.2),
-          borderRadius: borderRadius
+          color: AppColors.primary,
+          borderRadius: borderRadius,
+          border: Border.all(
+              color: Colors.white,
+              width: 4.0,)
         ),
         child: child,
       ),

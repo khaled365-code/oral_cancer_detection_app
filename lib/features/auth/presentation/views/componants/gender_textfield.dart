@@ -18,22 +18,26 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
   Widget build(BuildContext context) {
 
     return TextFormField(
-      style:const TextStyle( color: Colors.black ,),
+      style:const TextStyle( color:AppColors.background,),
       decoration: InputDecoration(
         labelText:'Gender',
-        labelStyle:AppTextStyles.font16,
+        labelStyle:AppTextStyles.font16.copyWith(
+          color: AppColors.background ,
+        ),
         hintText:'Select Gender',
-        hintStyle:AppTextStyles.font16,
+        hintStyle:AppTextStyles.font16.copyWith(
+          color: AppColors.background ,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide:const BorderSide(color:AppColors.primary),
+          borderSide:const BorderSide(color:AppColors.background),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide:const BorderSide(color:AppColors.primary),
+          borderSide:const BorderSide(color:AppColors.background),
         ),
         suffixIcon: PopupMenuButton<String>(
-          icon:const Icon(Icons.arrow_drop_down),
+          icon:const Icon(Icons.arrow_drop_down,color:AppColors.background ,),
           onSelected: (gender) {
             setState(() {
               selectedGender = gender;
