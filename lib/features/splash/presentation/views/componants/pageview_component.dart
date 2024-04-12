@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:graduation_project/features/auth/presentation/views/regisrer_screen.dart';
-
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/utilis/app_assets.dart';
 import '../../../../../core/utilis/app_colors.dart';
