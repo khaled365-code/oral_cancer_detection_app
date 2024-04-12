@@ -28,7 +28,7 @@ class QuestionText extends StatelessWidget {
               children: [
                  //Text("2 /9",style: AppTextStyles.font18.copyWith(color: AppColors.primary)),
                 const SizedBox(height: 30,),
-                const Text(" What is the size of ulcer?",style: AppTextStyles.font24,),
+                 Text(" What is the size of ulcer?",style: AppTextStyles.font24.copyWith(color: AppColors.white),),
 
                 const SizedBox(height: 20,),
                 CustomTextFormField(hintText: 'Enter the size',onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,)

@@ -34,13 +34,13 @@ class QuestionChoiceState extends State<QuestionChoice> {
               children: [
               //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
                 const SizedBox(height: 20,),
-                 Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.primary),textAlign: TextAlign.center,),
+                 Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
                 const SizedBox(height: 20,),
                 Column(
                   children: widget.answersList
                       .map(
                         (answer) => RadioListTile(
-                      activeColor: AppColors.primary,
+                      activeColor: AppColors.white,
 
                       title: Text(answer
                         ,style: AppTextStyles.font20,

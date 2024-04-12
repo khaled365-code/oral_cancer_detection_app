@@ -47,6 +47,7 @@ dependencies:
   dio: ^5.3.3
   url_launcher: ^6.0.10
   cached_network_image: ^3.3.1
+  get:
   flutter_native_splash:
 flutter_native_splash:
   android: true

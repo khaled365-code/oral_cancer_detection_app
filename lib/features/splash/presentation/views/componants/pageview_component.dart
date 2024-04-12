@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:graduation_project/features/auth/presentation/views/regisrer_screen.dart';
 
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/utilis/app_assets.dart';
 import '../../../../../core/utilis/app_colors.dart';
+import '../../../../../core/utilis/app_text_styles.dart';
 import '../../../../../core/utilis/commons.dart';
 import 'onboarding_component.dart';
 
@@ -11,19 +15,27 @@ class PageViewOnBoarding extends StatefulWidget {
   const PageViewOnBoarding({Key? key}) : super(key: key);
 
   @override
-  State<PageViewOnBoarding> createState() => _PageViewOnBoardingState();
+  State<PageViewOnBoarding> createState() => PageViewOnBoardingState();
 }
 
-class _PageViewOnBoardingState extends State<PageViewOnBoarding> {
+class PageViewOnBoardingState extends State<PageViewOnBoarding> {
   final PageController pageController = PageController(initialPage: 0);
   int currentPage = 0;
 
   final List<Widget> pages = [
-    const OnboardingPage(
-      title: 'Welcome to Oral Cancer Detection App',
-      description: 'Begin your journey towards early detection and prevention of oral cancer with our advanced image-based diagnosis system.',
-      imagePath: AppAssets.onBoard1,
-    ),
+     Builder(
+       builder: (context) {
+         return OnboardingPage(
+          textButton: TextButton(onPressed: (){
+            navigate(context: context, route: Routes.registerScreen);
+            }
+           ,child: Text("Skip",style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
+          title: 'Welcome to Oral Cancer Detection App',
+          description: 'Begin your journey towards early detection and prevention of oral cancer with our advanced image-based diagnosis system.',
+          imagePath: AppAssets.onBoard1,
+    );
+       }
+     ),
     const OnboardingPage(
       title: 'Explore and Protect Your Oral Health',
       description: 'Discover the power of our app as you diagnose potential oral cancer symptoms through images and answer critical questions to assess your risk factors. Stay informed with the latest news and join our supportive community to connect with others on a similar journey.',
