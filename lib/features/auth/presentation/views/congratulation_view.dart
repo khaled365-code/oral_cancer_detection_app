@@ -29,7 +29,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.asset('assets/images/animation.json'),
-          const Text("Congratulation!",style: AppTextStyles.font26,)
+           Text("Congratulation!",style: AppTextStyles.font26,)
         ],
       ),
     );

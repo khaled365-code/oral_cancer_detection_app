@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
@@ -42,15 +43,15 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const RowTitle(),
-            const SizedBox(height:90,),
-            const  CustomContainer(conHeight:190,conWidth:230,conImage:AppAssets.splash),
-            const SizedBox(height:14,),
+             SizedBox(height:90.h,),
+              CustomContainer(conHeight:190.h,conWidth:230.w,conImage:AppAssets.splash),
+             SizedBox(height:14.h,),
             Text(
               'Oral Cancer Detection System ',
               textAlign: TextAlign.center,
               style: AppTextStyles.font24.copyWith(color: AppColors.primary)
             ),
-            const SizedBox(height: 8,),
+             SizedBox(height: 8.h,),
             Text(
               'Healthcare System',
               textAlign: TextAlign.center,
@@ -58,8 +59,8 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                   color: AppColors.primary,
                   fontFamily: 'lato', )
             ),
-            const SizedBox(
-              height:50,
+             SizedBox(
+              height:50.h,
             ),
             AnimatedBuilder(
               animation: slidingAnimation,
@@ -67,6 +68,8 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                 return SlideTransition(
                     position: slidingAnimation,
                    child: CustomButton(
+                     buttonTextColor: AppColors.background,
+                     buttonBackground: AppColors.primary,
                     onTap: (){
                       navigate(context: context, route: Routes.onBoard);
                     },

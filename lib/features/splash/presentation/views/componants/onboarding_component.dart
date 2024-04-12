@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
-
-import '../../../../../core/widgets/custom_text_button.dart';
-
 
 class OnboardingPage extends StatelessWidget {
   final String title;
@@ -32,13 +29,13 @@ class OnboardingPage extends StatelessWidget {
            padding: const EdgeInsets.only(left: 290,top: 0),
            child: textButton,
          )
-          ,Image.asset(imagePath,width: 350,),
+          ,Image.asset(imagePath,width: 350.w,),
           const SizedBox(height: 20),
           Text( textAlign: TextAlign.center,
             title,
             style:AppTextStyles.font24
           ),
-          const SizedBox(height: 16),
+           SizedBox(height: 16.h),
           Text(
             description,
             textAlign: TextAlign.center,

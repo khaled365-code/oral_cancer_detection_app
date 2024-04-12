@@ -107,7 +107,10 @@ class _RegisterBodyState extends State<RegisterBody> {
                             const Icon(Icons.visibility,color:AppColors.background),)
                           ),
                         const SizedBox(height:17,),
-                        CustomButton(buttonText:'Sign Up' ,
+                        CustomButton(
+                          buttonBackground: AppColors.background,
+                          buttonTextColor: AppColors.primary,
+                          buttonText:'Sign Up' ,
                           onTap:(){
                             if(formKey.currentState!.validate()){
                               print('Register done');

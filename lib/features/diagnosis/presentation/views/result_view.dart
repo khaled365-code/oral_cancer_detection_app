@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
@@ -26,7 +27,7 @@ class ResultScreen extends StatelessWidget {
             // TextButton(onPressed: (){
             //   navigate(context: context, route: Routes.doctor);
             // }, child: const Text("Click here to show them",style: TextStyle(color: AppColors.black,decoration: TextDecoration.underline),)),
-            const SizedBox(height: 60,),
+             SizedBox(height: 60.h,),
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [AppColors.background,AppColors.primary],begin: Alignment.topLeft,end: Alignment.bottomRight),
@@ -34,22 +35,22 @@ class ResultScreen extends StatelessWidget {
 
 
               ),
-              child: const Padding(
+              child:  Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(child: Text("Test Result",style: AppTextStyles.font24,)
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(height: 40.h,),
                     Text("Disease Name:  oscc(oral squamous cancer cell)",style: AppTextStyles.font18),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 20.h,),
                     Text("Classification:  cancer",style:AppTextStyles.font18,)
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 50,),
+             SizedBox(height: 50.h,),
             CustomElevatedButton(
               buttonBackground: AppColors.primary,
               onpress: (){

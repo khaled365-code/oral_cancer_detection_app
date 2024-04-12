@@ -13,6 +13,11 @@ class CustomTextFormField extends StatefulWidget {
     this.inputType,
     this.onChangeee,
     this.readOnly=false,
+    this.enabledBorderSIdeColor=AppColors.primary,
+    this.focusedBorderSIdeColor=AppColors.primary,
+    this.hintColor,
+    this.labelColor,
+    this.textColor
   }) : super(key: key);
 
   final String? labelText;
@@ -21,6 +26,11 @@ class CustomTextFormField extends StatefulWidget {
   final IconButton? suffixIcon;
   final TextEditingController? controller;
   final Icon? prefixIcon;
+  final Color? textColor;
+  final Color? labelColor;
+  final Color? hintColor;
+  final Color focusedBorderSIdeColor;
+  final Color enabledBorderSIdeColor;
   final TextInputType? inputType;
   final Function(String)? onChangeee;
   final bool readOnly;
@@ -41,30 +51,30 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         }
         return null;
       },
-      style: const TextStyle(
-        color: AppColors.background,
+      style:  TextStyle(
+        color: widget.textColor,
       ),
       keyboardType:widget.inputType,
       onChanged:widget.onChangeee,
       obscureText: widget.obscureValue!,
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle: const TextStyle(
-          color:AppColors.background ,
+        labelStyle:  TextStyle(
+          color:widget.labelColor ,
           fontSize: 16,
         ),
         hintText: widget.hintText,
-        hintStyle: const TextStyle(
-          color:AppColors.background,
+        hintStyle:  TextStyle(
+          color:widget.hintColor,
           fontSize: 16,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color:AppColors.background),
+          borderSide:  BorderSide(color:widget.enabledBorderSIdeColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color:AppColors.background),
+          borderSide:  BorderSide(color:widget.focusedBorderSIdeColor),
         ),
         prefixIcon:widget.prefixIcon,
         suffixIcon: widget.suffixIcon,

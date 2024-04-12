@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/utilis/app_assets.dart';
 import '../../../../../core/utilis/app_colors.dart';
@@ -62,9 +63,9 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
           ),
         ),
         buildPageIndicator(),
-        const SizedBox(height: 28),
+         SizedBox(height: 28.h),
         buildNavigationButtons(),
-        const SizedBox(height: 20,)
+         SizedBox(height: 20.h,)
       ],
     );
   }
@@ -74,8 +75,8 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
       children: pages.map((Widget page) {
         int pageIndex = pages.indexOf(page);
         return Container(
-          width: 8,
-          height: 8,
+          width: 8.w,
+          height: 8.w,
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             shape: BoxShape.circle,

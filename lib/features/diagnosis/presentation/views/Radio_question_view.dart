@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
@@ -27,15 +28,15 @@ class QuestionChoiceState extends State<QuestionChoice> {
   Widget build(BuildContext context) {
     return CustomFormContainer(
             borderRadius: const BorderRadius.all(Radius.circular(40)),
-            height: 500,
+            height: 500.h,
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
-                const SizedBox(height: 20,),
+                 SizedBox(height: 20.h,),
                  Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
-                const SizedBox(height: 20,),
+                 SizedBox(height: 20.h,),
                 Column(
                   children: widget.answersList
                       .map(
@@ -55,12 +56,12 @@ class QuestionChoiceState extends State<QuestionChoice> {
                     ),
                   )
                       .toList(),
-                ),const SizedBox(height: 40,),
+                ), SizedBox(height: 40.h,),
                 // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 //   children: [
                    // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
                    widget.showButton? CustomElevatedButton(
-                     width: 150,
+                     width: 150.w,
                      onpress: (){
                       navigate(context: context, route: Routes.result);
                     },

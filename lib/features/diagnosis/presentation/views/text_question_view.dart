@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
@@ -20,20 +21,20 @@ class QuestionText extends StatelessWidget {
         child: CustomFormContainer(
           borderRadius: const BorderRadius.all(Radius.circular(40)),
           width: double.infinity,
-          height: 500,
+          height: 500.h,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                  //Text("2 /9",style: AppTextStyles.font18.copyWith(color: AppColors.primary)),
-                const SizedBox(height: 30,),
+                 SizedBox(height: 30.h,),
                  Text(" What is the size of ulcer?",style: AppTextStyles.font24.copyWith(color: AppColors.white),),
 
-                const SizedBox(height: 20,),
+                 SizedBox(height: 20.h,),
                 CustomTextFormField(hintText: 'Enter the size',onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,)
                 ,
-                const SizedBox(height: 40,),
+                 SizedBox(height: 40.h,),
                 // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 //   children: [
                 //     CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),

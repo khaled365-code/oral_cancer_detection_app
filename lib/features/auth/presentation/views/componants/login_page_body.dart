@@ -80,7 +80,10 @@ class _LoginBodyState extends State<LoginBody> {
                          ),
                        ),
                        const SizedBox(height: 16,),
-                       CustomButton(buttonText: 'Login', onTap:(){
+                       CustomButton(
+                         buttonBackground: AppColors.background,
+                         buttonTextColor: AppColors.primary,
+                         buttonText: 'Login', onTap:(){
                          if(formKey.currentState!.validate()){
                            print('Login done');
                            navigate(context: context, route: Routes.home);
