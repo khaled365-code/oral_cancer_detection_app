@@ -39,12 +39,12 @@ class News_tile extends StatelessWidget{
 
 
                  SizedBox(height: 15.h,),
-                Text(articleModel.title??"",
+                Text(newsTitlesHandler(),
                   style:  AppTextStyles.font24.copyWith(color: AppColors.primary),
                   maxLines: 2,overflow: TextOverflow.ellipsis,),
 
                  SizedBox(height: 8.h,),
-                Text(articleModel.subTitle??" ",style:AppTextStyles.font18.copyWith(color: AppColors.grey,fontWeight: FontWeight.w400),
+                Text( newsDescHandler(),style:AppTextStyles.font18.copyWith(color: AppColors.grey,fontWeight: FontWeight.w400),
                   maxLines: 1,overflow: TextOverflow.ellipsis,)
                 , SizedBox(height: 10.h,)
                 , const Divider(indent: 80,endIndent: 80,color: AppColors.primary,thickness: 2,)
@@ -62,6 +62,22 @@ class News_tile extends StatelessWidget{
     final Uri _url = Uri.parse(articleModel.url);
     if (!await launchUrl(_url)) {
       throw Exception('Could not launch $_url');
+    }
+  }
+  String newsTitlesHandler(){
+    if(articleModel.title==null || articleModel.title=="[Removed]"){
+      return "Breakthrough Study Reveals Promising Treatment for Alzheimer's Disease";
+    }
+    else{
+      return articleModel.title;
+    }
+  }
+  String newsDescHandler(){
+    if(articleModel.subTitle==null || articleModel.subTitle=="[Removed]"){
+      return "A recent groundbreaking medical study has uncovered a potential breakthrough in the treatment of Alzheimer's disease, a debilitating neurodegenerative disorder that affects millions worldwide";
+    }
+    else{
+      return articleModel.title;
     }
   }
 }
