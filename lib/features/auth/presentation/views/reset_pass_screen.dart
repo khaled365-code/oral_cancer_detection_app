@@ -10,6 +10,7 @@ import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../core/utilis/app_colors.dart';
+import '../../../../core/widgets/default_textform_field.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           SingleChildScrollView(
             child: Column(
               children: [
-                CustomTextFormField(
+                DefaultTextFormField(
                   obscureValue:isShowed1,
                   hintText: 'Enter a new password',
                   prefixIcon: const Icon(Icons.lock),
@@ -50,7 +51,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     },),
                 ),
                 SizedBox(height: 20.h,),
-                CustomTextFormField(
+                DefaultTextFormField(
                   obscureValue:isShowed2,
                   hintText: 'Confirm your  password',
                   prefixIcon: const Icon(Icons.lock),
