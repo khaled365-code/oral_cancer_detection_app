@@ -44,110 +44,107 @@ class _RegisterBodyState extends State<RegisterBody> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
-      padding: const EdgeInsets.only(top:80),
+    return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 100,),
-          Form (
-            key: formKey,
-            child:EmptyContainer(
-              child: Padding(
+          const SizedBox(height: 180,),
+          EmptyContainer(
+            child: Form (
+              key: formKey,
+              child:Padding(
                 padding: const EdgeInsets.only(top: 20,right: 16,left: 16),
-                child: SingleChildScrollView(
-                    child: Column(
+                child:Column(
+                  children: [
+                    Text('Register With Us!',
+                        style:AppTextStyles.font18.copyWith(
+                          color: AppColors.background ,
+                        ),
+                    ),
+                    const SizedBox(height:5,),
+                    Text('Your information is safe with us',
+                      style:AppTextStyles.font16.copyWith(
+                        color: AppColors.background ,
+                      ),
+                    ),
+                    const SizedBox(height:16,),
+                    const CustomTextFormField(labelText:'UserName', hintText:'Enter your name',),
+                    const SizedBox(height:10,),
+                    const GenderSelectTextField(),
+                    const SizedBox(height:10,),
+                    CustomTextFormField(labelText:'Date of Birth', hintText:'mm/dd/yyyy',
+                      readOnly: true,
+                      controller: dateController,
+                      suffixIcon:IconButton(
+                          onPressed:_selectDate,
+                          icon:const Icon(Icons.calendar_month,color:AppColors.background,)) ,
+                    ),
+                    const SizedBox(height:10,),
+                    const CustomTextFormField(labelText:'phone number', hintText:'Enter phone number'),
+                    const SizedBox(height:10,),
+                    const CustomTextFormField(labelText:'Email', hintText:'Enter your email'),
+                    const SizedBox(height:10,),
+                    CustomTextFormField(labelText:'password', hintText:'Enter your name',
+                      suffixIcon:IconButton(
+                        onPressed: (){
+                          isSecured=!isSecured ;
+                          setState(() {});
+                        },
+                        icon:isSecured?
+                        const Icon(Icons.visibility_off,color:AppColors.background):
+                        const Icon(Icons.visibility,color:AppColors.background) ,),
+                    ),
+                    const SizedBox(height:10,),
+                    CustomTextFormField(labelText: 'Confirm password', hintText:'Confirm password',
+                      suffixIcon:IconButton(
+                        onPressed: (){
+                          isSecuredConf=!isSecuredConf;
+                          setState(() {});
+                        },
+                        icon:isSecuredConf?
+                        const Icon(Icons.visibility_off,color:AppColors.background):
+                        const Icon(Icons.visibility,color:AppColors.background),)
+                      ),
+                    const SizedBox(height:17,),
+                    CustomButton(
+                      buttonBackground: AppColors.background,
+                      buttonTextColor: AppColors.primary,
+                      buttonText:'Sign Up' ,
+                      onTap:(){
+                        if(formKey.currentState!.validate()){
+                          print('Register done');
+                          navigate(context: context, route: Routes.logAs);
+                          // here signup user function preformed like chat app
+                        }
+                      },),
+                    const SizedBox(height:10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Register With Us!',
-                            style:AppTextStyles.font18.copyWith(
-                              color: AppColors.background ,
-                            ),
-                        ),
-                        const SizedBox(height:5,),
-                        Text('Your information is safe with us',
-                          style:AppTextStyles.font16.copyWith(
-                            color: AppColors.background ,
+                        Text("Already have an account?",
+                          style: AppTextStyles.font14.copyWith(
+                              color:AppColors.background,),),
+                        GestureDetector(
+                          onTap: (){
+                            navigate(context: context, route: Routes.logAs);
+                          },
+                          child:Text('Login',
+                            style:AppTextStyles.font14.copyWith(
+                                color: AppColors.background,
+                                decoration: TextDecoration.underline,
+                                fontFamily: 'lato'),
                           ),
                         ),
-                        const SizedBox(height:16,),
-                        const CustomTextFormField(labelText:'UserName', hintText:'Enter your name'),
-                        const SizedBox(height:10,),
-                        const GenderSelectTextField(),
-                        const SizedBox(height:10,),
-                        CustomTextFormField(labelText:'Date of Birth', hintText:'mm/dd/yyyy',
-                          readOnly: true,
-                          controller: dateController,
-                          suffixIcon:IconButton(
-                              onPressed:_selectDate,
-                              icon:const Icon(Icons.calendar_month,color:AppColors.background,)) ,
-                        ),
-                        const SizedBox(height:10,),
-                        const CustomTextFormField(labelText:'phone number', hintText:'Enter phone number'),
-                        const SizedBox(height:10,),
-                        const CustomTextFormField(labelText:'Email', hintText:'Enter your email'),
-                        const SizedBox(height:10,),
-                        CustomTextFormField(labelText:'password', hintText:'Enter your name',
-                          suffixIcon:IconButton(
-                            onPressed: (){
-                              isSecured=!isSecured ;
-                              setState(() {});
-                            },
-                            icon:isSecured?
-                            const Icon(Icons.visibility_off,color:AppColors.background):
-                            const Icon(Icons.visibility,color:AppColors.background) ,),
-                        ),
-                        const SizedBox(height:10,),
-                        CustomTextFormField(labelText: 'Confirm password', hintText:'Confirm password',
-                          suffixIcon:IconButton(
-                            onPressed: (){
-                              isSecuredConf=!isSecuredConf;
-                              setState(() {});
-                            },
-                            icon:isSecuredConf?
-                            const Icon(Icons.visibility_off,color:AppColors.background):
-                            const Icon(Icons.visibility,color:AppColors.background),)
-                          ),
-                        const SizedBox(height:17,),
-                        CustomButton(
-                          buttonBackground: AppColors.background,
-                          buttonTextColor: AppColors.primary,
-                          buttonText:'Sign Up' ,
-                          onTap:(){
-                            if(formKey.currentState!.validate()){
-                              print('Register done');
-                              navigate(context: context, route: Routes.logAs);
-                              // here signup user function preformed like chat app
-                            }
-                          },),
-                        const SizedBox(height:5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Already have an account?",
-                              style: AppTextStyles.font14.copyWith(
-                                  color:AppColors.background),),
-                            GestureDetector(
-                              onTap: (){
-                                navigate(context: context, route: Routes.logAs);
-                              },
-                              child:Text('Login',
-                                style:AppTextStyles.font14.copyWith(
-                                    color: AppColors.background,
-                                    fontFamily: 'lato'),
-                              ),
-                            ),
 
-                          ],
-                        ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
-              ),
+                ),
 
-            ),
+              ),
+          ),
         ],
       ),
-
     );
   }
 }

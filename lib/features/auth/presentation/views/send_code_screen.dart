@@ -19,15 +19,15 @@ class SendCode extends StatelessWidget {
           mainTitle: "Forget Password?",
           subTitle: "don't worry! it happens.  please enter the email associated with your with your account",
 
-        centerWidget: CustomTextFormField(
-          textColor: AppColors.black,
-          enabledBorderSIdeColor: AppColors.primary,
-          focusedBorderSIdeColor: AppColors.primary,
-          hintColor:  AppColors.black,
-          labelColor: AppColors.black,
-          labelText: "E-mail",
-          hintText: 'Enter your email',
-        ),
+        // centerWidget: CustomTextFormField(
+        //   textColor: AppColors.black,
+        //   enabledBorderSIdeColor: AppColors.primary,
+        //   focusedBorderSIdeColor: AppColors.primary,
+        //   hintColor:  AppColors.black,
+        //   labelColor: AppColors.black,
+        //   labelText: "E-mail",
+        //   hintText: 'Enter your email',
+        // ),
         buttonPress: (){
           if(formKey.currentState!.validate()){
             navigate(context: context, route: Routes.otpScreen);
