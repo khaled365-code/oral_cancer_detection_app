@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../core/utilis/app_assets.dart';
 import '../../../../../core/utilis/app_colors.dart';
@@ -16,6 +17,7 @@ class PageViewOnBoarding extends StatefulWidget {
 }
 
 class PageViewOnBoardingState extends State<PageViewOnBoarding> {
+
   final PageController pageController = PageController(initialPage: 0);
   int currentPage = 0;
 
@@ -109,6 +111,10 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
 
           onPressed: () {
             if (currentPage == pages.length - 1) {
+              // SharedPreferences.getInstance().then((prefs) {
+              //   prefs.setBool('isFirstTimeUser', false);
+              //   navigate(context: context, route: Routes.registerScreen);
+              // });
               navigate(context: context, route: Routes.registerScreen);
             } else {
               pageController.nextPage(
@@ -122,5 +128,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
       ],
     );
   }
+
+
 }
 

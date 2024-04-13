@@ -26,10 +26,11 @@ class QuestionChoiceState extends State<QuestionChoice> {
 
   @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width*0.35;
     return CustomFormContainer(
             borderRadius: const BorderRadius.all(Radius.circular(40)),
             height: 500.h,
-            width: double.infinity,
+            width: ScreenUtil().screenWidth,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -61,11 +62,14 @@ class QuestionChoiceState extends State<QuestionChoice> {
                 //   children: [
                    // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
                    widget.showButton? CustomElevatedButton(
-                     width: 150.w,
+                     width: width,
                      onpress: (){
                       navigate(context: context, route: Routes.result);
                     },
-                     buttonBackground: AppColors.primary, child:  const Row(children: [Text("Show Result"),Icon(Icons.arrow_forward),]),):SizedBox()
+                     buttonBackground: AppColors.white, child:
+                   Row(
+                       children: [
+                         Text("Show Result",style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
                 //   ],
                 // )
 
