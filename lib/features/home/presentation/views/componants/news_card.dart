@@ -17,7 +17,7 @@ class News_tile extends StatelessWidget{
   Widget build(BuildContext context) {
     return
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 10),
         child: Container(
           color: Colors.white,
 

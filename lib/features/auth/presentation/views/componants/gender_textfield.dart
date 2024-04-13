@@ -54,6 +54,7 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
             ),
           ],
         ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {

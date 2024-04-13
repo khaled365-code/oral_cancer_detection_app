@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
@@ -8,8 +9,6 @@ import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
-
-import 'custom_form_container.dart';
 
 class LoginBody extends StatefulWidget{
   const LoginBody({super.key});
@@ -28,7 +27,7 @@ class _LoginBodyState extends State<LoginBody> {
    return SingleChildScrollView (
      child: Column(
        children: [
-         const SizedBox(height: 180,),
+         SizedBox(height: 180.h,),
          EmptyContainer(
            child: Form(
                key: formKey,
@@ -40,18 +39,18 @@ class _LoginBodyState extends State<LoginBody> {
                        style:AppTextStyles.font20.copyWith(
                            color:AppColors.background ),
                      ),
-                     const SizedBox(height: 8,),
+                     SizedBox(height: 8.h,),
                      Text('  Welcome Back!',
                        style:AppTextStyles.font20.copyWith(
                            color:AppColors.background ),
                      ),
-                     const SizedBox(height: 16,),
-                     const CustomContainer(conHeight:150,conWidth: 170,conImage:AppAssets.login1,),
-                     const SizedBox(height: 18,),
+                     SizedBox(height: 16.h,),
+                     CustomContainer(conHeight:150.h,conWidth: 170.w,conImage:AppAssets.login1,),
+                     SizedBox(height: 18.h,),
                      const CustomTextFormField(
                          labelText: 'Email',
                          hintText: 'Enter your email'),
-                     const SizedBox(height: 8,),
+                     SizedBox(height: 8.h,),
                      CustomTextFormField
                        (labelText: 'Password',
                        hintText: 'Enter Your password',
@@ -65,7 +64,7 @@ class _LoginBodyState extends State<LoginBody> {
                          const Icon(Icons.visibility,color:AppColors.background ,),
                        ),
                      ),
-                     const SizedBox(height: 8,),
+                     SizedBox(height: 5.h,),
                      TextButton(
                        onPressed: () {
                          navigate(context: context, route: Routes.sendCode);
@@ -78,7 +77,7 @@ class _LoginBodyState extends State<LoginBody> {
                          ),
                        ),
                      ),
-                     const SizedBox(height: 16,),
+                     SizedBox(height: 16.h,),
                      CustomButton(
                        buttonText: 'Login',
                        buttonBackground: AppColors.background,
@@ -91,7 +90,7 @@ class _LoginBodyState extends State<LoginBody> {
                        }
 
                      },),
-                     const SizedBox(height: 10,),
+                     SizedBox(height: 10.h,),
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [

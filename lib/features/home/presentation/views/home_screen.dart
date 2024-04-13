@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
@@ -62,25 +62,25 @@ class HomePageState extends State<HomePage> {
   PreferredSize showAppBar(){
     if(selectedIndex==0){
 
-      return  PreferredSize(preferredSize: const Size(double.infinity, 50),
+      return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
       child: DefaultAppBar(title: const Text("Welcome"),actions: [Padding(
         padding: const EdgeInsets.only(right: 20),
-        child: IconButton(onPressed: () {  }, icon: const Icon(Icons.person,size: 35,),),
+        child: IconButton(onPressed: () {  }, icon:Icon(Icons.person,size: 35.h,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
-      return   PreferredSize(preferredSize:  const Size(double.infinity, 50,),
+      return   PreferredSize(preferredSize: Size(double.infinity, 50.h,),
       child: DefaultAppBar(title: const Text('Community'),actions: [Padding(
         padding: const EdgeInsets.only(right: 20,),
-        child: IconButton(onPressed: () {  }, icon: const Icon(Icons.search,size: 35,),),
+        child: IconButton(onPressed: () {  }, icon: Icon(Icons.search,size: 35.h,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==2){
-      return  const PreferredSize(preferredSize: Size(double.infinity, 50),
+      return PreferredSize(preferredSize: Size(double.infinity, 50.h),
       child: DefaultAppBar(title: Text('Medical News'),backgroundColor:AppColors.primary ,));
     }
     else{
-      return  const PreferredSize(preferredSize: Size(double.infinity, 50),
+      return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
       child: DefaultAppBar(title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
     }
   }

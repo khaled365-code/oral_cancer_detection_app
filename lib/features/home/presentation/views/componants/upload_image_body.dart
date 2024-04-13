@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/commons.dart';
@@ -15,14 +16,14 @@ class UploadImageBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height:8,),
-          const CustomContainer(conHeight:150,conWidth:250,conImage:AppAssets.uploadBackground),
-          const SizedBox(height:20,),
+          SizedBox(height:8.h,),
+          CustomContainer(conHeight:150.h,conWidth:250.w,conImage:AppAssets.uploadBackground),
+          SizedBox(height:20.h,),
           const Text('Upload the image of the impaired tissue in your mouth',
             textAlign: TextAlign.center,),
-          const SizedBox(height:16,),
-          const CustomContainer(conHeight:190,conWidth:260,conImage:AppAssets.empty),
-          const SizedBox(height:30,),
+          SizedBox(height:16.h,),
+          CustomContainer(conHeight:190.h,conWidth:260.w,conImage:AppAssets.empty),
+          SizedBox(height:30.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

@@ -55,7 +55,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
             Text(
               'Healthcare System',
               textAlign: TextAlign.center,
-              style:AppTextStyles.font10.copyWith(
+              style:AppTextStyles.font14.copyWith(
                   color: AppColors.primary,
                   fontFamily: 'lato', )
             ),
@@ -88,7 +88,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
   void initSlidingAnimation() {
     animationController=AnimationController(
       vsync: this,
-      duration:const Duration(seconds:3),
+      duration:const Duration(seconds:2),
     );
     slidingAnimation=
         Tween<Offset>(begin:const Offset(0,20),end:const Offset(0, 0)).animate(animationController);

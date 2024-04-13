@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 
@@ -36,7 +37,7 @@ class DoctorPage extends StatelessWidget{
                       'the National Cancer Institute Cairo University/Member of the European Society of Surgical Oncology.',
                   docNumber:'0406741535',
                   docAddress:'Cairo city'),
-              const SizedBox(height: 16,),
+              SizedBox(height: 16.h,),
 
               DoctorCard(image:AppAssets.doc2,
                   doctorName:'Dr.ADEL ISMAIL',
@@ -45,7 +46,7 @@ class DoctorPage extends StatelessWidget{
                       '- Oncology Institute -Cairo University,he has over 13 years of experience ',
                   docNumber:'0404715432',
                   docAddress:'Tanta city'),
-              const SizedBox(height: 16,),
+              SizedBox(height: 16.h,),
               DoctorCard(image:AppAssets.doc3,
                   doctorName:'Dr.REDA NOUR AL-DIN',
                   docDegree:'Dentist',
@@ -54,7 +55,7 @@ class DoctorPage extends StatelessWidget{
                       ' he has over 11 years of experience in the field of Dentistry.',
                   docNumber:'040571765',
                   docAddress:'Benha city'),
-              const SizedBox(height: 16,),
+              SizedBox(height: 16.h,),
               DoctorCard(image:AppAssets.doc4,
                   doctorName:'Dr.AHMED RASHAD',
                   docDegree:'Oncologist',
@@ -62,7 +63,7 @@ class DoctorPage extends StatelessWidget{
                       'specializes in the treatment of oral,neck & head tumors ',
                   docNumber:'0404814375',
                   docAddress:'6 October City'),
-              const SizedBox(height:16,),
+              SizedBox(height: 16.h,),
             ],
 
           ),

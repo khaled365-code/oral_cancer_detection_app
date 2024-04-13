@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/app_routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -47,7 +48,7 @@ class _RegisterBodyState extends State<RegisterBody> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 180,),
+          SizedBox(height: 180.h,),
           EmptyContainer(
             child: Form (
               key: formKey,
@@ -60,17 +61,17 @@ class _RegisterBodyState extends State<RegisterBody> {
                           color: AppColors.background ,
                         ),
                     ),
-                    const SizedBox(height:5,),
+                    SizedBox(height:5.h,),
                     Text('Your information is safe with us',
                       style:AppTextStyles.font16.copyWith(
                         color: AppColors.background ,
                       ),
                     ),
-                    const SizedBox(height:16,),
+                    SizedBox(height:16.h,),
                     const CustomTextFormField(labelText:'UserName', hintText:'Enter your name',),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     const GenderSelectTextField(),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     CustomTextFormField(labelText:'Date of Birth', hintText:'mm/dd/yyyy',
                       readOnly: true,
                       controller: dateController,
@@ -78,12 +79,13 @@ class _RegisterBodyState extends State<RegisterBody> {
                           onPressed:_selectDate,
                           icon:const Icon(Icons.calendar_month,color:AppColors.background,)) ,
                     ),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     const CustomTextFormField(labelText:'phone number', hintText:'Enter phone number'),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     const CustomTextFormField(labelText:'Email', hintText:'Enter your email'),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     CustomTextFormField(labelText:'password', hintText:'Enter your name',
+                      obscureValue: isSecured,
                       suffixIcon:IconButton(
                         onPressed: (){
                           isSecured=!isSecured ;
@@ -93,9 +95,10 @@ class _RegisterBodyState extends State<RegisterBody> {
                         const Icon(Icons.visibility_off,color:AppColors.background):
                         const Icon(Icons.visibility,color:AppColors.background) ,),
                     ),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     CustomTextFormField(labelText: 'Confirm password', hintText:'Confirm password',
-                      suffixIcon:IconButton(
+                        obscureValue: isSecuredConf,
+                        suffixIcon:IconButton(
                         onPressed: (){
                           isSecuredConf=!isSecuredConf;
                           setState(() {});
@@ -104,7 +107,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                         const Icon(Icons.visibility_off,color:AppColors.background):
                         const Icon(Icons.visibility,color:AppColors.background),)
                       ),
-                    const SizedBox(height:17,),
+                    SizedBox(height:17.h,),
                     CustomButton(
                       buttonBackground: AppColors.background,
                       buttonTextColor: AppColors.primary,
@@ -116,7 +119,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                           // here signup user function preformed like chat app
                         }
                       },),
-                    const SizedBox(height:10,),
+                    SizedBox(height:10.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -125,7 +128,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                               color:AppColors.background,),),
                         GestureDetector(
                           onTap: (){
-                            navigate(context: context, route: Routes.logAs);
+                            navigate(context: context, route: Routes.loginScreen);
                           },
                           child:Text('Login',
                             style:AppTextStyles.font14.copyWith(

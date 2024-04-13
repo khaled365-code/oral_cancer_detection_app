@@ -12,8 +12,8 @@ class EmptyContainer extends StatelessWidget{
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: double.infinity,
-          height:MediaQuery.of(context).size.height,
+          width:ScreenUtil().screenWidth,
+          height:ScreenUtil().screenHeight,
           decoration:const  BoxDecoration(
             color: AppColors.background,
             borderRadius: BorderRadius.only(
@@ -30,8 +30,8 @@ class EmptyContainer extends StatelessWidget{
             borderRadius:const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30)),
-            width: 720,
-            height:650,
+            width: 720.w,
+            height:620.h,
             child: child!,
           ),
         ),
