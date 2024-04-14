@@ -13,8 +13,8 @@ class UploadImageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal:12,vertical: 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: ListView(
+        shrinkWrap: true,
         children: [
           SizedBox(height:8.h,),
           CustomContainer(conHeight:150.h,conWidth:250.w,conImage:AppAssets.uploadBackground),
