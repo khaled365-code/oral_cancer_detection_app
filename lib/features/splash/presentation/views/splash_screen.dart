@@ -8,6 +8,7 @@ import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
+import 'package:graduation_project/generated/l10n.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -47,13 +48,13 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
               CustomContainer(conHeight:190.h,conWidth:230.w,conImage:AppAssets.splash),
              SizedBox(height:14.h,),
             Text(
-              'Oral Cancer Detection System ',
+              S.of(context).oralCancerDetectionSystem,
               textAlign: TextAlign.center,
               style: AppTextStyles.font24.copyWith(color: AppColors.primary)
             ),
              SizedBox(height: 8.h,),
             Text(
-              'Healthcare System',
+              S.of(context).healthcareSystem,
               textAlign: TextAlign.center,
               style:AppTextStyles.font14.copyWith(
                   color: AppColors.primary,
@@ -73,7 +74,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                     onTap: (){
                       navigate(context: context, route: Routes.onBoard);
                     },
-                    buttonText: 'Get Started',
+                    buttonText: S.of(context).getStarted,
                   ),
                 );
               },

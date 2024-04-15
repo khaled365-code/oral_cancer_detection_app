@@ -52,6 +52,42 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// 'stay safe`
+  String get staySafe {
+    return Intl.message(
+      'Stay Safe',
+      name: 'staySafe',
+      desc: '',
+      args: [],
+    );
+  }
+  /// 'oral cancer detection system`
+  String get oralCancerDetectionSystem{
+    return Intl.message(
+      'Oral Cancer Detection System',
+      name: 'oralCancerDetectionSystem',
+      desc: '',
+      args: [],
+    );
+  }
+  /// `Edit Profile`
+  String get healthcareSystem{
+    return Intl.message(
+      'Healthcare System',
+      name: 'healthcareSystem',
+      desc: '',
+      args: [],
+    );
+  }
+  /// `get started`
+  String get getStarted{
+    return Intl.message(
+      'Get Started',
+      name: 'getStarted',
+      desc: '',
+      args: [],
+    );
+  }
   /// `Edit Profile`
   String get editprofile {
     return Intl.message(

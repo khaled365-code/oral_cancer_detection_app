@@ -109,7 +109,12 @@
   " enteremail ": " Enter your email",
   " Previous ": " Previous",
   " Finish ": " Finish",
-  " Next ": " Next"
+  " Next ": " Next",
+  "staySafe": "Stay Safe",
+  "oralCancerDetectionSystem": "Oral Cancer Detection System",
+  "healthcareSystem": "Healthcare System",
+  "getStarted": "Get Started"
+
 
 
 

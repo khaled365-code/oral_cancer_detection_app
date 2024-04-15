@@ -4,6 +4,7 @@ import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
+import 'package:graduation_project/generated/l10n.dart';
 
 class RowTitle extends StatelessWidget {
   const RowTitle({
@@ -17,7 +18,7 @@ class RowTitle extends StatelessWidget {
       children: [
           CustomContainer(conHeight:43.h,conWidth:56.w,conImage:AppAssets.plus),
         Text(
-          ' Stay Safe',
+          S.of(context).staySafe,
           textAlign: TextAlign.center,
           style:AppTextStyles.font22.copyWith(
               color: AppColors.primary,
