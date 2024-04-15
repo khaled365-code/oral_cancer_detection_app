@@ -53,7 +53,7 @@ class _RegisterBodyState extends State<RegisterBody> {
             child: Form (
               key: formKey,
               child:Padding(
-                padding: const EdgeInsets.only(top: 20,right: 16,left: 16),
+                padding:EdgeInsetsDirectional.only(top:20.h,end:16.w,start:16.w),
                 child:Column(
                   children: [
                     Text('Register With Us!',
@@ -115,7 +115,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                       onTap:(){
                         if(formKey.currentState!.validate()){
                           print('Register done');
-                          navigate(context: context, route: Routes.logAs);
+                          navigate(context: context, route: Routes.loginScreen);
                           // here signup user function preformed like chat app
                         }
                       },),

@@ -26,7 +26,7 @@ class DoctorPage extends StatelessWidget{
       //   ),
       // ),
       body: Padding(
-        padding:const EdgeInsets.only(top:16,right: 16,left: 16 ),
+        padding:EdgeInsetsDirectional.only(top:16.h,end: 16.w,start: 16.w ),
         child:SingleChildScrollView(
           child: Column(
             children: [

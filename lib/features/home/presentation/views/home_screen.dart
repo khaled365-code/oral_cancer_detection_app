@@ -64,15 +64,15 @@ class HomePageState extends State<HomePage> {
 
       return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
       child: DefaultAppBar(title: const Text("Welcome"),actions: [Padding(
-        padding: const EdgeInsets.only(right: 20),
-        child: IconButton(onPressed: () {  }, icon:Icon(Icons.person,size: 35.h,),),
+        padding: EdgeInsetsDirectional.only(end: 20.w),
+        child: IconButton(onPressed: () {  }, icon:Icon(Icons.person,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
       return   PreferredSize(preferredSize: Size(double.infinity, 50.h,),
       child: DefaultAppBar(title: const Text('Community'),actions: [Padding(
-        padding: const EdgeInsets.only(right: 20,),
-        child: IconButton(onPressed: () {  }, icon: Icon(Icons.search,size: 35.h,),),
+        padding:EdgeInsetsDirectional.only(end: 20.w,),
+        child: IconButton(onPressed: () {  }, icon: Icon(Icons.search,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==2){

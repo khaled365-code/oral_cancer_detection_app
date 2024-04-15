@@ -14,24 +14,24 @@ class EmptyContainer extends StatelessWidget{
         Container(
           width:ScreenUtil().screenWidth,
           height:ScreenUtil().screenHeight,
-          decoration:const  BoxDecoration(
+          decoration: BoxDecoration(
             color: AppColors.background,
             borderRadius: BorderRadius.only(
-              topRight: Radius.circular(60),
-              topLeft: Radius.circular(60),
+              topRight: Radius.circular(60.r),
+              topLeft: Radius.circular(60.r),
             ),
           ),
         ),
         PositionedDirectional(
-          top: -100,
-          start: 40,
-          end: 40,
+          top: -100.h,
+          start: 40.w,
+          end: 40.w,
           child:CustomFormContainer(
-            borderRadius:const BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30)),
-            width: 720.w,
-            height:620.h,
+            borderRadius:BorderRadius.only(
+                topLeft: Radius.circular(30.r),
+                topRight: Radius.circular(30.r)),
+            width: MediaQuery.of(context).size.width*0.8,
+            height:MediaQuery.of(context).size.height,
             child: child!,
           ),
         ),

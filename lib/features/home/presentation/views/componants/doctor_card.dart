@@ -22,7 +22,7 @@ class DoctorCard extends StatelessWidget{
       width: 350.w,
       decoration: BoxDecoration(
         color: AppColors.primary,
-        borderRadius: BorderRadius.circular(12)  ,
+        borderRadius: BorderRadius.circular(12.r)  ,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.2),
@@ -31,7 +31,7 @@ class DoctorCard extends StatelessWidget{
         ],
       ),
       child:Padding(
-        padding: const EdgeInsets.only(right:8,bottom: 8),
+        padding:EdgeInsetsDirectional.only(end:8.w,bottom: 8.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -66,11 +66,11 @@ class DoctorCard extends StatelessWidget{
             ),
             SizedBox(height:8.h,),
             Padding(
-              padding: const EdgeInsets.only(left: 8),
+              padding: EdgeInsetsDirectional.only(start: 8.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(' About: $aboutDoc',
+                  Text('About: $aboutDoc',
                     style:AppTextStyles.font14.copyWith(
                       color: AppColors.white ,),
                   ),

@@ -3,6 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../generated/l10n.dart';
@@ -32,14 +33,14 @@ class _FaqScreenState extends State<FaqScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
+        preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
           title: S.of(context).faq,
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 30,left: 15,right: 15,bottom: 15),
+          padding:EdgeInsetsDirectional.only(top: 30.h,start:8.w,end:5.w,bottom: 15.h),
           child: Column(
             children: [
               PrivacyContainerItem(
@@ -53,7 +54,7 @@ class _FaqScreenState extends State<FaqScreen> {
                 answerText: S.of(context).faqans1,
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq2,
@@ -68,7 +69,7 @@ class _FaqScreenState extends State<FaqScreen> {
                 answerText: S.of(context).faqans2,
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq3,
@@ -84,7 +85,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq4,
@@ -100,7 +101,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq5,
@@ -116,7 +117,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq6,
@@ -132,7 +133,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq7,
@@ -148,7 +149,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq8,
@@ -164,7 +165,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq9,
@@ -180,7 +181,7 @@ class _FaqScreenState extends State<FaqScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).faq10,

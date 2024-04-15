@@ -12,17 +12,17 @@ class UploadImageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:12,vertical: 8),
+      padding:EdgeInsetsDirectional.symmetric(horizontal:18.w,vertical: 8.h),
       child: ListView(
         shrinkWrap: true,
         children: [
           SizedBox(height:8.h,),
-          CustomContainer(conHeight:150.h,conWidth:250.w,conImage:AppAssets.uploadBackground),
+          CustomContainer(conHeight:150.h,conWidth:200.w,conImage:AppAssets.uploadBackground),
           SizedBox(height:20.h,),
           const Text('Upload the image of the impaired tissue in your mouth',
             textAlign: TextAlign.center,),
           SizedBox(height:16.h,),
-          CustomContainer(conHeight:190.h,conWidth:260.w,conImage:AppAssets.empty),
+          CustomContainer(conHeight:190.h,conWidth:210.w,conImage:AppAssets.empty),
           SizedBox(height:30.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

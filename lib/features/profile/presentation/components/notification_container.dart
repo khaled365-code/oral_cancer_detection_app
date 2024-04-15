@@ -1,9 +1,8 @@
 
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilis/app_colors.dart';
 
@@ -17,13 +16,13 @@ class NotificationContainerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 62,
+        height: 62.h,
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
         ),
         child: Row(children: [
           Padding(
-            padding: const EdgeInsets.only(left: 20,top: 10),
+            padding:EdgeInsetsDirectional.only(start: 20.w,top: 10.h),
             child: Text(text),
           ),
           Spacer(),

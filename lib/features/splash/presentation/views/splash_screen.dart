@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+        padding: EdgeInsetsDirectional.symmetric(vertical: 8.h, horizontal: 20.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

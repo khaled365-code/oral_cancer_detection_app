@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -27,19 +28,19 @@ class SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
+        preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
           title: S.of(context).settings,
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 24,top: 33,right: 28),
+        padding:EdgeInsetsDirectional.only(start:24.w,top: 33.h,end: 28.w),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('settings',style:AppTextStyles.font20.copyWith(color: AppColors.primary),),
-              SizedBox(height: 25,),
+              SizedBox(height: 25.h,),
               Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +52,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                         color: AppColors.primary,
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 5.w,
                       ),
                       Text(
                         'data',
@@ -60,13 +61,13 @@ class SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 25,
+                    height: 25.h,
                   ),
                   Text(S.of(context).editprofile,
                       style: AppTextStyles.font16
                           .copyWith(color: AppColors.black)),
                   SizedBox(
-                    height: 25,
+                    height: 25.h,
                   ),
                   Text(
                     'Change Password',
@@ -76,7 +77,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
             ),
-              SizedBox(height: 35,),
+              SizedBox(height: 35.h,),
               Row(
                 children: [
                   Image.asset(
@@ -84,7 +85,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                     color: AppColors.primary,
                   ),
                   SizedBox(
-                    width: 5,
+                    width: 5.w,
                   ),
                   Text(
                     'Notifications',
@@ -92,7 +93,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 16,),
+              SizedBox(height: 16.h,),
               Row(children:
               [
               Text('Notification',style:AppTextStyles.font16.copyWith(color: AppColors.black),),
@@ -106,7 +107,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                 });
               },),
               ]),
-              SizedBox(height: 19,),
+              SizedBox(height: 19.h,),
               Row(children:
               [
                 Text('Updates',style:AppTextStyles.font16.copyWith(color: AppColors.black),),
@@ -120,7 +121,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   });
                 },),
               ]),
-              SizedBox(height: 50,),
+              SizedBox(height: 50.h,),
               Row(
                 children: [
                   Image.asset(
@@ -128,7 +129,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                     color: AppColors.primary,
                   ),
                   SizedBox(
-                    width: 5,
+                    width: 5.h,
                   ),
                   Text(
                     'Other',
@@ -136,7 +137,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 25,),
+              SizedBox(height: 25.h,),
               Row(children:
               [
                 Text('Dark Mode',style:AppTextStyles.font16.copyWith(color: AppColors.black),),
@@ -150,14 +151,14 @@ class SettingsScreenState extends State<SettingsScreen> {
                   });
                 },),
               ]),
-              SizedBox(height: 20,),
+              SizedBox(height: 20.h,),
               Row(
                 children: [
                   Text('Region',style:AppTextStyles.font16.copyWith(color: AppColors.black),),
                   Spacer(),
                   Container(
-                    width: 80,
-                    height: 40,
+                    width: 80.w,
+                    height: 40.h,
                     decoration: BoxDecoration(
                       color: AppColors.settings,
                       border: Border.all(

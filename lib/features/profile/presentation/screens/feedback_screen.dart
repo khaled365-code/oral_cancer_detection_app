@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -20,14 +21,14 @@ class FeedBackScreen extends StatelessWidget {
     return Scaffold(
 
       appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
+        preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
           title: S.of(context).feedback,
         ),
       ),
 
       body:Padding(
-        padding: const EdgeInsets.only(top: 15),
+        padding:  EdgeInsetsDirectional.only(top: 15.h),
         child: Column(
             children: [
               Center(
@@ -37,7 +38,7 @@ class FeedBackScreen extends StatelessWidget {
                     color: AppColors.black, fontWeight: FontWeight.normal),
               )),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -70,10 +71,10 @@ class FeedBackScreen extends StatelessWidget {
                 ],
               ), //stars
               SizedBox(
-                height: 5,
+                height: 5.h,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 80),
+                padding:EdgeInsetsDirectional.symmetric(horizontal: 80.w),
                 child: Row(
                   children: [
                     Text(
@@ -91,10 +92,10 @@ class FeedBackScreen extends StatelessWidget {
                 ),
               ), //rating
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding:EdgeInsetsDirectional.only(start: 20.w),
                 child: Column(
                   children: [
                     Divider(
@@ -102,7 +103,7 @@ class FeedBackScreen extends StatelessWidget {
                       color: AppColors.grgr,
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 5.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,7 +114,7 @@ class FeedBackScreen extends StatelessWidget {
                               .copyWith(color: AppColors.black),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 5.h,
                         ),
                         Text(
                           S.of(context).impfeed,
@@ -125,20 +126,20 @@ class FeedBackScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 30.h,
                     ),
                     Divider(
                       thickness: 0,
                       color: AppColors.grgr,
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 10.h,
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 child: SharedButton(
                   text: S.of(context).sendfeedback,
                   buttonColor: AppColors.primary,
@@ -147,7 +148,7 @@ class FeedBackScreen extends StatelessWidget {
                   ),
                   width: double.infinity,
                   hasBorderRadius: true,
-                  borderRadiusValue: 10,
+                  borderRadiusValue: 10.r,
                 ),
               ),
             ],

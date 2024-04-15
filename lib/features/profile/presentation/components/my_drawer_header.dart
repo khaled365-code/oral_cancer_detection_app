@@ -1,9 +1,7 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
@@ -16,22 +14,22 @@ class MyDrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250,
+      height: 250.h,
       decoration: BoxDecoration(
         color: AppColors.primary,
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 60),
+        padding:EdgeInsetsDirectional.only(top: 60.h),
         child: Column(
           children: [
             Container(
               child: CircleAvatar(
-                radius: 50,
+                radius: 50.r,
                 backgroundImage: AssetImage(AppAssets.profilePic),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 10.h,
             ),
             Text(
               S.of(context).khaled,

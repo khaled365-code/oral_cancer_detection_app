@@ -32,7 +32,7 @@ class _LoginBodyState extends State<LoginBody> {
            child: Form(
                key: formKey,
                child: Padding(
-                 padding: const EdgeInsets.only(top: 20, right: 16, left: 16),
+                 padding:EdgeInsetsDirectional.only(top: 20.h,end: 16.w,start:16.w),
                  child: Column(
                    children: [
                      Text('Login',

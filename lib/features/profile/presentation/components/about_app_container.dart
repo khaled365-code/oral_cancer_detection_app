@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/app_text_styles.dart';
@@ -22,13 +23,13 @@ class AboutAppContainerItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        height: 50,
+        height: 50.h,
         child: Row(
           children: [
             Text(text,style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),),
             Spacer(),
             Icon(Icons.navigate_next,color: AppColors.grgr,size: 30,),
-            SizedBox(height: 10,),
+            SizedBox(height: 10.h,),
           ],
         ),
       ),

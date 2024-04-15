@@ -1,10 +1,7 @@
 
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -18,7 +15,7 @@ class MyDrawerBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Padding(
-     padding: const EdgeInsets.only(left: 10,top: 10),
+     padding:EdgeInsetsDirectional.only(start: 10.w,top: 10.h),
      child: Column(
        children: [
          DrawerItem(
@@ -29,7 +26,7 @@ class MyDrawerBody extends StatelessWidget {
              Navigator.pushNamed(context, Routes.editProfilescreen);
            },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).language,
            image: AppAssets.language,
@@ -60,7 +57,7 @@ class MyDrawerBody extends StatelessWidget {
                         ));
               },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).settings,
            image: AppAssets.settings,
@@ -70,7 +67,7 @@ class MyDrawerBody extends StatelessWidget {
 
            },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).location,
            image: AppAssets.location,
@@ -79,7 +76,7 @@ class MyDrawerBody extends StatelessWidget {
 
            },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).help,
            image: AppAssets.question,
@@ -88,7 +85,7 @@ class MyDrawerBody extends StatelessWidget {
 
            },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).about,
            image: AppAssets.help,
@@ -97,7 +94,7 @@ class MyDrawerBody extends StatelessWidget {
              Navigator.pushNamed(context, Routes.aboutApp);
            },
          ),
-         SizedBox(height: 10,),
+         SizedBox(height: 10.h,),
          DrawerItem(
            text: S.of(context).logout,
            image: AppAssets.logout,
@@ -109,9 +106,9 @@ class MyDrawerBody extends StatelessWidget {
                    title: Text(S.of(context).logout),
                    content: Column(
                      children: [
-                       SizedBox(height: 10,),
+                       SizedBox(height: 10.h,),
                        Text(S.of(context).logoutsure,style:AppTextStyles.font14.copyWith(color: AppColors.black),),
-                       SizedBox(height: 5,),
+                       SizedBox(height: 5.h,),
                        Divider(
                            thickness: 2,
                            color: Colors.grey[400]),
@@ -130,8 +127,6 @@ class MyDrawerBody extends StatelessWidget {
                  ));
            },
          ),
-
-
 
        ],
      )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 
 class CustomFormContainer extends StatelessWidget {
@@ -20,7 +21,7 @@ class CustomFormContainer extends StatelessWidget {
           borderRadius: borderRadius,
           border: Border.all(
               color: Colors.white,
-              width: 4.0,)
+              width: 4.0.w,)
         ),
         child: child,
       ),

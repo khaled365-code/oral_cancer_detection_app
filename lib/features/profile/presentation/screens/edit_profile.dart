@@ -4,6 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -35,51 +36,51 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: CustomAppBar(
           title: S.of(context).profile,
         ),
-        preferredSize: Size(double.infinity, 50),
+        preferredSize: Size(double.infinity, 50.h),
       ),
       body: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.only(top: 20,left: 30),
+            padding:  EdgeInsetsDirectional.only(top: 20.h,start: 15.w,end: 15.w,bottom: 8.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Container(
                     child: CircleAvatar(
-                      radius: 70,
+                      radius: 70.r,
                       backgroundImage: AssetImage(AppAssets.profilePic),
                     ),
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
                   hintText: S.of(context).fname,
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
                   hintText: S.of(context).lname,
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
                   hintText: S.of(context).phone,
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
                   hintText: S.of(context).email,
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 30.h,),
                 CustomDatePicker(
                   child: TextFormField(
                     readOnly: true,
@@ -106,18 +107,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.date_range),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 50,),
+                SizedBox(height: 40.h,),
                 SharedButton(
                     text: S.of(context).save,
                     textStyle: AppTextStyles.font20.copyWith(color: AppColors.black),
                     buttonColor: AppColors.primary,
                     hasBorderRadius: true ,
-                    borderRadiusValue: 16,
+                    borderRadiusValue: 16.r,
 
                 ),
             ],

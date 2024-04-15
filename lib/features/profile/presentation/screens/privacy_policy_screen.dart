@@ -1,10 +1,7 @@
 
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../generated/l10n.dart';
@@ -33,14 +30,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
+        preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
           title: S.of(context).policy,
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 30,left: 15,right: 15,bottom: 15),
+          padding: EdgeInsetsDirectional.only(top: 30.h,start: 15.w,end: 15.w,bottom: 15.h),
           child: Column(
             children: [
               PrivacyContainerItem(
@@ -54,7 +51,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 answerText: S.of(context).answer1,
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question2,
@@ -69,7 +66,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 answerText: S.of(context).answer2,
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question3,
@@ -85,7 +82,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question4,
@@ -101,7 +98,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question5,
@@ -117,7 +114,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question6,
@@ -133,7 +130,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question7,
@@ -149,7 +146,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question8,
@@ -165,7 +162,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question9,
@@ -181,7 +178,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               PrivacyContainerItem(
                 text: S.of(context).question10,

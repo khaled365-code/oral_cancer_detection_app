@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
@@ -29,11 +30,11 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
           color: AppColors.background ,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:const BorderSide(color:AppColors.background),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:const BorderSide(color:AppColors.background),
         ),
         suffixIcon: PopupMenuButton<String>(
@@ -54,7 +55,7 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
             ),
           ],
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+        contentPadding: EdgeInsetsDirectional.symmetric(vertical: 18.h, horizontal: 16.w),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {

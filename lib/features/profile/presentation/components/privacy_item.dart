@@ -1,8 +1,7 @@
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/app_text_styles.dart';
@@ -32,8 +31,8 @@ class PrivacyContainerItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                SizedBox(width: 10,),
-                Text(text,style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),),
+                SizedBox(width: 5.w,),
+                Text(text,style: AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal),),
                 Spacer(),
                 IconButton(onPressed: onTap, icon: Icon(Icons.keyboard_arrow_down_sharp,color: AppColors.red,size: 30,)),
               ],
@@ -46,10 +45,11 @@ class PrivacyContainerItem extends StatelessWidget {
                     )
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 20,left: 10,right: 40,bottom: 20),
+                padding:EdgeInsetsDirectional.only(top: 20.h,start: 10.w,
+                   end: 40.w,bottom: 20.h),
                 child: Text(answerText,style: AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),),
               ),
-            ): SizedBox(width: 5,),
+            ): SizedBox(width: 2.w,),
 
           ],
         ),
