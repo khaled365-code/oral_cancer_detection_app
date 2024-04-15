@@ -20,33 +20,41 @@ class CustomPassViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width;
+    double height=MediaQuery.of(context).size.height;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ClipOval(
-              child: Image.asset(AppAssets.lock,width: 100.w,),
-            ),
-            SizedBox(height: 20.h,),
-            Text(mainTitle,style: AppTextStyles.font26),
+        padding:  EdgeInsetsDirectional.all(24.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
 
-            Padding(
-              padding:  const EdgeInsets.symmetric(horizontal: 38,vertical: 10),
-              child: Text(subTitle,textAlign: TextAlign.center,style:
-              AppTextStyles.font14.copyWith(color: AppColors.semiBlack)),
-            ),
-            SizedBox(height: 10.h,),
-           centerWidget!,
-            SizedBox(height:30.h ,),
-            CustomElevatedButton(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: height*0.02,),
+                ClipOval(
+                  child: Image.asset(AppAssets.lock,width: width*0.3,),
+                ),
+                SizedBox(height: height*0.03,),
+                Text(mainTitle,style: AppTextStyles.font26),
 
-              buttonBackground: AppColors.primary,
-              onpress:buttonPress
-              , child: Text(buttonText,style:AppTextStyles.font14.copyWith(color: AppColors.white) ,),
-            )
-          ],),
+                Padding(
+                  padding:   EdgeInsetsDirectional.symmetric(horizontal: 38.w,vertical: 10.h),
+                  child: Text(subTitle,textAlign: TextAlign.center,style:
+                  AppTextStyles.font14.copyWith(color: AppColors.semiBlack)),
+                ),
+                SizedBox(height: height*0.001,),
+               centerWidget!,
+                SizedBox(height:height*0.04 ,),
+                CustomElevatedButton(
+
+                  buttonBackground: AppColors.primary,
+                  onpress:buttonPress
+                  , child: Text(buttonText,style:AppTextStyles.font14.copyWith(color: AppColors.white) ,),
+                )
+              ],),
+          ),
+        ),
       ),
     );
   }

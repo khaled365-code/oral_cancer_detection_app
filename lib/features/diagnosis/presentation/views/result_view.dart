@@ -29,9 +29,9 @@ class ResultScreen extends StatelessWidget {
             // }, child: const Text("Click here to show them",style: TextStyle(color: AppColors.black,decoration: TextDecoration.underline),)),
              SizedBox(height: 60.h,),
             Container(
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 gradient: LinearGradient(colors: [AppColors.background,AppColors.primary],begin: Alignment.topLeft,end: Alignment.bottomRight),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(16),topRight: Radius.circular(16),bottomLeft: Radius.circular(16)),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(16.r),topRight: Radius.circular(16.r),bottomLeft: Radius.circular(16.r)),
 
 
               ),

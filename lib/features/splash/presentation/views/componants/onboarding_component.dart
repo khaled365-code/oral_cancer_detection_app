@@ -21,12 +21,12 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+      padding:  EdgeInsetsDirectional.symmetric(horizontal: 24.w, vertical: 10.h),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
          Padding(
-           padding: const EdgeInsets.only(left: 250,top: 0),
+           padding:  EdgeInsetsDirectional.only(start: 250.w,top: 0),
            child: textButton,
          )
           ,Image.asset(imagePath,width: 350.w,),

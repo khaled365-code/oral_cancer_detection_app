@@ -6,6 +6,7 @@ import 'package:graduation_project/features/auth/presentation/views/componants/c
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/widgets/custom_textformfield.dart';
 import '../../../../core/widgets/default_textform_field.dart';
+import '../../../../generated/l10n.dart';
 
 class SendCode extends StatelessWidget {
   const SendCode({Key? key}) : super(key: key);
@@ -16,9 +17,9 @@ class SendCode extends StatelessWidget {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonText: "send code",
-          mainTitle: "Forget Password?",
-          subTitle: "don't worry! it happens.  please enter the email associated with your with your account",
+          buttonText: S.of(context).sendcode,
+          mainTitle: S.of(context).forgetpassword,
+          subTitle: S.of(context).donntworrysen,
 
         centerWidget: DefaultTextFormField(
           textColor: AppColors.black,
@@ -26,8 +27,8 @@ class SendCode extends StatelessWidget {
           focusedBorderSIdeColor: AppColors.primary,
           hintColor:  AppColors.black,
           labelColor: AppColors.black,
-          labelText: "E-mail",
-          hintText: 'Enter your email',
+          labelText:S.of(context).email,
+          hintText: S.of(context).enteremail,
         ),
         buttonPress: (){
           if(formKey.currentState!.validate()){

@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utilis/app_colors.dart';
 
@@ -24,8 +25,8 @@ class CustomOutlinedTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 327,
-      height: 48,
+      width: 327.w,
+      height: 48.h,
       color: AppColors.str.withOpacity(.2),
       child: TextFormField(
         cursorColor: crusorColor,
@@ -34,14 +35,14 @@ class CustomOutlinedTextField extends StatelessWidget {
           hintText: hintText,
           hintStyle: hintStyle,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16)
+            borderRadius: BorderRadius.circular(16.r)
           ),
           disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16)
+              borderRadius: BorderRadius.circular(16.r)
 
           ),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16)
+              borderRadius: BorderRadius.circular(16.r)
 
           ),
         ),

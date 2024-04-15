@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 
 import '../../../../core/utilis/app_assets.dart';
@@ -43,25 +44,25 @@ class CommunityScreen extends StatelessWidget {
       // ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
+          padding:  EdgeInsetsDirectional.only(bottom: 20.h),
           child: Column(
             children:
                 [
                   Padding(
-              padding: const EdgeInsets.only(left: 10,right: 20,top: 10),
+              padding:  EdgeInsetsDirectional.only(start: 10.w,end: 10.w,top: 10.h),
               child: Container(
                 width: double.infinity,
-                height: 50,
+                height: 50.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                   TextButton(onPressed: () {}, child: Text('For You',style:AppTextStyles.font16.copyWith())),
                   SizedBox(
-                    width: 70,
+                    width: 70.w,
                   ),
                   TextButton(onPressed: () {}, child: Text('Lastest',style:AppTextStyles.font16.copyWith())),
                   SizedBox(
-                    width: 70,
+                    width: 70.w,
                   ),
                   TextButton(onPressed: () {}, child: Text('New!',style:AppTextStyles.font16.copyWith())),
                 ]),
@@ -72,7 +73,7 @@ class CommunityScreen extends StatelessWidget {
                     color: AppColors.grgr,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    padding:  EdgeInsetsDirectional.only(start: 20.w,end: 10.w),
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',
@@ -89,7 +90,7 @@ class CommunityScreen extends StatelessWidget {
                     color: AppColors.grgr,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    padding:  EdgeInsetsDirectional.only(start: 20.w,end: 10.w),
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',
@@ -105,7 +106,7 @@ class CommunityScreen extends StatelessWidget {
                   color: AppColors.grgr,
                 ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    padding:  EdgeInsetsDirectional.only(start: 20.w,end: 10.w),
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',

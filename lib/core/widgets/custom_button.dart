@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
@@ -20,8 +21,8 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           color:buttonBackground,
         ),
-        width:220,
-        height:55,
+        width:220.w,
+        height:55.h,
         child: Center(child: Text(buttonText,
           style:AppTextStyles.font20.copyWith(
               color: buttonTextColor,

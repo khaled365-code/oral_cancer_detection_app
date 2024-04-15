@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_assets.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -14,7 +15,7 @@ class RowTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const  CustomContainer(conHeight:43,conWidth:56,conImage:AppAssets.plus),
+          CustomContainer(conHeight:43.h,conWidth:56.w,conImage:AppAssets.plus),
         Text(
           ' Stay Safe',
           textAlign: TextAlign.center,

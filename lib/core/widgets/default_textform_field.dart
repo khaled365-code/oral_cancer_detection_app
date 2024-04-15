@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 import '../utilis/app_colors.dart';
 
@@ -61,26 +63,20 @@ class _DefaultTextFormFieldState extends State<DefaultTextFormField> {
       obscureText: widget.obscureValue!,
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle:  TextStyle(
-          color:widget.labelColor ,
-          fontSize: 16,
-        ),
-        hintText: widget.hintText,
-        hintStyle:  TextStyle(
-          color:widget.hintColor,
-          fontSize: 16,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        labelStyle: AppTextStyles.font16.copyWith(color: widget.labelColor)
+        ,hintText: widget.hintText,
+        hintStyle:  AppTextStyles.font16.copyWith(color: widget.hintColor)
+        ,enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:widget.enabledBorderSIdeColor),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:widget.focusedBorderSIdeColor),
         ),
         prefixIcon:widget.prefixIcon,
         suffixIcon: widget.suffixIcon,
-        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+        contentPadding:  EdgeInsetsDirectional.symmetric(vertical: 18.h, horizontal: 16.w),
       ),
     );
   }

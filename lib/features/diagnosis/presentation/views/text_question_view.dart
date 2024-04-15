@@ -17,9 +17,9 @@ class QuestionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:  EdgeInsetsDirectional.all(8.0),
         child: CustomFormContainer(
-          borderRadius: const BorderRadius.all(Radius.circular(40)),
+          borderRadius:  BorderRadius.all(Radius.circular(40.r)),
           width: double.infinity,
           height: 500.h,
           child: Padding(

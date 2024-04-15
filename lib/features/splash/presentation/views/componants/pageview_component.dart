@@ -7,6 +7,7 @@ import '../../../../../core/utilis/app_assets.dart';
 import '../../../../../core/utilis/app_colors.dart';
 import '../../../../../core/utilis/app_text_styles.dart';
 import '../../../../../core/utilis/commons.dart';
+import '../../../../../generated/l10n.dart';
 import 'onboarding_component.dart';
 
 class PageViewOnBoarding extends StatefulWidget {
@@ -28,18 +29,22 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
           textButton: TextButton(onPressed: (){
             navigate(context: context, route: Routes.registerScreen);
             }
-           ,child: Text("Skip",style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
-          title: 'Welcome to Oral Cancer Detection App',
-          description: 'Begin your journey towards early detection and prevention of oral cancer with our advanced image-based diagnosis system.',
+           ,child: Text(S.of(context).skip,style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
+          title: S.of(context).firstonboardtilte,
+          description: S.of(context).firstonboarddesc,
           imagePath: AppAssets.onBoard1,
     );
        }
      ),
-    const OnboardingPage(
-      title: 'Explore and Protect Your Oral Health',
-      description: 'Discover the power of our app as you diagnose potential oral cancer symptoms through images and answer critical questions to assess your risk factors. Stay informed with the latest news and join our supportive community to connect with others on a similar journey.',
-      imagePath: AppAssets.onBoard2,
-    ),
+     Builder(
+       builder: (context) {
+         return OnboardingPage(
+          title: S.of(context).secondonboardtilte,
+          description: S.of(context).secondonboarddesc,
+          imagePath: AppAssets.onBoard2,
+    );
+       }
+     ),
   ];
   @override
   void dispose() {
@@ -79,7 +84,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
         return Container(
           width: 8.w,
           height: 8.w,
-          margin: const EdgeInsets.symmetric(horizontal: 4),
+          margin:  EdgeInsetsDirectional.symmetric(horizontal: 4.w),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: pageIndex == currentPage ? AppColors.primary : Colors.grey,
@@ -103,7 +108,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
               curve: Curves.easeInOut,
             );
           },
-          child: const Text('Previous'),
+          child:  Text(S.of(context).Previous),
         ),
         TextButton(
           style: ButtonStyle(
@@ -123,7 +128,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
               );
             }
           },
-          child: Text(currentPage == pages.length - 1 ? 'Finish' : 'Next'),
+          child: Text(currentPage == pages.length - 1 ? S.of(context).Finish : S.of(context).Next),
         ),
       ],
     );

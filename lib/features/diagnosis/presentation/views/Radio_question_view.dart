@@ -28,7 +28,7 @@ class QuestionChoiceState extends State<QuestionChoice> {
   Widget build(BuildContext context) {
     double width=MediaQuery.of(context).size.width*0.35;
     return CustomFormContainer(
-            borderRadius: const BorderRadius.all(Radius.circular(40)),
+            borderRadius:  BorderRadius.all(Radius.circular(40.r)),
             height: 500.h,
             width: ScreenUtil().screenWidth,
             child: Column(

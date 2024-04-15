@@ -26,6 +26,8 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width;
+    double height=MediaQuery.of(context).size.height;
 
     return Form(
       key: formKey,
@@ -36,35 +38,33 @@ class _ResetPasswordState extends State<ResetPassword> {
         }
           },
           centerWidget:
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                DefaultTextFormField(
-                  obscureValue:isShowed1,
-                  hintText: 'Enter a new password',
-                  prefixIcon: const Icon(Icons.lock),
-                  suffixIcon:IconButton(
-                    icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
-                    onPressed: (){
-                      isShowed1=!isShowed1;
-                      setState(() {});
-                    },),
-                ),
-                SizedBox(height: 20.h,),
-                DefaultTextFormField(
-                  obscureValue:isShowed2,
-                  hintText: 'Confirm your  password',
-                  prefixIcon: const Icon(Icons.lock),
-                  suffixIcon:IconButton(
-                    icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
-                    onPressed: (){
-                      isShowed2=!isShowed2;
-                      setState(() {});
-                    },),
+          Column(
+            children: [
+              DefaultTextFormField(
+                obscureValue:isShowed1,
+                hintText: 'Enter a new password',
+                prefixIcon: const Icon(Icons.lock),
+                suffixIcon:IconButton(
+                  icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                  onPressed: (){
+                    isShowed1=!isShowed1;
+                    setState(() {});
+                  },),
+              ),
+              SizedBox(height: height*0.02,),
+              DefaultTextFormField(
+                obscureValue:isShowed2,
+                hintText: 'Confirm your  password',
+                prefixIcon: const Icon(Icons.lock),
+                suffixIcon:IconButton(
+                  icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                  onPressed: (){
+                    isShowed2=!isShowed2;
+                    setState(() {});
+                  },),
 
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           buttonText: "change",
           mainTitle: "Create New Password",

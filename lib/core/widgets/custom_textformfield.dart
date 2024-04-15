@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -49,26 +51,20 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: widget.obscureValue!,
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle:  TextStyle(
-          color:AppColors.background,
-          fontSize: 16,
-        ),
-        hintText: widget.hintText,
-        hintStyle:  TextStyle(
-          color:AppColors.background,
-          fontSize: 16,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+        labelStyle: AppTextStyles.font16.copyWith(color: AppColors.background)
+        ,hintText: widget.hintText,
+        hintStyle:  AppTextStyles.font16.copyWith(color: AppColors.background)
+        ,enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:AppColors.background),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:AppColors.background),
         ),
         prefixIcon:widget.prefixIcon,
         suffixIcon: widget.suffixIcon,
-        contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+        contentPadding:  EdgeInsetsDirectional.symmetric(vertical: 18.h, horizontal: 16.w),
       ),
     );
   }

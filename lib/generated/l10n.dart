@@ -77,6 +77,15 @@ class S {
       args: [],
     );
   }
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get phone {
     return Intl.message(
       'Mobile Number',
@@ -120,6 +129,38 @@ class S {
     return Intl.message(
       'Hi,Welcome Back,',
       name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+  String get firstonboardtilte {
+    return Intl.message(
+      'Welcome to Oral Cancer Detection App,',
+      name: 'firstonboardtilte',
+      desc: '',
+      args: [],
+    );
+  }
+  String get firstonboarddesc {
+    return Intl.message(
+      'Begin your journey towards early detection and prevention of oral cancer with our advanced image-based diagnosis system.',
+      name: 'firstonboarddesc',
+      desc: '',
+      args: [],
+    );
+  }
+  String get secondonboardtilte {
+    return Intl.message(
+      'Explore and Protect Your Oral Health',
+      name: 'secondonboardtilte',
+      desc: '',
+      args: [],
+    );
+  }
+  String get secondonboarddesc {
+    return Intl.message(
+      'Discover the power of our app as you diagnose potential oral cancer symptoms through images and answer critical questions to assess your risk factors.Stay informed with the latest news and join our supportive community to connect with others on a similar journey.',
+      name: 'secondonboarddesc',
       desc: '',
       args: [],
     );
@@ -523,10 +564,66 @@ class S {
       args: [],
     );
   }
+  String get Next {
+    return Intl.message(
+      'Next',
+      name: 'Next',
+      desc: '',
+      args: [],
+    );
+  }
+  String get Finish {
+    return Intl.message(
+      'Finish',
+      name: 'Finish',
+      desc: '',
+      args: [],
+    );
+  }
+  String get Previous {
+    return Intl.message(
+      'Previous',
+      name: 'Previous',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get excellent {
     return Intl.message(
       'Excellent',
       name: 'excellent',
+      desc: '',
+      args: [],
+    );
+  }
+  String get forgetpassword {
+    return Intl.message(
+      'Forget Password?',
+      name: 'forgetpassword',
+      desc: '',
+      args: [],
+    );
+  }
+  String get sendcode {
+    return Intl.message(
+      'send code',
+      name: 'sendcode',
+      desc: '',
+      args: [],
+    );
+  }
+  String get donntworrysen {
+    return Intl.message(
+      "don't worry! it happens.  please enter the email associated with your with your account",
+      name: 'donntworrysen',
+      desc: '',
+      args: [],
+    );
+  } String get enteremail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enteremail',
       desc: '',
       args: [],
     );

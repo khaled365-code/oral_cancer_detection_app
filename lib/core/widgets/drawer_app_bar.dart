@@ -3,6 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../generated/l10n.dart';
 import '../utilis/app_assets.dart';
@@ -38,7 +39,7 @@ class DrawerAppBar extends StatelessWidget {
       centerTitle: true,
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 25),
+          padding:  EdgeInsetsDirectional.only(end: 25.w),
           child: InkWell(
             onTap: () {
               Scaffold.of(context).openDrawer();

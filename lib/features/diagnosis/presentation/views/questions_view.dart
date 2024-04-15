@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/Radio_question_view.dart';
@@ -13,7 +14,7 @@ class QuestionsView extends StatelessWidget {
       child: SafeArea(
             child: Scaffold(
               body: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsetsDirectional.all(8.0),
                 child: Column(
                   children: [
                       TabBar(
@@ -22,7 +23,7 @@ class QuestionsView extends StatelessWidget {
                       labelColor: AppColors.primary,
                       indicatorColor: AppColors.primary,
                         unselectedLabelColor: Colors.black,
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 20),
+                      labelPadding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                       tabs: const [
                         Tab(text: "first",),
                         Tab(text: "second",),

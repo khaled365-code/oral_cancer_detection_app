@@ -17,7 +17,7 @@ class News_tile extends StatelessWidget{
   Widget build(BuildContext context) {
     return
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 10),
+        padding:  EdgeInsetsDirectional.symmetric(horizontal: 18.w,vertical: 10.h),
         child: Container(
           color: Colors.white,
 
@@ -29,7 +29,7 @@ class News_tile extends StatelessWidget{
 
                 ClipRRect(
 
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   child:CachedNetworkImage(
                     errorWidget: (context,url,error)=>const Icon(Icons.error_outline_outlined),
                     placeholder: (context,url)=>const Center(child: CircularProgressIndicator()),
