@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../models/news_model.dart';
+import '../../data/models/news_model.dart';
 
 class NewsService{
   final  dio = Dio();
