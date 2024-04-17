@@ -50,7 +50,7 @@ class _LoginBodyState extends State<LoginBody> {
                      const CustomTextFormField(
                          labelText: 'Email',
                          hintText: 'Enter your email'),
-                     SizedBox(height: 8.h,),
+                     SizedBox(height: 12.h,),
                      CustomTextFormField
                        (labelText: 'Password',
                        hintText: 'Enter Your password',

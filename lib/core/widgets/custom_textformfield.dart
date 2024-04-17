@@ -62,9 +62,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:AppColors.background),
         ),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.r), ),
         prefixIcon:widget.prefixIcon,
         suffixIcon: widget.suffixIcon,
-        contentPadding:  EdgeInsetsDirectional.symmetric(vertical: 18.h, horizontal: 16.w),
+        contentPadding:  EdgeInsetsDirectional.symmetric(vertical: 14.h, horizontal: 16.w),
       ),
     );
   }

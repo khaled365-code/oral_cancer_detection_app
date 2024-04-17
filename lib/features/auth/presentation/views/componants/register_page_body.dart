@@ -119,7 +119,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                           // here signup user function preformed like chat app
                         }
                       },),
-                    SizedBox(height:10.h,),
+                    SizedBox(height:8.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

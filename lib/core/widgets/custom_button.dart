@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
           color:buttonBackground,
         ),
         width:220.w,
-        height:55.h,
+        height:50.h,
         child: Center(child: Text(buttonText,
           style:AppTextStyles.font20.copyWith(
               color: buttonTextColor,

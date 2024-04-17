@@ -37,6 +37,8 @@ class _GenderSelectTextFieldState extends State<GenderSelectTextField> {
           borderRadius: BorderRadius.circular(8.r),
           borderSide:const BorderSide(color:AppColors.background),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r), ),
         suffixIcon: PopupMenuButton<String>(
           icon:const Icon(Icons.arrow_drop_down,color:AppColors.background ,),
           onSelected: (gender) {
