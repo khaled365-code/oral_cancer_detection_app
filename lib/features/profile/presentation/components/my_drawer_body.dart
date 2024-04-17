@@ -63,7 +63,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
 
                                     context.read<ChangeLanguageCubit>().pressedLanguage=pressedLanguage;
                                     context.read<ChangeLanguageCubit>().updateLanguage();
-                                    navigate(context: context, route: Routes.home);
+                                    navigate(context: context, route: Routes.loginScreen);
                                   },
                                   child: Text(S.of(context).english,
                                       style: AppTextStyles.font16)),
@@ -80,7 +80,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                                     });
                                     context.read<ChangeLanguageCubit>().pressedLanguage=pressedLanguage;
                                     context.read<ChangeLanguageCubit>().updateLanguage();
-                                   navigate(context: context, route: Routes.home);
+                                   navigate(context: context, route: Routes.loginScreen);
                                   },
                                   child: Text(S.of(context).arabic,
                                       style: AppTextStyles.font16)),
