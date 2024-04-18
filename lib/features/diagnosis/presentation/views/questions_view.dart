@@ -18,6 +18,7 @@ class QuestionsView extends StatelessWidget {
                 child: Column(
                   children: [
                       TabBar(
+
                       labelStyle:AppTextStyles.font15.copyWith(fontWeight: FontWeight.bold),
                       isScrollable: true,
                       labelColor: AppColors.primary,

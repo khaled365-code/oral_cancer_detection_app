@@ -10,6 +10,7 @@ class ChangeLanguageCubit extends Cubit<ChangeLanguageState> {
   bool isArabic=false;
 
   updateLanguage(){
+    emit(ChangeLanguageLoading());
 
     if(languageCode==pressedLanguage){
       return ;

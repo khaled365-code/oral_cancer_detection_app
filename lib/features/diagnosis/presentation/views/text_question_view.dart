@@ -32,7 +32,10 @@ class QuestionText extends StatelessWidget {
                  Text(" What is the size of ulcer?",style: AppTextStyles.font24.copyWith(color: AppColors.white),),
 
                  SizedBox(height: 20.h,),
-                CustomTextFormField(hintText: 'Enter the size',onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,)
+                Padding(
+                  padding:  EdgeInsetsDirectional.all(16.0),
+                  child: CustomTextFormField(hintText: 'Enter the size',onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,),
+                )
                 ,
                  SizedBox(height: 40.h,),
                 // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,

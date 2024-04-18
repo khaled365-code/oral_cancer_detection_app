@@ -31,49 +31,52 @@ class QuestionChoiceState extends State<QuestionChoice> {
             borderRadius:  BorderRadius.all(Radius.circular(40.r)),
             height: 500.h,
             width: ScreenUtil().screenWidth,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-              //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
-                 SizedBox(height: 20.h,),
-                 Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
-                 SizedBox(height: 20.h,),
-                Column(
-                  children: widget.answersList
-                      .map(
-                        (answer) => RadioListTile(
-                      activeColor: AppColors.white,
+            child: Padding(
+              padding:  EdgeInsetsDirectional.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
+                   SizedBox(height: 20.h,),
+                   Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
+                   SizedBox(height: 20.h,),
+                  Column(
+                    children: widget.answersList
+                        .map(
+                          (answer) => RadioListTile(
+                        activeColor: AppColors.white,
 
-                      title: Text(answer
-                        ,style: AppTextStyles.font20,
+                        title: Text(answer
+                          ,style: AppTextStyles.font20,
+                        ),
+                        value: widget.answersList.indexOf(answer),
+                        groupValue: selectedAnswerIndex,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedAnswerIndex = value;
+                          });
+                        },
                       ),
-                      value: widget.answersList.indexOf(answer),
-                      groupValue: selectedAnswerIndex,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedAnswerIndex = value;
-                        });
+                    )
+                        .toList(),
+                  ), SizedBox(height: 40.h,),
+                  // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //   children: [
+                     // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
+                     widget.showButton? CustomElevatedButton(
+                       width: width,
+                       onpress: (){
+                        navigate(context: context, route: Routes.result);
                       },
-                    ),
-                  )
-                      .toList(),
-                ), SizedBox(height: 40.h,),
-                // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                   // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
-                   widget.showButton? CustomElevatedButton(
-                     width: width,
-                     onpress: (){
-                      navigate(context: context, route: Routes.result);
-                    },
-                     buttonBackground: AppColors.white, child:
-                   Row(
-                       children: [
-                         Text("Show Result",style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
-                //   ],
-                // )
+                       buttonBackground: AppColors.white, child:
+                     Row(
+                         children: [
+                           Text("Show Result",style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
+                  //   ],
+                  // )
 
-              ],
+                ],
+              ),
             ),
 
 
