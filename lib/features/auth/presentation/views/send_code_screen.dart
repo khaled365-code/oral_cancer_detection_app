@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/routes/app_routes.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
-import '../../../../core/utilis/app_colors.dart';
+import '../../../../core/commons/functions.dart';
+import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/custom_textformfield.dart';
 import '../../../../core/widgets/default_textform_field.dart';
 import '../../../../generated/l10n.dart';

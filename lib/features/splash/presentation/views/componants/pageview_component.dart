@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../../core/routes/app_routes.dart';
-import '../../../../../core/utilis/app_assets.dart';
-import '../../../../../core/utilis/app_colors.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/utilis/image_constants.dart';
+import '../../../../../core/utilis/colors.dart';
 import '../../../../../core/utilis/app_text_styles.dart';
-import '../../../../../core/utilis/commons.dart';
 import '../../../../../generated/l10n.dart';
 import 'onboarding_component.dart';
+import '../../../../../core/commons/functions.dart';
+
 
 class PageViewOnBoarding extends StatefulWidget {
   const PageViewOnBoarding({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
            ,child: Text(S.of(context).skip,style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
           title: S.of(context).firstonboardtilte,
           description: S.of(context).firstonboarddesc,
-          imagePath: AppAssets.onBoard1,
+          imagePath: ImageConstants.onBoard1,
     );
        }
      ),
@@ -41,7 +42,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
          return OnboardingPage(
           title: S.of(context).secondonboardtilte,
           description: S.of(context).secondonboarddesc,
-          imagePath: AppAssets.onBoard2,
+          imagePath: ImageConstants.onBoard2,
     );
        }
      ),

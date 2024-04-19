@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
 
 class CustomFormAppBar extends StatelessWidget {

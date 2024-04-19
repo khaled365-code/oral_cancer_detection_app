@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
 import 'package:pinput/pinput.dart';
-import '../../../../core/routes/app_routes.dart';
-import '../../../../core/utilis/app_colors.dart';
-import '../../../../core/utilis/commons.dart';
+import '../../../../core/commons/functions.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utilis/colors.dart';
 import '../../../../generated/l10n.dart';
 
 class OtpVerifyScreen extends StatelessWidget {

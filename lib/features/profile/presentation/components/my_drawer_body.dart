@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_assets.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
-import '../../../../core/routes/app_routes.dart';
+import '../../../../core/routes/routes.dart';
 import '../../../../generated/l10n.dart';
 import 'drawer_body_item.dart';
+import '../../../../../core/commons/functions.dart';
+
 
 class MyDrawerBody extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .editprofile,
-                  image: AppAssets.editprofile,
+                  image: ImageConstants.editprofile,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.editProfilescreen);
                   },
@@ -46,7 +47,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .language,
-                  image: AppAssets.language,
+                  image: ImageConstants.language,
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -110,7 +111,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .settings,
-                  image: AppAssets.settings,
+                  image: ImageConstants.settings,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.settings);
                   },
@@ -120,7 +121,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .location,
-                  image: AppAssets.location,
+                  image: ImageConstants.location,
                   onPressed: () {
 
                   },
@@ -130,7 +131,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .help,
-                  image: AppAssets.question,
+                  image: ImageConstants.question,
                   onPressed: () {
 
                   },
@@ -140,7 +141,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .about,
-                  image: AppAssets.help,
+                  image: ImageConstants.help,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.aboutApp);
                   },
@@ -150,7 +151,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                   text: S
                       .of(context)
                       .logout,
-                  image: AppAssets.logout,
+                  image: ImageConstants.logout,
                   onPressed: () {
                     showDialog(
                         context: context,

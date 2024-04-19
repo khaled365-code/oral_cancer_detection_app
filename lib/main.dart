@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_locale.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
-import 'core/routes/app_routes.dart';
+import 'core/routes/app_router.dart';
+import 'core/routes/routes.dart';
 import 'generated/l10n.dart';
 
 
@@ -24,12 +26,16 @@ class MyAppWithLanguage extends StatelessWidget {
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
           localizationsDelegates: const [
-            S.delegate,
             GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            AppLocalizations.delegate
           ],
-          supportedLocales: S.delegate.supportedLocales,
+          supportedLocales: const
+           [
+            Locale('ar',"EG"),
+            Locale('en',"Us"),
+            ],
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.splash,
           onGenerateRoute: AppRoutes.onGenerateRoutes,

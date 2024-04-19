@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../generated/l10n.dart';
-import '../utilis/app_assets.dart';
-import '../utilis/app_colors.dart';
+import '../utilis/image_constants.dart';
+import '../utilis/colors.dart';
 import '../utilis/app_text_styles.dart';
 
 class DrawerAppBar extends StatelessWidget {
@@ -20,7 +20,7 @@ class DrawerAppBar extends StatelessWidget {
         onTap: () {
           Scaffold.of(context).openDrawer();
         },
-        child: Image.asset(AppAssets.homelines, color: AppColors.primary),
+        child: Image.asset(ImageConstants.homelines, color: AppColors.primary),
       ),
       title: Column(
         children: [
@@ -46,7 +46,7 @@ class DrawerAppBar extends StatelessWidget {
             },
             child: CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage(AppAssets.profilePic),
+              backgroundImage: AssetImage(ImageConstants.profilePic),
             ),
           ),
         ),

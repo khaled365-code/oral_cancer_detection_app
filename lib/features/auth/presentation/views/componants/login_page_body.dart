@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/routes/app_routes.dart';
-import 'package:graduation_project/core/utilis/app_assets.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
+import '../../../../../core/commons/functions.dart';
 
 class LoginBody extends StatefulWidget{
   const LoginBody({super.key});
@@ -45,7 +45,7 @@ class _LoginBodyState extends State<LoginBody> {
                            color:AppColors.background ),
                      ),
                      SizedBox(height: 16.h,),
-                     CustomContainer(conHeight:150.h,conWidth: 170.w,conImage:AppAssets.login1,),
+                     CustomContainer(conHeight:150.h,conWidth: 170.w,conImage:ImageConstants.login1,),
                      SizedBox(height: 18.h,),
                      const CustomTextFormField(
                          labelText: 'Email',

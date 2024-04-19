@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_assets.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
@@ -59,7 +59,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                         Row(
                           children: [
                             Image.asset(
-                              AppAssets.account,
+                              ImageConstants.account,
                               color: AppColors.primary,
                             ),
                             SizedBox(
@@ -95,7 +95,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   Row(
                     children: [
                       Image.asset(
-                        AppAssets.notification,
+                        ImageConstants.notification,
                         color: AppColors.primary,
                       ),
                       SizedBox(
@@ -140,7 +140,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   Row(
                     children: [
                       Image.asset(
-                        AppAssets.settings,
+                        ImageConstants.settings,
                         color: AppColors.primary,
                       ),
                       SizedBox(

@@ -1,4 +1,5 @@
-
+import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
@@ -25,32 +26,8 @@ import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/splash/presentation/views/onboearding_screen.dart';
 import '../../main.dart';
 
-class Routes
-{
-  static const String home='/';
-  static  const String splash  = '/splash_Page';
-  static  const String doctor  = '/Doctor_Page';
-  static const String editProfilescreen='/edit_profile';
-  static const String settings='/setting_screen';
-  static const String aboutApp='/about_app_screen';
-  static const String faqscreen='/faq_screen';
-  static const String feedbackscreen='/feedback_screen';
-  static const String privacypolicyscreen='/privacy_policy_screen';
-  static const String communityhomescreen='/community_home_screen';
-  static const String onBoard='/onBoarding_screen';
-  static const String logAs='/Log_as_screen';
-  static const String loginScreen='/Login_screen';
-  static const String registerScreen='/register_screen';
-  static const String resetNewPass='/reset_new_pass';
-  static const String sendCode='/sendCode';
-  static const String radioQueastion='/radioQueastion';
-  static const String textQuestion='/textQuestion';
-  static const String result='/result';
-  static const String congratulationScreen='/congratulationScreen';
-  static const String questionsView='/questionsView';
-  static const String otpScreen='/otpScreen';
 
-}
+
 
 class AppRoutes
 {
@@ -69,8 +46,8 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) =>const CongratulationScreen(),);
       case Routes.result:
         return MaterialPageRoute(builder: (context) =>const ResultScreen(),);
-      // case Routes.radioQueastion:
-      //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
+    // case Routes.radioQueastion:
+    //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
       case Routes.textQuestion:
         return MaterialPageRoute(builder: (context) =>const QuestionText(),);
       case Routes.resetNewPass:
