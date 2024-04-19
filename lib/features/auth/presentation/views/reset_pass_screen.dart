@@ -11,6 +11,7 @@ import 'package:graduation_project/features/auth/presentation/views/componants/c
 import 'package:pinput/pinput.dart';
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/widgets/default_textform_field.dart';
+import '../../../../generated/l10n.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             children: [
               DefaultTextFormField(
                 obscureValue:isShowed1,
-                hintText: 'Enter a new password',
+                hintText: S.of(context).enterNewpassword,
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -54,7 +55,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               SizedBox(height: height*0.02,),
               DefaultTextFormField(
                 obscureValue:isShowed2,
-                hintText: 'Confirm your  password',
+                hintText: S.of(context).confirmYourpassword,
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -66,9 +67,9 @@ class _ResetPasswordState extends State<ResetPassword> {
               ),
             ],
           ),
-          buttonText: "change",
-          mainTitle: "Create New Password",
-          subTitle: "Your New Password Should be different from Previously used Password"
+          buttonText: S.of(context).change,
+          mainTitle: S.of(context).createNewPassword,
+          subTitle: S.of(context).yourNewPasswordShouldbedifferent
       ),
     );
   }

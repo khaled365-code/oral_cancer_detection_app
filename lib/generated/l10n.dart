@@ -1052,6 +1052,87 @@ class S {
       args: [],
     );
   }
+  String get VerifyProceed {
+    return Intl.message(
+      'Verify & Proceed',
+      name: 'VerifyProceed',
+      desc: '',
+      args: [],
+    );
+  }
+  String get EntertheOTP {
+    return Intl.message(
+      'Enter the OTP sent to email you submitted',
+      name: 'EntertheOTP',
+      desc: '',
+      args: [],
+    );
+  }
+  String get OTPVerification {
+    return Intl.message(
+      'OTP Verification',
+      name: 'OTPVerification',
+      desc: '',
+      args: [],
+    );
+  }
+  String get pleaseEnterCode {
+    return Intl.message(
+      'please enter the code',
+      name: 'pleaseEnterCode',
+      desc: '',
+      args: [],
+    );
+  }
+  String get change {
+    return Intl.message(
+      'Change',
+      name: 'change',
+      desc: '',
+      args: [],
+    );
+  }
+  String get createNewPassword {
+    return Intl.message(
+      'Create New Password',
+      name: 'createNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+  String get yourNewPasswordShouldbedifferent {
+    return Intl.message(
+      'Your New Password Should be different from Previously used Password',
+      name: 'yourNewPasswordShouldbedifferent',
+      desc: '',
+      args: [],
+    );
+  }
+  String get enterNewpassword {
+    return Intl.message(
+      'Enter a new password',
+      name: 'enterNewpassword',
+      desc: '',
+      args: [],
+    );
+  }
+  String get confirmYourpassword {
+    return Intl.message(
+      'Confirm your  password',
+      name: 'confirmYourpassword',
+      desc: '',
+      args: [],
+    );
+  }
+  String get congratulation {
+    return Intl.message(
+      'Congratulation!',
+      name: 'congratulation',
+      desc: '',
+      args: [],
+    );
+  }
+
 
 }
 

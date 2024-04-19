@@ -113,7 +113,17 @@
   "staySafe": "Stay Safe",
   "oralCancerDetectionSystem": "Oral Cancer Detection System",
   "healthcareSystem": "Healthcare System",
-  "getStarted": "Get Started"
+  "getStarted": "Get Started",
+  "OTPVerification": "OTP Verification",
+  "EntertheOTP": "Enter the OTP sent to email you submitted",
+  "VerifyProceed": "Verify & Proceed",
+  "pleaseEnterCode": "please enter the code",
+  "createNewPassword": "Create New Password",
+  "yourNewPasswordShouldbedifferent": "Your New Password Should be different from Previously used Password",
+  "enterNewpassword": "Enter a new password",
+  "confirmYourpassword": "Confirm your  password",
+  "change": "Change",
+  "congratulation": "Congratulation!",
 
 
 
