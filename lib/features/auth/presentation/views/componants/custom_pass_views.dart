@@ -2,13 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/routes/app_routes.dart';
-import '../../../../../core/utilis/app_assets.dart';
-import '../../../../../core/utilis/app_colors.dart';
+import '../../../../../core/utilis/image_constants.dart';
+import '../../../../../core/utilis/colors.dart';
 import '../../../../../core/utilis/app_text_styles.dart';
-import '../../../../../core/utilis/commons.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../../core/widgets/custom_textformfield.dart';
+
 
 class CustomPassViews extends StatelessWidget {
   const CustomPassViews({Key? key,required this.buttonPress,required this.buttonText,required this.mainTitle,required this.subTitle,this.centerWidget}) : super(key: key);
@@ -33,7 +31,7 @@ class CustomPassViews extends StatelessWidget {
               children: [
                 SizedBox(height: height*0.02,),
                 ClipOval(
-                  child: Image.asset(AppAssets.lock,width: width*0.3,),
+                  child: Image.asset(ImageConstants.lock,width: width*0.3,),
                 ),
                 SizedBox(height: height*0.03,),
                 Text(mainTitle,style: AppTextStyles.font26),

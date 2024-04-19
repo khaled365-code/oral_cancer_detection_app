@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../../../generated/l10n.dart';
 import '../components/privacy_item.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
@@ -32,7 +31,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
-          title: S.of(context).policy,
+          title: 'S.of(context).policy',
         ),
       ),
       body: SingleChildScrollView(
@@ -41,20 +40,20 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           child: Column(
             children: [
               PrivacyContainerItem(
-                text: S.of(context).question1,
+                text: 'S.of(context).question1',
                 onTap: () {
                   setState(() {
                     pressed1 = !pressed1;
                   });
                 },
                 isPressed: pressed1,
-                answerText: S.of(context).answer1,
+                answerText: 'S.of(context).answer1',
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question2,
+                text: 'S.of(context).question2',
                 onTap: () {
                   setState(
                     () {
@@ -63,13 +62,13 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed2,
-                answerText: S.of(context).answer2,
+                answerText: 'S.of(context).answer2',
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question3,
+                text: 'S.of(context).question3',
                 onTap: () {
                   setState(
                     () {
@@ -78,14 +77,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed3,
-                answerText: S.of(context).answer3,
+                answerText: 'S.of(context).answer3',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question4,
+                text: 'S.of(context).question4',
                 onTap: () {
                   setState(
                     () {
@@ -94,14 +93,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed4,
-                answerText: S.of(context).answer4,
+                answerText: 'S.of(context).answer4',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question5,
+                text: 'S.of(context).question5',
                 onTap: () {
                   setState(
                     () {
@@ -110,14 +109,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed5,
-                answerText: S.of(context).answer5,
+                answerText: 'S.of(context).answer5',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question6,
+                text: 'S.of(context).question6',
                 onTap: () {
                   setState(
                     () {
@@ -126,14 +125,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed6,
-                answerText: S.of(context).answer6,
+                answerText: 'S.of(context).answer6',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question7,
+                text: 'S.of(context).question7',
                 onTap: () {
                   setState(
                     () {
@@ -142,14 +141,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed7,
-                answerText: S.of(context).answer7,
+                answerText: 'S.of(context).answer7',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question8,
+                text: 'S.of(context).question8',
                 onTap: () {
                   setState(
                     () {
@@ -158,14 +157,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed8,
-                answerText: S.of(context).answer8,
+                answerText: 'S.of(context).answer8',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question9,
+                text: 'S.of(context).question9',
                 onTap: () {
                   setState(
                     () {
@@ -174,14 +173,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed9,
-                answerText: S.of(context).answer9,
+                answerText: 'S.of(context).answer9',
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: S.of(context).question10,
+                text: 'S.of(context).question10',
                 onTap: () {
                   setState(
                     () {
@@ -190,7 +189,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   );
                 },
                 isPressed: pressed10,
-                answerText: S.of(context).answer10,
+                answerText: 'S.of(context).answer10',
 
               ),
             ],

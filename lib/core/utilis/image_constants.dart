@@ -1,6 +1,6 @@
 
 
-class AppAssets
+class ImageConstants
 {
 
   static const String profilePic='assets/images/khaled.jpeg';

@@ -1,3 +1,4 @@
+final Map<String, String> arEg =
 {
 
   "editprofile": "تعديل الملف الشخصي",
@@ -35,8 +36,4 @@
   "Previous": "السابق",
   "Finish": "إنهاء",
   "Next": "التالي"
-
-
-
-
-}
+};

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 
 class DefaultAppBar extends StatelessWidget {
   const DefaultAppBar({Key? key,required this.title,this.actions,this.leading,this.backgroundColor=Colors.transparent}) : super(key: key);

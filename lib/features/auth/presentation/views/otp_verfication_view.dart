@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
 import 'package:pinput/pinput.dart';
-import '../../../../core/routes/app_routes.dart';
-import '../../../../core/utilis/app_colors.dart';
-import '../../../../core/utilis/commons.dart';
-import '../../../../generated/l10n.dart';
+import '../../../../core/commons/functions.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utilis/colors.dart';
 
 class OtpVerifyScreen extends StatelessWidget {
   const OtpVerifyScreen({Key? key}) : super(key: key);
@@ -16,13 +15,13 @@ class OtpVerifyScreen extends StatelessWidget {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonText: S.of(context).VerifyProceed
-          , mainTitle: S.of(context).OTPVerification,
-          subTitle: S.of(context).EntertheOTP,
+          buttonText: 'S.of(context).VerifyProceed'
+          , mainTitle: 'S.of(context).OTPVerification',
+          subTitle: 'S.of(context).EntertheOTP',
           centerWidget: Pinput(
             validator: (pin){
               if(pin!.isEmpty){
-                return S.of(context).pleaseEnterCode;
+                return 'S.of(context).pleaseEnterCode';
               }
             },
             keyboardType: TextInputType.number,

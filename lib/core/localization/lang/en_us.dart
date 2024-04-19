@@ -1,4 +1,6 @@
+final Map<String, String> enUs =
 {
+  "welcome":"hello all",
   "editprofile": "Edit Profile",
   "fname": "First Name",
   "lname": "Last Name",
@@ -14,7 +16,7 @@
   "doctors":"Doctors",
   "khaledemail":"khaledmo@gmail.com",
   "location": "Location",
-   "logout":"Logout",
+  "logout":"Logout",
   "settings":"Settings",
   "language": "Language",
   "shareapp": "Share App",
@@ -123,9 +125,5 @@
   "enterNewpassword": "Enter a new password",
   "confirmYourpassword": "Confirm your  password",
   "change": "Change",
-  "congratulation": "Congratulation!",
-
-
-
-
-}
+  "congratulation": "Congratulation!"
+};

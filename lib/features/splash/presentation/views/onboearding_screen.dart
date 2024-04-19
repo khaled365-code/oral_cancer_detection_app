@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/routes/app_routes.dart';
-import '../../../../core/utilis/app_colors.dart';
-import '../../../../core/utilis/commons.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utilis/colors.dart';
 import 'componants/pageview_component.dart';
+import '../../../../../core/commons/functions.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
    OnboardingScreen({super.key, });

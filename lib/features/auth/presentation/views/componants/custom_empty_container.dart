@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_form_container.dart';
 
 class EmptyContainer extends StatelessWidget{

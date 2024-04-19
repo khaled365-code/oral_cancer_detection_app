@@ -5,9 +5,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 
-import '../../../../core/utilis/app_assets.dart';
+import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/utilis/app_text_styles.dart';
 import '../components/post_container.dart';
 
@@ -77,7 +77,7 @@ class CommunityScreen extends StatelessWidget {
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',
-                      postOwnerPhoto: AppAssets.profilePic,
+                      postOwnerPhoto: ImageConstants.profilePic,
                       postText: 'Oral cancer symptoms can include persistent mouth sores, unusual lumps, or patches in the mouth or throat. Don\'t ignore any changes in your oral health—early detection is key! Regular dental check-ups and self-examinations are essential for spotting potential warning signs. #OralHealth #CancerAwareness',
                     ),
                   ),
@@ -94,7 +94,7 @@ class CommunityScreen extends StatelessWidget {
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',
-                      postOwnerPhoto: AppAssets.profilePic,
+                      postOwnerPhoto: ImageConstants.profilePic,
                       postText: 'Oral cancer symptoms can include persistent mouth sores, unusual lumps, or patches in the mouth or throat. Don\'t ignore any changes in your oral health—early detection is key! Regular dental check-ups and self-examinations are essential for spotting potential warning signs. #OralHealth #CancerAwareness',
                     ),
                   ),
@@ -110,7 +110,7 @@ class CommunityScreen extends StatelessWidget {
                     child: PostContainer(
                       postHours: '3h',
                       postOwner: 'Michael Daly',
-                      postOwnerPhoto: AppAssets.profilePic,
+                      postOwnerPhoto: ImageConstants.profilePic,
                       postText: 'Oral cancer symptoms can include persistent mouth sores, unusual lumps, or patches in the mouth or throat. Don\'t ignore any changes in your oral health—early detection is key! Regular dental check-ups and self-examinations are essential for spotting potential warning signs. #OralHealth #CancerAwareness',
                     ),
                   ),

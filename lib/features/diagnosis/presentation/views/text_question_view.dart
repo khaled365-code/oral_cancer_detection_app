@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/routes/app_routes.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_form_container.dart';
+import '../../../../core/commons/functions.dart';
 
-import '../../../../core/utilis/app_colors.dart';
+import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/custom_textformfield.dart';
 
 class QuestionText extends StatelessWidget {

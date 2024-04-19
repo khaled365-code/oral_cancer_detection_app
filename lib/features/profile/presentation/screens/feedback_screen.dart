@@ -5,14 +5,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_assets.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/shared_button.dart';
-import '../../../../generated/l10n.dart';
-
 class FeedBackScreen extends StatelessWidget {
 
   @override
@@ -23,7 +21,7 @@ class FeedBackScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
-          title: S.of(context).feedback,
+          title: 'S.of(context).feedback',
         ),
       ),
 
@@ -33,7 +31,7 @@ class FeedBackScreen extends StatelessWidget {
             children: [
               Center(
                   child: Text(
-                S.of(context).howrate,
+                'S.of(context).howrate',
                 style: AppTextStyles.font16.copyWith(
                     color: AppColors.black, fontWeight: FontWeight.normal),
               )),
@@ -78,13 +76,13 @@ class FeedBackScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      S.of(context).poor,
+                      'S.of(context).poor',
                       style: AppTextStyles.font14.copyWith(
                           color: AppColors.grgr, fontWeight: FontWeight.normal),
                     ),
                     Spacer(),
                     Text(
-                      S.of(context).excellent,
+                      'S.of(context).excellent',
                       style: AppTextStyles.font14.copyWith(
                           color: AppColors.grgr, fontWeight: FontWeight.normal),
                     )
@@ -109,7 +107,7 @@ class FeedBackScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          S.of(context).leavecomment,
+                          'S.of(context).leavecomment',
                           style: AppTextStyles.font16
                               .copyWith(color: AppColors.black),
                         ),
@@ -117,7 +115,7 @@ class FeedBackScreen extends StatelessWidget {
                           height: 5.h,
                         ),
                         Text(
-                          S.of(context).impfeed,
+                          'S.of(context).impfeed',
                           style: AppTextStyles.font16.copyWith(
                               color: AppColors.grgr,
                               fontWeight: FontWeight.normal),
@@ -141,7 +139,7 @@ class FeedBackScreen extends StatelessWidget {
               Padding(
                 padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 child: SharedButton(
-                  text: S.of(context).sendfeedback,
+                  text:' S.of(context).sendfeedback',
                   buttonColor: AppColors.primary,
                   textStyle: AppTextStyles.font16.copyWith(
                     color: AppColors.white,

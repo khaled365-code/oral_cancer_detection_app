@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_assets.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 
 import 'componants/doctor_card.dart';
 
@@ -30,7 +30,7 @@ class DoctorPage extends StatelessWidget{
         child:SingleChildScrollView(
           child: Column(
             children: [
-              DoctorCard(image:AppAssets.doc1,
+              DoctorCard(image:ImageConstants.doc1,
                   doctorName:'Dr.ALADDIN',
                   docDegree:'Oncologist',
                   aboutDoc:'Professor of oncological surgery and oral surgery at '
@@ -39,7 +39,7 @@ class DoctorPage extends StatelessWidget{
                   docAddress:'Cairo city'),
               SizedBox(height: 16.h,),
 
-              DoctorCard(image:AppAssets.doc2,
+              DoctorCard(image:ImageConstants.doc2,
                   doctorName:'Dr.ADEL ISMAIL',
                   docDegree:'Oncologist',
                   aboutDoc:'Consultant of Oncology and Radiotherapy. Doctorate in Oncology '
@@ -47,7 +47,7 @@ class DoctorPage extends StatelessWidget{
                   docNumber:'0404715432',
                   docAddress:'Tanta city'),
               SizedBox(height: 16.h,),
-              DoctorCard(image:AppAssets.doc3,
+              DoctorCard(image:ImageConstants.doc3,
                   doctorName:'Dr.REDA NOUR AL-DIN',
                   docDegree:'Dentist',
                   aboutDoc:'highly specialized in the field of oral surgery and cosmetic dentistry.'
@@ -56,7 +56,7 @@ class DoctorPage extends StatelessWidget{
                   docNumber:'040571765',
                   docAddress:'Benha city'),
               SizedBox(height: 16.h,),
-              DoctorCard(image:AppAssets.doc4,
+              DoctorCard(image:ImageConstants.doc4,
                   doctorName:'Dr.AHMED RASHAD',
                   docDegree:'Oncologist',
                   aboutDoc:'Consultant & doctorate degree in Medical Oncology,'

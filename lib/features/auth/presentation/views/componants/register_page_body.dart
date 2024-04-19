@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/routes/app_routes.dart';
-import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/commons.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
+import '../../../../../core/commons/functions.dart';
+
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/date_function.dart';
@@ -113,11 +114,10 @@ class _RegisterBodyState extends State<RegisterBody> {
                       buttonTextColor: AppColors.primary,
                       buttonText:'Sign Up' ,
                       onTap:(){
-                        if(formKey.currentState!.validate()){
-                          print('Register done');
+
                           navigate(context: context, route: Routes.loginScreen);
-                          // here signup user function preformed like chat app
-                        }
+
+
                       },),
                     SizedBox(height:8.h,),
                     Row(
