@@ -114,11 +114,10 @@ class _RegisterBodyState extends State<RegisterBody> {
                       buttonTextColor: AppColors.primary,
                       buttonText:'Sign Up' ,
                       onTap:(){
-                        if(formKey.currentState!.validate()){
-                          print('Register done');
+
                           navigate(context: context, route: Routes.loginScreen);
-                          // here signup user function preformed like chat app
-                        }
+
+
                       },),
                     SizedBox(height:8.h,),
                     Row(

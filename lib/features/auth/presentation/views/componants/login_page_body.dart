@@ -83,11 +83,8 @@ class _LoginBodyState extends State<LoginBody> {
                        buttonBackground: AppColors.background,
                        buttonTextColor: AppColors.primary,
                        onTap:(){
-                       if(formKey.currentState!.validate()){
-                         print('Login done');
                          navigate(context: context, route: Routes.home);
-                         // here login user function preformed like chat app
-                       }
+
 
                      },),
                      SizedBox(height: 10.h,),
