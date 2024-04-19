@@ -6,7 +6,6 @@ import 'package:pinput/pinput.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../../../generated/l10n.dart';
 
 class OtpVerifyScreen extends StatelessWidget {
   const OtpVerifyScreen({Key? key}) : super(key: key);
@@ -16,13 +15,13 @@ class OtpVerifyScreen extends StatelessWidget {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonText: S.of(context).VerifyProceed
-          , mainTitle: S.of(context).OTPVerification,
-          subTitle: S.of(context).EntertheOTP,
+          buttonText: 'S.of(context).VerifyProceed'
+          , mainTitle: 'S.of(context).OTPVerification',
+          subTitle: 'S.of(context).EntertheOTP',
           centerWidget: Pinput(
             validator: (pin){
               if(pin!.isEmpty){
-                return S.of(context).pleaseEnterCode;
+                return 'S.of(context).pleaseEnterCode';
               }
             },
             keyboardType: TextInputType.number,

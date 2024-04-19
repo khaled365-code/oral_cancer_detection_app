@@ -7,7 +7,6 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import '../../../../core/routes/routes.dart';
-import '../../../../generated/l10n.dart';
 import 'drawer_body_item.dart';
 import '../../../../../core/commons/functions.dart';
 
@@ -34,9 +33,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
             child: Column(
               children: [
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .editprofile,
+                  text: 'S.of(context).editprofile',
                   image: ImageConstants.editprofile,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.editProfilescreen);
@@ -44,18 +41,14 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .language,
+                  text: 'S.of(context).language',
                   image: ImageConstants.language,
                   onPressed: () {
                     showDialog(
                         context: context,
                         builder: (context) =>
                             CupertinoAlertDialog(
-                              title: Text(S
-                                  .of(context)
-                                  .language),
+                              title: Text('S.of(context).language'),
                               content: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -74,9 +67,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                                         navigate(context: context,
                                             route: Routes.loginScreen);
                                       },
-                                      child: Text(S
-                                          .of(context)
-                                          .english,
+                                      child: Text('S.of(context).english',
                                           style: AppTextStyles.font16)),
                                   Divider(
                                       thickness: 2,
@@ -97,9 +88,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                                         navigate(context: context,
                                             route: Routes.loginScreen);
                                       },
-                                      child: Text(S
-                                          .of(context)
-                                          .arabic,
+                                      child: Text('S.of(context).arabic',
                                           style: AppTextStyles.font16)),
                                 ],
                               ),
@@ -108,9 +97,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .settings,
+                  text: 'S.of(context).settings',
                   image: ImageConstants.settings,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.settings);
@@ -118,9 +105,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .location,
+                  text: 'S.of(context).location',
                   image: ImageConstants.location,
                   onPressed: () {
 
@@ -128,9 +113,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .help,
+                  text: 'S.of(context).help',
                   image: ImageConstants.question,
                   onPressed: () {
 
@@ -138,9 +121,7 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .about,
+                  text: 'S.of(context).about',
                   image: ImageConstants.help,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.aboutApp);
@@ -148,24 +129,18 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                 ),
                 SizedBox(height: 10.h,),
                 DrawerItem(
-                  text: S
-                      .of(context)
-                      .logout,
+                  text: 'S.of(context).logout',
                   image: ImageConstants.logout,
                   onPressed: () {
                     showDialog(
                         context: context,
                         builder: (context) =>
                             CupertinoAlertDialog(
-                              title: Text(S
-                                  .of(context)
-                                  .logout),
+                              title: Text('S.of(context).logout'),
                               content: Column(
                                 children: [
                                   SizedBox(height: 10.h,),
-                                  Text(S
-                                      .of(context)
-                                      .logoutsure,
+                                  Text('S.of(context).logoutsure',
                                     style: AppTextStyles.font14.copyWith(
                                         color: AppColors.black),),
                                   SizedBox(height: 5.h,),
@@ -174,15 +149,11 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
                                       color: Colors.grey[400]),
                                   Row(
                                     children: [
-                                      TextButton(onPressed: () {}, child: Text(S
-                                          .of(context)
-                                          .cancel,
+                                      TextButton(onPressed: () {}, child: Text('S.of(context).cancel',
                                           style: AppTextStyles.font16.copyWith(
                                               color: AppColors.primary))),
                                       Spacer(),
-                                      TextButton(onPressed: () {}, child: Text(S
-                                          .of(context)
-                                          .logout,
+                                      TextButton(onPressed: () {}, child: Text('S.of(context).logout',
                                           style: AppTextStyles.font16.copyWith(
                                               color: AppColors.primary))),
 

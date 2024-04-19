@@ -11,7 +11,6 @@ import 'package:pinput/pinput.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/default_textform_field.dart';
-import '../../../../generated/l10n.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -43,7 +42,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             children: [
               DefaultTextFormField(
                 obscureValue:isShowed1,
-                hintText: S.of(context).enterNewpassword,
+                hintText: 'S.of(context).enterNewpassword',
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -55,7 +54,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               SizedBox(height: height*0.02,),
               DefaultTextFormField(
                 obscureValue:isShowed2,
-                hintText: S.of(context).confirmYourpassword,
+                hintText: 'S.of(context).confirmYourpassword',
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -67,9 +66,9 @@ class _ResetPasswordState extends State<ResetPassword> {
               ),
             ],
           ),
-          buttonText: S.of(context).change,
-          mainTitle: S.of(context).createNewPassword,
-          subTitle: S.of(context).yourNewPasswordShouldbedifferent
+          buttonText: 'S.of(context).change',
+          mainTitle: 'S.of(context).createNewPassword',
+          subTitle: 'S.of(context).yourNewPasswordShouldbedifferent'
       ),
     );
   }

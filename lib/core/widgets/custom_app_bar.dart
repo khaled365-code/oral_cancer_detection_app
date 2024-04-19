@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../generated/l10n.dart';
 import '../utilis/colors.dart';
 import '../utilis/app_text_styles.dart';
 

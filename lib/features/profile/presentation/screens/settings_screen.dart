@@ -8,8 +8,7 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../../../generated/l10n.dart';
-import '../components/notification_container.dart';
+import'../components/notification_container.dart';
 
 class SettingsScreen extends StatefulWidget {
 
@@ -37,9 +36,7 @@ class SettingsScreenState extends State<SettingsScreen> {
           appBar: PreferredSize(
             preferredSize: Size(double.infinity, 50.h),
             child: CustomAppBar(
-              title: S
-                  .of(context)
-                  .settings,
+              title: 'S.of(context).settings',
             ),
           ),
           body: Padding(
@@ -75,9 +72,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                         SizedBox(
                           height: 25.h,
                         ),
-                        Text(S
-                            .of(context)
-                            .editprofile,
+                        Text('S.of(context).editprofile',
                             style: AppTextStyles.font16
                                 .copyWith(color: AppColors.black)),
                         SizedBox(

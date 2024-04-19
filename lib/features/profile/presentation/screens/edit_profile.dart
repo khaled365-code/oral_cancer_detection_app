@@ -13,7 +13,6 @@ import 'package:graduation_project/core/widgets/shared_button.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
 import '../../../../core/widgets/date_picker_widget.dart';
-import '../../../../generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 
@@ -34,7 +33,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
       appBar: PreferredSize(
         child: CustomAppBar(
-          title: S.of(context).profile,
+          title: 'S.of(context).profile',
         ),
         preferredSize: Size(double.infinity, 50.h),
       ),
@@ -54,28 +53,28 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
                 SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
-                  hintText: S.of(context).fname,
+                  hintText: 'S.of(context).fname',
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
                 SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
-                  hintText: S.of(context).lname,
+                  hintText: 'S.of(context).lname',
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
                 SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
-                  hintText: S.of(context).phone,
+                  hintText: 'S.of(context).phone',
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
                 ),
                 SizedBox(height: 30.h,),
                 CustomOutlinedTextField(
-                  hintText: S.of(context).email,
+                  hintText: 'S.of(context).email',
                   onFieldSubmitted: (value) {},
                   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
                   crusorColor: Colors.green,
@@ -114,7 +113,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
                 SizedBox(height: 40.h,),
                 SharedButton(
-                    text: S.of(context).save,
+                    text: 'S.of(context).save',
                     textStyle: AppTextStyles.font20.copyWith(color: AppColors.black),
                     buttonColor: AppColors.primary,
                     hasBorderRadius: true ,

@@ -5,7 +5,6 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../core/commons/functions.dart';
-import '../../../../generated/l10n.dart';
 
 class CongratulationScreen extends StatefulWidget {
   const CongratulationScreen({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.asset('assets/images/animation.json'),
-           Text(S.of(context).congratulation,style: AppTextStyles.font26,)
+           Text('S.of(context).congratulation',style: AppTextStyles.font26,)
         ],
       ),
     );

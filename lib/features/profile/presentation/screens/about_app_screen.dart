@@ -7,7 +7,6 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_app_bar.dart';
 
 import '../../../../core/routes/routes.dart';
-import '../../../../generated/l10n.dart';
 import '../components/about_app_container.dart';
 
 class AboutAppScreen extends StatelessWidget {
@@ -20,7 +19,7 @@ class AboutAppScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
-          title: S.of(context).about,
+          title: 'S.of(context).about',
         ),
       ),
       body: SingleChildScrollView(
@@ -31,7 +30,7 @@ class AboutAppScreen extends StatelessWidget {
               child: Column(
                 children: [
                   AboutAppContainerItem(
-                    text: S.of(context).faq,
+                    text: 'S.of(context).faq',
                     onTap: ()
                     {
                      Navigator.pushNamed(context, Routes.faqscreen);
@@ -42,7 +41,7 @@ class AboutAppScreen extends StatelessWidget {
                     color: AppColors.grgr,
                   ),
                   AboutAppContainerItem(
-                    text: S.of(context).feedback,
+                    text: 'S.of(context).feedback',
                     onTap: ()
                     {
                       Navigator.pushNamed(context, Routes.feedbackscreen);
@@ -54,7 +53,7 @@ class AboutAppScreen extends StatelessWidget {
                     color: AppColors.grgr,
                   ),
                   AboutAppContainerItem(
-                    text: S.of(context).policy,
+                    text: 'S.of(context).policy',
                     onTap: ()
                     {
                       Navigator.pushNamed(context, Routes.privacypolicyscreen);
@@ -76,7 +75,7 @@ class AboutAppScreen extends StatelessWidget {
               height:375.h,
             ),
             Text(
-              S.of(context).version,
+              'S.of(context).version',
               style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),
             ),
           ],

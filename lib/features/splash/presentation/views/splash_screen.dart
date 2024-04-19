@@ -7,7 +7,6 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
-import 'package:graduation_project/generated/l10n.dart';
 import '../../../../../core/commons/functions.dart';
 
 
@@ -49,13 +48,13 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
               CustomContainer(conHeight:190.h,conWidth:230.w,conImage:ImageConstants.splash),
              SizedBox(height:14.h,),
             Text(
-              S.of(context).oralCancerDetectionSystem,
+              'S.of(context).oralCancerDetectionSystem',
               textAlign: TextAlign.center,
               style: AppTextStyles.font24.copyWith(color: AppColors.primary)
             ),
              SizedBox(height: 8.h,),
             Text(
-              S.of(context).healthcareSystem,
+              'S.of(context).healthcareSystem',
               textAlign: TextAlign.center,
               style:AppTextStyles.font14.copyWith(
                   color: AppColors.primary,
@@ -75,7 +74,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                     onTap: (){
                       navigate(context: context, route: Routes.onBoard);
                     },
-                    buttonText: S.of(context).getStarted,
+                    buttonText: 'S.of(context).getStarted',
                   ),
                 );
               },
