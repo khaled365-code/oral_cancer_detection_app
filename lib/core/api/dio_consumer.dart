@@ -12,7 +12,12 @@ class DioConsumer extends ApiConsumer{
     dio.options.baseUrl=EndPoints.baseUrl;
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(
-      request: true,responseBody: true,responseHeader: true,requestHeader: true,requestBody: true,error: true
+        request: true,
+        responseBody: true,
+        responseHeader: true,
+        requestHeader: true,
+        requestBody: true,
+        error: true
     ));
   }
 

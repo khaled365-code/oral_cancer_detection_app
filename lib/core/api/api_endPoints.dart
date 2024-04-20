@@ -1,5 +1,5 @@
 class EndPoints{
-  static String baseUrl="https://825b-102-184-31-23.ngrok-free.app/api/auth/";
+  static String baseUrl="https://6f0d-102-184-20-11.ngrok-free.app/api/auth/";
   static String register="register";
   static String loginEndPoint="login";
 }
