@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
@@ -50,12 +51,12 @@ class _LoginBodyState extends State<LoginBody> {
                  padding:EdgeInsetsDirectional.only(top: 20.h,end: 16.w,start:16.w),
                  child: Column(
                    children: [
-                     Text('Login',
+                     Text("login".tr(context),
                        style:AppTextStyles.font20.copyWith(
                            color:AppColors.background ),
                      ),
                      SizedBox(height: 8.h,),
-                     Text('  Welcome Back!',
+                     Text("welcome back".tr(context),
                        style:AppTextStyles.font20.copyWith(
                            color:AppColors.background ),
                      ),
@@ -64,14 +65,14 @@ class _LoginBodyState extends State<LoginBody> {
                      SizedBox(height: 18.h,),
                       CustomTextFormField(
                        controller: context.read<SignInCubit>().signInEmail,
-                         labelText: 'Email',
-                         hintText: 'Enter your email'),
+                         labelText: "email".tr(context),
+                         hintText:"enteremail".tr(context)),
                      SizedBox(height: 12.h,),
                      CustomTextFormField
                        (
                        controller:context.read<SignInCubit>().signInPassword ,
-                       labelText: 'Password',
-                       hintText: 'Enter Your password',
+                       labelText:"password".tr(context),
+                       hintText:"enter your password".tr(context),
                        obscureValue: isSecured,
                        suffixIcon: IconButton(onPressed: () {
                          isSecured = !isSecured;
@@ -87,7 +88,7 @@ class _LoginBodyState extends State<LoginBody> {
                        onPressed: () {
                          navigate(context: context, route: Routes.sendCode);
                        },
-                       child:Text('Forget Password?',
+                       child:Text("forget password".tr(context),
                          style:AppTextStyles.font18.copyWith(
                              color:AppColors.background,
                              fontWeight: FontWeight.w600,
@@ -97,7 +98,7 @@ class _LoginBodyState extends State<LoginBody> {
                      ),
                      SizedBox(height: 16.h,),
                     state is SignInLoadingState?CircularProgressIndicator(): CustomButton(
-                       buttonText: 'Login',
+                       buttonText:"login".tr(context),
                        buttonBackground: AppColors.background,
                        buttonTextColor: AppColors.primary,
                        onTap:(){
@@ -112,7 +113,7 @@ class _LoginBodyState extends State<LoginBody> {
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
-                          Text("Don't have an account ?",
+                          Text( "Don't have an account".tr(context),
                            style:AppTextStyles.font14.copyWith(
                                color:AppColors.background ),
                           ),
@@ -120,7 +121,7 @@ class _LoginBodyState extends State<LoginBody> {
                            onTap: () {
                              navigate(context: context, route: Routes.registerScreen);
                            },
-                           child:Text('Sign Up',
+                           child:Text("Sign Up".tr(context),
                              style:AppTextStyles.font14.copyWith(
                                  color: AppColors.background,
                                  fontFamily: 'lato',
@@ -141,6 +142,5 @@ class _LoginBodyState extends State<LoginBody> {
    );
   },
 );
-
   }
 }

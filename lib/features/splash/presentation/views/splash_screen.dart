@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
@@ -8,7 +9,6 @@ import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/row_title.dart';
 import '../../../../../core/commons/functions.dart';
-
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -48,13 +48,13 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
               CustomContainer(conHeight:190.h,conWidth:230.w,conImage:ImageConstants.splash),
              SizedBox(height:14.h,),
             Text(
-              'S.of(context).oralCancerDetectionSystem',
+                "oralCancerDetectionSystem".tr(context),
               textAlign: TextAlign.center,
               style: AppTextStyles.font24.copyWith(color: AppColors.primary)
             ),
              SizedBox(height: 8.h,),
             Text(
-              'S.of(context).healthcareSystem',
+                "healthcareSystem".tr(context),
               textAlign: TextAlign.center,
               style:AppTextStyles.font14.copyWith(
                   color: AppColors.primary,
@@ -74,7 +74,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                     onTap: (){
                       navigate(context: context, route: Routes.onBoard);
                     },
-                    buttonText: 'S.of(context).getStarted',
+                    buttonText:"getStarted".tr(context),
                   ),
                 );
               },
@@ -85,7 +85,6 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
       ),
     );
   }
-
   void initSlidingAnimation() {
     animationController=AnimationController(
       vsync: this,

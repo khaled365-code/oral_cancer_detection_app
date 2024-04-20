@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
@@ -29,12 +30,12 @@ class QuestionText extends StatelessWidget {
               children: [
                  //Text("2 /9",style: AppTextStyles.font18.copyWith(color: AppColors.primary)),
                  SizedBox(height: 30.h,),
-                 Text(" What is the size of ulcer?",style: AppTextStyles.font24.copyWith(color: AppColors.white),),
+                 Text(" Whatisthesizeofulcer?".tr(context),style: AppTextStyles.font24.copyWith(color: AppColors.white),),
 
                  SizedBox(height: 20.h,),
                 Padding(
                   padding:  EdgeInsetsDirectional.all(16.0),
-                  child: CustomTextFormField(hintText: 'Enter the size',onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,),
+                  child: CustomTextFormField(hintText: 'Enterthesize'.tr(context),onChangeee: (data){},obscureValue: false,inputType: TextInputType.number,),
                 )
                 ,
                  SizedBox(height: 40.h,),

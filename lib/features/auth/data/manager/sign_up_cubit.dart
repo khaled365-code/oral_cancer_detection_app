@@ -21,7 +21,7 @@ class SignUpCubit extends Cubit<SignUpState>{
           confPassword:signUpConfPassword.text
       );
     response.fold(
-            (errorMessage) =>SignUpFailure(errorMessage: errorMessage),
+            (errorMessage) =>emit(SignUpFailure(errorMessage: errorMessage)),
             (signUpModel) => emit(SignUpSuccess(message: signUpModel.message)));
  }
 
