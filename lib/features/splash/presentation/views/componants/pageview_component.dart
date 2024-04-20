@@ -39,7 +39,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
      Builder(
        builder: (context) {
          return OnboardingPage(
-          title: 'secondonboardtilte'.tr(context),
+          title: 'secondonboardtitle'.tr(context),
           description: 'secondonboarddesc'.tr(context),
           imagePath: ImageConstants.onBoard2,
     );
