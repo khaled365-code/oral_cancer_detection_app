@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors.dart';
 
 
-class AppStyles {
+class AppKhaledStyles {
   static TextStyle textStyle({
     Color? color,
     Color? decorationColor,

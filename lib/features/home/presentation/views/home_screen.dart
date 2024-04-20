@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
-import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
+import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';

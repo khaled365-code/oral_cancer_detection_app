@@ -17,6 +17,23 @@ class AppColors
    static const Color settings=Color(0xffF5F5F5);
    static const Color background=Color(0xffffffff);
    static const Color transparent=Colors.transparent;
+   static const Color cCED5DC=Color(0xffCED5DC);
+   static const Color cE7E7E7=Color(0xffE7E7E7);
+   static const Color c4C9EEB=Color(0xff4C9EEB);
+   static const Color cDADDE0=Color(0xffDADDE0);
+   static const Color cB9DCF7=Color(0xffB9DCF7);
+   static const Color c687684=Color(0xff687684);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
