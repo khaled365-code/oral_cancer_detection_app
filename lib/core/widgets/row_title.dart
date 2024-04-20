@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -17,7 +18,7 @@ class RowTitle extends StatelessWidget {
       children: [
           CustomContainer(conHeight:43.h,conWidth:56.w,conImage:ImageConstants.plus),
         Text(
-          'S.of(context).staySafe',
+          "staySafe".tr(context),
           textAlign: TextAlign.center,
           style:AppTextStyles.font22.copyWith(
               color: AppColors.primary,

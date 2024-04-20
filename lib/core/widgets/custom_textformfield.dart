@@ -53,7 +53,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         labelText: widget.labelText,
         labelStyle: AppTextStyles.font16.copyWith(color: AppColors.background)
         ,hintText: widget.hintText,
-        hintStyle:  AppTextStyles.font16.copyWith(color: AppColors.background)
+        hintStyle:  AppTextStyles.font12.copyWith(color: AppColors.grey,)
         ,enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide:  BorderSide(color:AppColors.background),

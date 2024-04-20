@@ -35,5 +35,20 @@ final Map<String, String> arEg =
   "enteremail": "أدخل عنوان بريدك الإلكتروني",
   "Previous": "السابق",
   "Finish": "إنهاء",
-  "Next": "التالي"
+  "Next": "التالي",
+  "login": "تسجيل الدخول",
+  "welcome back": "!مرحبًا بعودتك",
+  "password": "كلمة المرور",
+  "enter your password": "أدخل كلمة المرور الخاصة بك",
+  "forget password": "هل نسيت كلمة المرور؟",
+  "Don't have an account": "ليس لديك حساب؟",
+  "Sign Up": "سجّل",
+  "Register With Us!": "سجل معنا!",
+  "Your information is safe with us": "معلوماتك آمنة معنا",
+  "UserName": "اسم المستخدم",
+  "Enter your name": "ادخل اسمك",
+  "Confirm password": "تأكيد كلمة المرور",
+  "Confirm your password": "تأكيد كلمة المرور الخاصة بك",
+  "Already have an account?": "هل لديك حساب بالفعل؟",
+
 };

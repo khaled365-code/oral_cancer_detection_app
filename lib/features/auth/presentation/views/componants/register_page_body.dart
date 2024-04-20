@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -52,25 +53,26 @@ class _RegisterBodyState extends State<RegisterBody> {
                     padding:EdgeInsetsDirectional.only(top:20.h,end:16.w,start:16.w),
                     child:Column(
                       children: [
-                        Text('Register With Us!',
+                        Text("Register With Us!".tr(context),
                             style:AppTextStyles.font18.copyWith(
                               color: AppColors.background ,
                             ),
                         ),
                         SizedBox(height:5.h,),
-                        Text('Your information is safe with us',
+                        Text("Your information is safe with us".tr(context),
                           style:AppTextStyles.font16.copyWith(
                             color: AppColors.background ,
                           ),
                         ),
                         SizedBox(height:16.h,),
-                        CustomTextFormField(labelText:'UserName', hintText:'Enter your name',
+                        CustomTextFormField(labelText:"UserName".tr(context),hintText:"Enter your name".tr(context),
                          controller:context.read<SignUpCubit>().signUpName,),
                         SizedBox(height:10.h,),
-                       CustomTextFormField(labelText:'Email', hintText:'Enter your email',
+                       CustomTextFormField( labelText:"email".tr(context),hintText:"enteremail".tr(context),
                            controller:context.read<SignUpCubit>().signUpEmail),
                         SizedBox(height:10.h,),
-                        CustomTextFormField(labelText:'password', hintText:'Enter your name',
+                        CustomTextFormField( labelText:"password".tr(context),
+                            hintText:"enter your password".tr(context),
                           controller:context.read<SignUpCubit>().signUpPassword,
                           obscureValue: isSecured,
                           suffixIcon:IconButton(
@@ -83,7 +85,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                             const Icon(Icons.visibility,color:AppColors.background) ,),
                         ),
                         SizedBox(height:10.h,),
-                        CustomTextFormField(labelText: 'Confirm password', hintText:'Confirm password',
+                        CustomTextFormField(labelText:"Confirm your password".tr(context),
+                            hintText:"Confirm your password".tr(context),
                             controller:context.read<SignUpCubit>().signUpConfPassword,
                             obscureValue: isSecuredConf,
                             suffixIcon:IconButton(
@@ -100,7 +103,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                          CustomButton(
                           buttonBackground: AppColors.background,
                           buttonTextColor: AppColors.primary,
-                          buttonText:'Sign Up' ,
+                          buttonText:"Sign Up".tr(context) ,
                           onTap:(){
                              if(formKey.currentState!.validate()){
                                context.read<SignUpCubit>().Register();
@@ -110,14 +113,14 @@ class _RegisterBodyState extends State<RegisterBody> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Already have an account?",
+                            Text("Already have an account?".tr(context) ,
                               style: AppTextStyles.font14.copyWith(
                                   color:AppColors.background,),),
                             GestureDetector(
                               onTap: (){
                                 navigate(context: context, route: Routes.loginScreen);
                               },
-                              child:Text('Login',
+                              child:Text("login".tr(context),
                                 style:AppTextStyles.font14.copyWith(
                                     color: AppColors.background,
                                     decoration: TextDecoration.underline,

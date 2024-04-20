@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/utilis/image_constants.dart';
 import '../../../../../core/utilis/colors.dart';
