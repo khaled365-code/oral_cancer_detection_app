@@ -1,3 +1,4 @@
+
 import 'package:dio/dio.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
@@ -7,15 +8,16 @@ import 'package:graduation_project/core/errors/handle_error.dart';
 class DioConsumer extends ApiConsumer{
     final Dio dio;
   DioConsumer({required this.dio}){
+
     dio.options.baseUrl=EndPoints.baseUrl;
     dio.interceptors.add(ApiInterceptors());
-    dio.interceptors.add(LogInterceptor());
+    dio.interceptors.add(LogInterceptor(
+      request: true,responseBody: true,responseHeader: true,requestHeader: true,requestBody: true,error: true
+    ));
   }
 
     @override
-    Future post(String path,
-     {dynamic data, Map<String, dynamic>? queryParams,
-       bool isFormData = false}) async {
+    Future post(String path, {dynamic data, Map<String, dynamic>? queryParams, bool isFormData = false}) async {
         try {
           final response= await dio.post(
               path ,

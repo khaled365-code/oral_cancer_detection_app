@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../generated/l10n.dart';
 import '../utilis/image_constants.dart';
 import '../utilis/colors.dart';
 import '../utilis/app_text_styles.dart';
@@ -25,13 +24,11 @@ class DrawerAppBar extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            S.of(context).hi,
+           " S.of(context).hi",
             style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),
           ),
           Text(
-            S
-                .of(context)
-                .khaled + ' !',
+           " S.of(context).khaled + ' !'",
             style: AppTextStyles.font16.copyWith(),
           ),
         ],

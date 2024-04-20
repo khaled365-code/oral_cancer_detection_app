@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/utilis/image_constants.dart';
@@ -29,9 +30,9 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
           textButton: TextButton(onPressed: (){
             navigate(context: context, route: Routes.registerScreen);
             }
-           ,child: Text('S.of(context).skip',style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
-          title: 'S.of(context).firstonboardtilte',
-          description: 'S.of(context).firstonboarddesc',
+           ,child: Text('skip'.tr(context),style: AppTextStyles.font15.copyWith(color: AppColors.primary,fontWeight: FontWeight.bold),)),
+          title: 'firstonboardtilte'.tr(context),
+          description: 'firstonboarddesc'.tr(context),
           imagePath: ImageConstants.onBoard1,
     );
        }
@@ -39,8 +40,8 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
      Builder(
        builder: (context) {
          return OnboardingPage(
-          title: 'S.of(context).secondonboardtilte',
-          description: 'S.of(context).secondonboarddesc',
+          title: 'secondonboardtilte'.tr(context),
+          description: 'secondonboarddesc'.tr(context),
           imagePath: ImageConstants.onBoard2,
     );
        }
@@ -108,7 +109,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
               curve: Curves.easeInOut,
             );
           },
-          child:  Text('S.of(context).Previous'),
+          child:  Text('Previous'.tr(context)),
         ),
         TextButton(
           style: ButtonStyle(
@@ -128,7 +129,7 @@ class PageViewOnBoardingState extends State<PageViewOnBoarding> {
               );
             }
           },
-          child: Text(currentPage == pages.length - 1 ? 'S.of(context).Finish' : 'S.of(context).Next'),
+          child: Text(currentPage == pages.length - 1 ? 'Finish'.tr(context) : 'Next'.tr(context)),
         ),
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -42,7 +43,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             children: [
               DefaultTextFormField(
                 obscureValue:isShowed1,
-                hintText: 'S.of(context).enterNewpassword',
+                hintText: 'enterNewpassword'.tr(context),
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -54,7 +55,7 @@ class _ResetPasswordState extends State<ResetPassword> {
               SizedBox(height: height*0.02,),
               DefaultTextFormField(
                 obscureValue:isShowed2,
-                hintText: 'S.of(context).confirmYourpassword',
+                hintText: 'confirmYourpassword'.tr(context),
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
@@ -66,9 +67,9 @@ class _ResetPasswordState extends State<ResetPassword> {
               ),
             ],
           ),
-          buttonText: 'S.of(context).change',
-          mainTitle: 'S.of(context).createNewPassword',
-          subTitle: 'S.of(context).yourNewPasswordShouldbedifferent'
+          buttonText: 'change'.tr(context),
+          mainTitle: 'createNewPassword'.tr(context),
+          subTitle: 'yourNewPasswordShouldbedifferent'.tr(context)
       ),
     );
   }

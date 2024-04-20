@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
@@ -7,6 +9,8 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
+import 'package:graduation_project/core/widgets/snackbar.dart';
+import 'package:graduation_project/features/auth/data/manager/sign_in_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
 import '../../../../../core/commons/functions.dart';
 
@@ -24,7 +28,18 @@ class _LoginBodyState extends State<LoginBody> {
 
   @override
   Widget build(BuildContext context) {
-   return SingleChildScrollView (
+   return BlocConsumer<SignInCubit, SignInState>(
+  listener: (context, state) {
+    if(state is SignInFailureState){
+    showSnackBar(context, content: state.errMessage);
+    }
+    if(state is SignInSuccessState){
+      showSnackBar(context, content: state.message);
+      navigate(context: context, route: Routes.home);
+    }
+  },
+  builder: (context, state) {
+    return SingleChildScrollView (
      child: Column(
        children: [
          SizedBox(height: 180.h,),
@@ -47,12 +62,15 @@ class _LoginBodyState extends State<LoginBody> {
                      SizedBox(height: 16.h,),
                      CustomContainer(conHeight:150.h,conWidth: 170.w,conImage:ImageConstants.login1,),
                      SizedBox(height: 18.h,),
-                     const CustomTextFormField(
+                      CustomTextFormField(
+                       controller: context.read<SignInCubit>().signInEmail,
                          labelText: 'Email',
                          hintText: 'Enter your email'),
                      SizedBox(height: 12.h,),
                      CustomTextFormField
-                       (labelText: 'Password',
+                       (
+                       controller:context.read<SignInCubit>().signInPassword ,
+                       labelText: 'Password',
                        hintText: 'Enter Your password',
                        obscureValue: isSecured,
                        suffixIcon: IconButton(onPressed: () {
@@ -78,14 +96,14 @@ class _LoginBodyState extends State<LoginBody> {
                        ),
                      ),
                      SizedBox(height: 16.h,),
-                     CustomButton(
+                    state is SignInLoadingState?CircularProgressIndicator(): CustomButton(
                        buttonText: 'Login',
                        buttonBackground: AppColors.background,
                        buttonTextColor: AppColors.primary,
                        onTap:(){
-                         navigate(context: context, route: Routes.home);
-
-
+                         if(formKey.currentState!.validate()){
+                           context.read<SignInCubit>().signIn();
+                         }
                      },),
                      SizedBox(height: 10.h,),
                      Row(
@@ -114,11 +132,12 @@ class _LoginBodyState extends State<LoginBody> {
                    ),
                  ),
                ),
-             )
-
+             ),
        ],
      ),
    );
+  },
+);
 
   }
 }

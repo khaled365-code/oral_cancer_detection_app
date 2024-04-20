@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:lottie/lottie.dart';
@@ -30,7 +31,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.asset('assets/images/animation.json'),
-           Text('S.of(context).congratulation',style: AppTextStyles.font26,)
+           Text('congratulation'.tr(context),style: AppTextStyles.font26,)
         ],
       ),
     );

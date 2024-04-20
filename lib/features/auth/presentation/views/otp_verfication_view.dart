@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../core/commons/functions.dart';
@@ -15,13 +16,13 @@ class OtpVerifyScreen extends StatelessWidget {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonText: 'S.of(context).VerifyProceed'
-          , mainTitle: 'S.of(context).OTPVerification',
-          subTitle: 'S.of(context).EntertheOTP',
+          buttonText: 'VerifyProceed'.tr(context)
+          , mainTitle: 'OTPVerification'.tr(context),
+          subTitle: 'EntertheOTP'.tr(context),
           centerWidget: Pinput(
             validator: (pin){
               if(pin!.isEmpty){
-                return 'S.of(context).pleaseEnterCode';
+                return 'pleaseEnterCode'.tr(context);
               }
             },
             keyboardType: TextInputType.number,

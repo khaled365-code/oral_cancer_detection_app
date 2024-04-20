@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
 import '../../../../core/commons/functions.dart';
@@ -16,9 +17,9 @@ class SendCode extends StatelessWidget {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonText: 'S.of(context).sendcode',
-          mainTitle: 'S.of(context).forgetpassword',
-          subTitle: 'S.of(context).donntworrysen',
+          buttonText: 'sendcode'.tr(context),
+          mainTitle: 'forgetpassword'.tr(context),
+          subTitle: 'donntworrysen'.tr(context),
 
         centerWidget: DefaultTextFormField(
           textColor: AppColors.black,
@@ -26,8 +27,8 @@ class SendCode extends StatelessWidget {
           focusedBorderSIdeColor: AppColors.primary,
           hintColor:  AppColors.black,
           labelColor: AppColors.black,
-          labelText:'S.of(context).email',
-          hintText: 'S.of(context).enteremail',
+          labelText:'email'.tr(context),
+          hintText: 'enteremail'.tr(context),
         ),
         buttonPress: (){
           if(formKey.currentState!.validate()){

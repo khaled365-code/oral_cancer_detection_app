@@ -1,16 +1,23 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/features/auth/data/manager/sign_in_cubit.dart';
+import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
+import 'core/cache/cache_helper.dart';
 import 'core/localization/app_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
   runApp(const MyApp());
 }
 
@@ -22,6 +29,7 @@ class MyAppWithLanguage extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
          builder: (context, state) {
           return MaterialApp(
+
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
             localizationsDelegates: const [
@@ -61,6 +69,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
+        BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
 
       ],
       child: ScreenUtilInit(
