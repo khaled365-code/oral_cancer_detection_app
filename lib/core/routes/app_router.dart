@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
-import 'package:graduation_project/features/community/presentation/screens/community_home.dart';
+import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
@@ -18,6 +20,7 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
+import '../../features/community/cubit/community_bloc_cubit.dart';
 import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
@@ -38,6 +41,10 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) =>const HomePage(),);
+      case Routes.addPostScreen:
+        return MaterialPageRoute(builder: (context) =>BlocProvider(
+          create: (context) => CommunityBlocCubit(),
+            child: const AddPostScreen()),);
       case Routes.otpScreen:
         return MaterialPageRoute(builder: (context) =>const OtpVerifyScreen(),);
       case Routes.questionsView:

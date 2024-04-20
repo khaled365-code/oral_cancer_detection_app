@@ -47,6 +47,38 @@ class ImageConstants
   static const String empty='assets/images/empty.png';
   static const String medicalNewsImg='assets/images/empty.png';
   static const String logoImg='assets/images/launcher_icon.png';
+  static const String heartImage='assets/images/heart_stroke_image.png';
+  static const String commentImage='assets/images/comment_stroke_image.png';
+  static const String retweetImage='assets/images/retweet_stroke_image.png';
+
+  static const String manCommentImage='assets/images/man_comment_image.png';
+
+
+  static const String addTwitterTextImage='assets/images/Add_twitter_text_icon.png';
+
+
+  static const String downArrowImage='assets/images/down_arrow_image.png';
+
+
+  static const String cameraBlueImage='assets/images/Camera_blue_image.png';
+
+
+  static const String roundPostTwitter='assets/images/round_post_twitter.png';
+
+  static const String media1Image='assets/images/media1_image.png';
+  static const String media2Image='assets/images/media2_image.png';
+  static const String media3Image='assets/images/media3_image.png';
+
+
+
+
+
+
+
+
+
+
+
 
 
 

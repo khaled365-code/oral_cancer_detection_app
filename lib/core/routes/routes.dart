@@ -25,6 +25,8 @@ class Routes
   static const String congratulationScreen='/congratulationScreen';
   static const String questionsView='/questionsView';
   static const String otpScreen='/otpScreen';
+  static const String addPostScreen='/add_post_screen';
+
 
 }
 
