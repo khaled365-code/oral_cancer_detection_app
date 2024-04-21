@@ -30,6 +30,7 @@ class Routes
   static const String notificationsScreen='/notifications_screen';
 
 
+  static const String  profileScreen='/profile_screen';
 
 
 }
