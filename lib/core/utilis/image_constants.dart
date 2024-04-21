@@ -69,6 +69,18 @@ class ImageConstants
   static const String media2Image='assets/images/media2_image.png';
   static const String media3Image='assets/images/media3_image.png';
 
+  static const String shareImage='assets/images/Share_twitter_icon.png';
+
+  static const String appLogo='assets/images/twitter_Logo.png';
+
+
+  static const String notificationsCommunityImage='assets/images/notifications_twitter.png';
+
+
+
+
+
+
 
 
 

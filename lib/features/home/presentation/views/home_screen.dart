@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
+import '../../../../core/routes/routes.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
 class HomePage extends StatefulWidget{
@@ -64,25 +67,44 @@ class HomePageState extends State<HomePage> {
     if(selectedIndex==0){
 
       return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
-      child: DefaultAppBar(title:  Text("editprofile".tr(context)),actions: [Padding(
+      child: DefaultAppBar(
+        hasTitle: true,
+        hasActions: true,
+        title:  Text("editprofile".tr(context)),actions: [Padding(
         padding: EdgeInsetsDirectional.only(end: 20.w),
         child: IconButton(onPressed: () {  }, icon:Icon(Icons.person,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
       return   PreferredSize(preferredSize: Size(double.infinity, 50.h,),
-      child: DefaultAppBar(title: const Text('Community'),actions: [Padding(
+      child: DefaultAppBar(
+        hasActions: true,
+        hasTitle: true,
+        title: Image.asset(ImageConstants.appLogo),
+        actions:
+      [
+        Padding(
         padding:EdgeInsetsDirectional.only(end: 20.w,),
-        child: IconButton(onPressed: () {  }, icon: Icon(Icons.search,size: 35,),),
-      )],backgroundColor: AppColors.primary,));
+        child: GestureDetector(
+          onTap: (){
+            navigate(context: context, route: Routes.notificationsScreen);
+          },
+            child: Image.asset(ImageConstants.notificationsCommunityImage))
+      ),
+      ],
+        backgroundColor: AppColors.white,));
     }
     else if(selectedIndex==2){
       return PreferredSize(preferredSize: Size(double.infinity, 50.h),
-      child: DefaultAppBar(title: Text('Medical News'),backgroundColor:AppColors.primary ,));
+      child: DefaultAppBar(
+        hasTitle: true,
+        title: Text('Medical News'),backgroundColor:AppColors.primary ,));
     }
     else{
       return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
-      child: DefaultAppBar(title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
+      child: DefaultAppBar(
+        hasTitle: true,
+        title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
     }
   }
 }
