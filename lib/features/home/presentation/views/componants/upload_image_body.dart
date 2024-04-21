@@ -40,10 +40,8 @@ class UploadImageBody extends StatelessWidget {
               UImageContainer(
                   conHeight: 190.h, conWidth: 210.w, conImage:FileImage(File(context.read<UploadImageCubit>().mouthImage!.path ))
               ):
-             CustomContainer(
-                  conHeight: 190.h, conWidth: 210.w, conImage: ImageConstants.empty),
-
-
+             CustomContainer( conHeight: 190.h, conWidth: 210.w,
+               conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),),
               SizedBox(height: 30.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
