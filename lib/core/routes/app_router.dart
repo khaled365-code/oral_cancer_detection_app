@@ -15,6 +15,7 @@ import 'package:graduation_project/features/profile/presentation/screens/about_a
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
 import 'package:graduation_project/features/splash/presentation/views/splash_screen.dart';
 import '../../features/auth/presentation/views/log_as_screen.dart';
@@ -94,6 +95,8 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => PrivacyPolicyScreen(),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),);
+      case Routes.profileScreen:
+        return MaterialPageRoute(builder:(context) => ProfileScreen(),);
       default:
         return MaterialPageRoute(builder: (context) => const Center(child: Text('No screen found')),);
 
