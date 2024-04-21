@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
+import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -80,6 +82,30 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
               },
 
             ),
+            Padding(
+              padding:  EdgeInsetsDirectional.only(top: 20.h),
+              child: GestureDetector(
+                onTap: ()
+                {
+                  navigate(context: context, route: Routes.home);
+                },
+                child: Container(
+                  width: 80.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.c4C9EEB,
+                  ),
+                  child: Center(
+                    child: Text('Home',style: AppKhaledStyles.textStyle(
+                      color: AppColors.black,
+                      size: 15,
+                      weight: FontWeight.w700
+                    ),),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

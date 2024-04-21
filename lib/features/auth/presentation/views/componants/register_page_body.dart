@@ -105,11 +105,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                           buttonTextColor: AppColors.primary,
                           buttonText:"Sign Up".tr(context) ,
                           onTap:(){
-                            navigate(context: context, route: Routes.loginScreen);
                              if(formKey.currentState!.validate()){
                                context.read<SignUpCubit>().Register();
-
-
                              }
                           },),
                         SizedBox(height:8.h,),

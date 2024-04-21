@@ -102,8 +102,6 @@ class _LoginBodyState extends State<LoginBody> {
                        buttonBackground: AppColors.background,
                        buttonTextColor: AppColors.primary,
                        onTap:(){
-                         navigate(context: context, route: Routes.home);
-
                          if(formKey.currentState!.validate()){
                            context.read<SignInCubit>().signIn();
 
