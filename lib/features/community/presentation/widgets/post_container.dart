@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/features/community/presentation/widgets/retweet_bottom_sheet.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
@@ -28,7 +29,7 @@ class PostContainer extends StatelessWidget {
     return GestureDetector(
        onTap: ()
       {
-         navigate(context: context, route: Routes.postDetailsScreen);
+         navigate(context: context, route: Routes.postWitImageScreen);
       },
       child: Container(
         width: 414.w,
@@ -135,7 +136,14 @@ class PostContainer extends StatelessWidget {
                           size: 10 ,
                         ),),
                       Spacer(),
-                      Image.asset(ImageConstants.retweetImage),
+                      GestureDetector(
+                        onTap: ()
+                          {
+                            showModalBottomSheet(context: context,
+                                backgroundColor: AppColors.transparent,
+                                builder:  (context) => RetweetBottomSheet(),);
+                          },
+                          child: Image.asset(ImageConstants.retweetImage)),
                       SizedBox(width: 3.5.w,),
                       Text('28',
                         style: AppKhaledStyles.textStyle(
