@@ -1,7 +1,8 @@
 class EndPoints{
-  static String baseUrl="https://6f0d-102-184-20-11.ngrok-free.app/api/auth/";
-  static String register="register";
-  static String loginEndPoint="login";
+  static String baseUrl="https://0718-102-190-3-168.ngrok-free.app/api/";
+  static String register="auth/register";
+  static String loginEndPoint="auth/login";
+  static String updatePasswordEndPoint="update/profilepass/";
 }
 
 class ApiKeys{
@@ -14,6 +15,8 @@ class ApiKeys{
   static String password_confirmation= "password_confirmation";
   static String token= "access_token";
   static String id= "id";
+  static String current_password= "current_password";
+  static String userId= "user_id";
 
 
 }
