@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
+import 'package:graduation_project/core/routes/app_router.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
@@ -75,7 +77,9 @@ class HomePageState extends State<HomePage> {
         hasActions: true,
         title:  Text("editprofile".tr(context)),actions: [Padding(
         padding: EdgeInsetsDirectional.only(end: 20.w),
-        child: IconButton(onPressed: () {  }, icon:Icon(Icons.person,size: 35,),),
+        child: IconButton(onPressed: () {
+          navigate(context: context, route: Routes.profileScreen);
+        }, icon:Icon(Icons.person,size: 35,),),
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
