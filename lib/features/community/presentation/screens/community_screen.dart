@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/image_constants.dart';
@@ -19,8 +20,10 @@ class CommunityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    bool hasPosts=false;
+
     return Scaffold(
-      
+
       body: Column(
         children: [
           Expanded(
@@ -51,7 +54,7 @@ class CommunityScreen extends StatelessWidget {
       ),
 
 
-    );
+    ) ;
   }
 }
 
