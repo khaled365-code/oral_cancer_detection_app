@@ -52,9 +52,6 @@ class AuthRepos {
       final decodedToken=JwtDecoder.decode(user.token);
       CacheHelper().saveData(key: ApiKeys.token, value: user.token);
       CacheHelper().saveData(key: ApiKeys.id, value:decodedToken["sub"]);
-      print('your token is ${user.token}');
-      print('your id is ${decodedToken["sub"]}');
-
 
       return right(user);
     }
@@ -69,25 +66,25 @@ class AuthRepos {
     try{
       final response=await api.post(
           EndPoints.updatePasswordEndPoint,
+          queryParams: {
+            ApiKeys.userId:CacheHelper().getData(key: ApiKeys.id)
+          },
 
           data: {
             ApiKeys.current_password:currentPass,
             ApiKeys.password:newPass,
             ApiKeys.password_confirmation:confirmPass,
             ApiKeys.token:CacheHelper().getData(key: ApiKeys.token),
-            ApiKeys.userId:CacheHelper().getData(key: ApiKeys.id)
-
 
           },
           isFormData: true
       );
+      print('${CacheHelper().getData(key: ApiKeys.token)}');
       return right(UpdatePasswordModel.fromJson(response));
     }
     on ServerException catch(e){
       return left(e.errorModel.errorMessage);
     }
-    
-    
    }
 
 

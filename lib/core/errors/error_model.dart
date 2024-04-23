@@ -9,7 +9,7 @@ class ErrorModel{
   factory ErrorModel.fromJson(Map<String,dynamic> jsonData){
     return ErrorModel(
       errorMessage: jsonData[ApiKeys.message],
-      status: jsonData[ApiKeys.status]
+      status: jsonData[ApiKeys.status] as int? ?? 0
     );
 
   }

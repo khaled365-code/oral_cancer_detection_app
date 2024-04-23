@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
-
 import '../repos/auth_repos.dart';
-
 part 'update_password_state.dart';
 
 class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {

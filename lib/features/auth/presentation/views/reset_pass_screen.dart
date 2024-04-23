@@ -24,9 +24,9 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  bool isShowed1=true;
-  bool isShowed2=true;
-  bool isShowed3=true;
+  bool isNotShowed1=true;
+  bool isNotShowed2=true;
+  bool isNotShowed3=true;
   GlobalKey<FormState> formKey=GlobalKey();
 
   @override
@@ -48,56 +48,59 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Form(
       key: formKey,
       child: CustomPassViews(
-          buttonPress: (){
-        if(formKey.currentState!.validate()) {
-          context.read<UpdatePasswordCubit>().updatePassword();
-        }
-          },
           centerWidget:
           Column(
             children: [
               DefaultTextFormField(
                 controller: context.read<UpdatePasswordCubit>().currentPassword,
-                obscureValue:isShowed1,
+                obscureValue:isNotShowed1,
                 hintText: 'enter your current password'.tr(context),
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
-                  icon:isShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                  icon:isNotShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
                   onPressed: (){
-                    isShowed1=!isShowed1;
+                    isNotShowed1=!isNotShowed1;
                     setState(() {});
                   },),
               ),
               SizedBox(height: height*0.02,),
               DefaultTextFormField(
                 controller: context.read<UpdatePasswordCubit>().newPassword,
-                obscureValue:isShowed2,
+                obscureValue:isNotShowed2,
                 hintText: 'enterNewpassword'.tr(context),
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
-                  icon:isShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                  icon:isNotShowed2?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
                   onPressed: (){
-                    isShowed2=!isShowed2;
+                    isNotShowed2=!isNotShowed2;
                     setState(() {});
                   },),
               ),
               SizedBox(height: height*0.02,),
               DefaultTextFormField(
                 controller: context.read<UpdatePasswordCubit>().confirmPassword,
-                obscureValue:isShowed3,
+                obscureValue:isNotShowed3,
                 hintText: 'confirmYourpassword'.tr(context),
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
-                  icon:isShowed3?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
+                  icon:isNotShowed3?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
                   onPressed: (){
-                    isShowed3=!isShowed3;
+                    isNotShowed3=!isNotShowed3;
                     setState(() {});
                   },),
-
               ),
+              SizedBox(height: height*0.02,),
+             state is UpdatePasswordLoadingState?CircularProgressIndicator(): CustomElevatedButton(
+                  child: Text("change".tr(context))
+                  , onpress: (){
+                    if(formKey.currentState!.validate()) {
+                      context.read<UpdatePasswordCubit>().updatePassword();
+                    }
+                  },
+               buttonBackground: AppColors.primary,
+                  )
             ],
           ),
-          buttonText: 'change'.tr(context),
           mainTitle: 'createNewPassword'.tr(context),
           subTitle: 'yourNewPasswordShouldbedifferent'.tr(context),
 
