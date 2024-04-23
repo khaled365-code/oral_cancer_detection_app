@@ -7,7 +7,8 @@ import 'package:graduation_project/features/auth/presentation/views/congratulati
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/notifications_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
@@ -24,6 +25,7 @@ import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
 import '../../features/community/cubit/community_bloc_cubit.dart';
+import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
@@ -44,8 +46,12 @@ class AppRoutes
     {
       case Routes.home:
         return MaterialPageRoute(builder: (context) =>const HomePage(),);
+      case Routes.postWitImageScreen:
+        return MaterialPageRoute(builder: (context) =>const PostWithImageScreen(),);
+      case Routes.noPostsScreen:
+        return MaterialPageRoute(builder: (context) =>const NoPostsScreen(),);
       case Routes.notificationsScreen:
-        return MaterialPageRoute(builder: (context) =>const NotificationsScreen(),);
+        return MaterialPageRoute(builder: (context) =>const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:

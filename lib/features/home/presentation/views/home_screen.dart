@@ -9,6 +9,7 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
@@ -22,11 +23,13 @@ class HomePage extends StatefulWidget{
 }
 class HomePageState extends State<HomePage> {
   int selectedIndex =0;
+  bool hasPosts=false;
   final List<Widget> pages=[
     const UploadImageView(),
     CommunityScreen(),
     const MedicalNews(),
     const DoctorPage(),
+    const NoPostsScreen()
   ];
   void onItemTapped(int index) {
     setState(() {
@@ -93,7 +96,7 @@ class HomePageState extends State<HomePage> {
           onTap: (){
             navigate(context: context, route: Routes.notificationsScreen);
           },
-            child: Image.asset(ImageConstants.notificationsCommunityImage))
+            child: Image.asset(ImageConstants.searchCommunityImage))
       ),
       ],
         backgroundColor: AppColors.white,));
@@ -104,6 +107,7 @@ class HomePageState extends State<HomePage> {
         hasTitle: true,
         title: Text('Medical News'),backgroundColor:AppColors.primary ,));
     }
+
     else{
       return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
       child: DefaultAppBar(
