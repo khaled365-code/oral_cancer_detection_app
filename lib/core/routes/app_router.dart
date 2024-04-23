@@ -9,7 +9,6 @@ import 'package:graduation_project/features/auth/presentation/views/congratulati
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/notifications_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
@@ -43,9 +42,7 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
-      case Routes.notificationsScreen:
-        return MaterialPageRoute(
-          builder: (context) => const NotificationsScreen(),);
+
       case Routes.postDetailsScreen:
         return MaterialPageRoute(
           builder: (context) => const PostDetailsScreen(),);

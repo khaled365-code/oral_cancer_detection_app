@@ -76,6 +76,22 @@ class ImageConstants
 
   static const String notificationsCommunityImage='assets/images/notifications_twitter.png';
 
+  static const String communitySettingsImage='assets/images/community_settings.png';
+
+
+  static const String searchCommunityImage='assets/images/search_community_image.png';
+
+  static const String roundPointCommunityImage='assets/images/round_community_image.png';
+
+  static const String photoForPostImage='assets/images/photo_for_post_image.png';
+
+  static const String penCommunityImage='assets/images/pen_community_image.png';
+
+
+
+
+
+
 
 
 
