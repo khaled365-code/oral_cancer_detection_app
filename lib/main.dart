@@ -11,12 +11,14 @@ import 'package:graduation_project/features/home/presentation/manager/upload_ima
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
 import 'core/cache/cache_helper.dart';
+import 'core/commons/bloc_obsever.dart';
 import 'core/localization/app_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
 
 
 void main() {
+  Bloc.observer=MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper().init();
   runApp(const MyApp());
@@ -30,6 +32,7 @@ class MyAppWithLanguage extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
          builder: (context, state) {
           return MaterialApp(
+
 
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),

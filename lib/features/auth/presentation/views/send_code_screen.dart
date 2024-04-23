@@ -18,7 +18,7 @@ class SendCode extends StatelessWidget {
       key: formKey,
       child: CustomPassViews(
           buttonText: 'sendcode'.tr(context),
-          mainTitle: 'forgetpassword'.tr(context),
+          mainTitle: 'ForgetPassword'.tr(context),
           subTitle: 'donntworrysen'.tr(context),
 
         centerWidget: DefaultTextFormField(
