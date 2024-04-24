@@ -3,6 +3,7 @@ class EndPoints{
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
+  static String updatePasswordEndPoint="update/profilepass/";
 }
 
 class ApiKeys{
@@ -13,7 +14,10 @@ class ApiKeys{
   static String email= "email";
   static String password= "password";
   static String password_confirmation= "password_confirmation";
+  static String accessToken= "access_token";
   static String token= "token";
   static String id= "id";
+  static String current_password= "current_password";
+  static String userId= "user_id";
 
 }

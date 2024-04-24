@@ -9,12 +9,12 @@ import '../../../../../core/widgets/custom_elevated_button.dart';
 
 
 class CustomPassViews extends StatelessWidget {
-  const CustomPassViews({Key? key,required this.buttonPress,required this.buttonText,required this.mainTitle,required this.subTitle,this.centerWidget}) : super(key: key);
+  const CustomPassViews({Key? key,   this.buttonPress,   this.buttonText,required this.mainTitle,required this.subTitle,this.centerWidget}) : super(key: key);
   final String mainTitle;
   final String subTitle;
   final Widget? centerWidget;
-  final String buttonText;
-  final VoidCallback buttonPress;
+  final String? buttonText;
+  final VoidCallback? buttonPress;
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +44,26 @@ class CustomPassViews extends StatelessWidget {
                 SizedBox(height: height*0.001,),
                centerWidget!,
                 SizedBox(height:height*0.04 ,),
-                CustomElevatedButton(
+              checkNull()
 
-                  buttonBackground: AppColors.primary,
-                  onpress:buttonPress
-                  , child: Text(buttonText,style:AppTextStyles.font14.copyWith(color: AppColors.white) ,),
-                )
+
               ],),
           ),
         ),
       ),
     );
+  }
+   Widget checkNull(){
+    if(buttonPress ==null && buttonText ==null){
+      return SizedBox(height: 10,);
+    }
+    else{
+      return CustomElevatedButton(
+
+        buttonBackground: AppColors.primary,
+        onpress:buttonPress!
+        , child: Text(buttonText!,style:AppTextStyles.font14.copyWith(color: AppColors.white) ,),
+      );
+    }
   }
 }

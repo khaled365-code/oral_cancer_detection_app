@@ -86,7 +86,7 @@ class _LoginBodyState extends State<LoginBody> {
                      SizedBox(height: 5.h,),
                      TextButton(
                        onPressed: () {
-                         navigate(context: context, route: Routes.sendCode);
+                         navigate(context: context, route: Routes.resetNewPass);
                        },
                        child:Text("forget password".tr(context),
                          style:AppTextStyles.font18.copyWith(
