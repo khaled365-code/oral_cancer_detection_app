@@ -30,7 +30,7 @@ class ProfileRepos {
     }
 }
 
-Future<Either<String,UpdateProfileModel>>updateProfile({required XFile profilePic,required String updatedName,required String updatedEmail})async{
+Future<Either<String,UpdateProfileModel>>updateProfile({required dynamic profilePic,required String updatedName,required String updatedEmail})async{
     try{
       final response=await api.post(EndPoints.updateProfile,
           queryParams: {

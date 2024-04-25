@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
@@ -13,8 +14,8 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
    final ProfileRepos profileRepos;
    getProfileModel? userProfile;
 
-  TextEditingController updatedName=TextEditingController();
-  TextEditingController updatedEmail=TextEditingController();
+  TextEditingController? updatedName=TextEditingController();
+  TextEditingController? updatedEmail=TextEditingController();
   XFile? updatedProfilePic;
 
   uploadProfilePic({required XFile uploadedProfilePic}){
@@ -26,9 +27,9 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   updateProfile()async{
     emit(UpdateProfileLoadingSate());
     final response=await profileRepos.updateProfile(
-        profilePic: updatedProfilePic!,
-        updatedName: updatedName.text,
-        updatedEmail: updatedEmail.text
+        profilePic: updatedProfilePic?? AssetImage(ImageConstants.account),
+        updatedName: updatedName?.text ?? '${userProfile!.name}' ,
+        updatedEmail: updatedEmail?.text??'${userProfile!.email}'
     );
     response.fold((errorState) => emit(UpdateProfileFailureState(errMessage: errorState)),
             (updateProfileModel) => emit(UpdateProfileSuccessState(message: updateProfileModel.message)));
