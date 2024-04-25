@@ -142,6 +142,7 @@ class ImageConstants
 
 
 
+  static const String ProfileUserImage='assets/images/person.png';
 
 
 }

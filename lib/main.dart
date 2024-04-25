@@ -4,9 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/features/auth/data/manager/log_out_cubit.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_in_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
+import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
@@ -77,8 +79,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
         BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
+        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio())))),
         BlocProvider<SignUpCubit>(create:
             (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio())))),
+        BlocProvider<LogOutCubit>(create:
+          (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio())))),
+        ),
 
       ],
       child: ScreenUtilInit(

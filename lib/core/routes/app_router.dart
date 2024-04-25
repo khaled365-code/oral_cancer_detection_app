@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,9 @@ import 'package:graduation_project/features/community/presentation/screens/searc
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
@@ -24,8 +29,8 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
-import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
+import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
@@ -54,19 +59,23 @@ class AppRoutes
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:
-        return MaterialPageRoute(builder: (context) =>const AddPostScreen(),);
+        return MaterialPageRoute(builder: (context) =>BlocProvider(
+          create: (context) => CommunityBlocCubit(),
+            child: const AddPostScreen()),);
       case Routes.otpScreen:
-        return MaterialPageRoute(builder: (context) =>const OtpVerifyScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const OtpVerifyScreen(),);
       case Routes.questionsView:
-        return MaterialPageRoute(builder: (context) =>const QuestionsView(),);
+        return MaterialPageRoute(builder: (context) => const QuestionsView(),);
       case Routes.congratulationScreen:
-        return MaterialPageRoute(builder: (context) =>const CongratulationScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const CongratulationScreen(),);
       case Routes.result:
-        return MaterialPageRoute(builder: (context) =>const ResultScreen(),);
+        return MaterialPageRoute(builder: (context) => const ResultScreen(),);
     // case Routes.radioQueastion:
     //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
       case Routes.textQuestion:
-        return MaterialPageRoute(builder: (context) =>const QuestionText(),);
+        return MaterialPageRoute(builder: (context) => const QuestionText(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.sendCode:
@@ -85,7 +94,13 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
       case Routes.editProfilescreen:
-        return MaterialPageRoute(builder: (context) => EditProfileScreen(),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => UpdateProfileCubit(
+                profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
+              ),
+              child: EditProfileScreen(),
+            ),);
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.aboutApp:
@@ -99,10 +114,16 @@ class AppRoutes
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),);
       case Routes.profileScreen:
-        return MaterialPageRoute(builder:(context) => ProfileScreen(),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) =>
+                  ProfileCubit(profileRepo: ProfileRepos(api: DioConsumer(
+                      dio: Dio()))),
+              child: ProfileScreen(),
+            ),);
       default:
-        return MaterialPageRoute(builder: (context) => const Center(child: Text('No screen found')),);
-
+        return MaterialPageRoute(
+          builder: (context) => const Center(child: Text('No screen found')),);
     }
 
 
