@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ import 'package:graduation_project/features/auth/presentation/views/congratulati
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
@@ -27,8 +30,8 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
-import '../../features/community/cubit/community_bloc_cubit.dart';
 import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
+import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
@@ -37,21 +40,27 @@ import '../../features/splash/presentation/views/onboearding_screen.dart';
 import '../../main.dart';
 
 
-class AppRoutes {
 
-  static Route? onGenerateRoutes(RouteSettings routeSettings) {
-    switch (routeSettings.name) {
+
+class AppRoutes
+{
+
+  static Route? onGenerateRoutes(RouteSettings routeSettings)
+  {
+    switch(routeSettings.name)
+    {
       case Routes.home:
-        return MaterialPageRoute(builder: (context) => const HomePage(),);
-
+        return MaterialPageRoute(builder: (context) =>const HomePage(),);
+      case Routes.postWitImageScreen:
+        return MaterialPageRoute(builder: (context) =>const PostWithImageScreen(),);
+      case Routes.noPostsScreen:
+        return MaterialPageRoute(builder: (context) =>const NoPostsScreen(),);
+      case Routes.notificationsScreen:
+        return MaterialPageRoute(builder: (context) =>const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
-        return MaterialPageRoute(
-          builder: (context) => const PostDetailsScreen(),);
+        return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:
-        return MaterialPageRoute(builder: (context) =>
-            BlocProvider(
-                create: (context) => CommunityBlocCubit(),
-                child: const AddPostScreen()),);
+        return MaterialPageRoute(builder: (context) =>const AddPostScreen(),);
       case Routes.otpScreen:
         return MaterialPageRoute(
           builder: (context) => const OtpVerifyScreen(),);
@@ -115,6 +124,8 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);
     }
+
+
   }
 
 }

@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/features/auth/data/manager/log_out_cubit.dart';
+import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_in_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
@@ -73,6 +74,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
+        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
+
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
         BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),

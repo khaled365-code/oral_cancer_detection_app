@@ -29,7 +29,12 @@ class Routes
   static const String postDetailsScreen='/post_details_screen';
   static const String notificationsScreen='/notifications_screen';
   static const String noPostsScreen='/no_posts_screen';
+
   static const String postWitImageScreen='/post_wit_image_screen';
+
+
+
+
   static const String  profileScreen='/profile_screen';
 
 
