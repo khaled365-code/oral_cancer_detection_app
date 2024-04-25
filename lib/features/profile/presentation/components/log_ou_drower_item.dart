@@ -50,7 +50,9 @@ class LogOutDrawerItem extends StatelessWidget {
                               color: Colors.grey[400]),
                           Row(
                             children: [
-                              TextButton(onPressed: () {}, child: Text(
+                              TextButton(onPressed: () {
+                                Navigator.pop(context);
+                              }, child: Text(
                                   "cancel".tr(context),
                                   style: AppTextStyles.font16.copyWith(
                                       color: AppColors.primary))),
