@@ -4,6 +4,7 @@ class EndPoints{
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
   static String updatePasswordEndPoint="update/profilepass/";
+  static String logOutEndPoint="auth/logout";
 }
 
 class ApiKeys{
