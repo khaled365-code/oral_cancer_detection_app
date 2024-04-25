@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,9 +60,7 @@ class AppRoutes
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:
-        return MaterialPageRoute(builder: (context) =>BlocProvider(
-          create: (context) => CommunityBlocCubit(),
-            child: const AddPostScreen()),);
+        return MaterialPageRoute(builder: (context) =>const AddPostScreen(),);
       case Routes.otpScreen:
         return MaterialPageRoute(
           builder: (context) => const OtpVerifyScreen(),);
