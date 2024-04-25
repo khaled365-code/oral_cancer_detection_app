@@ -175,6 +175,7 @@ final Map<String, String> enUs =
   "Register With Us!":"Register With Us!",
   "Your information is safe with us":"Your information is safe with us",
   "UserName":"UserName",
+  "editProfile":"Edit Profile",
   "Enter your name":"Enter your name",
   "Confirm your password":"Confirm your password",
   "Already have an account?":"Already have an account?",

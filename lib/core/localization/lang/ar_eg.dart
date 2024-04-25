@@ -88,6 +88,7 @@ final Map<String, String> arEg =
   "TestResult": "نتيجة الاختبار",
   "DiseaseName": "اسم المرض: سرطان الخلايا القاعدية الفموي",
   "Classification:cancer": "التصنيف: سرطان",
-  "BackToHome": "العودة إلى الصفحة الرئيسية"
+  "BackToHome": "العودة إلى الصفحة الرئيسية",
+  "editProfile" : "تعديل الملف الشخصي",
 
 };

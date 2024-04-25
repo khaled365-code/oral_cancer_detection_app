@@ -18,8 +18,9 @@ class CustomOutlinedTextField extends StatelessWidget {
   final Color? crusorColor;
   final void Function(String) onFieldSubmitted;
   final bool? obsecureText;
+  final TextEditingController? controller;
 
-  const CustomOutlinedTextField({super.key, required this.hintText, required this.hintStyle, this.width, this.height, required this.crusorColor,required this.onFieldSubmitted, this.obsecureText=false});
+  const CustomOutlinedTextField({super.key,this.controller, required this.hintText, required this.hintStyle, this.width, this.height, required this.crusorColor,required this.onFieldSubmitted, this.obsecureText=false});
 
 
   @override
@@ -29,6 +30,7 @@ class CustomOutlinedTextField extends StatelessWidget {
       height: 48.h,
       color: AppColors.str.withOpacity(.2),
       child: TextFormField(
+        controller: controller,
         cursorColor: crusorColor,
         onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(

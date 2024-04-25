@@ -1,9 +1,10 @@
 class EndPoints{
-  static String baseUrl="https://b923-102-186-211-238.ngrok-free.app/api/";
+  static String baseUrl="https://14fa-197-134-21-203.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
   static String updatePasswordEndPoint="update/profilepass/";
+  static String updateProfile="update/profile/";
 }
 
 class ApiKeys{
@@ -19,5 +20,6 @@ class ApiKeys{
   static String id= "id";
   static String current_password= "current_password";
   static String userId= "user_id";
+  static String photo= "photo";
 
 }

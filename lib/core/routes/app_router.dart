@@ -14,6 +14,7 @@ import 'package:graduation_project/features/diagnosis/presentation/views/questio
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
@@ -83,7 +84,13 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
       case Routes.editProfilescreen:
-        return MaterialPageRoute(builder: (context) => EditProfileScreen(),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => UpdateProfileCubit(
+                profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
+              ),
+              child: EditProfileScreen(),
+            ),);
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.aboutApp:
@@ -100,7 +107,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) =>
             BlocProvider(
               create: (context) =>
-                  ProfileCubit(profileRepo:ProfileRepos(api: DioConsumer(dio:Dio()))),
+                  ProfileCubit(profileRepo: ProfileRepos(api: DioConsumer(
+                      dio: Dio()))),
               child: ProfileScreen(),
             ),);
       default:
