@@ -2,6 +2,7 @@
 
 class ImageConstants
 {
+  static const String testIcon='assets/icons/test_icon.svg';
 
   static const String profilePic='assets/images/khaled.jpeg';
   static const String arrowBack='assets/images/arrow_back.png';
@@ -86,6 +87,13 @@ class ImageConstants
   static const String photoForPostImage='assets/images/photo_for_post_image.png';
 
   static const String penCommunityImage='assets/images/pen_community_image.png';
+
+
+  static const String redHeartImage='assets/images/red_heart.png';
+
+  static const String greenRetweetImage='assets/images/green_retweet_image.png';
+
+
 
 
 

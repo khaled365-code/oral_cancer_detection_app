@@ -24,7 +24,6 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
-import '../../features/community/cubit/community_bloc_cubit.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
@@ -55,9 +54,7 @@ class AppRoutes
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:
-        return MaterialPageRoute(builder: (context) =>BlocProvider(
-          create: (context) => CommunityBlocCubit(),
-            child: const AddPostScreen()),);
+        return MaterialPageRoute(builder: (context) =>const AddPostScreen(),);
       case Routes.otpScreen:
         return MaterialPageRoute(builder: (context) =>const OtpVerifyScreen(),);
       case Routes.questionsView:
