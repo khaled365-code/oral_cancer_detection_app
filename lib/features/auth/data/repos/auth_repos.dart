@@ -4,6 +4,7 @@ import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
+import 'package:graduation_project/features/auth/data/auth_model/log_out_model.dart';
 import 'package:graduation_project/features/auth/data/auth_model/login_model.dart';
 import 'package:graduation_project/features/auth/data/auth_model/register_model.dart';
 import 'package:graduation_project/features/auth/data/auth_model/update_password_model.dart';
@@ -87,7 +88,19 @@ class AuthRepos {
     }
    }
 
-
+   Future<Either<String,LogOutModel>> LogOut({required String token}) async{
+    try {
+      final response= await api.post(
+          EndPoints.logOutEndPoint,
+          queryParams: {
+            ApiKeys.token: token,
+          },
+      );
+      return(Right(LogOutModel.fromJson(response)));
+    } on ServerException catch (e) {
+      return (left(e.errorModel.errorMessage));
+    }
+}
 
 
 }

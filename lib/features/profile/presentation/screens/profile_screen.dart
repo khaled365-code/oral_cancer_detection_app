@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/snackbar.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 
@@ -30,13 +33,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child:state is ProfileLoading? Center(child: CircularProgressIndicator()):
-            state is ProfileSuccess? ListView(
+            state is ProfileSuccess? Column(
               children: [
-                const SizedBox(height: 16),
+                SizedBox(height:50.h),
                 //! Profile Picture
                 CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage('assets/images/img.png'),
+                  radius:90.r,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage:AssetImage(ImageConstants.ProfileUserImage,),
                 ),
                 const SizedBox(height: 16),
                 Center(

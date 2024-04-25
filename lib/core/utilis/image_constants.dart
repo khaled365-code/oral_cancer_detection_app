@@ -87,53 +87,7 @@ class ImageConstants
 
   static const String penCommunityImage='assets/images/pen_community_image.png';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  static const String ProfileUserImage='assets/images/person.png';
 
 
 }
