@@ -12,9 +12,7 @@ import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/app_text_styles.dart';
-import '../../data/models/heart_shape_model.dart';
 import '../../data/models/post_data_model.dart';
-import '../../data/models/retweet_shape_model.dart';
 
 class PostContainer extends StatelessWidget {
 
@@ -89,7 +87,7 @@ class PostContainer extends StatelessWidget {
                     children: [
                       Text(postDataModel.owner, style: AppKhaledStyles.textStyle(
                         color: AppColors.black,
-                        weight: FontWeight.w700,
+                        weight:FontWeight.w700 ,
                         size: 13,
                       ),),
                       SizedBox(width: 3.h,),
@@ -97,8 +95,8 @@ class PostContainer extends StatelessWidget {
                         padding: EdgeInsets.only(top: 2.h),
                         child: Text(postDataModel.userName, style: AppKhaledStyles
                             .textStyle(
-                          color: AppColors.cDADDE0,
-                          weight: FontWeight.w700,
+                          color: AppColors.c687684,
+                          weight:FontWeight.w500 ,
                           size: 11,
                         ),),
                       ),
@@ -106,9 +104,9 @@ class PostContainer extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
                         child: Text('${postDataModel.hours}h', style: AppKhaledStyles.textStyle(
-                          color: AppColors.cDADDE0,
-                          weight: FontWeight.w700,
-                          size: 11,
+                          color: AppColors.c687684,
+                          weight:FontWeight.w500 ,
+                          size: 10,
                         ),),
                       ),
                       Spacer(),
@@ -126,7 +124,7 @@ class PostContainer extends StatelessWidget {
                   SizedBox(height: 2.h,),
                   Text(
                     postDataModel.content,
-                    maxLines: 3,
+                    maxLines: 10,
                     overflow: TextOverflow.ellipsis,
                     style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
