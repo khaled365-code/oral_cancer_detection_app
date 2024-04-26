@@ -37,8 +37,8 @@ class _LoginBodyState extends State<LoginBody> {
     if(state is SignInSuccessState){
       showSnackBar(context, content: state.message);
       navigate(context: context, route: Routes.home);
-      context.read<SignInCubit>().signInEmail.clear();
-      context.read<SignInCubit>().signInPassword.clear();
+     // context.read<SignInCubit>().signInEmail.clear();
+     // context.read<SignInCubit>().signInPassword.clear();
     }
   },
   builder: (context, state) {

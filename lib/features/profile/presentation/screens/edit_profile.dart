@@ -21,7 +21,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
 import '../../../../core/widgets/date_picker_widget.dart';
-import 'package:intl/intl.dart';
 
 
 class EditProfileScreen extends StatefulWidget {
@@ -29,6 +28,11 @@ class EditProfileScreen extends StatefulWidget {
   State<EditProfileScreen> createState() => _EditProfileScreenState();
 }
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  @override
+  // void initState() {
+  //   context.read<UpdateProfileCubit>().initializeTextFields();
+  //   super.initState();
+  // }
 
 
   final TextEditingController dateController=TextEditingController();
@@ -158,19 +162,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 //   ),
                 // ),
                 // SizedBox(height: 40.h,),
-               state is UpdateProfileLoadingSate?CircularProgressIndicator(): SharedButton(
-                    text: 'save'.tr(context),
-                    textStyle: AppTextStyles.font20.copyWith(color: AppColors.black),
-                    buttonColor: AppColors.primary,
-                    hasBorderRadius: true ,
-                    borderRadiusValue: 16.r,
-                 onPressed: (){
-                      context.read<UpdateProfileCubit>().updateProfile();
+               state is UpdateProfileLoadingSate?Center(child: CircularProgressIndicator()): Padding(
+                 padding:  EdgeInsetsDirectional.all(16),
+                 child: SharedButton(
+                      text: 'save'.tr(context),
+                      textStyle: AppTextStyles.font20.copyWith(color: AppColors.black),
+                      buttonColor: AppColors.primary,
+                      hasBorderRadius: true ,
+                      borderRadiusValue: 16.r,
+                   onPressed: (){
+                        context.read<UpdateProfileCubit>().updateProfile();
 
 
-                 },
+                   },
 
-                ),
+                  ),
+               ),
             ],
             ),
           ),

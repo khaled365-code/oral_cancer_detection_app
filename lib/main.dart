@@ -13,11 +13,13 @@ import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/commons/bloc_obsever.dart';
 import 'core/localization/app_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
+import 'features/profile/data/repos/profile_repos.dart';
 
 
 void main() {
@@ -75,10 +77,13 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
+        BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
+            profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
+        ),),
 
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
-        BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
+       // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
         BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio())))),
         BlocProvider<SignUpCubit>(create:
             (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio())))),
