@@ -10,12 +10,8 @@ import 'package:graduation_project/core/widgets/snackbar.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_state.dart';
 import '../../../../../core/commons/functions.dart';
-
 import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
-import 'package:graduation_project/features/auth/presentation/views/componants/date_function.dart';
-import 'package:graduation_project/features/auth/presentation/views/componants/gender_textfield.dart';
-import 'package:intl/intl.dart';
 
 class RegisterBody extends StatefulWidget{
   const RegisterBody({super.key});
@@ -39,6 +35,11 @@ class _RegisterBodyState extends State<RegisterBody> {
        else if(state is SignUpSuccess){
          showSnackBar(context, content:state.message);
          navigate(context: context, route: Routes.loginScreen);
+        context.read<SignUpCubit>().signUpName.clear();
+        context.read<SignUpCubit>().signUpEmail.clear();
+        context.read<SignUpCubit>().signUpPassword.clear();
+        context.read<SignUpCubit>().signUpConfPassword.clear();
+
        }
       },
      builder: (context, state) {
@@ -85,7 +86,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                             const Icon(Icons.visibility,color:AppColors.background) ,),
                         ),
                         SizedBox(height:10.h,),
-                        CustomTextFormField(labelText:"Confirm your password".tr(context),
+                        CustomTextFormField(labelText:"Confirm password".tr(context),
                             hintText:"Confirm your password".tr(context),
                             controller:context.read<SignUpCubit>().signUpConfPassword,
                             obscureValue: isSecuredConf,
@@ -109,7 +110,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                                context.read<SignUpCubit>().Register();
                              }
                           },),
-                        SizedBox(height:8.h,),
+                        SizedBox(height:10.h,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

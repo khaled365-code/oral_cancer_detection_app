@@ -18,58 +18,58 @@ class _MyDrawerBodyState extends State<MyDrawerBody> {
 
   @override
   Widget build(BuildContext context) {
-        return Padding(
-            padding: EdgeInsetsDirectional.only(start: 10.w, top: 10.h),
-            child: Column(
-              children: [
-                DrawerItem(
-                  text: "editprofile".tr(context),
-                  image: ImageConstants.editprofile,
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.editProfilescreen);
-                  },
-                ),
-                SizedBox(height: 10.h,),
-                LanguageDrawerItem(),
-                SizedBox(height: 10.h,),
-                DrawerItem(
-                  text: "settings".tr(context),
-                  image: ImageConstants.settings,
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.settings);
-                  },
-                ),
-                SizedBox(height: 10.h,),
-                DrawerItem(
-                  text: "location".tr(context),
-                  image: ImageConstants.location,
-                  onPressed: () {
+    return Padding(
+        padding: EdgeInsetsDirectional.only(start: 10.w, top: 10.h),
+        child: Column(
+          children: [
+            DrawerItem(
+              text: "editprofile".tr(context),
+              image: ImageConstants.editprofile,
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.editProfilescreen);
+              },
+            ),
+            SizedBox(height: 10.h,),
+            LanguageDrawerItem(),
+            SizedBox(height: 10.h,),
+            DrawerItem(
+              text: "settings".tr(context),
+              image: ImageConstants.settings,
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.settings);
+              },
+            ),
+            SizedBox(height: 10.h,),
+            DrawerItem(
+              text: "location".tr(context),
+              image: ImageConstants.location,
+              onPressed: () {
 
-                  },
-                ),
-                SizedBox(height: 10.h,),
-                DrawerItem(
-                  text:"help".tr(context),
-                  image: ImageConstants.question,
-                  onPressed: () {
+              },
+            ),
+            SizedBox(height: 10.h,),
+            DrawerItem(
+              text: "help".tr(context),
+              image: ImageConstants.question,
+              onPressed: () {
 
-                  },
-                ),
-                SizedBox(height: 10.h,),
-                DrawerItem(
-                  text: "about".tr(context),
-                  image: ImageConstants.help,
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.aboutApp);
-                  },
-                ),
-                SizedBox(height: 10.h,),
-                LogOutDrawerItem(),
-              ],
-            )
-        );
-      }
+              },
+            ),
+            SizedBox(height: 10.h,),
+            DrawerItem(
+              text: "about".tr(context),
+              image: ImageConstants.help,
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.aboutApp);
+              },
+            ),
+            SizedBox(height: 10.h,),
+            LogOutDrawerItem(),
+          ],
+        )
+    );
   }
+}
 
 
 

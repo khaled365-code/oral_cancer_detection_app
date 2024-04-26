@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
@@ -14,10 +12,9 @@ import 'package:graduation_project/features/community/presentation/screens/no_po
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
-import '../../../../core/routes/routes.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
+
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
   @override
