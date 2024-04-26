@@ -14,8 +14,18 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
    final ProfileRepos profileRepos;
    getProfileModel? userProfile;
 
-  TextEditingController? updatedName=TextEditingController();
-  TextEditingController? updatedEmail=TextEditingController();
+  TextEditingController? updatedName;
+  TextEditingController? updatedEmail;
+
+  void initializeTextFields() {
+    if (userProfile != null) {
+      updatedName = TextEditingController(text: userProfile!.name);
+      updatedEmail = TextEditingController(text: userProfile!.email);
+    } else {
+      updatedName = TextEditingController();
+      updatedEmail = TextEditingController();
+    }
+  }
   XFile? updatedProfilePic;
 
   uploadProfilePic({required XFile uploadedProfilePic}){
@@ -28,8 +38,8 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
     emit(UpdateProfileLoadingSate());
     final response=await profileRepos.updateProfile(
         profilePic: updatedProfilePic?? AssetImage(ImageConstants.account),
-        updatedName: updatedName?.text ?? '${userProfile!.name}' ,
-        updatedEmail: updatedEmail?.text??'${userProfile!.email}'
+        updatedName: updatedName?.text  ,
+        updatedEmail: updatedEmail?.text
     );
     response.fold((errorState) => emit(UpdateProfileFailureState(errMessage: errorState)),
             (updateProfileModel) => emit(UpdateProfileSuccessState(message: updateProfileModel.message)));

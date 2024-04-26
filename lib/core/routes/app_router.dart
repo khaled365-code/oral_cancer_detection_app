@@ -25,6 +25,8 @@ import 'package:graduation_project/features/profile/presentation/screens/feedbac
 import 'package:graduation_project/features/profile/presentation/screens/profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
 import 'package:graduation_project/features/splash/presentation/views/splash_screen.dart';
+import '../../features/auth/data/manager/sign_in_cubit.dart';
+import '../../features/auth/data/repos/auth_repos.dart';
 import '../../features/auth/presentation/views/log_as_screen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
@@ -86,7 +88,9 @@ class AppRoutes
       case Routes.logAs:
         return MaterialPageRoute(builder: (context) => const LogAs(),);
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => const LoginPage(),);
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context)=>SignInCubit(AuthRepos(api: DioConsumer(dio: Dio()))),
+            child: const LoginPage()),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);
       case Routes.doctor:
@@ -94,12 +98,7 @@ class AppRoutes
 
       case Routes.editProfilescreen:
         return MaterialPageRoute(builder: (context) =>
-            BlocProvider(
-              create: (context) => UpdateProfileCubit(
-                profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
-              ),
-              child: EditProfileScreen(),
-            ),);
+            EditProfileScreen(),);
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.aboutApp:

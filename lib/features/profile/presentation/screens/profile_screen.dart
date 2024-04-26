@@ -7,6 +7,8 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/snackbar.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 
+import '../manager/profile_cubites/update_profile_cubit.dart';
+
 class ProfileScreen extends StatefulWidget {
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -17,7 +19,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<ProfileCubit>(context).GetUserProfile();
+    BlocProvider.of<ProfileCubit>(context).GetUserProfile().then((userProfile) {
+      if (userProfile != null) {
+        context.read<UpdateProfileCubit>().initializeTextFields();
+      }
+    });
   }
 
   @override
