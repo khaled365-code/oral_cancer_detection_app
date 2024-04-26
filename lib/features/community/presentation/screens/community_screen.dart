@@ -6,8 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
-import 'package:graduation_project/features/community/data/models/heart_shape_model.dart';
-import 'package:graduation_project/features/community/data/models/retweet_shape_model.dart';
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 
 import '../../../../core/routes/routes.dart';
@@ -38,7 +36,7 @@ class CommunityScreen extends StatelessWidget {
                        postDataModel: communityBloc.postsDataList[index],
                         currentIndex: index,
                       ),
-                  itemCount: 10,
+                  itemCount: communityBloc.postsDataList.length,
                 ),
               ),
             ],

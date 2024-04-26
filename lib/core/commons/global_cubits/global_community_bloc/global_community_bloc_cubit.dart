@@ -2,9 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../features/community/data/models/camera_posts_model.dart';
-import '../../../../features/community/data/models/heart_shape_model.dart';
 import '../../../../features/community/data/models/post_data_model.dart';
-import '../../../../features/community/data/models/retweet_shape_model.dart';
 import '../../../utilis/image_constants.dart';
 
 part 'global_community_bloc_state.dart';
@@ -56,6 +54,21 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
     emit(ChangeRetweetShapeState());
 
+  }
+
+   bool postDetailHeartIsActive=false;
+   bool postDetailsRetweetIsActive=false;
+
+
+  changeHeartForSingle()
+  {
+    postDetailHeartIsActive=!postDetailHeartIsActive;
+    emit(ChangeHeartState());
+  }
+  changeRetweetForSingle()
+  {
+    postDetailsRetweetIsActive=!postDetailsRetweetIsActive;
+    emit(ChangeRetweetShapeState());
   }
 
 
