@@ -81,7 +81,7 @@ class HomePageState extends State<HomePage> {
       return PreferredSize(
           preferredSize: Size(double.infinity, 40.h),
           child: DefaultAppBar(
-            hasTitle: true,
+            hasTitle: false,
             hasActions: true,
             hasLeading: true,
             leading: Builder(builder: (context) {
@@ -91,7 +91,7 @@ class HomePageState extends State<HomePage> {
                   },
                   child: Image.asset(ImageConstants.homelines));
             }),
-            title: Text("editprofile".tr(context)),
+
             actions: [
               Padding(
                 padding: EdgeInsetsDirectional.only(end: 20.w),
