@@ -62,7 +62,7 @@ class AppRoutes
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
       case Routes.addPostScreen:
-        return MaterialPageRoute(builder: (context) =>const AddPostScreen(),);
+        return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:
         return MaterialPageRoute(
           builder: (context) => const OtpVerifyScreen(),);
