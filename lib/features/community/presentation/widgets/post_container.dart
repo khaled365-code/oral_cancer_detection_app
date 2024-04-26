@@ -41,8 +41,9 @@ class PostContainer extends StatelessWidget {
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
         return GestureDetector(
-      onTap: () {
-        navigate(context: context, route: Routes.postDetailsScreen);
+      onTap: ()
+      {
+        navigate(context: context, route: Routes.postWitImageScreen);
       },
       child: Container(
         width: 414.w,

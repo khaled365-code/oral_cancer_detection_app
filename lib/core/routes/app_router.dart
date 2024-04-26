@@ -57,7 +57,7 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) =>const PostWithImageScreen(),);
       case Routes.noPostsScreen:
         return MaterialPageRoute(builder: (context) =>const NoPostsScreen(),);
-      case Routes.notificationsScreen:
+      case Routes.searchPostsScreen:
         return MaterialPageRoute(builder: (context) =>const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
         return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);

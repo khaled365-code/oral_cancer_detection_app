@@ -9,6 +9,10 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/custom_app_bar.dart';
+import '../../../../core/widgets/resuable_text.dart';
+import '../widgets/line_widget.dart';
+import '../widgets/no_search_result_widget.dart';
 
 class NoPostsScreen extends StatelessWidget {
   const NoPostsScreen({super.key});
@@ -18,40 +22,45 @@ class NoPostsScreen extends StatelessWidget {
     return Scaffold(
 
 
-      appBar: AppBar(
-        leading: Padding(
-           padding: EdgeInsetsDirectional.only(start: 20.w),
-            child: Image.asset(ImageConstants.roundPostTwitter)),
-        title: Container(
-          decoration: BoxDecoration(
-              color: AppColors.cE7ECF0,
-              borderRadius: BorderRadius.circular(25.r)
-          ),
-          child: TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                contentPadding: EdgeInsetsDirectional.only(start: 12.w,bottom: 8.h),
-                hintText: 'Search Twitter',
-                prefixIcon: Icon(Icons.search),
-                hintStyle: AppKhaledStyles.textStyle(
-                  color: AppColors.cAFB8C1,
-                  size: 12,
-                )
+      body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 6.h,),
+            LineWidget(),
+            Padding(
+              padding:  EdgeInsetsDirectional.only(start: 20.w,top: 10.h),
+              child: ResuableText(
+                text: 'Posts for you',
+                color: AppColors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.w700 ,
+
+              ),
             ),
-          ),
-        ),
-        actions: [
-         Padding(
-           padding:  EdgeInsetsDirectional.only(end: 11.5.w),
-           child: GestureDetector(
-             onTap: ()
-               {
-                 navigate(context: context, route: Routes.noPostsScreen);
-               },
-               child: Image.asset(ImageConstants.communitySettingsImage)),
-         )
-        ],
+            SizedBox(height: 12.3.h,),
+            LineWidget(),
+            NoSearchResultWidget(),
+            Expanded(
+                child: Container(
+                  color: AppColors.cE7ECF0,
+                ))
+
+
+          ]
+      ),
+
+      floatingActionButton:  GestureDetector(
+        onTap: ()
+        {
+          navigate(context: context, route: Routes.addPostScreen);
+        },
+        child: Container(
+            width: 56.w,
+            height: 56.w,
+            decoration: BoxDecoration(
+                color: AppColors.c4C9EEB,
+                shape: BoxShape.circle
+            ), child: Image.asset(ImageConstants.addTwitterTextImage)),
       ),
     );
   }

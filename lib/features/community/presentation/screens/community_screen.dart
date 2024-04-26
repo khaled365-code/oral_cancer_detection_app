@@ -16,11 +16,6 @@ import '../widgets/post_container.dart';
 
 class CommunityScreen extends StatelessWidget {
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GlobalCommunityBloc, GlobalCommunityBlocState>(

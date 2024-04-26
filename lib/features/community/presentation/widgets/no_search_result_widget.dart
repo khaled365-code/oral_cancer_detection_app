@@ -19,9 +19,9 @@ class NoSearchResultWidget extends StatelessWidget {
             child: Center(
               child: ResuableText(
                   text: 'No new posts for you',
-                fontSize: 20,
+                fontSize: 16,
                 color: AppColors.black,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -29,8 +29,11 @@ class NoSearchResultWidget extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(top: 14.h,start: 34.w,end: 34.w),
             child: ResuableText(
               text: 'It seems like there’s not a lot to show you right\n now, you can search above to find results',
-              fontSize: 14,
-              color: AppColors.cAFB8C1,
+              fontSize: 11,
+              color: AppColors.c97A1AB,
+              fontWeight: FontWeight.normal,
+
+
             ),
           ),
 

@@ -27,7 +27,7 @@ class Routes
   static const String otpScreen='/otpScreen';
   static const String addPostScreen='/add_post_screen';
   static const String postDetailsScreen='/post_details_screen';
-  static const String notificationsScreen='/notifications_screen';
+  static const String searchPostsScreen='/search_posts_screen';
   static const String noPostsScreen='/no_posts_screen';
 
   static const String postWitImageScreen='/post_wit_image_screen';

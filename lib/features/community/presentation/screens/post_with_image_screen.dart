@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 
 import '../../../../core/utilis/app_styles.dart';
@@ -17,36 +18,39 @@ class PostWithImageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(
-        leading: Padding(
-          padding:  EdgeInsetsDirectional.only(start: 18.5.w),
-          child: IconButton(onPressed: (){
-            Navigator.pop(context);
-          }, icon: Icon(Icons.arrow_back_ios_outlined,color: AppColors.c57A4EC,)),
+      appBar: PreferredSize(preferredSize: Size(double.infinity, 40.h),
+        child: DefaultAppBar(
+          leading: Padding(
+               padding:  EdgeInsetsDirectional.only(start: 18.5.w),
+              child: IconButton(onPressed: (){
+                Navigator.pop(context);
+              }, icon: Icon(Icons.arrow_back_ios_outlined,color: AppColors.c57A4EC,)),
+            ),
+          title: ResuableText(
+            text: 'Post',
+           color: AppColors.black,
+           fontWeight: FontWeight.bold,
+           fontSize: 14,),
+          hasActions: false,
+          hasTitle: true,
         ),
-        title: ResuableText(text: 'Post',
-          color: AppColors.black,
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-        ),
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Padding(
-            padding: EdgeInsetsDirectional.only(start: 20.w),
+            padding: EdgeInsetsDirectional.only(start: 19.w),
             child: Column(
               children: [
                 LineWidget(),
                 Padding(
-                  padding:  EdgeInsets.only(top: 12.h),
+                  padding:  EdgeInsets.only(top: 20.h),
                   child: PostWithImageContainer(),
                 ),
                 Spacer(),
                 Padding(
-                  padding:  EdgeInsets.only(bottom: 10.h),
+                  padding:  EdgeInsets.only(bottom: 8.h),
                   child: Row(
                     children: [
                       Image.asset(ImageConstants.roundPostTwitter),
@@ -75,13 +79,12 @@ class PostWithImageScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 20.w,),
-        
-        
+
+
                     ],
                   ),
                 ),
-                SizedBox(height: 8.h,),
-        
+
         
               ],
             ),

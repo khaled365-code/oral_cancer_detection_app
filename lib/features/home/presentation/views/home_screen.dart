@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
@@ -19,31 +20,38 @@ class HomePage extends StatefulWidget{
   const HomePage({super.key});
   @override
   State<HomePage> createState() => HomePageState();
+
 }
 class HomePageState extends State<HomePage> {
   int selectedIndex =0;
-  bool hasPosts=false;
-  final List<Widget> pages=[
+
+
+  final List<Widget> pages=
+  [
     const UploadImageView(),
     CommunityScreen(),
     const MedicalNews(),
     const DoctorPage(),
-    const NoPostsScreen()
   ];
   void onItemTapped(int index) {
-    setState(() {
+    setState(()
+    {
       selectedIndex = index;
     });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: showAppBar()  ,
+      appBar: showAppBar() ,
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
-            children: [MyDrawerHeader(), MyDrawerBody()],
+            children:
+            [
+              MyDrawerHeader(),
+              MyDrawerBody()
+            ],
           ),
         ),
       ),
@@ -70,10 +78,21 @@ class HomePageState extends State<HomePage> {
   PreferredSize showAppBar(){
     if(selectedIndex==0){
 
-      return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
+      return  PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
         hasTitle: true,
         hasActions: true,
+        hasLeading: true,
+        leading: Builder(
+            builder: (context) {
+              return GestureDetector(
+                  onTap: ()
+                  {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  child: Image.asset(ImageConstants.homelines));
+            }
+        ),
         title:  Text("editprofile".tr(context)),actions: [Padding(
         padding: EdgeInsetsDirectional.only(end: 20.w),
         child: IconButton(onPressed: () {
@@ -82,10 +101,21 @@ class HomePageState extends State<HomePage> {
       )],backgroundColor: AppColors.primary,));
     }
     else if(selectedIndex==1){
-      return   PreferredSize(preferredSize: Size(double.infinity, 50.h,),
+      return   PreferredSize(preferredSize: Size(double.infinity, 40.h,),
       child: DefaultAppBar(
         hasActions: true,
         hasTitle: true,
+        hasLeading: true,
+        leading: Builder(
+          builder: (context) {
+            return GestureDetector(
+                onTap: ()
+                {
+                  Scaffold.of(context).openDrawer();
+                },
+                child: Image.asset(ImageConstants.homelines));
+          }
+        ),
         title: Image.asset(ImageConstants.appLogo),
         actions:
       [
@@ -93,7 +123,7 @@ class HomePageState extends State<HomePage> {
         padding:EdgeInsetsDirectional.only(end: 20.w,),
         child: GestureDetector(
           onTap: (){
-            navigate(context: context, route: Routes.notificationsScreen);
+            navigate(context: context, route: Routes.searchPostsScreen);
           },
             child: Image.asset(ImageConstants.searchCommunityImage))
       ),
@@ -101,23 +131,40 @@ class HomePageState extends State<HomePage> {
         backgroundColor: AppColors.white,));
     }
     else if(selectedIndex==2){
-      return PreferredSize(preferredSize: Size(double.infinity, 50.h),
+      return PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
+        hasLeading: true,
         hasTitle: true,
+        leading: Builder(
+            builder: (context) {
+              return GestureDetector(
+                  onTap: ()
+                  {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  child: Image.asset(ImageConstants.homelines));
+            }
+        ),
         title: Text('Medical News'),backgroundColor:AppColors.primary ,));
     }
-
     else{
-      return  PreferredSize(preferredSize: Size(double.infinity, 50.h),
+      return  PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
         hasTitle: true,
+        hasLeading: true,
+        leading: Builder(
+            builder: (context) {
+              return GestureDetector(
+                  onTap: ()
+                  {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  child: Image.asset(ImageConstants.homelines));
+            }
+        ),
         title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
     }
   }
 }
-// return PreferredSize(
-//     preferredSize: const Size(double.infinity, 50),
-//     child: DrawerAppBar()
-// );
 
 

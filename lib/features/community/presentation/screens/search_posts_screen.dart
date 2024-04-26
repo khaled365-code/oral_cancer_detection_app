@@ -30,7 +30,7 @@ class SearchPostsScreen extends StatelessWidget {
                 children: [
                   Image.asset(ImageConstants.roundPostTwitter),
                   PositionedDirectional(
-                    start: 23.w,
+                    start: 18.w,
                       child: Image.asset(ImageConstants.roundPointCommunityImage))
                 ],
               ),
@@ -47,11 +47,11 @@ class SearchPostsScreen extends StatelessWidget {
               decoration: InputDecoration(
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
-                  contentPadding: EdgeInsetsDirectional.only(start:20.w,bottom: 15.h),
+                  contentPadding: EdgeInsetsDirectional.only(start:20.w,bottom: 6.h,top: 6.h),
                   hintText: 'Search Posts',
                   hintStyle: AppKhaledStyles.textStyle(
                     color: AppColors.cAFB8C1,
-                    size: 12,
+                    size: 13,
                   )
               ),
             ),
@@ -72,18 +72,19 @@ class SearchPostsScreen extends StatelessWidget {
       body: Column(
          crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 6.h,),
           LineWidget(),
           Padding(
-            padding:  EdgeInsetsDirectional.only(start: 20.w),
+            padding:  EdgeInsetsDirectional.only(start: 20.w,top: 10.h),
             child: ResuableText(
               text: 'Posts for you',
               color: AppColors.black,
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: FontWeight.w700 ,
 
             ),
           ),
-          SizedBox(height: 12.h,),
+          SizedBox(height: 12.3.h,),
           LineWidget(),
           NoSearchResultWidget(),
           Expanded(
