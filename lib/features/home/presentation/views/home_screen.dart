@@ -78,27 +78,36 @@ class HomePageState extends State<HomePage> {
   PreferredSize showAppBar(){
     if(selectedIndex==0){
 
-      return  PreferredSize(preferredSize: Size(double.infinity, 40.h),
-      child: DefaultAppBar(
-        hasTitle: true,
-        hasActions: true,
-        hasLeading: true,
-        leading: Builder(
-            builder: (context) {
+      return PreferredSize(
+          preferredSize: Size(double.infinity, 40.h),
+          child: DefaultAppBar(
+            hasTitle: true,
+            hasActions: true,
+            hasLeading: true,
+            leading: Builder(builder: (context) {
               return GestureDetector(
-                  onTap: ()
-                  {
+                  onTap: () {
                     Scaffold.of(context).openDrawer();
                   },
                   child: Image.asset(ImageConstants.homelines));
-            }
-        ),
-        title:  Text("editprofile".tr(context)),actions: [Padding(
-        padding: EdgeInsetsDirectional.only(end: 20.w),
-        child: IconButton(onPressed: () {
-          navigate(context: context, route: Routes.profileScreen);
-        }, icon:Icon(Icons.person,size: 35,),),
-      )],backgroundColor: AppColors.primary,));
+            }),
+            title: Text("editprofile".tr(context)),
+            actions: [
+              Padding(
+                padding: EdgeInsetsDirectional.only(end: 20.w),
+                child: IconButton(
+                  onPressed: () {
+                    navigate(context: context, route: Routes.profileScreen);
+                  },
+                  icon: Icon(
+                    Icons.person,
+                    size: 35,
+                  ),
+                ),
+              )
+            ],
+            backgroundColor: AppColors.primary,
+          ));
     }
     else if(selectedIndex==1){
       return   PreferredSize(preferredSize: Size(double.infinity, 40.h,),

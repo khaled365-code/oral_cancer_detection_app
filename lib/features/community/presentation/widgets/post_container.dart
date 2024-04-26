@@ -35,7 +35,8 @@ class PostContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
-    listener: (context, state) {
+    listener: (context, state)
+    {
      // TODO: implement listener
     },
       builder: (context, state) {
@@ -43,7 +44,7 @@ class PostContainer extends StatelessWidget {
         return GestureDetector(
       onTap: ()
       {
-        navigate(context: context, route: Routes.postWitImageScreen);
+        navigate(context: context, route: Routes.postDetailsScreen);
       },
       child: Container(
         width: 414.w,
