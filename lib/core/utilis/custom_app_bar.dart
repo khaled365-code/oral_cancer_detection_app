@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 
 class DefaultAppBar extends StatelessWidget {
@@ -18,7 +19,11 @@ class DefaultAppBar extends StatelessWidget {
     return
          AppBar(title: hasTitle ?title:null ,centerTitle: true,elevation: 0,
           backgroundColor:backgroundColor
-          ,leading: hasLeading? leading:null,actions: hasActions ?actions:null,);
+          ,leading: hasLeading? leading:GestureDetector(
+             onTap: ()
+             {
+               Navigator.pop(context);
+             }, child: Icon(Icons.arrow_back_ios_outlined,size: 16.sp,)),actions: hasActions ?actions:null,);
 
 
   }

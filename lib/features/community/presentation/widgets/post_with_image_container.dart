@@ -22,24 +22,22 @@ class PostWithImageContainer extends StatelessWidget {
                 width: 55.w,
                 height: 55.w,
                 decoration: BoxDecoration(
-                ), child: CircleAvatar(
-                  backgroundColor: AppColors.transparent,
-                  child: Image.asset(ImageConstants.manCommentImage,fit: BoxFit.contain,)),
+                ), child: Image.asset(ImageConstants.manCommentImage,fit: BoxFit.fill,),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.only(start: 8.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Martha Craig',style: AppKhaledStyles.textStyle(
+                    Text('martha criag',style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
-                      weight:FontWeight.w700 ,
+                      weight:FontWeight.w600 ,
                       size: 13 ,
                     ),),
                     SizedBox(height: 3.h,),
-                    Text('@khale_mo',style: AppKhaledStyles.textStyle(
-                      color: AppColors.cDADDE0,
-                      weight:FontWeight.w700 ,
+                    Text('@khaled_mo',style: AppKhaledStyles.textStyle(
+                      color: AppColors.c687684,
+                      weight:FontWeight.w500 ,
                       size: 11,
                     ),),
                   ],
@@ -49,8 +47,16 @@ class PostWithImageContainer extends StatelessWidget {
           ),
           Padding(
             padding:  EdgeInsetsDirectional.only(top: 23.h,),
-            child: Text('~~ hiring for a UX Lead in Sydney - who should I talk to?')
-          ),
+            child: Text(
+              'You can only bring one item to a remote island to assist your research of native use of tools and usability. What do you bring? #TellMeAboutYou',
+              maxLines: 10,
+              overflow: TextOverflow.ellipsis,
+              style: AppKhaledStyles.textStyle(
+                color: AppColors.black,
+                size: 14,
+                weight: FontWeight.w400,
+
+              ),),),
           Padding(
             padding:  EdgeInsetsDirectional.only(top: 25.h,end: 21.w),
             child: Container(

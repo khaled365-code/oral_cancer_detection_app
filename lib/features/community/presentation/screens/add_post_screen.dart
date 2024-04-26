@@ -65,7 +65,7 @@ class AddPostScreen extends StatelessWidget {
                   child: Center(
                     child: Text('Post',style: AppKhaledStyles.textStyle(
                       color: AppColors.white,
-                      size: 12,
+                      size: 13,
                     ),),
                   ),
                 ),

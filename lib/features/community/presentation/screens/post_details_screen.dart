@@ -10,8 +10,10 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 
+import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/custom_app_bar.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../widgets/post_container.dart';
 import '../widgets/post_details_widget.dart';
@@ -24,24 +26,28 @@ class PostDetailsScreen extends StatelessWidget {
 
     final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding:  EdgeInsetsDirectional.only(start: 18.5.w),
-          child: IconButton(
-             onPressed: (){
-               Navigator.pop(context);
-             },
-            icon: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.c4C9EEB,size: 15.sp,),),
+      appBar: PreferredSize(
+        preferredSize: Size(double.infinity, 40.h),
+        child: DefaultAppBar(
+          leading: Padding(
+            padding:  EdgeInsetsDirectional.only(start: 18.5.w),
+            child: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.c4C9EEB,size: 15.sp,),),
+          ),
+          title: Text('Post',
+            style: AppKhaledStyles.textStyle(
+                color: AppColors.black,
+                size: 16 ,
+                weight: FontWeight.bold
+            ),),
+          hasActions: false,
+          hasLeading: true,
+          hasTitle: true,
         ),
-        title: Text('Post',
-          style: AppKhaledStyles.textStyle(
-            color: AppColors.black,
-            size: 16 ,
-            weight: FontWeight.bold
-          ),),
-        centerTitle: true,
       ),
-
       body: CustomScrollView(
         slivers:
         [
