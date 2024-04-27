@@ -20,9 +20,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     BlocProvider.of<ProfileCubit>(context).GetUserProfile().then((userProfile) {
-      if (userProfile != null) {
-        context.read<UpdateProfileCubit>().initializeTextFields();
-      }
+      // if (userProfile != null) {
+      //   context.read<UpdateProfileCubit>().initializeTextFields();
+      // }
     });
   }
 
@@ -33,6 +33,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
        if(state is ProfileFailure){
          showSnackBar(context, content: state.errorMessage);
        }
+       // if(state is ProfileSuccess){
+       //   context.read<UpdateProfileCubit>().initializeTextFields();
+       // }
       },
       builder: (context, state) {
         return Scaffold(
