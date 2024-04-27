@@ -22,7 +22,7 @@ class CommunityRepoImplementation implements CommunityRepo {
       final response = await api.post(EndPoints.storeNewPost, data:
       {
         ApiKeys.title: title,
-        ApiKeys.body: bool,
+        ApiKeys.body: body,
         ApiKeys.user_id: id,
         ApiKeys.token: token,
 
