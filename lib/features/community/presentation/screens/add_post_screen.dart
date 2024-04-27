@@ -81,31 +81,12 @@ class AddPostScreen extends StatelessWidget {
                               child: CircularProgressIndicator(
                                 color: AppColors.primary,
                               ),
-                            ):state is AddPostFailureState?
+                            ):
                             GestureDetector(
                               onTap: ()
                               {
                                 addPostCubit.addNewPost();
-                              },
-                              child: Container(
-                                width: 67.w,
-                                height: 34.h,
-                                decoration: BoxDecoration(
-                                  color: AppColors.cB9DCF7,
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Post', style: AppKhaledStyles.textStyle(
-                                    color: AppColors.white,
-                                    size: 13,
-                                  ),),
-                                ),
-                              ),
-                            ):GestureDetector(
-                              onTap: ()
-                              {
-                                addPostCubit.addNewPost();
+                                addPostCubit.postContentController.clear();
                               },
                               child: Container(
                                 width: 67.w,

@@ -18,7 +18,7 @@ class AddPostCubit extends Cubit<AddPostState> {
   {
     emit(AddPostLoadingState());
    final response=await communityRepoImplementation.uploadPost(
-        title: 'what is your nationality',
+        title: 'what is xmlfile',
         body: postContentController.text,
         id: int.parse(CacheHelper().getData(key: ApiKeys.id)),
         token: CacheHelper().getData(key: ApiKeys.token));
