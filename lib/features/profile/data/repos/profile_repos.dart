@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
@@ -12,8 +13,9 @@ class ProfileRepos {
   final ApiConsumer api;
   ProfileRepos({required this.api});
 
-  Future<Either<String,getProfileModel>> GetUserProfile({required String userToken}) async{
+  Future<Either<String,getProfileModel>> GetUserProfile() async{
     try {
+      final userToken=CacheHelper().getData(key: ApiKeys.token);
       final response=await api.get(
           EndPoints.UserProfile,
           queryParams: {

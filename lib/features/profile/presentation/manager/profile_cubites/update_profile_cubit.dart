@@ -25,7 +25,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
       updatedName = TextEditingController();
       updatedEmail = TextEditingController();
     }
-    // emit(UpdateProfileInitial());
+
   }
   XFile? updatedProfilePic;
 

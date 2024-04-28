@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../utilis/app_text_styles.dart';
 import '../utilis/colors.dart';
 
 void navigate({required context ,required String route,arg})
@@ -52,6 +53,17 @@ Color getColor(ToastStates toastStates)
     case ToastStates.warning:
       return AppColors.red;
   }
+}
+
+showSnackBar(BuildContext context,{required String content}){
+  ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          content,style: AppTextStyles.font12,)
+        ,backgroundColor: AppColors.white,
+        behavior: SnackBarBehavior.floating,
+      )
+  );
 }
 
 

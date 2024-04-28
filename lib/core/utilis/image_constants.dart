@@ -93,55 +93,6 @@ class ImageConstants
 
   static const String greenRetweetImage='assets/images/green_retweet_image.png';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   static const String ProfileUserImage='assets/images/person.png';
 
 

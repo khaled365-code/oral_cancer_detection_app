@@ -14,14 +14,11 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
-import 'package:graduation_project/core/widgets/snackbar.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
-import '../../../../core/widgets/date_picker_widget.dart';
 
 
 class EditProfileScreen extends StatefulWidget {
@@ -78,8 +75,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                    ):Center(
                       child: Container(
                         child: CircleAvatar(
+                          backgroundColor: AppColors.light,
                           radius: 70.r,
-                          backgroundImage: AssetImage(ImageConstants.profilePic),
+                          backgroundImage: AssetImage(ImageConstants.ProfileUserImage),
                         ),
                       ),
                     ),
@@ -89,7 +87,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         radius: 22.r,
                         child: IconButton(icon: Icon(Icons.camera_alt_outlined),
                           onPressed: () {
-                            ImagePicker().pickImage(source: ImageSource.gallery)
+                            imagePick(imageSource: ImageSource.gallery)
                                 .then((value) =>
                                 context.read<UpdateProfileCubit>().uploadProfilePic(uploadedProfilePic: value!));
                           },

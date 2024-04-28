@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/features/home/presentation/views/componants/news_card.dart';
 import 'package:graduation_project/features/home/presentation/views/componants/news_listview.dart';
 import '../../data/models/news_model.dart';
 import '../manager/news_services.dart';
