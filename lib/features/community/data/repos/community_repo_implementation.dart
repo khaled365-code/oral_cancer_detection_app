@@ -19,7 +19,8 @@ class CommunityRepoImplementation implements CommunityRepo {
 
   @override
   Future<Either<String, String>> uploadPost({required String title, required String body, XFile? image, required int id, required String token}) async {
-    try {
+    try
+    {
       final response = await api.post(EndPoints.storeNewPost, data:
       {
         ApiKeys.title: title,
@@ -37,7 +38,6 @@ class CommunityRepoImplementation implements CommunityRepo {
       return Left(e.errorModel.errorMessage);
     }
   }
-
   @override
   Future<Either<String, PostDetailsModel>> getAllPosts({required String token}) async 
   {

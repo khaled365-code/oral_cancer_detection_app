@@ -23,7 +23,8 @@ class CommunityScreen extends StatelessWidget {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
         return Scaffold(
           body: Column(
-            children: [
+            children:
+            [
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) =>
