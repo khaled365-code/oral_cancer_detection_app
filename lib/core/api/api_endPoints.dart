@@ -8,6 +8,13 @@ class EndPoints{
   static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
 
+
+  static String getAllPosts(id)
+  {
+    return 'blog?token=$id';
+
+  }
+
 }
 
 class ApiKeys{
@@ -28,6 +35,9 @@ class ApiKeys{
   static String body= "body";
   static String image= "image";
   static String user_id= "user_id";
+  static String created_at= "created_at";
+
+
 
 
 }
