@@ -15,7 +15,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   GetUserProfile() async{
     emit(ProfileLoading());
-    final response=await profileRepo.GetUserProfile(userToken: userToken);
+    final response=await profileRepo.GetUserProfile();
     response.fold(
             (errorMessage) => emit(ProfileFailure(errorMessage: errorMessage)),
             (userProfile) => emit(ProfileSuccess(userProfile: userProfile))

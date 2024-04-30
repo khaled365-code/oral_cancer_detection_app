@@ -11,7 +11,6 @@ import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../../../core/utilis/app_text_styles.dart';
 import '../../data/models/post_data_model.dart';
 
 class PostContainer extends StatelessWidget {

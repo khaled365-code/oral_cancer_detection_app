@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
 
 import 'componants/upload_image_body.dart';
 

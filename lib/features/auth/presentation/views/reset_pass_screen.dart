@@ -1,17 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
-import 'package:graduation_project/core/utilis/image_constants.dart';
-import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
-import 'package:graduation_project/core/widgets/custom_textformfield.dart';
-import 'package:graduation_project/core/widgets/snackbar.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_pass_views.dart';
-import 'package:pinput/pinput.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/default_textform_field.dart';

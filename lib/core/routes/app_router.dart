@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
-import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,6 @@ import 'package:graduation_project/features/diagnosis/presentation/views/questio
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
@@ -32,14 +30,12 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
-import '../../features/diagnosis/presentation/views/Radio_question_view.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/splash/presentation/views/onboearding_screen.dart';
-import '../../main.dart';
 
 
 
@@ -75,8 +71,8 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => const ResultScreen(),);
     // case Routes.radioQueastion:
     //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
-      case Routes.textQuestion:
-        return MaterialPageRoute(builder: (context) => const QuestionText(),);
+    //   case Routes.textQuestion:
+    //     return MaterialPageRoute(builder: (context) => const QuestionText(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.sendCode:

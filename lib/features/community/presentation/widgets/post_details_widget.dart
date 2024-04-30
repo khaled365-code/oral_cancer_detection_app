@@ -9,7 +9,6 @@ import 'package:graduation_project/features/community/presentation/widgets/line_
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/image_constants.dart';
-import '../../data/models/post_data_model.dart';
 
 class PostDetailsWidget extends StatelessWidget {
   const PostDetailsWidget({super.key});

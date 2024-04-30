@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/routes.dart';
-import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
@@ -51,8 +50,8 @@ class UploadImageBody extends StatelessWidget {
                   CustomTextButton(
                       textState: 'UPLOAD',
                       bIcon: const Icon(Icons.upload, color: Colors.white,),
-                      onPressed: () async{
-                       await ImagePicker().pickImage(source: ImageSource.gallery)
+                      onPressed: () {
+                        imagePick(imageSource: ImageSource.gallery)
                             .then((value) => context.read<UploadImageCubit>().uploadMouthImage(tissueImg: value!));
                       }),
                   //const SizedBox(width:16,),
