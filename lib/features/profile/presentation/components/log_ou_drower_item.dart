@@ -10,7 +10,7 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/auth/data/manager/log_out_cubit.dart';
-import 'package:graduation_project/features/auth/data/manager/log_out_state.dart';
+import '../../../auth/data/manager/log_out_state.dart';
 import 'drawer_body_item.dart';
 
 class LogOutDrawerItem extends StatelessWidget {

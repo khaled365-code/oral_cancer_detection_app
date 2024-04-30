@@ -11,7 +11,7 @@ class QuestionsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  DefaultTabController(
-      length: 9,
+      length: 8,
       child: SafeArea(
             child: Scaffold(
               body: Padding(
@@ -28,6 +28,7 @@ class QuestionsView extends StatelessWidget {
                       labelPadding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                       tabs:  [
                         Tab(text: "first".tr(context),),
+                        // Tab(text: "second".tr(context),),
                         Tab(text: "second".tr(context),),
                         Tab(text: "third".tr(context),),
                         Tab(text: "fourth".tr(context),),
@@ -35,17 +36,16 @@ class QuestionsView extends StatelessWidget {
                         Tab(text: "sixth".tr(context),),
                         Tab(text: "seventh".tr(context),),
                         Tab(text: "eighth".tr(context),),
-                        Tab(text: "ninth".tr(context),),
                       ]),
                     Flexible(
                     flex: 1,
                     child: TabBarView(children:[
                       QuestionChoice(answersList:  ['Tongue'.tr(context),'Lip'.tr(context),'Floor of mouth'.tr(context),'Palate'.tr(context),"Gingiva".tr(context)], QuestionTitle: 'ًWhereisthelocalizationoftheulcer ?'.tr(context),),
-                      const QuestionText(),
+                      // const QuestionText(),
                       QuestionChoice(answersList:  ['Yes'.tr(context),'No'.tr(context),'Former'.tr(context),'NotInformed'.tr(context)], QuestionTitle: 'Doyouusetobacco?'.tr(context),),
                       QuestionChoice(answersList:  ['Yes'.tr(context),'No'.tr(context),'Former'.tr(context),'NotInformed'.tr(context)], QuestionTitle: 'DoyouconsumeAlcohol?'.tr(context),),
                       QuestionChoice(answersList:  ['Yes'.tr(context),'No'.tr(context),'NotInformed'.tr(context)], QuestionTitle: 'Doyougetexposedtosun?'.tr(context),),
-                      QuestionChoice(answersList:  ['Male'.tr(context),'Female'.tr(context)], QuestionTitle: 'Whatisyourgender?'.tr(context),),
+                      QuestionChoice(answersList:  ['Male'.tr(context),'Female'.tr(context)], QuestionTitle: 'Whatisyougender?'.tr(context),),
                       QuestionChoice(answersList:  ['lessthan40years'.tr(context) ,'between41and60years'.tr(context),'greaterthan60'.tr(context),], QuestionTitle: 'Whatisyourage?'.tr(context),),
                       QuestionChoice(answersList:  ['Yes'.tr(context),'No'.tr(context)], QuestionTitle: 'Do the ulcer last more than 3 weeks?',),
                       QuestionChoice(answersList:  ['Yes'.tr(context),'No'.tr(context)], QuestionTitle: 'Dotheulcerspread?'.tr(context),showButton: true,),

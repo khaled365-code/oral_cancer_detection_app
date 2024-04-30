@@ -71,8 +71,8 @@ class AppRoutes
         return MaterialPageRoute(builder: (context) => const ResultScreen(),);
     // case Routes.radioQueastion:
     //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
-      case Routes.textQuestion:
-        return MaterialPageRoute(builder: (context) => const QuestionText(),);
+    //   case Routes.textQuestion:
+    //     return MaterialPageRoute(builder: (context) => const QuestionText(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.sendCode:

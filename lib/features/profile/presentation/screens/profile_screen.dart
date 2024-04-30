@@ -7,6 +7,7 @@ import 'package:graduation_project/features/profile/presentation/manager/profile
 
 import '../../../../core/commons/functions.dart';
 
+
 class ProfileScreen extends StatefulWidget {
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -30,9 +31,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       listener: (context, state) {
        if(state is ProfileFailure){
          showSnackBar(context, content: state.errorMessage);
+
        }
        // if(state is ProfileSuccess){
-       //   context.read<UpdateProfileCubit>().initializeTextFields();
+       //  context.read<UpdateProfileCubit>().initializeTextFields();
        // }
       },
       builder: (context, state) {

@@ -13,6 +13,7 @@ void navigate({required context ,required String route,arg})
   Navigator.pushNamed(context, route,arguments: arg);
 
 }
+
 Future uploadImageToAPI(XFile image) async {
   return MultipartFile.fromFile(image.path,
       filename: image.path.split('/').last);
