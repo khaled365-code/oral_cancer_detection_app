@@ -15,29 +15,24 @@ class BodyAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 40.h,
-      child: Padding(
-        padding:  EdgeInsetsDirectional.only(start: 20.w,end: 20.w),
-        child: Row(
-          children:
-          [
-           if(hasLeading==true)
-             leading ?? SizedBox.shrink(),
-            if(hasTitle==true)
-              title ?? SizedBox.shrink(),
-            if(hasActions==true)
-              Row(
-                children: actions??
-                    [
-                      const SizedBox.shrink(),
-                    ],
-              )
-          ],
-        ),
-      ),
-
+    return Row(
+      children:
+      [
+       if(hasLeading==true)
+         leading ?? SizedBox.shrink(),
+        Spacer(),
+        if(hasTitle==true)
+          title ?? SizedBox.shrink(),
+        Spacer(),
+        if(hasActions==true)
+          Row(
+            children: actions??
+                [
+                  const SizedBox.shrink(),
+                ],
+          ),
+        SizedBox(width: 35.w,),
+      ],
     );
   }
 }

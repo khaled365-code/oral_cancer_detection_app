@@ -14,7 +14,7 @@ class CustomOutlinedTextField extends StatelessWidget {
 
   final String? hintText;
   final TextStyle? hintStyle;
-  final double? width;
+
   final double? height;
   final Color? crusorColor;
   final bool obsecureText;
@@ -30,13 +30,12 @@ class CustomOutlinedTextField extends StatelessWidget {
   final Color? borderSideColor;
 
 
-  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.width, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.textFieldColor, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.borderSideColor});
+  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.textFieldColor, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.borderSideColor});
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: (width?? 300).w,
       height: (height??40).h,
       color: textFieldColor?? AppColors.white,
       child: TextFormField(

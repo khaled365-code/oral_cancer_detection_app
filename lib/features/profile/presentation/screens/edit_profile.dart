@@ -56,136 +56,198 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return Scaffold(
 
 
-      body: CustomScrollView(
-        slivers:
-        [
-          SliverToBoxAdapter(
-            child: BodyAppBar(
-              hasLeading: ,
-            )
-          )
-          SliverToBoxAdapter(
-            child: Center(
-              child: Stack(
-                clipBehavior: Clip.none,
-                  children:[
-                    state is UpdateProfilePictureState? Center(
-                      child: Container(
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding:  EdgeInsetsDirectional.only(top: 40.h,start: 15.w,end: 25.w),
+                child: BodyAppBar(
+                  hasLeading: true,
+                  hasTitle: true,
+                  leading: GestureDetector(
+                    onTap: ()
+                    {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: 45.w,
+                      height: 45.h,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                              color: AppColors.cEFF0F3,
+                              width: 2.w
+                          )
+                      ),
+                      child: Icon(Icons.arrow_back_outlined,size: 20.sp,),
+                    ),
+                  ) ,
+                  title: Text('Profile',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 15.sp),),
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Center(
+                child: Stack(
+                    clipBehavior: Clip.none,
+                    children:[
+                      state is UpdateProfilePictureState? Center(
+                        child: Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.cE7ECF0,
+                              image: DecorationImage(
+                                image: FileImage(File(context.read<UpdateProfileCubit>().updatedProfilePic!.path)),
+                              )
+                          ),
+                        ),
+                      ):Container(
                         width: 100.w,
                         height: 100.h,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: AppColors.cE7ECF0,
                             image: DecorationImage(
-                              image: FileImage(File(context.read<UpdateProfileCubit>().updatedProfilePic!.path)),
+                              image: AssetImage(ImageConstants.ProfileUserImage),
                             )
                         ),
                       ),
-                    ):Container(
-                      width: 100.w,
-                      height: 100.h,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.cE7ECF0,
-                        image: DecorationImage(
-                          image: AssetImage(ImageConstants.ProfileUserImage),
-                        )
-                      ),
-                    ),
-                    PositionedDirectional(
-                      bottom: -7.h,
-                      end: -2.w,
-                      child: Container(
-                        width: 35.w,
-                        height: 35.h,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.primary,
-                        ),
-                        child: IconButton(icon: Icon(Icons.camera_alt_outlined,color: AppColors.white,),
-                          onPressed: () {
-                            imagePick(imageSource: ImageSource.gallery)
-                                .then((value) =>
-                                context.read<UpdateProfileCubit>().uploadProfilePic(uploadedProfilePic: value!));
-                          },
+                      PositionedDirectional(
+                        bottom: -7.h,
+                        end: -2.w,
+                        child: Container(
+                          width: 35.w,
+                          height: 35.h,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColors.primary,
+                          ),
+                          child: IconButton(icon: Icon(Icons.camera_alt_outlined,color: AppColors.white,),
+                            onPressed: () {
+                              imagePick(imageSource: ImageSource.gallery)
+                                  .then((value) =>
+                                  context.read<UpdateProfileCubit>().uploadProfilePic(uploadedProfilePic: value!));
+                            },
+                          ),
                         ),
                       ),
-                    ),
 
-                  ]
+                    ]
+                ),
               ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 30.h,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: ResuableText(
-                text: 'Name',
-              fontSize: 12,
-              color: AppColors.c353535,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 5.h,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: CustomOutlinedTextField(
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,),
+                child: ResuableText(
+                  text: 'Name',
+                  fontSize: 12,
+                  color: AppColors.c353535,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
 
-              controller: TextEditingController(),
-               keyboardType: TextInputType.text,)
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 10.h,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: ResuableText(
-              text: 'Email',
-              fontSize: 12,
-              color: AppColors.c353535,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 5.h,
-            ),
-          ),
-          SliverToBoxAdapter(
-              child: CustomOutlinedTextField(
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.text,),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,),
+                child: ResuableText(
+                  text: 'Email',
+                  fontSize: 12,
+                  color: AppColors.c353535,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
 
-                controller: TextEditingController(),
-                keyboardType: TextInputType.emailAddress,)
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.emailAddress,),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,),
+                child: ResuableText(
+                  text: 'DOB',
+                  fontSize: 12,
+                  color: AppColors.c353535,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
+
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.text,),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,),
+                child: ResuableText(
+                  text: 'Gender',
+                  fontSize: 12,
+                  color: AppColors.c353535,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
+
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.text,),
+              ),
+              Spacer(),
+
+              Padding(
+                padding: EdgeInsetsDirectional.only(bottom: 10.h,start: 20.w,end: 20.w),
+                child: SharedButton(
+                    height: 50,
+
+                    onPressed: ()
+                    {
+
+                    },
+                    hasBorderRadius: true,
+                    borderRadiusValue: 30,
+                    btnText: 'Update Profile',
+                    btnTextStyle: AppKhaledStyles.textStyle(color: AppColors.white,weight: FontWeight.bold,size: 16.sp),
+                    buttonColor: AppColors.primary)
+                ,),
+
+            ],
           ),
-          SliverToBoxAdapter(
-            child: Spacer(),
-          ),
-
-          SliverToBoxAdapter(
-            child: Padding(padding: EdgeInsetsDirectional.only(bottom: 10.h),
-            child: SharedButton(
-              height: 40,
-              onPressed: ()
-                {
-
-                },
-                hasBorderRadius: true,
-                borderRadiusValue: 16,
-                btnText: 'Update Profile',
-                btnTextStyle: AppKhaledStyles.textStyle(color: AppColors.white,weight: FontWeight.bold,size: 16.sp),
-                buttonColor: AppColors.primary)
-              ,)
-          ),
-
-
-
-
-        ],
+        ),
       ),
 
       );
