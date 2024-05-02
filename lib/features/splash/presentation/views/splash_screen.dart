@@ -8,7 +8,7 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_button.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
-import 'package:graduation_project/core/widgets/row_title.dart';
+import 'package:graduation_project/features/splash/presentation/views/componants/row_title.dart';
 import '../../../../../core/commons/functions.dart';
 
 class SplashPage extends StatefulWidget {
@@ -39,73 +39,76 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Padding(
-        padding: EdgeInsetsDirectional.symmetric(vertical: 8.h, horizontal: 20.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const RowTitle(),
-             SizedBox(height:90.h,),
-              CustomContainer(conHeight:190.h,conWidth:230.w,conImage:ImageConstants.splash),
-             SizedBox(height:14.h,),
-            Text(
-                "oralCancerDetectionSystem".tr(context),
-              textAlign: TextAlign.center,
-              style: AppTextStyles.font24.copyWith(color: AppColors.primary)
-            ),
-             SizedBox(height: 8.h,),
-            Text(
-                "healthcareSystem".tr(context),
-              textAlign: TextAlign.center,
-              style:AppTextStyles.font14.copyWith(
-                  color: AppColors.primary,
-                  fontFamily: 'lato', )
-            ),
-             SizedBox(
-              height:50.h,
-            ),
-            AnimatedBuilder(
-              animation: slidingAnimation,
-              builder: (context,_){
-                return SlideTransition(
-                    position: slidingAnimation,
-                   child: CustomButton(
-                     buttonTextColor: AppColors.background,
-                     buttonBackground: AppColors.primary,
-                    onTap: (){
-                      navigate(context: context, route: Routes.onBoard);
-                    },
-                    buttonText:"getStarted".tr(context),
-                  ),
-                );
-              },
-
-            ),
-            Padding(
-              padding:  EdgeInsetsDirectional.only(top: 20.h),
-              child: GestureDetector(
-                onTap: ()
-                {
-                  navigate(context: context, route: Routes.home);
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsDirectional.symmetric(vertical: 20.h, horizontal: 20.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height:40.h,),
+              const RowTitle(),
+               SizedBox(height:60.h,),
+               CustomContainer(conHeight:190.h,conWidth:230.w,conImage:ImageConstants.splash),
+               SizedBox(height:14.h,),
+               Text(
+                  "oralCancerDetectionSystem".tr(context),
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.font24.copyWith(color: AppColors.primary)
+              ),
+               SizedBox(height: 8.h,),
+               Text(
+                  "healthcareSystem".tr(context),
+                  textAlign: TextAlign.center,
+                  style:AppTextStyles.font14.copyWith(
+                    color: AppColors.primary,
+                    fontFamily: 'lato', )
+              ),
+               SizedBox(
+                height:50.h,
+              ),
+              AnimatedBuilder(
+                animation: slidingAnimation,
+                builder: (context,_){
+                  return SlideTransition(
+                      position: slidingAnimation,
+                     child: CustomButton(
+                       buttonTextColor: AppColors.background,
+                       buttonBackground: AppColors.primary,
+                      onTap: (){
+                        navigate(context: context, route: Routes.onBoard);
+                      },
+                      buttonText:"getStarted".tr(context),
+                    ),
+                  );
                 },
-                child: Container(
-                  width: 80.w,
-                  height: 50.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: AppColors.c4C9EEB,
-                  ),
-                  child: Center(
-                    child: Text('Home',style: AppKhaledStyles.textStyle(
-                      color: AppColors.black,
-                      size: 15,
-                      weight: FontWeight.w700
-                    ),),
+
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(top: 20.h),
+                child: GestureDetector(
+                  onTap: ()
+                  {
+                    navigate(context: context, route: Routes.home);
+                  },
+                  child: Container(
+                    width: 80.w,
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: AppColors.c4C9EEB,
+                    ),
+                    child: Center(
+                      child: Text('Home',style: AppKhaledStyles.textStyle(
+                        color: AppColors.black,
+                        size: 15,
+                        weight: FontWeight.w700
+                      ),),
+                    ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
