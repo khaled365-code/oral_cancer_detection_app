@@ -113,10 +113,11 @@ class _ProfileItemWidgetState extends State<ProfileItemWidget> {
             case 5:
             navigate(context: context, route: Routes.contactUsScreen);
             case 6:
+              navigate(context: context, route: Routes.termsAndConditionsScreen);
             case 7:
-              navigate(context: context, route: Routes.aboutApp);
+              navigate(context: context, route: Routes.helpScreen);
             case 8:
-              navigate(context: context, route: Routes.faqscreen);
+              navigate(context: context, route: Routes.aboutApp);
             case 9:
               showModalBottomSheet(context: context, builder: (context) => LogoutBottomSheet(),);
           }

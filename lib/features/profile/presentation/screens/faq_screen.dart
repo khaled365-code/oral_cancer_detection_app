@@ -4,6 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../components/privacy_item.dart';
@@ -34,7 +35,7 @@ class _FaqScreenState extends State<FaqScreen> {
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 50.h),
         child: CustomAppBar(
-          title: 'S.of(context).faq',
+          title: 'faq'.tr(context),
         ),
       ),
       body: SingleChildScrollView(
@@ -43,20 +44,20 @@ class _FaqScreenState extends State<FaqScreen> {
           child: Column(
             children: [
               PrivacyContainerItem(
-                text: 'S.of(context).faq1',
+                text: 'faq1'.tr(context),
                 onTap: () {
                   setState(() {
                     pressed1 = !pressed1;
                   });
                 },
                 isPressed: pressed1,
-                answerText: 'S.of(context).faqans1',
+                answerText: 'faqans1'.tr(context),
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq2',
+                text: 'faq2'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -65,13 +66,13 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed2,
-                answerText: 'S.of(context).faqans2',
+                answerText: 'faqans2'.tr(context),
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq3',
+                text: 'faq3'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -80,14 +81,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed3,
-                answerText: 'S.of(context).faqans3',
+                answerText: 'faqans3'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq4',
+                text: 'faq4'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -96,14 +97,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed4,
-                answerText: 'S.of(context).faqans4,'
+                answerText: 'faqans4'.tr(context)
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq5',
+                text: 'faq5'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -112,14 +113,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed5,
-                answerText: 'S.of(context).faqans5',
+                answerText: 'faqans5'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq6',
+                text: 'faq6'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -128,14 +129,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed6,
-                answerText: 'S.of(context).faqans6',
+                answerText: 'faqans6'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq7',
+                text: 'faq7'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -144,14 +145,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed7,
-                answerText: 'S.of(context).faqans7',
+                answerText: 'faqans7'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq8',
+                text: 'faq8'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -160,14 +161,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed8,
-                answerText: 'S.of(context).faqans8',
+                answerText: 'faqans8'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq9',
+                text: 'faq9'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -176,14 +177,14 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed9,
-                answerText: 'S.of(context).faqans9',
+                answerText: 'faqans9'.tr(context),
 
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrivacyContainerItem(
-                text: 'S.of(context).faq10',
+                text: 'faq10'.tr(context),
                 onTap: () {
                   setState(
                         () {
@@ -192,7 +193,7 @@ class _FaqScreenState extends State<FaqScreen> {
                   );
                 },
                 isPressed: pressed10,
-                answerText: 'S.of(context).faqans10',
+                answerText: 'faqans10'.tr(context),
 
               ),
             ],

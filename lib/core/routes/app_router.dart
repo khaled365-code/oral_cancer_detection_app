@@ -16,13 +16,16 @@ import 'package:graduation_project/features/diagnosis/presentation/views/questio
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
+import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/terms_and_conditions_screen.dart';
 import 'package:graduation_project/features/splash/presentation/views/splash_screen.dart';
 import '../../features/auth/data/manager/sign_in_cubit.dart';
 import '../../features/auth/data/repos/auth_repos.dart';
@@ -47,6 +50,13 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
+      case Routes.termsAndConditionsScreen:
+        return MaterialPageRoute(builder: (context) => const TermsAndConditionsScreen(),);
+      case Routes.helpScreen:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => HelpScreenCubit(),
+          child: HelpScreen(),
+        ),);
       case Routes.postWitImageScreen:
         return MaterialPageRoute(
           builder: (context) => const PostWithImageScreen(),);

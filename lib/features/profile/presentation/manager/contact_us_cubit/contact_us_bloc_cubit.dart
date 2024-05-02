@@ -13,7 +13,7 @@ class ContactUsBloc extends Cubit<ContactUsBlocState> {
 
 
   final List<ContactUSModel>contactUsList=[
-    ContactUSModel(image:  ImageConstants.whatsAppIcon , text: 'WhatsApp',subText: '01013328223'),
+    ContactUSModel(image:  ImageConstants.whatsAppIcon , text: 'WhatsApp',subText: '(010) 133-28223'),
     ContactUSModel(image: ImageConstants.websiteIcon, text: 'Website',subText: 'https://www.linkedin.com/in/khaled-mohamed--658333229'),
     ContactUSModel(image: ImageConstants.facebookIcon, text: 'Facebook',subText: 'https://www.facebook.com/khaled.M.Elsaeed/'),
     ContactUSModel(image: ImageConstants.twitterIcon, text: 'Twitter',subText: 'Khaledmo0000'),

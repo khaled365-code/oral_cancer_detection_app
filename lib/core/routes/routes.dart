@@ -41,8 +41,12 @@ class Routes
 
 
 
+  static const String  termsAndConditionsScreen='/terms_and_conditions_screen';
 
   static const String  profileScreen='/profile_screen';
+
+  static const String  helpScreen='/help_screen';
+
 
 
 }

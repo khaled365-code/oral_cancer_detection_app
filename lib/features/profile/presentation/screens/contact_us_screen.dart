@@ -61,7 +61,7 @@ class ContactUsScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsetsDirectional.only(start: 20.w,end: 20.w,top: 20.h),
+                padding: EdgeInsetsDirectional.only(start: 20.w,end: 20.w,top: 20.h,bottom: 20.h),
                   itemBuilder: (context, index) => ContactUsItem(
                     contactUsModel: contactUSBloc.contactUsList[index],
                   ),

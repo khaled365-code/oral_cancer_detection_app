@@ -78,7 +78,7 @@ class ContactUsItem extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.only(
-                              start: 35.w, bottom: 5.h,end: 20.w),
+                              start: 35.w, bottom: 5.h,end: 20.w,top: 5.h),
                           child: Row(
                             children: [
                               SizedBox(
