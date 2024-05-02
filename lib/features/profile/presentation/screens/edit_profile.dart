@@ -251,9 +251,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               Spacer(),
 
               Padding(
-                padding: EdgeInsetsDirectional.only(bottom: 10.h,start: 20.w,end: 20.w),
+                padding: EdgeInsetsDirectional.only(bottom: 15.h,start: 20.w,end: 20.w),
                 child: SharedButton(
                     height: 50,
+                    width: 510,
 
                     onPressed: ()
                     {

@@ -15,6 +15,7 @@ import 'package:graduation_project/features/community/presentation/screens/post_
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
+import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
@@ -34,30 +35,29 @@ import '../../features/community/presentation/screens/post_with_image_screen.dar
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
+import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/put_new_password_screen.dart';
 import '../../features/splash/presentation/views/onboearding_screen.dart';
 
 
+class AppRoutes {
 
-
-class AppRoutes
-{
-
-  static Route? onGenerateRoutes(RouteSettings routeSettings)
-  {
-    switch(routeSettings.name)
-    {
+  static Route? onGenerateRoutes(RouteSettings routeSettings) {
+    switch (routeSettings.name) {
       case Routes.home:
-        return MaterialPageRoute(builder: (context) =>const HomePage(),);
+        return MaterialPageRoute(builder: (context) => const HomePage(),);
       case Routes.postWitImageScreen:
-        return MaterialPageRoute(builder: (context) =>const PostWithImageScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const PostWithImageScreen(),);
       case Routes.noPostsScreen:
-        return MaterialPageRoute(builder: (context) =>const NoPostsScreen(),);
+        return MaterialPageRoute(builder: (context) => const NoPostsScreen(),);
       case Routes.searchPostsScreen:
-        return MaterialPageRoute(builder: (context) =>const SearchPostsScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
-        return MaterialPageRoute(builder: (context) =>const PostDetailsScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const PostDetailsScreen(),);
       case Routes.addPostScreen:
         return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:
@@ -77,19 +77,28 @@ class AppRoutes
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.putNewPassword:
-        return MaterialPageRoute(builder: (context) => const PutNewPasswordScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const PutNewPasswordScreen(),);
       case Routes.sendCode:
         return MaterialPageRoute(builder: (context) => const SendCode(),);
       case Routes.onBoard:
         return MaterialPageRoute(builder: (context) => OnboardingScreen(),);
+      case Routes.contactUsScreen:
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => ContactUsBloc(),
+              child: ContactUsScreen(),
+            ),);
       case Routes.splash:
         return MaterialPageRoute(builder: (context) => const SplashPage(),);
       case Routes.logAs:
         return MaterialPageRoute(builder: (context) => const LogAs(),);
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => BlocProvider(
-          create: (context)=>SignInCubit(AuthRepos(api: DioConsumer(dio: Dio()))),
-            child: const LoginPage()),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+                create: (context) =>
+                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio()))),
+                child: const LoginPage()),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);
       case Routes.doctor:
@@ -122,8 +131,6 @@ class AppRoutes
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);
     }
-
-
   }
 
 }

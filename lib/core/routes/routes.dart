@@ -35,6 +35,10 @@ class Routes
   static const String putNewPassword='/put_new_password_screen';
 
 
+  static const String contactUsScreen='/contact_us_screen';
+
+
+
 
 
 

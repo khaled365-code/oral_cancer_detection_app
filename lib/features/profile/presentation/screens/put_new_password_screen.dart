@@ -71,19 +71,14 @@ class PutNewPasswordScreen extends StatelessWidget {
                   controller: TextEditingController(),
                   keyboardType: TextInputType.text,),
               ),
-              Row(
-                children: [
-                  Spacer(),
-                  Padding(
-                    padding:  EdgeInsetsDirectional.only(end: 20.w,top: 15.h),
-                    child: ResuableText(
-                      textDecoration: TextDecoration.underline,
-                      text: 'Forgot Password?',
-                      fontSize: 12,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ],
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,top: 15.h),
+                child: ResuableText(
+                  textDecoration: TextDecoration.underline,
+                  text: 'Forgot Password?',
+                  fontSize: 12,
+                  color: AppColors.primary,
+                ),
               ),
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 20.w,top: 30.h),
@@ -129,6 +124,7 @@ class PutNewPasswordScreen extends StatelessWidget {
               Padding(
                   padding: EdgeInsetsDirectional.only(bottom: 20.h,start: 20,end: 20.w),
                 child: SharedButton(
+                    width: 410,
                     hasBorderRadius: true,
                     borderRadiusValue: 25,
                     height: 50,

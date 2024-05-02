@@ -111,6 +111,7 @@ class _ProfileItemWidgetState extends State<ProfileItemWidget> {
               }
             case 4:
             case 5:
+            navigate(context: context, route: Routes.contactUsScreen);
             case 6:
             case 7:
               navigate(context: context, route: Routes.aboutApp);

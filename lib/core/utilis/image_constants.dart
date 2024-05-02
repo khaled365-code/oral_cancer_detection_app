@@ -110,6 +110,14 @@ class ImageConstants
   static const String settingsIcon='assets/icons/settings_icon.svg';
   static const String questionsIcon='assets/icons/question_icon.svg';
 
+  static const String facebookIcon='assets/icons/facebook.svg';
+  static const String instagramIcon='assets/icons/instagram_icon.svg';
+  static const String twitterIcon='assets/icons/twitter.svg';
+  static const String websiteIcon='assets/icons/website.svg';
+  static const String whatsAppIcon='assets/icons/whatsapp.svg';
+
+
+
 
 
 
