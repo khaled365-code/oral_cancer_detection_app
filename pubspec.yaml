@@ -54,6 +54,7 @@ dependencies:
   jwt_decoder: ^2.0.1
   flutter_vector_icons: ^2.0.0
   fluttertoast: ^8.2.5
+  introduction_screen:
   
 
 
