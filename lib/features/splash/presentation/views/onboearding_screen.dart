@@ -4,6 +4,7 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/colors.dart';
@@ -18,7 +19,7 @@ class OnboardingScreen extends StatelessWidget {
         decoration: PageDecoration(pageColor: AppColors.background),
           titleWidget:Text('firstonboardtilte'.tr(context),style: AppTextStyles.font24,textAlign: TextAlign.center),
           bodyWidget: Text( 'firstonboarddesc'.tr(context), style: AppTextStyles.font16.copyWith(color: Colors.grey),textAlign: TextAlign.center)
-         , image: Image.asset('assets/images/onboard1.jpg')
+         , image: Lottie.asset('assets/lotties/Animation - 1714664688020.json')
       ),
       PageViewModel(
           decoration: PageDecoration(pageColor: AppColors.background),
