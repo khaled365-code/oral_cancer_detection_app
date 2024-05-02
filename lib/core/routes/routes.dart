@@ -32,6 +32,9 @@ class Routes
 
   static const String postWitImageScreen='/post_wit_image_screen';
 
+  static const String putNewPassword='/put_new_password_screen';
+
+
 
 
 

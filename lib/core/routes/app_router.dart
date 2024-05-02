@@ -35,6 +35,7 @@ import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
+import '../../features/profile/presentation/screens/put_new_password_screen.dart';
 import '../../features/splash/presentation/views/onboearding_screen.dart';
 
 
@@ -75,6 +76,8 @@ class AppRoutes
     //     return MaterialPageRoute(builder: (context) => const QuestionText(),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
+      case Routes.putNewPassword:
+        return MaterialPageRoute(builder: (context) => const PutNewPasswordScreen(),);
       case Routes.sendCode:
         return MaterialPageRoute(builder: (context) => const SendCode(),);
       case Routes.onBoard:

@@ -15,15 +15,21 @@ class SharedButton extends StatelessWidget {
   final void Function() onPressed;
   final bool hasBorderRadius;
   final double? borderRadiusValue;
+  final double? width;
+  final bool hasBorder;
 
-  const SharedButton({required this.btnText,this.textcolor,required this.onPressed,this.height,this.btnTextStyle,this.buttonColor, this.hasBorderRadius=false, this.borderRadiusValue,});
+  const SharedButton({required this.btnText,this.textcolor,required this.onPressed,this.height,this.btnTextStyle,this.buttonColor, this.hasBorderRadius=false, this.borderRadiusValue, this.width, this.hasBorder=false,});
   @override
 
   Widget build(BuildContext context) {
 
   return Container(
+    width: (width??150.w),
     height: (height??30.h),
     decoration: BoxDecoration(
+      border: hasBorder?Border.all(
+        color: AppColors.primary,
+      ):null,
     borderRadius: hasBorderRadius?BorderRadius.circular(borderRadiusValue!):null,
     color: buttonColor??AppColors.primary,),
     child:MaterialButton(

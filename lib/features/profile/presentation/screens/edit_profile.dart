@@ -170,6 +170,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 20.w,),
                 child: ResuableText(
+                  text: 'Phone Number',
+                  fontSize: 12,
+                  color: AppColors.c353535,
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
+
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.text,),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,),
+                child: ResuableText(
                   text: 'Email',
                   fontSize: 12,
                   color: AppColors.c353535,
