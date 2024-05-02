@@ -6,7 +6,7 @@ class ImageConstants
 
   static const String profilePic='assets/images/khaled.jpeg';
   static const String arrowBack='assets/images/arrow_back.png';
-  static const String diagnosis='assets/images/stethoscope.png';
+  static const String diagnosisImage='assets/images/stethoscope.png';
   static const String community='assets/images/chat.png';
   static const String news='assets/images/newsmode.png';
   static const String doctors='assets/images/clinical_notes.png';
@@ -94,6 +94,15 @@ class ImageConstants
   static const String greenRetweetImage='assets/images/green_retweet_image.png';
 
   static const String ProfileUserImage='assets/images/person.png';
+
+  static const String doctorIcon='assets/icons/doctor_svg_icon.svg';
+  static const String communityIcon='assets/icons/comment_svg_icon.svg';
+  static const String newsPaperIcon='assets/icons/newspaper_svg_icon.svg';
+  static const String diagnosisIcon='assets/icons/diagnosis_icon.svg';
+  static const String homeIcon='assets/icons/home_icon.svg';
+  static const String pencilImage='assets/images/pencil_image.png';
+
+
 
 
 }

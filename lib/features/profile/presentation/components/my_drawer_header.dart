@@ -14,9 +14,6 @@ class MyDrawerHeader extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 250.h,
-      decoration: BoxDecoration(
-        color: AppColors.primary,
-      ),
       child: Padding(
         padding:EdgeInsetsDirectional.only(top: 60.h),
         child: Column(
