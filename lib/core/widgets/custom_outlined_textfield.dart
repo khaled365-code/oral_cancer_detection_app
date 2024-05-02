@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utilis/colors.dart';
@@ -11,42 +12,68 @@ import '../utilis/colors.dart';
 class CustomOutlinedTextField extends StatelessWidget {
 
 
-  final String hintText;
-  final TextStyle hintStyle;
+  final String? hintText;
+  final TextStyle? hintStyle;
   final double? width;
   final double? height;
   final Color? crusorColor;
-  final void Function(String) onFieldSubmitted;
-  final bool? obsecureText;
-  final TextEditingController? controller;
+  final bool obsecureText;
+  final TextEditingController controller;
+  final double? borderRadius;
+  final Color? textFieldColor;
+  final bool hasPrefixIcon;
+  final bool hasSuffixIcon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType keyboardType;
+  final Color? borderSideColor;
 
-  const CustomOutlinedTextField({super.key,this.controller, required this.hintText, required this.hintStyle, this.width, this.height, required this.crusorColor,required this.onFieldSubmitted, this.obsecureText=false});
+
+  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.width, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.textFieldColor, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.borderSideColor});
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 327.w,
-      height: 48.h,
-      color: AppColors.str.withOpacity(.2),
+      width: (width?? 300).w,
+      height: (height??40).h,
+      color: textFieldColor?? AppColors.white,
       child: TextFormField(
         controller: controller,
-        cursorColor: crusorColor,
-        onFieldSubmitted: onFieldSubmitted,
+        cursorColor: crusorColor?? AppColors.black,
+        inputFormatters: inputFormatters??null,
+        keyboardType: keyboardType,
+        obscureText: obsecureText,
         decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: hintStyle,
+          prefixIcon: hasPrefixIcon?Icon(prefixIcon):null,
+          suffixIcon: hasSuffixIcon?Icon(suffixIcon):null,
+          hintText: hintText??null,
+          hintStyle: hintStyle??null,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.r)
-          ),
-          disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.r)
-
+              borderRadius: BorderRadius.circular((borderRadius??8).r),
+            borderSide: BorderSide(
+              color: borderSideColor??AppColors.cEFEFEF,
+              width: 1.2.w
+            )
           ),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.r)
+              borderRadius: BorderRadius.circular((borderRadius??8).r),
+              borderSide: BorderSide(
+                color: borderSideColor??AppColors.cEFEFEF,
+                  width: 1.2.w
 
+              )
           ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular((borderRadius??8).r),
+              borderSide: BorderSide(
+                color: borderSideColor??AppColors.cEFEFEF,
+                  width: 1.2.w
+
+              )
+          )
+
         ),
       ),
     );

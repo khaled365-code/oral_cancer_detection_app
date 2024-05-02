@@ -135,19 +135,19 @@ class FeedBackScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-                child: SharedButton(
-                  text:' S.of(context).sendfeedback',
-                  buttonColor: AppColors.primary,
-                  textStyle: AppTextStyles.font16.copyWith(
-                    color: AppColors.white,
-                  ),
-                  width: double.infinity,
-                  hasBorderRadius: true,
-                  borderRadiusValue: 10.r,
-                ),
-              ),
+              // Padding(
+              //   padding:EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+              //   child: SharedButton(
+              //     text:' S.of(context).sendfeedback',
+              //     buttonColor: AppColors.primary,
+              //     btnTextStyle: AppTextStyles.font16.copyWith(
+              //       color: AppColors.white,
+              //     ),
+              //     width: double.infinity,
+              //     hasBorderRadius: true,
+              //     borderRadiusValue: 10.r,
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -13,9 +13,13 @@ import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/custom_app_bar.dart';
+import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
 import '../manager/profile_cubites/update_profile_cubit.dart';
@@ -51,13 +55,147 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
     return Scaffold(
 
-      appBar: PreferredSize(
-        child: CustomAppBar(
-          title: 'editProfile'.tr(context),
-        ),
-        preferredSize: Size(double.infinity, 50.h),
+
+      body: CustomScrollView(
+        slivers:
+        [
+          SliverToBoxAdapter(
+            child: BodyAppBar(
+              hasLeading: ,
+            )
+          )
+          SliverToBoxAdapter(
+            child: Center(
+              child: Stack(
+                clipBehavior: Clip.none,
+                  children:[
+                    state is UpdateProfilePictureState? Center(
+                      child: Container(
+                        width: 100.w,
+                        height: 100.h,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColors.cE7ECF0,
+                            image: DecorationImage(
+                              image: FileImage(File(context.read<UpdateProfileCubit>().updatedProfilePic!.path)),
+                            )
+                        ),
+                      ),
+                    ):Container(
+                      width: 100.w,
+                      height: 100.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.cE7ECF0,
+                        image: DecorationImage(
+                          image: AssetImage(ImageConstants.ProfileUserImage),
+                        )
+                      ),
+                    ),
+                    PositionedDirectional(
+                      bottom: -7.h,
+                      end: -2.w,
+                      child: Container(
+                        width: 35.w,
+                        height: 35.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.primary,
+                        ),
+                        child: IconButton(icon: Icon(Icons.camera_alt_outlined,color: AppColors.white,),
+                          onPressed: () {
+                            imagePick(imageSource: ImageSource.gallery)
+                                .then((value) =>
+                                context.read<UpdateProfileCubit>().uploadProfilePic(uploadedProfilePic: value!));
+                          },
+                        ),
+                      ),
+                    ),
+
+                  ]
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 30.h,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ResuableText(
+                text: 'Name',
+              fontSize: 12,
+              color: AppColors.c353535,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 5.h,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: CustomOutlinedTextField(
+
+              controller: TextEditingController(),
+               keyboardType: TextInputType.text,)
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 10.h,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ResuableText(
+              text: 'Email',
+              fontSize: 12,
+              color: AppColors.c353535,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 5.h,
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: CustomOutlinedTextField(
+
+                controller: TextEditingController(),
+                keyboardType: TextInputType.emailAddress,)
+          ),
+          SliverToBoxAdapter(
+            child: Spacer(),
+          ),
+
+          SliverToBoxAdapter(
+            child: Padding(padding: EdgeInsetsDirectional.only(bottom: 10.h),
+            child: SharedButton(
+              height: 40,
+              onPressed: ()
+                {
+
+                },
+                hasBorderRadius: true,
+                borderRadiusValue: 16,
+                btnText: 'Update Profile',
+                btnTextStyle: AppKhaledStyles.textStyle(color: AppColors.white,weight: FontWeight.bold,size: 16.sp),
+                buttonColor: AppColors.primary)
+              ,)
+          ),
+
+
+
+
+        ],
       ),
-      body: SingleChildScrollView(
+
+      );
+  },
+);
+
+  }
+}
+/*
+SingleChildScrollView(
           child: Padding(
             padding:  EdgeInsetsDirectional.only(top: 20.h,start: 15.w,end: 15.w,bottom: 8.h),
             child: Column(
@@ -181,13 +319,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ],
             ),
           ),
-        ),
+        )
 
-      );
-  },
-);
 
-  }
-}
+
+
+ */
 
 

@@ -101,6 +101,18 @@ class ImageConstants
   static const String diagnosisIcon='assets/icons/diagnosis_icon.svg';
   static const String homeIcon='assets/icons/home_icon.svg';
   static const String pencilImage='assets/images/pencil_image.png';
+  static const String userIcon='assets/icons/user_icon.svg';
+  static const String shareAppIcon='assets/icons/share_icon.svg';
+  static const String contactUsIcon='assets/icons/contact_us_icon.svg';
+  static const String termsAndConditionsIcon='assets/icons/terms_and_conditions_icon.svg';
+  static const String notificationsIcon='assets/icons/notifications_icon.svg';
+  static const String helpIcon='assets/icons/help_icon.svg';
+  static const String settingsIcon='assets/icons/settings_icon.svg';
+  static const String questionsIcon='assets/icons/question_icon.svg';
+
+
+
+
 
 
 

@@ -3,9 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_text_styles.dart';
@@ -22,11 +24,17 @@ class ProfileOutScreen extends StatelessWidget {
 
   final List<ProfileDataModel>profileDataList=
   [
-    ProfileDataModel(profileTitle: 'Your Profile', image: ImageConstants.editprofile),
-    ProfileDataModel(profileTitle: 'Language', image: ImageConstants.language),
-    ProfileDataModel(profileTitle: 'Settings', image: ImageConstants.settings),
-    ProfileDataModel(profileTitle: 'Help', image: ImageConstants.help),
-    ProfileDataModel(profileTitle: 'About APP', image: ImageConstants.question),
+    ProfileDataModel(profileTitle: 'Your Profile', image: ImageConstants.userIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Language', image: ImageConstants.language,),
+    ProfileDataModel(profileTitle: 'Settings', image: ImageConstants.settings,),
+    ProfileDataModel(profileTitle: 'Share App', image: ImageConstants.shareAppIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Notifications', image: ImageConstants.notificationsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Contact us', image: ImageConstants.contactUsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Terms And Conditions', image: ImageConstants.termsAndConditionsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Help', image: ImageConstants.helpIcon,isSvg: true),
+    ProfileDataModel(profileTitle: 'About APP', image: ImageConstants.questionsIcon,isSvg: true),
+    ProfileDataModel(profileTitle: 'Log out', image: ImageConstants.logout),
+
 
   ];
   @override
@@ -55,7 +63,7 @@ class ProfileOutScreen extends StatelessWidget {
                 child: Icon(Icons.arrow_back,size: 20.sp,),
               ),
             ),
-            title: Text('Profie',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 15.sp),),
+            title: Text('Profile',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 15.sp),),
             hasLeading: true,
             hasTitle: true,
             hasActions: false,
@@ -68,7 +76,7 @@ class ProfileOutScreen extends StatelessWidget {
           slivers:
           [
            SliverToBoxAdapter(
-             child:   Center(
+             child: Center(
                child: Stack(
                  clipBehavior: Clip.none,
                  children: [
@@ -96,7 +104,7 @@ class ProfileOutScreen extends StatelessWidget {
                        ),
                        child: Image.asset(ImageConstants.pencilImage,color: AppColors.white,),
                      ),
-                   )
+                   ),
                  ],
                ),
              ),
@@ -140,9 +148,10 @@ class ProfileOutScreen extends StatelessWidget {
             ),
             SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) => ProfileItemWidget(
+                  currentIndex: index,
                   profileDataModel: profileDataList[index],
                 ),
-                  childCount: 5
+                  childCount: profileDataList.length
                 )),
           ],
 
