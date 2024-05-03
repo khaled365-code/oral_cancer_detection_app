@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 
 class RowTitle extends StatelessWidget {
@@ -16,16 +16,17 @@ class RowTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-          CustomContainer(conHeight:43.h,conWidth:56.w,conImage:ImageConstants.plus),
+        CustomContainer(conHeight:60.h,conWidth:80.w,conImage:ImageConstants.heart),
+        SizedBox(height: 10.h,),
         Text(
           "staySafe".tr(context),
           textAlign: TextAlign.center,
           style:AppTextStyles.font22.copyWith(
-              color: AppColors.primary,
-              fontFamily: 'lato',
+            color: AppColors.primary,
+            fontFamily: 'lato',
           ),
         ),
       ],
-    );
+    ) ;
   }
 }

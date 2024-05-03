@@ -94,6 +94,8 @@ class ImageConstants
   static const String greenRetweetImage='assets/images/green_retweet_image.png';
 
   static const String ProfileUserImage='assets/images/person.png';
+  static const String heart='assets/images/heart.png';
+
 
   static const String doctorIcon='assets/icons/doctor_svg_icon.svg';
   static const String communityIcon='assets/icons/comment_svg_icon.svg';
