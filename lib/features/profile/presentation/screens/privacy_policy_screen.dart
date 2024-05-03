@@ -1,11 +1,16 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
+import 'package:graduation_project/features/profile/presentation/manager/privacy_screen_cubit/privacy_screen_cubit.dart';
 
+import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/colors.dart';
+import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../components/privacy_item.dart';
+import '../components/privacy_item_widget.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
 
@@ -14,189 +19,63 @@ class PrivacyPolicyScreen extends StatefulWidget {
 }
 
 class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
-   bool pressed1=false;
-   bool pressed2=false;
-   bool pressed3=false;
-   bool pressed4=false;
-   bool pressed5=false;
-   bool pressed6=false;
-   bool pressed7=false;
-   bool pressed8=false;
-   bool pressed9=false;
-   bool pressed10=false;
 
 
-   @override
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50.h),
-        child: CustomAppBar(
-          title: 'policy'.tr(context),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(top: 30.h,start: 15.w,end: 15.w,bottom: 15.h),
-          child: Column(
+    return BlocBuilder<PrivacyScreenCubit, PrivacyScreenState>(
+      builder: (context, state) {
+        final privacyScreenCubit=BlocProvider.of<PrivacyScreenCubit>(context);
+        return Scaffold(
+          body: Column(
             children: [
-              PrivacyContainerItem(
-                text: 'question1'.tr(context),
-                onTap: () {
-                  setState(() {
-                    pressed1 = !pressed1;
-                  });
-                },
-                isPressed: pressed1,
-                answerText: 'answer1'.tr(context),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question2'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed2 = !pressed2;
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    top: 40.h, start: 15.w, end: 25.w),
+                child: BodyAppBar(
+                  hasLeading: true,
+                  hasTitle: true,
+                  leading: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
                     },
-                  );
-                },
-                isPressed: pressed2,
-                answerText: 'answer2'.tr(context),
+                    child: Container(
+                      width: 45.w,
+                      height: 45.h,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                              color: AppColors.cEFF0F3,
+                              width: 2.w
+                          )
+                      ),
+                      child: Icon(Icons.arrow_back_outlined, size: 20.sp,),
+                    ),
+                  ),
+                  title: Text(
+                    'policy'.tr(context), style: AppKhaledStyles.textStyle(
+                      color: AppColors.black,
+                      weight: FontWeight.bold,
+                      size: 15.sp),),
+                ),
               ),
-              SizedBox(
-                height: 15.h,
+              Expanded(
+                child: ListView.separated(
+                    padding: EdgeInsetsDirectional.only(
+                        start: 20.w, end: 15.w, top: 20.h, bottom: 30.h),
+                    itemBuilder: (context, index) =>
+                        PrivacyItemWidget(
+                          privacyModel: privacyScreenCubit.privacyDataList[index],
+                        ),
+                    separatorBuilder: (context, index) =>
+                        SizedBox(height: 15.h,),
+                    itemCount: privacyScreenCubit.privacyDataList.length),
               ),
-              PrivacyContainerItem(
-                text: 'question3'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed3 = !pressed3;
-                    },
-                  );
-                },
-                isPressed: pressed3,
-                answerText: 'answer3'.tr(context),
 
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question4'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed4 = !pressed4;
-                    },
-                  );
-                },
-                isPressed: pressed4,
-                answerText: 'answer4'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question5'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed5 = !pressed5;
-                    },
-                  );
-                },
-                isPressed: pressed5,
-                answerText: 'answer5'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question6'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed6 = !pressed6;
-                    },
-                  );
-                },
-                isPressed: pressed6,
-                answerText: 'answer6'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question7'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed7 = !pressed7;
-                    },
-                  );
-                },
-                isPressed: pressed7,
-                answerText: 'answer7'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question8'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed8 = !pressed8;
-                    },
-                  );
-                },
-                isPressed: pressed8,
-                answerText: 'answer8'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question9'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed9 = !pressed9;
-                    },
-                  );
-                },
-                isPressed: pressed9,
-                answerText: 'answer9'.tr(context),
-
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              PrivacyContainerItem(
-                text: 'question10'.tr(context),
-                onTap: () {
-                  setState(
-                    () {
-                      pressed10 = !pressed10;
-                    },
-                  );
-                },
-                isPressed: pressed10,
-                answerText: 'answer10'.tr(context),
-
-              ),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

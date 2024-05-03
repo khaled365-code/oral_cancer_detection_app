@@ -2,10 +2,11 @@
 
 class HelpModel
 {
-  final String text;
+  final String questionText;
+  final String answerText;
 
 
-  HelpModel({required this.text,});
+  HelpModel({required this.questionText,required this.answerText,});
 
 
 

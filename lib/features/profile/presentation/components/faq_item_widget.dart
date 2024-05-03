@@ -2,36 +2,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
-import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 
-import '../../../../core/utilis/app_text_styles.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../data/profile_models/help_model.dart';
+import '../../data/profile_models/faq_model.dart';
 
-class HelpItemWidget extends StatelessWidget {
-  const HelpItemWidget({super.key, required this.helpModel,});
+class FaqItemWidget extends StatelessWidget {
+  const FaqItemWidget({super.key, required this.faqModel,});
 
-  final HelpModel helpModel;
+  final FaQModel faqModel;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HelpScreenCubit(),
-      child: BlocBuilder<HelpScreenCubit, HelpScreenState>(
+      create: (context) => FaqScreenCubit(),
+      child: BlocBuilder<FaqScreenCubit, FaqScreenState>(
         builder: (context, state) {
-          final helpScreenCubit=BlocProvider.of<HelpScreenCubit>(context);
+          final faqScreenCubit=BlocProvider.of<FaqScreenCubit>(context);
           return Column(
             children: [
               GestureDetector(
-                onTap: ()
-                {
-                  helpScreenCubit.changeContainerShape();
+                onTap: () {
+                  faqScreenCubit.changeContainerShape();
                 },
                 child: Container(
-                  height: helpScreenCubit.containerISOpen? 145.h : 40.h,
+                  height: faqScreenCubit.containerISOpen ? 145.h : 40.h,
                   decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(8.r),
@@ -45,36 +44,41 @@ class HelpItemWidget extends StatelessWidget {
                       Row(
                         children: [
                           SizedBox(width: 8.w,),
-                          ResuableText(text: helpModel.questionText,
+                          ResuableText(text: faqModel.questionText.tr(context),
                             fontSize: 12,
                           ),
                           Spacer(),
-                          helpScreenCubit.containerISOpen == false ?
+                          faqScreenCubit.containerISOpen == false ?
                           Icon(
                             Icons.keyboard_arrow_down_outlined,
                             color: AppColors.primary,)
                               :
-                          Icon(Icons.keyboard_arrow_up, color: AppColors.primary,),
+                          Icon(Icons.keyboard_arrow_up,
+                            color: AppColors.primary,),
                           SizedBox(width: 8.w,),
 
                         ],
                       ),
-                      if(helpScreenCubit.containerISOpen==true)
+                      if(faqScreenCubit.containerISOpen == true)
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:EdgeInsetsDirectional.only(top: 5.h,start: 8.w,end: 23.w),
+                                padding: EdgeInsetsDirectional.only(top: 5.h,
+                                    start: 8.w,
+                                    end: 23.w),
                                 child: LineWidget(),
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding:EdgeInsetsDirectional.only(top: 5.h,start: 10.w,),
-                                  child: Text('${helpModel.answerText}',style: AppKhaledStyles.textStyle(
-                                      size: 14,
-                                      weight: FontWeight.normal
-                                  )),
+                                  padding: EdgeInsetsDirectional.only(
+                                    top: 5.h, start: 10.w,),
+                                  child: Text('${faqModel.answerText.tr(context)}',
+                                      style: AppKhaledStyles.textStyle(
+                                          size: 14,
+                                          weight: FontWeight.normal
+                                      )),
                                 ),
                               ),
                             ],

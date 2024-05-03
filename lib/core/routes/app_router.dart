@@ -16,6 +16,7 @@ import 'package:graduation_project/features/diagnosis/presentation/views/questio
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
@@ -38,6 +39,7 @@ import '../../features/community/presentation/screens/post_with_image_screen.dar
 import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
+import '../../features/profile/presentation/manager/privacy_screen_cubit/privacy_screen_cubit.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/put_new_password_screen.dart';
@@ -51,12 +53,14 @@ class AppRoutes {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
       case Routes.termsAndConditionsScreen:
-        return MaterialPageRoute(builder: (context) => const TermsAndConditionsScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => const TermsAndConditionsScreen(),);
       case Routes.helpScreen:
-        return MaterialPageRoute(builder: (context) => BlocProvider(
-          create: (context) => HelpScreenCubit(),
-          child: HelpScreen(),
-        ),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => HelpScreenCubit(),
+              child: HelpScreen(),
+            ),);
       case Routes.postWitImageScreen:
         return MaterialPageRoute(
           builder: (context) => const PostWithImageScreen(),);
@@ -122,11 +126,19 @@ class AppRoutes {
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (context) => AboutAppScreen(),);
       case Routes.faqscreen:
-        return MaterialPageRoute(builder: (context) => FaqScreen(),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => FaqScreenCubit(),
+              child: FaqScreen(),
+            ),);
       case Routes.feedbackscreen:
         return MaterialPageRoute(builder: (context) => FeedBackScreen(),);
       case Routes.privacypolicyscreen:
-        return MaterialPageRoute(builder: (context) => PrivacyPolicyScreen(),);
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => PrivacyScreenCubit(),
+              child: PrivacyPolicyScreen(),
+            ),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),);
       case Routes.profileScreen:
