@@ -32,10 +32,21 @@ class Routes
 
   static const String postWitImageScreen='/post_wit_image_screen';
 
+  static const String putNewPassword='/put_new_password_screen';
 
 
+  static const String contactUsScreen='/contact_us_screen';
+
+
+
+
+
+  static const String  termsAndConditionsScreen='/terms_and_conditions_screen';
 
   static const String  profileScreen='/profile_screen';
+
+  static const String  helpScreen='/help_screen';
+
 
 
 }

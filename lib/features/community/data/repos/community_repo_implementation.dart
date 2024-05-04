@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
+import 'package:graduation_project/features/community/data/models/post_details_mode;.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../models/post_uploaded_successfully_model.dart';
@@ -17,7 +18,8 @@ class CommunityRepoImplementation implements CommunityRepo {
 
   @override
   Future<Either<String, String>> uploadPost({required String title, required String body, XFile? image, required int id, required String token}) async {
-    try {
+    try
+    {
       final response = await api.post(EndPoints.storeNewPost, data:
       {
         ApiKeys.title: title,
@@ -34,6 +36,21 @@ class CommunityRepoImplementation implements CommunityRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);
     }
+  }
+  @override
+  Future<Either<String, PostDetailsModel>> getAllPosts({required String token}) async 
+  {
+    try
+    {
+      final response=await api.get(EndPoints.getAllPosts(token));
+      final postDetailsModel=PostDetailsModel.fromJson(response.data);
+      return Right(postDetailsModel);
+
+    } on ServerException catch(e)
+    {
+      return Left(e.errorModel.errorMessage);
+    }
+
   }
     
     

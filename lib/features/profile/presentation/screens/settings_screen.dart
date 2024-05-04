@@ -1,208 +1,78 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
+import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/custom_app_bar.dart';
+import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../data/profile_models/settings_data_model.dart';
+import '../components/settings_item_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
 
   @override
   State<SettingsScreen> createState() => SettingsScreenState();
 }
+   final List<SettingsDataModel> settingsDataList=[
+     SettingsDataModel(settingName: 'Password Manager', iconForm: Icons.lock_outlined),
+     SettingsDataModel(settingName: 'Delete Account', iconForm: Icons.cancel_outlined)
 
+   ];
 class SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    bool noteSwitch = true;
-    bool updateSwitch = true;
-    String country = 'EGY';
 
-    return BlocConsumer<ChangeThemeCubit, ChangeThemeState>(
-      listener: (context, state) {
-      if(state is ChangeThemeSuccessState) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)));
-      }
-      },
-      builder: (context, state) {
-        return Scaffold(
-          backgroundColor: AppColors.white,
-          appBar: PreferredSize(
-            preferredSize: Size(double.infinity, 50.h),
-            child: CustomAppBar(
-              title: 'S.of(context).settings',
+
+    return Scaffold(
+      body: Column(
+        children:
+        [
+          Padding(
+            padding:  EdgeInsetsDirectional.only(top: 40.h,start: 15.w,end: 25.w),
+            child: BodyAppBar(
+              hasLeading: true,
+              hasTitle: true,
+              leading: GestureDetector(
+                onTap: ()
+                {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  width: 45.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                          color: AppColors.cEFF0F3,
+                          width: 2.w
+                      )
+                  ),
+                  child: Icon(Icons.arrow_back_outlined,size: 20.sp,),
+                ),
+              ) ,
+              title: Text('Settings',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 16),),
             ),
           ),
-          body: Padding(
-            padding: EdgeInsetsDirectional.only(
-                start: 24.w, top: 33.h, end: 28.w),
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('settings', style: AppTextStyles.font20.copyWith(
-                      color: AppColors.primary),),
-                  SizedBox(height: 25.h,),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              ImageConstants.account,
-                              color: AppColors.primary,
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Text(
-                              'data',
-                              style: AppTextStyles.font16.copyWith(
-                                  color: AppColors.primary),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 25.h,
-                        ),
-                        Text('S.of(context).editprofile',
-                            style: AppTextStyles.font16
-                                .copyWith(color: AppColors.black)),
-                        SizedBox(
-                          height: 25.h,
-                        ),
-                        Text(
-                          'Change Password',
-                          style:
-                          AppTextStyles.font16.copyWith(color: AppColors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 35.h,),
-                  Row(
-                    children: [
-                      Image.asset(
-                        ImageConstants.notification,
-                        color: AppColors.primary,
-                      ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Text(
-                        'Notifications',
-                        style: AppTextStyles.font16.copyWith(color: AppColors
-                            .primary),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16.h,),
-                  Row(children:
-                  [
-                    Text('Notification', style: AppTextStyles.font16.copyWith(
-                        color: AppColors.black),),
-                    Spacer(),
-                    Switch(
-                      activeColor: AppColors.primary,
-                      value: noteSwitch, onChanged: (value) {
-                      setState(() {
-                        noteSwitch = value;
-                      });
-                    },),
-                  ]),
-                  SizedBox(height: 19.h,),
-                  Row(children:
-                  [
-                    Text('Updates', style: AppTextStyles.font16.copyWith(
-                        color: AppColors.black),),
-                    Spacer(),
-                    Switch(
-                      activeColor: AppColors.primary,
-                      value: updateSwitch, onChanged: (value) {
-                      setState(() {
-                        updateSwitch = value;
-                      });
-                    },),
-                  ]),
-                  SizedBox(height: 50.h,),
-                  Row(
-                    children: [
-                      Image.asset(
-                        ImageConstants.settings,
-                        color: AppColors.primary,
-                      ),
-                      SizedBox(
-                        width: 5.h,
-                      ),
-                      Text(
-                        'Other',
-                        style: AppTextStyles.font16.copyWith(color: AppColors
-                            .primary),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 25.h,),
-                  Row(children:
-                  [
-                    Text('Dark Mode', style: AppTextStyles.font16.copyWith(
-                        color: AppColors.black),),
-                    Spacer(),
-                    Switch(
-                      activeColor: AppColors.primary,
-                      value: context
-                          .read<ChangeThemeCubit>()
-                          .isDarkMode,
-                      onChanged: (value) {
-                        context.read<ChangeThemeCubit>().changeTheme(value);
+          Expanded(
+            child: ListView.separated(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end: 20.w,top: 30.h),
+                itemBuilder: (context, index) => SettingsItemWidget(
+                  currentIndex: index,
+                 settingsDataModel: settingsDataList[index],
+                ),
+                separatorBuilder: (context, index) => SizedBox(height: 10.h,),
+                itemCount: 2),
+          )
+         
 
-                      },),
-                  ]),
-                  SizedBox(height: 20.h,),
-                  Row(
-                    children: [
-                      Text('Region', style: AppTextStyles.font16.copyWith(
-                          color: AppColors.black),),
-                      Spacer(),
-                      Container(
-                        width: 80.w,
-                        height: 40.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.settings,
-                          border: Border.all(
-                            color: AppColors.grgr,
-                          ),
-                        ),
-                        child: DropdownButton(
-                          items: ['EGY', 'SAU', 'KWT', 'USA', 'AUS', 'QAT'].
-                          map((e) =>
-                              DropdownMenuItem(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8),
-                                  child: Text('$e'),
-                                ),
-                                value: e,
-                              )).toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              country = value!;
-                            });
-                          },
-                          value: country,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
+        ],
+      ),
     );
   }
 

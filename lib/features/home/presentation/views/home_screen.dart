@@ -1,3 +1,5 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,10 +10,13 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
+import 'package:graduation_project/features/profile/presentation/screens/profile_screen.dart';
+import '../../../../core/utilis/app_styles.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
 
@@ -24,9 +29,19 @@ class HomePage extends StatefulWidget{
 class HomePageState extends State<HomePage> {
   int selectedIndex =0;
 
+  final List<String>navBarIcons=[
+    ImageConstants.diagnosisImage,
+    ImageConstants.diagnosisImage,
+    ImageConstants.diagnosisImage,
+    ImageConstants.diagnosisImage,
+    ImageConstants.diagnosisImage
+  ];
+
+
 
   final List<Widget> pages=
   [
+    const UploadImageView(),
     const UploadImageView(),
     CommunityScreen(),
     const MedicalNews(),
@@ -44,35 +59,35 @@ class HomePageState extends State<HomePage> {
       appBar: showAppBar() ,
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children:
-            [
-              MyDrawerHeader(),
-              MyDrawerBody()
-            ],
-          ),
-        ),
+        width: MediaQuery.of(context).size.width,
+        child: ProfileOutScreen(),
       ),
       body:pages[selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-            height: 50,
-            onTap: onItemTapped,
-            animationDuration: Duration(milliseconds: 500),
-            backgroundColor: AppColors.white,
-            color: AppColors.white,
-          buttonBackgroundColor: AppColors.primary,
-          items: [
-            BottomNavColumn(paddingValue: 8,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
-            BottomNavColumn(paddingValue: 5,icon: Icons.mark_unread_chat_alt, text: 'Community'),
-            BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-            BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
-          ]
-      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex:selectedIndex ,
+        selectedItemColor:AppColors.primary,
+        backgroundColor:AppColors.white,
+        unselectedItemColor:AppColors.black,
+        onTap: onItemTapped,
+        items:const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined),
+              label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.medical_information_outlined), label: 'Diagnosis'),
+          BottomNavigationBarItem(icon: Icon(Icons.comment_outlined),
+            label: 'Community',),
+          BottomNavigationBarItem(icon: Icon(Icons.radio_outlined),
+              label: 'News'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined), label: 'Doctors'),
+        ],
+      )
+      ,
+
     );
   }
   PreferredSize showAppBar(){
-    if(selectedIndex==0){
+    if(selectedIndex==0 || selectedIndex==1){
+
       return PreferredSize(
           preferredSize: Size(double.infinity, 40.h),
           child: DefaultAppBar(
@@ -104,7 +119,7 @@ class HomePageState extends State<HomePage> {
             backgroundColor: AppColors.primary,
           ));
     }
-    else if(selectedIndex==1){
+    else if(selectedIndex==2){
       return   PreferredSize(preferredSize: Size(double.infinity, 40.h,),
       child: DefaultAppBar(
         hasActions: true,
@@ -134,7 +149,7 @@ class HomePageState extends State<HomePage> {
       ],
         backgroundColor: AppColors.white,));
     }
-    else if(selectedIndex==2){
+    else if(selectedIndex==3){
       return PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
         hasLeading: true,

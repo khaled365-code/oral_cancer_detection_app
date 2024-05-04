@@ -34,7 +34,7 @@ class PrivacyContainerItem extends StatelessWidget {
                 SizedBox(width: 5.w,),
                 Text(text,style: AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal),),
                 Spacer(),
-                IconButton(onPressed: onTap, icon: Icon(Icons.keyboard_arrow_down_sharp,color: AppColors.red,size: 30,)),
+                IconButton(onPressed: onTap, icon: Icon(Icons.keyboard_arrow_down_sharp,color: AppColors.primary,size: 30,)),
               ],
             ),
             isPressed? Container(

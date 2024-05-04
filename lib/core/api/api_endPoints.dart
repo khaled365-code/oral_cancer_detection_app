@@ -1,5 +1,5 @@
 class EndPoints{
-  static String baseUrl="https://9b6c-102-190-121-26.ngrok-free.app/api/";
+  static String baseUrl="https://0f92-197-134-140-150.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
@@ -7,6 +7,13 @@ class EndPoints{
   static String updateProfile="update/profile/";
   static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
+
+
+  static String getAllPosts(id)
+  {
+    return 'blog?token=$id';
+
+  }
 
 }
 
@@ -28,6 +35,9 @@ class ApiKeys{
   static String body= "body";
   static String image= "image";
   static String user_id= "user_id";
+  static String created_at= "created_at";
+
+
 
 
 }

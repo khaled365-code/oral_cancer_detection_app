@@ -38,6 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
        // }
       },
       builder: (context, state) {
+        final profileCubit=BlocProvider.of<ProfileCubit>(context);
         return Scaffold(
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

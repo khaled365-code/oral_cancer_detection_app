@@ -6,7 +6,7 @@ class ImageConstants
 
   static const String profilePic='assets/images/khaled.jpeg';
   static const String arrowBack='assets/images/arrow_back.png';
-  static const String diagnosis='assets/images/stethoscope.png';
+  static const String diagnosisImage='assets/images/stethoscope.png';
   static const String community='assets/images/chat.png';
   static const String news='assets/images/newsmode.png';
   static const String doctors='assets/images/clinical_notes.png';
@@ -95,6 +95,35 @@ class ImageConstants
 
   static const String ProfileUserImage='assets/images/person.png';
   static const String heart='assets/images/heart.png';
+
+
+  static const String doctorIcon='assets/icons/doctor_svg_icon.svg';
+  static const String communityIcon='assets/icons/comment_svg_icon.svg';
+  static const String newsPaperIcon='assets/icons/newspaper_svg_icon.svg';
+  static const String diagnosisIcon='assets/icons/diagnosis_icon.svg';
+  static const String homeIcon='assets/icons/home_icon.svg';
+  static const String pencilImage='assets/images/pencil_image.png';
+  static const String userIcon='assets/icons/user_icon.svg';
+  static const String shareAppIcon='assets/icons/share_icon.svg';
+  static const String contactUsIcon='assets/icons/contact_us_icon.svg';
+  static const String termsAndConditionsIcon='assets/icons/terms_and_conditions_icon.svg';
+  static const String notificationsIcon='assets/icons/notifications_icon.svg';
+  static const String helpIcon='assets/icons/help_icon.svg';
+  static const String settingsIcon='assets/icons/settings_icon.svg';
+  static const String questionsIcon='assets/icons/question_icon.svg';
+
+  static const String facebookIcon='assets/icons/facebook.svg';
+  static const String instagramIcon='assets/icons/instagram_icon.svg';
+  static const String twitterIcon='assets/icons/twitter.svg';
+  static const String websiteIcon='assets/icons/website.svg';
+  static const String whatsAppIcon='assets/icons/whatsapp.svg';
+
+
+
+
+
+
+
 
 
 

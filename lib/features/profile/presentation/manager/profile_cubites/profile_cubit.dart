@@ -5,10 +5,30 @@ import 'package:graduation_project/features/profile/data/profile_models/get_prof
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../core/utilis/image_constants.dart';
+import '../../../data/profile_models/profile_data_model.dart';
+
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit({required this.profileRepo}) : super(ProfileInitial());
+
+  final List<ProfileDataModel>profileDataList=
+  [
+    ProfileDataModel(profileTitle: 'Your Profile', image: ImageConstants.userIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Language', image: ImageConstants.language,),
+    ProfileDataModel(profileTitle: 'Settings', image: ImageConstants.settings,),
+    ProfileDataModel(profileTitle: 'Share App', image: ImageConstants.shareAppIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Notifications', image: ImageConstants.notificationsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Contact us', image: ImageConstants.contactUsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Terms And Conditions', image: ImageConstants.termsAndConditionsIcon,isSvg: true,),
+    ProfileDataModel(profileTitle: 'Help', image: ImageConstants.helpIcon,isSvg: true),
+    ProfileDataModel(profileTitle: 'About APP', image: ImageConstants.questionsIcon,isSvg: true),
+    ProfileDataModel(profileTitle: 'Log out', image: ImageConstants.logout),
+
+
+  ];
+
 
   final ProfileRepos profileRepo;
   final userToken=CacheHelper().getData(key: ApiKeys.token);
