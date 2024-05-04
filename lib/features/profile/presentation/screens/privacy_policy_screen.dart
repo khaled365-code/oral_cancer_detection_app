@@ -56,7 +56,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                     'policy'.tr(context), style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
                       weight: FontWeight.bold,
-                      size: 15.sp),),
+                      size: 16),),
                 ),
               ),
               Expanded(

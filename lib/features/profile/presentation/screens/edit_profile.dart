@@ -8,19 +8,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
-import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/custom_app_bar.dart';
 import '../../../../core/widgets/body_app_bar.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
 import '../manager/profile_cubites/update_profile_cubit.dart';
 
@@ -41,9 +38,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context)
   {
+    return BlocConsumer<ProfileCubit, ProfileState>(
+  listener: (context, initialProfileState)
+  {
+    // TODO: implement listener
+  },
+  builder: (context, initialProfileState) {
+    final profileCubit=BlocProvider.of<ProfileCubit>(context);
     return BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
   listener: (context, state) {
-    if(state is UpdateProfileSuccessState){
+    if(state is UpdateProfileSuccessState)
+    {
       showSnackBar(context, content: state.message);
       navigate(context: context, route: Routes.profileScreen);
     }
@@ -52,15 +57,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
   },
   builder: (context, state) {
-
     return Scaffold(
-
-
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -87,7 +88,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       child: Icon(Icons.arrow_back_outlined,size: 20.sp,),
                     ),
                   ) ,
-                  title: Text('Profile',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 15.sp),),
+                  title: Text('Profile',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 16),),
                 ),
               ),
               SizedBox(
@@ -157,13 +158,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               SizedBox(
                 height: 5.h,
               ),
+              initialProfileState is ProfileSuccess ?
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                 child: CustomOutlinedTextField(
-
+                  hintText: initialProfileState.userProfile.name,
                   controller: TextEditingController(),
                   keyboardType: TextInputType.text,),
-              ),
+              ):
+              Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.text,),
+              )
+
+              ,
               SizedBox(
                 height: 10.h,
               ),
@@ -199,10 +209,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               SizedBox(
                 height: 5.h,
               ),
+              initialProfileState is ProfileSuccess?
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                 child: CustomOutlinedTextField(
-
+                  hintText: initialProfileState.userProfile.email,
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.emailAddress,),
+              ):Padding(
+                padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
+                child: CustomOutlinedTextField(
                   controller: TextEditingController(),
                   keyboardType: TextInputType.emailAddress,),
               ),
@@ -223,7 +239,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                 child: CustomOutlinedTextField(
-
+                  inputFormatters: [
+                    // Format the text input as a date (e.g., 'MM/dd/yyyy')
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9/]')),
+                    LengthLimitingTextInputFormatter(10),
+                    // Use the desired date format mask
+                    TextInputFormatter.withFunction((oldValue, newValue) {
+                      final newText = newValue.text;
+                      if (newText.length == 2 || newText.length == 5) {
+                        return TextEditingValue(
+                          text: newText + '/',
+                          selection: TextSelection.collapsed(offset: newText.length + 1),
+                        );
+                      }
+                      return newValue;
+                    }),
+                  ],
                   controller: TextEditingController(),
                   keyboardType: TextInputType.text,),
               ),
@@ -258,7 +289,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                     onPressed: ()
                     {
-
+                      context.read<UpdateProfileCubit>().updateProfile();
                     },
                     hasBorderRadius: true,
                     borderRadiusValue: 30,
@@ -275,139 +306,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       );
   },
 );
+  },
+);
 
   }
 }
-/*
-SingleChildScrollView(
-          child: Padding(
-            padding:  EdgeInsetsDirectional.only(top: 20.h,start: 15.w,end: 15.w,bottom: 8.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
-                  children:[
-                   state is UpdateProfilePictureState? Center(
-                    child: Container(
-                      child: CircleAvatar(
-                      radius: 70.r,
-                     backgroundImage: FileImage(File(context.read<UpdateProfileCubit>().updatedProfilePic!.path)),
-                    ),
-                  ),
-                   ):Center(
-                      child: Container(
-                        child: CircleAvatar(
-                          backgroundColor: AppColors.light,
-                          radius: 70.r,
-                          backgroundImage: AssetImage(ImageConstants.ProfileUserImage),
-                        ),
-                      ),
-                    ),
-                    Positioned(right: 110,top: 100,
-                      child: Container(
-                      child: CircleAvatar(
-                        radius: 22.r,
-                        child: IconButton(icon: Icon(Icons.camera_alt_outlined),
-                          onPressed: () {
-                            imagePick(imageSource: ImageSource.gallery)
-                                .then((value) =>
-                                context.read<UpdateProfileCubit>().uploadProfilePic(uploadedProfilePic: value!));
-                          },
-                        ),
-                      ),
-                    ),
-                    ),
-
-                  ]
-                ),
-                SizedBox(height: 30.h,),
-                CustomOutlinedTextField(
-                  controller: context.read<UpdateProfileCubit>().updatedName,
-                  hintText: 'fname'.tr(context),
-                  onFieldSubmitted: (value) {},
-                  hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
-                  crusorColor: Colors.green,
-                ),
-                SizedBox(height: 20.h,),
-                // CustomOutlinedTextField(
-                //   hintText: 'lname'.tr(context),
-                //   onFieldSubmitted: (value) {},
-                //   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
-                //   crusorColor: Colors.green,
-                // ),
-                // SizedBox(height: 30.h,),
-                // CustomOutlinedTextField(
-                //   hintText: 'phone'.tr(context),
-                //   onFieldSubmitted: (value) {},
-                //   hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
-                //   crusorColor: Colors.green,
-                // ),
-                //SizedBox(height: 30.h,),
-                CustomOutlinedTextField(
-                  controller: context.read<UpdateProfileCubit>().updatedEmail,
-
-                  hintText: 'email'.tr(context),
-                  onFieldSubmitted: (value) {},
-                  hintStyle: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal,color: AppColors.black),
-                  crusorColor: Colors.green,
-                ),
-                SizedBox(height: 30.h,),
-                // CustomDatePicker(
-                //   child: TextFormField(
-                //     readOnly: true,
-                //     controller: dateController,
-                //     onTap: () async {
-                //       DateTime? pickedDate = await showDatePicker(
-                //         context: context,
-                //         initialDate: DateTime.now(),
-                //         firstDate: DateTime(2000),
-                //         lastDate: DateTime(2100),
-                //       );
-                //       if (pickedDate != null) {
-                //         String formattedDate =
-                //         DateFormat("yyyy-MM-dd").format(pickedDate);
-                //         setState(
-                //               () {
-                //             dateController.text = formattedDate.toString();
-                //           },
-                //         );
-                //       }
-                //     },
-                //     style: AppTextStyles.font16.copyWith(
-                //         fontWeight: FontWeight.normal, color: AppColors.black),
-                //     decoration: InputDecoration(
-                //       prefixIcon: Icon(Icons.date_range),
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(16.r),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(height: 40.h,),
-               state is UpdateProfileLoadingSate?Center(child: CircularProgressIndicator()): Padding(
-                 padding:  EdgeInsetsDirectional.all(16),
-                 child: SharedButton(
-                      text: 'save'.tr(context),
-                      textStyle: AppTextStyles.font20.copyWith(color: AppColors.black),
-                      buttonColor: AppColors.primary,
-                      hasBorderRadius: true ,
-                      borderRadiusValue: 16.r,
-                   onPressed: (){
-                        context.read<UpdateProfileCubit>().updateProfile();
-
-
-                   },
-
-                  ),
-               ),
-            ],
-            ),
-          ),
-        )
-
-
-
-
- */
 
 

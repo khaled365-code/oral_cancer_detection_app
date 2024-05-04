@@ -50,7 +50,7 @@ class HelpScreen extends StatelessWidget {
                   title: Text('Help Center', style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
                       weight: FontWeight.bold,
-                      size: 15.sp),),
+                      size: 16),),
                 ),
               ),
               Expanded(

@@ -56,7 +56,7 @@ class _FaqScreenState extends State<FaqScreen> {
                   title: Text('FAQ', style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
                       weight: FontWeight.bold,
-                      size: 15.sp),),
+                      size: 16),),
                 ),
               ),
               Expanded(

@@ -56,7 +56,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   child: Icon(Icons.arrow_back_outlined,size: 20.sp,),
                 ),
               ) ,
-              title: Text('Settings',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 15.sp),),
+              title: Text('Settings',style: AppKhaledStyles.textStyle(color: AppColors.black,weight: FontWeight.bold,size: 16),),
             ),
           ),
           Expanded(

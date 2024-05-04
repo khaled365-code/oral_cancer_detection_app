@@ -49,7 +49,7 @@ class AboutAppScreen extends StatelessWidget {
               title: Text('About App', style: AppKhaledStyles.textStyle(
                   color: AppColors.black,
                   weight: FontWeight.bold,
-                  size: 15.sp),),
+                  size: 16),),
             ),
           ),
           Padding(
@@ -92,7 +92,7 @@ class AboutAppScreen extends StatelessWidget {
             ),
           ),
           Spacer(),
-          ResuableText(text: 'version'.tr(context),fontSize: 16,fontWeight: FontWeight.normal,),
+          Center(child: ResuableText(text: 'version'.tr(context),fontSize: 16,fontWeight: FontWeight.normal,)),
           SizedBox(height: 20.h,),
         ],
       ),

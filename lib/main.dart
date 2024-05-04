@@ -12,6 +12,7 @@ import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_language_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/update_profile_cubit.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/commons/bloc_obsever.dart';
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<ProfileCubit>(create: (context) => ProfileCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))..GetUserProfile()),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
         BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
