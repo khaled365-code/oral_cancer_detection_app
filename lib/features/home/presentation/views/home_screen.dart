@@ -61,25 +61,40 @@ class HomePageState extends State<HomePage> {
         child: ProfileOutScreen(),
       ),
       body:pages[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex:selectedIndex ,
-        selectedItemColor:AppColors.primary,
-        backgroundColor:AppColors.white,
-        unselectedItemColor:AppColors.black,
-        onTap: onItemTapped,
-        items:const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined),
-              label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.medical_information_outlined), label: 'Diagnosis'),
-          BottomNavigationBarItem(icon: Icon(Icons.comment_outlined),
-            label: 'Community',),
-          BottomNavigationBarItem(icon: Icon(Icons.radio_outlined),
-              label: 'News'),
-          BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined), label: 'Doctors'),
-        ],
-      )
-      ,
+      bottomNavigationBar: CurvedNavigationBar(
+          height: 50,
+          onTap: onItemTapped,
+          animationDuration: Duration(milliseconds: 500),
+          backgroundColor: AppColors.white,
+          color: AppColors.white,
+          buttonBackgroundColor: AppColors.primary,
+          items: [
+            BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
+            BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
+            BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
+            BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
+            BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
+          ]
+      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   currentIndex:selectedIndex ,
+      //   selectedItemColor:AppColors.primary,
+      //   backgroundColor:AppColors.white,
+      //   unselectedItemColor:AppColors.black,
+      //   onTap: onItemTapped,
+      //   items:const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home_outlined),
+      //         label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.medical_information_outlined), label: 'Diagnosis'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.comment_outlined),
+      //       label: 'Community',),
+      //     BottomNavigationBarItem(icon: Icon(Icons.radio_outlined),
+      //         label: 'News'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined), label: 'Doctors'),
+      //   ],
+      // )
+
 
     );
   }
