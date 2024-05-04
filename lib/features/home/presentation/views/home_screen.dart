@@ -55,20 +55,23 @@ class HomePageState extends State<HomePage> {
         child: ProfileOutScreen(),
       ),
       body:pages[selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-          height: 50,
-          onTap: onItemTapped,
-          animationDuration: Duration(milliseconds: 500),
-          backgroundColor: AppColors.white,
-          color: AppColors.white,
-          buttonBackgroundColor: AppColors.primary,
-          items: [
-            BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
-            BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
-            BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
-            BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-            BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
-          ]
+      bottomNavigationBar: Padding(
+        padding:  EdgeInsets.only(top: 10.h),
+        child: CurvedNavigationBar(
+            height: 40,
+            onTap: onItemTapped,
+            animationDuration: Duration(milliseconds: 500),
+            backgroundColor: AppColors.white,
+            color: AppColors.white,
+            buttonBackgroundColor: AppColors.primary,
+            items: [
+              BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
+              BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
+              BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
+              BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
+              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
+            ]
+        ),
       ),
     );
   }
