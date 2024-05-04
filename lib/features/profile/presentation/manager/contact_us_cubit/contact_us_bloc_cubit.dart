@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:graduation_project/features/profile/data/profile_models/contact_us_model.dart';
+import 'package:graduation_project/features/profile/data/models/contact_us_model.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../core/utilis/image_constants.dart';

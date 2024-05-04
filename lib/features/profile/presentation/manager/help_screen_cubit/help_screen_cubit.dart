@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:graduation_project/features/profile/data/profile_models/help_model.dart';
+import 'package:graduation_project/features/profile/data/models/help_model.dart';
 import 'package:meta/meta.dart';
 
 part 'help_screen_state.dart';

@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
-import 'package:graduation_project/features/profile/data/profile_models/get_profile_model.dart';
+import 'package:graduation_project/features/profile/data/models/get_profile_model.dart';
+import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../core/utilis/image_constants.dart';
-import '../../../data/profile_models/profile_data_model.dart';
 
 part 'profile_state.dart';
 

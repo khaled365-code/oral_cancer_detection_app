@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
+import 'package:graduation_project/features/profile/data/models/help_model.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
 
 import '../../../../core/utilis/app_text_styles.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../data/profile_models/help_model.dart';
 
 class HelpItemWidget extends StatelessWidget {
   const HelpItemWidget({super.key, required this.helpModel,});

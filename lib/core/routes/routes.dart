@@ -38,9 +38,6 @@ class Routes
   static const String contactUsScreen='/contact_us_screen';
 
 
-
-
-
   static const String  termsAndConditionsScreen='/terms_and_conditions_screen';
 
   static const String  profileScreen='/profile_screen';

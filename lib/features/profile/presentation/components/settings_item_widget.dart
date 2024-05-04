@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
+import 'package:graduation_project/features/profile/data/models/settings_data_model.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../data/profile_models/settings_data_model.dart';
 import 'delete_account_widget.dart';
 
 class SettingsItemWidget extends StatelessWidget {

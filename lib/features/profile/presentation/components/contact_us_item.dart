@@ -8,9 +8,9 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
+import 'package:graduation_project/features/profile/data/models/contact_us_model.dart';
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
 
-import '../../data/profile_models/contact_us_model.dart';
 
 class ContactUsItem extends StatelessWidget {
   const ContactUsItem({super.key, required this.contactUsModel});

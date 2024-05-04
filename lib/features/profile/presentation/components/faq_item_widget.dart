@@ -6,10 +6,10 @@ import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
+import 'package:graduation_project/features/profile/data/models/faq_model.dart';
 import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 
 import '../../../../core/utilis/colors.dart';
-import '../../data/profile_models/faq_model.dart';
 
 class FaqItemWidget extends StatelessWidget {
   const FaqItemWidget({super.key, required this.faqModel,});

@@ -6,10 +6,10 @@ import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
-import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
+import 'package:graduation_project/features/profile/data/models/privacy_screen_model.dart';
+import 'package:graduation_project/features/profile/presentation/manager/privacy_screen_cubit/privacy_screen_cubit.dart';
 
 import '../../../../core/utilis/colors.dart';
-import '../../data/profile_models/privacy_screen_model.dart';
 
 class PrivacyItemWidget extends StatelessWidget {
   const PrivacyItemWidget({super.key, required this.privacyModel,});
@@ -19,18 +19,18 @@ class PrivacyItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FaqScreenCubit(),
-      child: BlocBuilder<FaqScreenCubit, FaqScreenState>(
+      create: (context) => PrivacyScreenCubit(),
+      child: BlocBuilder<PrivacyScreenCubit, PrivacyScreenState>(
         builder: (context, state) {
-          final faqScreenCubit=BlocProvider.of<FaqScreenCubit>(context);
+          final privacyCubit=BlocProvider.of<PrivacyScreenCubit>(context);
           return Column(
             children: [
               GestureDetector(
                 onTap: () {
-                  faqScreenCubit.changeContainerShape();
+                  privacyCubit.changeContainerShape();
                 },
                 child: Container(
-                  height: faqScreenCubit.containerISOpen ? 180.h : 40.h,
+                  height: privacyCubit.containerISOpen ? 180.h : 40.h,
                   decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(8.r),
@@ -48,7 +48,7 @@ class PrivacyItemWidget extends StatelessWidget {
                             fontSize: 12,
                           ),
                           Spacer(),
-                          faqScreenCubit.containerISOpen == false ?
+                          privacyCubit.containerISOpen == false ?
                           Icon(
                             Icons.keyboard_arrow_down_outlined,
                             color: AppColors.primary,)
@@ -59,7 +59,7 @@ class PrivacyItemWidget extends StatelessWidget {
 
                         ],
                       ),
-                      if(faqScreenCubit.containerISOpen == true)
+                      if(privacyCubit.containerISOpen == true)
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

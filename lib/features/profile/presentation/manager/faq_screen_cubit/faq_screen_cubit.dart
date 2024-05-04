@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:graduation_project/features/profile/data/models/faq_model.dart';
 import 'package:meta/meta.dart';
-
-import '../../../data/profile_models/faq_model.dart';
 
 part 'faq_screen_state.dart';
 

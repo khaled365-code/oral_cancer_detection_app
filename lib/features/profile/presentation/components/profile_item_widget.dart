@@ -10,14 +10,14 @@ import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
-import 'package:graduation_project/features/profile/data/profile_models/profile_data_model.dart';
+import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../../../../core/routes/routes.dart';
-import '../../../../../core/utilis/app_text_styles.dart';
-import '../../../../../core/utilis/colors.dart';
-import '../../../../profile/presentation/components/logout_pottom_sheet.dart';
-import '../../../../profile/presentation/manager/change_language_cubit.dart';
+import '../../../../core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utilis/app_text_styles.dart';
+import '../../../../core/utilis/colors.dart';
+import 'logout_bottom_sheet.dart';
 
 class ProfileItemWidget extends StatefulWidget {
   const ProfileItemWidget({super.key, required this.profileDataModel,required this.currentIndex});
