@@ -17,7 +17,7 @@ import 'package:graduation_project/features/profile/presentation/screens/initial
 import '../../../../core/utilis/app_styles.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
-
+//////////////////
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
   @override
