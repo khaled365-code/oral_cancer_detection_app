@@ -36,7 +36,8 @@ class HelpItemWidget extends StatelessWidget {
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(8.r),
                       border: Border.all(
-                          color: AppColors.cEFF0F3
+                          color: AppColors.cEFF0F3,
+                        width: 2.w
                       )
                   ),
                   child: Column(

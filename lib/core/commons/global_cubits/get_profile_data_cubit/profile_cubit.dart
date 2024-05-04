@@ -10,8 +10,8 @@ import '../../../../../core/utilis/image_constants.dart';
 
 part 'profile_state.dart';
 
-class ProfileCubit extends Cubit<ProfileState> {
-  ProfileCubit({required this.profileRepo}) : super(ProfileInitial());
+class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
+  GetProfileDataCubit({required this.profileRepo}) : super(ProfileInitial());
 
   final List<ProfileDataModel>profileDataList=
   [

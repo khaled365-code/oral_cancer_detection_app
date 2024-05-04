@@ -13,6 +13,5 @@ class UpdateProfileFailureState extends UpdateProfileState {
   UpdateProfileFailureState({required this.errMessage});
   final String errMessage;
 }
-class UpdateProfilePictureState extends UpdateProfileState {
-}
+class UpdateProfilePictureState extends UpdateProfileState {}
 

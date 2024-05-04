@@ -2,9 +2,11 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
@@ -94,12 +96,13 @@ class HomePageState extends State<HomePage> {
             hasLeading: true,
             leading: Builder(builder: (context) {
               return GestureDetector(
-                  onTap: () {
+                  onTap: () async
+                  {
+                   await BlocProvider.of<GetProfileDataCubit>(context).GetUserProfile();
                     Scaffold.of(context).openDrawer();
                   },
                   child: Image.asset(ImageConstants.homelines));
             }),
-
             actions: [
               Padding(
                 padding: EdgeInsetsDirectional.only(end: 20.w),

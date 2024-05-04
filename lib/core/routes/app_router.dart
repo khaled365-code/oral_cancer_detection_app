@@ -17,7 +17,7 @@ import 'package:graduation_project/features/profile/presentation/manager/contact
 import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
-import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
+import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
