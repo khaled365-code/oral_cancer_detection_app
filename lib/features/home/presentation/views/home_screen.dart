@@ -1,5 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +11,6 @@ import 'package:graduation_project/features/community/presentation/screens/commu
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
-import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
-import '../../../../core/utilis/app_styles.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
 //////////////////
@@ -26,7 +22,6 @@ class HomePage extends StatefulWidget{
 }
 class HomePageState extends State<HomePage> {
   int selectedIndex =0;
-
   final List<String>navBarIcons=[
     ImageConstants.diagnosisImage,
     ImageConstants.diagnosisImage,
@@ -34,9 +29,6 @@ class HomePageState extends State<HomePage> {
     ImageConstants.diagnosisImage,
     ImageConstants.diagnosisImage
   ];
-
-
-
   final List<Widget> pages=
   [
     const UploadImageView(),
@@ -76,26 +68,6 @@ class HomePageState extends State<HomePage> {
             BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
           ]
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   currentIndex:selectedIndex ,
-      //   selectedItemColor:AppColors.primary,
-      //   backgroundColor:AppColors.white,
-      //   unselectedItemColor:AppColors.black,
-      //   onTap: onItemTapped,
-      //   items:const [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home_outlined),
-      //         label: 'Home'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.medical_information_outlined), label: 'Diagnosis'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.comment_outlined),
-      //       label: 'Community',),
-      //     BottomNavigationBarItem(icon: Icon(Icons.radio_outlined),
-      //         label: 'News'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.person_3_outlined), label: 'Doctors'),
-      //   ],
-      // )
-
-
     );
   }
   PreferredSize showAppBar(){
