@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
@@ -14,17 +13,14 @@ import 'package:graduation_project/features/community/presentation/screens/searc
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
-import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile.dart';
 import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
-import 'package:graduation_project/features/profile/presentation/screens/privacy_policy_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/privacy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
-import 'package:graduation_project/features/profile/presentation/screens/profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/terms_and_conditions_screen.dart';
 import 'package:graduation_project/features/splash/presentation/views/splash_screen.dart';
@@ -36,7 +32,6 @@ import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
-import '../../features/diagnosis/presentation/views/text_question_view.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/manager/privacy_screen_cubit/privacy_screen_cubit.dart';
@@ -84,10 +79,7 @@ class AppRoutes {
           builder: (context) => const CongratulationScreen(),);
       case Routes.result:
         return MaterialPageRoute(builder: (context) => const ResultScreen(),);
-    // case Routes.radioQueastion:
-    //   return MaterialPageRoute(builder: (context) =>const QuestionChoice(),);
-    //   case Routes.textQuestion:
-    //     return MaterialPageRoute(builder: (context) => const QuestionText(),);
+
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.putNewPassword:
@@ -141,14 +133,6 @@ class AppRoutes {
             ),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),);
-      case Routes.profileScreen:
-        return MaterialPageRoute(builder: (context) =>
-            BlocProvider(
-              create: (context) =>
-                  ProfileCubit(profileRepo: ProfileRepos(api: DioConsumer(
-                      dio: Dio()))),
-              child: ProfileScreen(),
-            ),);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);

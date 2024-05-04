@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/features/profile/data/models/get_profile_model.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
-
-import '../../../data/profile_models/get_profile_model.dart';
 import '../../../data/repos/profile_repos.dart';
 
 part 'update_profile_state.dart';

@@ -6,12 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/features/profile/presentation/manager/change_theme_cubit.dart';
+import 'package:graduation_project/features/profile/data/models/settings_data_model.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/custom_app_bar.dart';
 import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../data/profile_models/settings_data_model.dart';
 import '../components/settings_item_widget.dart';
 
 class SettingsScreen extends StatefulWidget {

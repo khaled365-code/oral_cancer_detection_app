@@ -8,8 +8,6 @@ import 'package:graduation_project/features/profile/presentation/manager/privacy
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/body_app_bar.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
-import '../components/privacy_item.dart';
 import '../components/privacy_item_widget.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {

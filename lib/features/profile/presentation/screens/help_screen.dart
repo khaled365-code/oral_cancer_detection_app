@@ -6,7 +6,6 @@ import 'package:graduation_project/features/profile/presentation/manager/help_sc
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/body_app_bar.dart';
-import '../../data/profile_models/help_model.dart';
 import '../components/help_item_widget.dart';
 
 class HelpScreen extends StatelessWidget {

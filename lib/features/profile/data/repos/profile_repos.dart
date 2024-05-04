@@ -4,8 +4,9 @@ import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
-import 'package:graduation_project/features/profile/data/profile_models/get_profile_model.dart';
-import 'package:graduation_project/features/profile/data/profile_models/update_profile_model.dart';
+import 'package:graduation_project/features/profile/data/models/update_profile_model.dart';
+
+import '../models/get_profile_model.dart';
 
 
 class ProfileRepos {

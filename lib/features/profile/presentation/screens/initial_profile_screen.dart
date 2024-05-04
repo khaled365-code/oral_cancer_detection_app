@@ -5,23 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/api/dio_consumer.dart';
-import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
-import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
-import 'package:share_plus/share_plus.dart';
-
-import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/app_text_styles.dart';
+import 'package:graduation_project/features/profile/presentation/components/profile_item_widget.dart';
+import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/image_constants.dart';
-import '../../../profile/data/profile_models/profile_data_model.dart';
-import '../../../profile/presentation/components/drawer_body_item.dart';
-import '../../../profile/presentation/components/language_drawer_item.dart';
-import 'componants/profile_item_widget.dart';
 
 class ProfileOutScreen extends StatelessWidget {
    ProfileOutScreen({super.key});

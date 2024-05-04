@@ -13,13 +13,13 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
-import 'package:graduation_project/features/profile/presentation/manager/profile_cubites/profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
-import '../manager/profile_cubites/update_profile_cubit.dart';
+import '../manager/update_profile_cubit/update_profile_cubit.dart';
 
 
 class EditProfileScreen extends StatefulWidget {
