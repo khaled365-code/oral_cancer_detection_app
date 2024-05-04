@@ -15,7 +15,7 @@ class BottomNavColumn extends StatelessWidget {
       padding:  EdgeInsets.all(paddingValue??0),
       child: Column(children: [
         Icon(icon ),
-        Text(text,style: AppTextStyles.font12,)
+        Text(text,style: AppTextStyles.font10,)
 
       ],),
     );

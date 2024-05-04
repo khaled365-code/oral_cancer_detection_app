@@ -12,7 +12,7 @@ class AppTextStyles
 
   static  TextStyle font10 = TextStyle(
       fontSize: 10.sp,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
       // fontFamily: 'poppins',
       color: AppColors.black);
   static  TextStyle font12 = TextStyle(
