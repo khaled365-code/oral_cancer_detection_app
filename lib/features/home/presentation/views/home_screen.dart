@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +11,7 @@ import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/profile_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_body.dart';
 import 'package:graduation_project/features/profile/presentation/components/my_drawer_header.dart';
@@ -60,7 +62,6 @@ class HomePageState extends State<HomePage> {
         width: MediaQuery.of(context).size.width,
         child: ProfileOutScreen(),
       ),
-
       body:pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -184,7 +185,5 @@ class HomePageState extends State<HomePage> {
     }
   }
 }
-/*
- */
 
 

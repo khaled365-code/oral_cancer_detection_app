@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,13 +20,16 @@ class OnboardingScreen extends StatelessWidget {
         decoration: PageDecoration(pageColor: AppColors.background),
           titleWidget:Text('firstonboardtilte'.tr(context),style: AppTextStyles.font24,textAlign: TextAlign.center),
           bodyWidget: Text( 'firstonboarddesc'.tr(context), style: AppTextStyles.font16.copyWith(color: Colors.grey),textAlign: TextAlign.center)
-         , image: Lottie.asset('assets/lotties/Animation - 1714664688020.json')
+         , image: Padding(
+           padding: const EdgeInsets.only(left: 60),
+           child: Lottie.asset(AppLoties.firstOnBoradLottie),
+         )
       ),
       PageViewModel(
           decoration: PageDecoration(pageColor: AppColors.background),
           titleWidget: Text('secondonboardtitle'.tr(context),style: AppTextStyles.font24,textAlign: TextAlign.center),
           bodyWidget: Text('secondonboarddesc'.tr(context),style: AppTextStyles.font16.copyWith(color: Colors.grey),textAlign: TextAlign.center)
-        ,  image: Image.asset('assets/images/onboard2.jpg')
+        ,  image: Lottie.asset(AppLoties.secondOnBoradLottie)
       ),
     ];
     return  Scaffold(

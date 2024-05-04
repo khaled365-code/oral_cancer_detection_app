@@ -5,7 +5,7 @@ import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/Radio_question_view.dart';
-import 'package:graduation_project/features/diagnosis/presentation/views/text_question_view.dart';
+import 'package:graduation_project/features/diagnosis/presentation/widgets/tab_bar_container.dart';
 class QuestionsView extends StatelessWidget {
   const QuestionsView({super.key});
   @override
@@ -22,20 +22,20 @@ class QuestionsView extends StatelessWidget {
 
                       labelStyle:AppTextStyles.font15.copyWith(fontWeight: FontWeight.bold),
                       isScrollable: true,
-                      labelColor: AppColors.primary,
+                      labelColor: AppColors.white,
                       indicatorColor: AppColors.primary,
                         unselectedLabelColor: Colors.black,
                       labelPadding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                       tabs:  [
-                        Tab(text: "first".tr(context),),
+                        Tab(child: TabBarContainer(text: "first".tr(context)))
                         // Tab(text: "second".tr(context),),
-                        Tab(text: "second".tr(context),),
-                        Tab(text: "third".tr(context),),
-                        Tab(text: "fourth".tr(context),),
-                        Tab(text: "fifth".tr(context),),
-                        Tab(text: "sixth".tr(context),),
-                        Tab(text: "seventh".tr(context),),
-                        Tab(text: "eighth".tr(context),),
+                       , Tab(child: TabBarContainer(text: "second".tr(context))),
+                        Tab(child: TabBarContainer(text: "third".tr(context)),),
+                        Tab(child: TabBarContainer(text:"fourth".tr(context))),
+                        Tab(child: TabBarContainer(text: "fifth".tr(context))),
+                        Tab(child: TabBarContainer(text: "sixth".tr(context))),
+                        Tab(child: TabBarContainer(text: "seventh".tr(context)),),
+                        Tab(child: TabBarContainer(text:"eighth".tr(context))),
                       ]),
                     Flexible(
                     flex: 1,
