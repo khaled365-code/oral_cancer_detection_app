@@ -56,9 +56,9 @@ class HomePageState extends State<HomePage> {
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.only(top: 10.h),
+        padding:  EdgeInsets.symmetric(vertical: 10.h),
         child: CurvedNavigationBar(
-            height: 40,
+            height: 30.h,
             onTap: onItemTapped,
             animationDuration: Duration(milliseconds: 500),
             backgroundColor: AppColors.white,
