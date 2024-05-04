@@ -1,17 +1,17 @@
 part of 'profile_cubit.dart';
 
 @immutable
-abstract class ProfileState {}
+abstract class GetProfileDataCubitState {}
 
-class ProfileInitial extends ProfileState {}
-class ProfileLoading extends ProfileState {}
-class ProfileSuccess extends ProfileState {
+class ProfileInitial extends GetProfileDataCubitState {}
+class ProfileLoading extends GetProfileDataCubitState {}
+class ProfileSuccess extends GetProfileDataCubitState {
   final getProfileModel userProfile;
 
   ProfileSuccess({required this.userProfile});
 
 }
-class ProfileFailure extends ProfileState {
+class ProfileFailure extends GetProfileDataCubitState {
   final String errorMessage;
 
   ProfileFailure({required this.errorMessage});

@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ProfileCubit>(create: (context) => ProfileCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))..GetUserProfile()),
+        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
         BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
