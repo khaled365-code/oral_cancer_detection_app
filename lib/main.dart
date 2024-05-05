@@ -1,4 +1,6 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -26,7 +28,7 @@ void main() {
   Bloc.observer=MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper().init();
-  runApp(const MyApp());
+  runApp(MyApp(),);
 }
 
 class MyAppWithLanguage extends StatelessWidget {
@@ -37,7 +39,6 @@ class MyAppWithLanguage extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
          builder: (context, state) {
           return MaterialApp(
-
 
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))),
+        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))..GetUserProfile(),),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
         BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(

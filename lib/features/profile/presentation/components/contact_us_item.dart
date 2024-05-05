@@ -34,7 +34,6 @@ class ContactUsItem extends StatelessWidget {
             },
             child: Container(
               width: 300.w,
-              height: contactUSBloc.containerISOpen ? 100.h : 50,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(8.r),
@@ -67,6 +66,7 @@ class ContactUsItem extends StatelessWidget {
                       SizedBox(width: 10.w,),
                     ],
                   ),
+                  SizedBox(height: 5.h,),
                   if(contactUSBloc.containerISOpen == true)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +75,9 @@ class ContactUsItem extends StatelessWidget {
                         Padding(
                           padding: EdgeInsetsDirectional.only(
                               start: 15.w, end: 15.w, bottom: 5.h),
-                          child: LineWidget(),
+                          child: LineWidget(
+                            height: 2,
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.only(
