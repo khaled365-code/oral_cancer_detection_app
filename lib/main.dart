@@ -28,12 +28,7 @@ void main() {
   Bloc.observer=MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper().init();
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
+  runApp(MyApp(),);
 }
 
 class MyAppWithLanguage extends StatelessWidget {
@@ -45,7 +40,6 @@ class MyAppWithLanguage extends StatelessWidget {
          builder: (context, state) {
           return MaterialApp(
 
-            builder: DevicePreview.appBuilder,
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
             localizationsDelegates: const [

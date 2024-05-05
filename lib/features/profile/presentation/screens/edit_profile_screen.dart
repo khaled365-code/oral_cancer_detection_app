@@ -87,6 +87,7 @@ class EditProfileScreen extends StatelessWidget {
             updateProfileCubit.updatedProfilePic==null?
             Center(
               child: CustomImagePickerAvatar(
+                fitState: BoxFit.contain,
                 hasBottom: true,
                 hasEnd: true,
                 image: AssetImage(ImageConstants.ProfileUserImage),
