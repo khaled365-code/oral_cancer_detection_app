@@ -86,9 +86,8 @@ class HomePageState extends State<HomePage> {
             hasLeading: true,
             leading: Builder(builder: (context) {
               return GestureDetector(
-                  onTap: () async
+                  onTap: ()
                   {
-                   await BlocProvider.of<GetProfileDataCubit>(context).GetUserProfile();
                     Scaffold.of(context).openDrawer();
                   },
                   child: Image.asset(ImageConstants.homelines));

@@ -75,81 +75,52 @@ class ProfileOutScreen extends StatelessWidget {
                   [
                     state is ProfileSuccess ?
                     SliverToBoxAdapter(
-                      child: CustomImagePickerAvatar(
-                        image: NetworkImage(state.userProfile.userImage),
-                        hasBottom: true,
-                        hasEnd: true,
-                        hasCustomChild: true,
-                        customChild: Container(
-                          width: 35.w,
-                          height: 35.h,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.c0165FC,
-                              border: Border.all(
-                                  color: AppColors.white, width: 2.w)),
-                          child: Image.asset(
-                            ImageConstants.pencilImage,
-                            color: AppColors.white,
+                      child: Center(
+                        child: CustomImagePickerAvatar(
+                          image: NetworkImage(state.userProfile.userImage),
+                          hasBottom: true,
+                          hasEnd: true,
+                          hasCustomChild: true,
+                          customChild: Container(
+                            width: 35.w,
+                            height: 35.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.c0165FC,
+                                border: Border.all(
+                                    color: AppColors.white, width: 2.w)),
+                            child: Image.asset(
+                              ImageConstants.pencilImage,
+                              color: AppColors.white,
+                            ),
                           ),
                         ),
                       ),
                     ) :SliverToBoxAdapter(
-                      child: CustomImagePickerAvatar(
-                        image: AssetImage(ImageConstants.ProfileUserImage),
-                        hasBottom: true,
-                        hasEnd: true,
-                        hasCustomChild: true,
-                        customChild: Container(
-                          width: 35.w,
-                          height: 35.h,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.c0165FC,
-                              border: Border.all(
-                                  color: AppColors.white, width: 2.w)),
-                          child: Image.asset(
-                            ImageConstants.pencilImage,
-                            color: AppColors.white,
+                      child: Center(
+                        child: CustomImagePickerAvatar(
+                          fitState: BoxFit.contain,
+                          image: AssetImage(ImageConstants.ProfileUserImage),
+                          hasBottom: true,
+                          hasEnd: true,
+                          hasCustomChild: true,
+                          customChild: Container(
+                            width: 35.w,
+                            height: 35.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.c0165FC,
+                                border: Border.all(
+                                    color: AppColors.white, width: 2.w)),
+                            child: Image.asset(
+                              ImageConstants.pencilImage,
+                              color: AppColors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
 
-                    // SliverToBoxAdapter(
-                    //   child: Center(
-                    //     child: Stack(
-                    //       clipBehavior: Clip.none,
-                    //       children: [
-                    //         Container(
-                    //           width: 100.w,
-                    //           height: 100.h,
-                    //           decoration: BoxDecoration(
-                    //             shape: BoxShape.circle,
-                    //           ),
-                    //           child: Image.asset(ImageConstants.manCommentImage,fit: BoxFit.fill,),
-                    //         ),
-                    //         PositionedDirectional(
-                    //           bottom: -7.h,
-                    //           end: -2.w,
-                    //           child: Container(
-                    //             width: 35.w,
-                    //             height: 35.h,
-                    //             decoration: BoxDecoration(
-                    //                 shape: BoxShape.circle,
-                    //                 color: AppColors.c0165FC,
-                    //                 border: Border.all(
-                    //                     color: AppColors.white,
-                    //                     width: 2.w
-                    //                 )
-                    //             ),
-                    //             child: Image.asset(ImageConstants.pencilImage,color: AppColors.white,),
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
                     SliverToBoxAdapter(
                       child: SizedBox(
                         height: 15.h,
@@ -166,20 +137,17 @@ class ProfileOutScreen extends StatelessWidget {
                               size: 15.sp),
                         ),
                       ),
-                    ) : SliverToBoxAdapter(child: SizedBox(
-                      width: 200.0,
-                      height: 100.0,
+                    ) : SliverToBoxAdapter(
                       child: Shimmer.fromColors(
-                        baseColor: AppColors.cE1E1E1,
-                        highlightColor: AppColors.cE1E1E1,
-                        child: Center(
-                          child: Text(
-                            'please wait', style: AppKhaledStyles.textStyle(
-                              color: AppColors.black,
-                              weight: FontWeight.bold,
-                              size: 15.sp
-                          ),),
-                        ),
+                      baseColor: AppColors.cE1E1E1,
+                      highlightColor: AppColors.primary,
+                      child: Center(
+                        child: Text(
+                          'please wait', style: AppKhaledStyles.textStyle(
+                            color: AppColors.black,
+                            weight: FontWeight.bold,
+                            size: 15.sp
+                        ),),
                       ),
                     ),),
                     SliverToBoxAdapter(
@@ -200,20 +168,16 @@ class ProfileOutScreen extends StatelessWidget {
                       ),
                     ) :
                     SliverToBoxAdapter(
-                      child: SizedBox(
-                        width: 200.0,
-                        height: 100.0,
-                        child: Shimmer.fromColors(
-                          baseColor: AppColors.cE1E1E1,
-                          highlightColor: AppColors.cE1E1E1,
-                          child: Center(
-                            child: Text(
-                              'please wait', style: AppKhaledStyles.textStyle(
-                                color: AppColors.grey,
-                                weight: FontWeight.normal,
-                                size: 15.sp
-                            ),),
-                          ),
+                      child: Shimmer.fromColors(
+                        baseColor: AppColors.cE1E1E1,
+                        highlightColor: AppColors.primary,
+                        child: Center(
+                          child: Text(
+                            'please wait', style: AppKhaledStyles.textStyle(
+                              color: AppColors.grey,
+                              weight: FontWeight.normal,
+                              size: 15.sp
+                          ),),
                         ),
                       ),
                     ),

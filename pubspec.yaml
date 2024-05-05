@@ -60,6 +60,7 @@ dependencies:
   introduction_screen:
   flutter_rating_bar: ^4.0.1
   shimmer: ^3.0.0
+  device_preview: ^1.1.0
 
 
 

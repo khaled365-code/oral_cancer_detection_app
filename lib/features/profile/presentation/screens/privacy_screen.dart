@@ -60,7 +60,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               Expanded(
                 child: ListView.separated(
                     padding: EdgeInsetsDirectional.only(
-                        start: 20.w, end: 15.w, top: 20.h, bottom: 30.h),
+                        start: 15.w, end: 10.w, top: 20.h, bottom: 30.h),
                     itemBuilder: (context, index) =>
                         PrivacyItemWidget(
                           privacyModel: privacyScreenCubit.privacyDataList[index],
