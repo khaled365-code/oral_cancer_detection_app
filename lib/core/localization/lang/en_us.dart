@@ -62,7 +62,7 @@ final Map<String, String> enUs =
   "faq1": "How does the app detect oral cancer ?",
   "faq2": "Is  the app accurate in detecting oral cancer ?",
   "faq3": "Are photos taken by the app stored or shared ?",
-  "faq4": "Can the app detect things besides oral cancer ?",
+  "faq4": "Can app detect things besides oral cancer ?",
   "faq5": "How often should I use the app for screening ?",
   "faq6": "What should I do if the app detects an issue ?",
   "faq7": "Is the app suitable for children ?",

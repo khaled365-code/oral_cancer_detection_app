@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
@@ -36,7 +37,8 @@ class HelpItemWidget extends StatelessWidget {
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(8.r),
                       border: Border.all(
-                          color: AppColors.cEFF0F3
+                          color: AppColors.cEFF0F3,
+                        width: 2.w
                       )
                   ),
                   child: Column(

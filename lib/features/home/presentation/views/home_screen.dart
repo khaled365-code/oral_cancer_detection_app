@@ -1,8 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
@@ -53,20 +55,23 @@ class HomePageState extends State<HomePage> {
         child: ProfileOutScreen(),
       ),
       body:pages[selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-          height: 50,
-          onTap: onItemTapped,
-          animationDuration: Duration(milliseconds: 500),
-          backgroundColor: AppColors.white,
-          color: AppColors.white,
-          buttonBackgroundColor: AppColors.primary,
-          items: [
-            BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
-            BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
-            BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
-            BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-            BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
-          ]
+      bottomNavigationBar: Padding(
+        padding:  EdgeInsets.symmetric(vertical: 10.h),
+        child: CurvedNavigationBar(
+            height: 30.h,
+            onTap: onItemTapped,
+            animationDuration: Duration(milliseconds: 500),
+            backgroundColor: AppColors.white,
+            color: AppColors.white,
+            buttonBackgroundColor: AppColors.primary,
+            items: [
+              BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
+              BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
+              BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
+              BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
+              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
+            ]
+        ),
       ),
     );
   }
@@ -81,12 +86,12 @@ class HomePageState extends State<HomePage> {
             hasLeading: true,
             leading: Builder(builder: (context) {
               return GestureDetector(
-                  onTap: () {
+                  onTap: ()
+                  {
                     Scaffold.of(context).openDrawer();
                   },
                   child: Image.asset(ImageConstants.homelines));
             }),
-
             actions: [
               Padding(
                 padding: EdgeInsetsDirectional.only(end: 20.w),

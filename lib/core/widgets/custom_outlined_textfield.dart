@@ -45,6 +45,7 @@ class CustomOutlinedTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obsecureText,
         decoration: InputDecoration(
+          contentPadding: EdgeInsetsDirectional.only(bottom: 5.h,start: 10.h),
           prefixIcon: hasPrefixIcon?Icon(prefixIcon):null,
           suffixIcon: hasSuffixIcon?Icon(suffixIcon):null,
           hintText: hintText??null,
@@ -53,7 +54,7 @@ class CustomOutlinedTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular((borderRadius??8).r),
             borderSide: BorderSide(
               color: borderSideColor??AppColors.cEFEFEF,
-              width: 1.2.w
+              width: 1.5.w
             )
           ),
           focusedBorder: OutlineInputBorder(

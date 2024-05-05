@@ -60,6 +60,10 @@ class AppColors
    static const Color c8A8A8A=Color(0xff8A8A8A);
 
 
+   static const Color cE1E1E1=Color(0xffE1E1E1);
+
+
+
 
 
 
