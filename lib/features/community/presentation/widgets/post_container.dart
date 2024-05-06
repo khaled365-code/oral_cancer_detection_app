@@ -32,6 +32,8 @@ class PostContainer extends StatelessWidget {
 
 
 
+
+
   PostContainer({
     super.key, required this.currentIndex, required this.data,
   });
@@ -45,6 +47,8 @@ class PostContainer extends StatelessWidget {
     },
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
+
+
         return GestureDetector(
       onTap: ()
       {
@@ -52,7 +56,7 @@ class PostContainer extends StatelessWidget {
       },
       child: Container(
         width: 414.w,
-        padding: EdgeInsetsDirectional.only(end: 20.w,),
+        padding: EdgeInsetsDirectional.only(end: 17.w,),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -94,15 +98,16 @@ class PostContainer extends StatelessWidget {
 
                   Row(
                     children: [
-                      Text(data.userdata!.name??'', style: AppKhaledStyles.textStyle(
+                      Text('${getUserName(currentUserName: data.userdata!.name??'')}',
+                        style: AppKhaledStyles.textStyle(
                         color: AppColors.black,
                         weight:FontWeight.w700 ,
                         size: 13,
                       ),),
-                      Spacer(),
+                      SizedBox(width: 3.h,),
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
-                        child: Text(data.userdata!.email??'@khaled', style: AppKhaledStyles
+                        child: Text('${getEmail(currentEmail:data.userdata!.email??'')}', style: AppKhaledStyles
                             .textStyle(
                           color: AppColors.c687684,
                           weight:FontWeight.w500 ,

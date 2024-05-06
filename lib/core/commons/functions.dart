@@ -51,18 +51,18 @@ Color getColor(ToastStates toastStates)
     case ToastStates.success:
       return AppColors.red;
     case ToastStates.error:
-      return Colors.red;
+      return AppColors.c3F4042;
     case ToastStates.warning:
       return AppColors.red;
   }
 }
 
-showSnackBar(BuildContext context,{required String content}){
+showSnackBar(BuildContext context,{String? content,Color? color,Widget? specificWidget}){
   ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          content,style: AppTextStyles.font12,)
-        ,backgroundColor: AppColors.white,
+        content: specificWidget ??Text(
+          content??'',style: AppTextStyles.font12,)
+        ,backgroundColor: color??AppColors.white,
         behavior: SnackBarBehavior.floating,
       )
   );
@@ -98,14 +98,21 @@ getTimeDifference({required DateTime postDate})
   }
 
 }
-// String formatDateTime(String dateTimeString) {
-//
-//
-//   DateTime dateTime = DateTime.parse(dateTimeString);
-//
-//   String formattedTime = DateFormat.Hm().format(dateTime);
-//
-//   return formattedTime;
-// }
+String getEmail({required String currentEmail})
+{
+  int emailLength=24;
+  String displayedName=currentEmail.length>emailLength?currentEmail.substring(0,emailLength)+'.':currentEmail;
+  return displayedName;
+
+
+}
+String getUserName({required String currentUserName})
+{
+  int userNameLength=16;
+  String displayedName=currentUserName.length>userNameLength?currentUserName.substring(0,userNameLength)+'.':currentUserName;
+  return displayedName;
+
+
+}
 
 

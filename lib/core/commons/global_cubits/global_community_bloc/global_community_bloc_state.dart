@@ -28,3 +28,12 @@ class GetAllPostsFailureState extends GlobalCommunityBlocState {
   GetAllPostsFailureState({required this.errorMessage});
 
 }
+
+
+class ConnectionCheckState extends GlobalCommunityBlocState {
+  final bool isConnected;
+
+  ConnectionCheckState({required this.isConnected});
+}
+
+

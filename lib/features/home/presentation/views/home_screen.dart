@@ -48,6 +48,7 @@ class HomePageState extends State<HomePage> {
     if(selectedIndex==2)
       {
         BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
+
       }
   }
   @override
@@ -130,7 +131,7 @@ class HomePageState extends State<HomePage> {
                 child: Image.asset(ImageConstants.homelines));
           }
         ),
-        title: Image.asset(ImageConstants.appLogo),
+        title: Image.asset(ImageConstants.appLogo,color: AppColors.primary,),
         actions:
       [
         Padding(
@@ -139,7 +140,7 @@ class HomePageState extends State<HomePage> {
           onTap: (){
             navigate(context: context, route: Routes.searchPostsScreen);
           },
-            child: Image.asset(ImageConstants.searchCommunityImage))
+            child: Image.asset(ImageConstants.searchCommunityImage,color: AppColors.primary,))
       ),
       ],
         backgroundColor: AppColors.white,));
