@@ -1,5 +1,5 @@
 class EndPoints{
-  static String baseUrl="https://0f92-197-134-140-150.ngrok-free.app/api/";
+  static String baseUrl="https://fc6e-197-134-140-150.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
@@ -36,6 +36,13 @@ class ApiKeys{
   static String image= "image";
   static String user_id= "user_id";
   static String created_at= "created_at";
+  static String comment_count= "comment_count";
+  static String like_count= "like_count";
+  static String profile_photo_url= "profile_photo_url";
+
+
+
+
 
 
 

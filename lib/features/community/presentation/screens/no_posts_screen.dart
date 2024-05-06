@@ -21,60 +21,7 @@ class NoPostsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-       appBar: PreferredSize(
-         preferredSize: Size(double.infinity, 40.h),
-         child: DefaultAppBar(
-           leading: Padding(
-             padding: EdgeInsetsDirectional.only(start: 20.w),
-                child: Center(
-                 child: Stack(
-                   children: [
-                     Image.asset(ImageConstants.roundPostTwitter),
-                     PositionedDirectional(
-                         start: 18.w,
-                         child: Image.asset(ImageConstants.roundPointCommunityImage))
-                   ],
-                  ),
-               )),
-           title: Container(
-        width: 286.w,
-        height: 32.h,
-        decoration: BoxDecoration(
-            color: AppColors.cE7ECF0,
-            borderRadius: BorderRadius.circular(25.r)
-        ),
-        child: Expanded(
-          child: TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                contentPadding: EdgeInsetsDirectional.only(start:20.w,bottom: 6.h,top: 6.h),
-                hintText: 'Search Posts',
-                hintStyle: AppKhaledStyles.textStyle(
-                  color: AppColors.cAFB8C1,
-                  size: 13,
-                )
-            ),
-          ),
-        ),
-      ),
-           actions:
-             [
-               Padding(
-                 padding:  EdgeInsetsDirectional.only(end: 11.5.w),
-                 child: GestureDetector(
-                     onTap: ()
-                     {
-                       navigate(context: context, route: Routes.noPostsScreen);
-                     },
-                     child: Image.asset(ImageConstants.communitySettingsImage)),
-               ),
-             ],
-           hasActions: true,
-           hasLeading: true,
-           hasTitle: true,
-         ),
-       ),
+
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -92,7 +39,9 @@ class NoPostsScreen extends StatelessWidget {
             ),
             SizedBox(height: 12.3.h,),
             LineWidget(),
-            NoSearchResultWidget(),
+            NoSearchResultWidget(
+              subtitleText: 'It seems like there’s not a lot to show you right\n now, you can try later to find results',
+            ),
             Expanded(
                 child: Container(
                   color: AppColors.cE7ECF0,

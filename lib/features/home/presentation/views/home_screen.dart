@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
@@ -44,6 +45,11 @@ class HomePageState extends State<HomePage> {
     {
       selectedIndex = index;
     });
+    if(selectedIndex==2)
+      {
+        BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
+
+      }
   }
   @override
   Widget build(BuildContext context) {
@@ -56,7 +62,7 @@ class HomePageState extends State<HomePage> {
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 10.h),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: CurvedNavigationBar(
             height: 30.h,
             onTap: onItemTapped,
@@ -90,7 +96,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
             }),
             actions: [
               Padding(
@@ -122,10 +128,10 @@ class HomePageState extends State<HomePage> {
                 {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Image.asset(ImageConstants.homelines));
+                child: Image.asset(ImageConstants.homelines,color: AppColors.primary));
           }
         ),
-        title: Image.asset(ImageConstants.appLogo),
+        title: Image.asset(ImageConstants.appLogo,color: AppColors.primary,),
         actions:
       [
         Padding(
@@ -134,7 +140,7 @@ class HomePageState extends State<HomePage> {
           onTap: (){
             navigate(context: context, route: Routes.searchPostsScreen);
           },
-            child: Image.asset(ImageConstants.searchCommunityImage))
+            child: Image.asset(ImageConstants.searchCommunityImage,color: AppColors.primary,))
       ),
       ],
         backgroundColor: AppColors.white,));
@@ -151,7 +157,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black));
             }
         ),
         title: Text('Medical News'),backgroundColor:AppColors.primary ,));
@@ -168,7 +174,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
             }
         ),
         title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
