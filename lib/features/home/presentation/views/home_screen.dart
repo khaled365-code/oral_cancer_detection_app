@@ -96,7 +96,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
             }),
             actions: [
               Padding(
@@ -128,7 +128,7 @@ class HomePageState extends State<HomePage> {
                 {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Image.asset(ImageConstants.homelines));
+                child: Image.asset(ImageConstants.homelines,color: AppColors.primary));
           }
         ),
         title: Image.asset(ImageConstants.appLogo,color: AppColors.primary,),
@@ -157,7 +157,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black));
             }
         ),
         title: Text('Medical News'),backgroundColor:AppColors.primary ,));
@@ -174,7 +174,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
             }
         ),
         title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
