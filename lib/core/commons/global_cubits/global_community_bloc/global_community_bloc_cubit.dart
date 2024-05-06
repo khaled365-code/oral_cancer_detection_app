@@ -1,14 +1,38 @@
 import 'package:bloc/bloc.dart';
+import 'package:graduation_project/core/api/api_endPoints.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
+import 'package:graduation_project/features/community/data/models/post_details_mode;.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../features/community/data/models/camera_posts_model.dart';
 import '../../../../features/community/data/models/post_data_model.dart';
+import '../../../../features/community/data/repos/community_repo_implementation.dart';
 import '../../../utilis/image_constants.dart';
 
 part 'global_community_bloc_state.dart';
 
 class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
-  GlobalCommunityBloc() : super(GlobalCommunityBlocInitial());
+
+
+  GlobalCommunityBloc({required this.communityRepoImplementation}) : super(GlobalCommunityBlocInitial());
+
+
+  final CommunityRepoImplementation communityRepoImplementation;
+
+  getAllPostsFun() async
+  {
+    emit(GetAllPostsLoadingState());
+    final response= await communityRepoImplementation.
+    getAllPosts(token: CacheHelper().getData(key: ApiKeys.token));
+
+    response.fold((error) => emit(GetAllPostsFailureState(errorMessage: error)),
+            (successModel) => emit(GetAllPostsSuccessState(postDetailsModel: successModel)));
+
+
+
+  }
+
 
 
   List<CameraPostsModedl>cameraPostsData=[
@@ -70,6 +94,9 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     postDetailsRetweetIsActive=!postDetailsRetweetIsActive;
     emit(ChangeRetweetShapeState());
   }
+
+
+
 
 
 }

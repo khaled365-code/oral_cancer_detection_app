@@ -5,18 +5,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
+import 'package:graduation_project/features/community/data/models/Data.dart';
+import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
 import 'package:graduation_project/features/community/presentation/widgets/retweet_bottom_sheet.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../data/models/post_data_model.dart';
+import '../../data/models/post_details_mode;.dart';
 
 class PostContainer extends StatelessWidget {
 
-  final PostDataModel postDataModel;
   final int currentIndex;
+
+  final Data data;
 
 
 
@@ -28,7 +33,7 @@ class PostContainer extends StatelessWidget {
 
 
   PostContainer({
-    super.key, required this.postDataModel, required this.currentIndex,
+    super.key, required this.currentIndex, required this.data,
   });
 
   @override
@@ -47,7 +52,6 @@ class PostContainer extends StatelessWidget {
       },
       child: Container(
         width: 414.w,
-        height: 130.h,
         padding: EdgeInsetsDirectional.only(end: 20.w,),
         decoration: BoxDecoration(
             boxShadow: [
@@ -64,7 +68,6 @@ class PostContainer extends StatelessWidget {
             )
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -73,9 +76,12 @@ class PostContainer extends StatelessWidget {
                 width: 55.w,
                 height: 55.w,
                 decoration: BoxDecoration(
-                ), child: CircleAvatar(
-                  backgroundColor: AppColors.transparent,
-                  child: Image.asset(postDataModel.postOwnerPhoto, fit: BoxFit.contain,)),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: NetworkImage(data.userdata!.profilePhotoUrl??'',),
+                    fit: BoxFit.fill
+                  )
+                ),
               ),
             ),
             SizedBox(width: 8.w,),
@@ -84,27 +90,29 @@ class PostContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(height: 10.h,),
+
                   Row(
                     children: [
-                      Text(postDataModel.owner, style: AppKhaledStyles.textStyle(
+                      Text(data.userdata!.name??'', style: AppKhaledStyles.textStyle(
                         color: AppColors.black,
                         weight:FontWeight.w700 ,
                         size: 13,
                       ),),
-                      SizedBox(width: 3.h,),
+                      Spacer(),
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
-                        child: Text(postDataModel.userName, style: AppKhaledStyles
+                        child: Text(data.userdata!.email??'@khaled', style: AppKhaledStyles
                             .textStyle(
                           color: AppColors.c687684,
                           weight:FontWeight.w500 ,
                           size: 11,
                         ),),
                       ),
-                      SizedBox(width: 5.h,),
+                      Spacer(),
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
-                        child: Text('${postDataModel.hours}h', style: AppKhaledStyles.textStyle(
+                        child: Text('${getTimeDifference(postDate: DateTime.parse(data.post!.createdAt??''))}', style: AppKhaledStyles.textStyle(
                           color: AppColors.c687684,
                           weight:FontWeight.w500 ,
                           size: 10,
@@ -124,7 +132,7 @@ class PostContainer extends StatelessWidget {
                   ),
                   SizedBox(height: 2.h,),
                   Text(
-                    postDataModel.content,
+                    data.post!.body ?? '',
                     maxLines: 10,
                     overflow: TextOverflow.ellipsis,
                     style: AppKhaledStyles.textStyle(
@@ -139,20 +147,7 @@ class PostContainer extends StatelessWidget {
                     [
                       Image.asset(ImageConstants.commentImage),
                       SizedBox(width: 3.5.w,),
-                      Text('${postDataModel.commentNumber}',
-                        style: AppKhaledStyles.textStyle(
-                          color: AppColors.grey,
-                          size: 10,
-                        ),),
-                      Spacer(),
-                      GestureDetector(
-                          onTap: ()
-                          {
-                            communityBloc.changeHeartFun(currentIndex,communityBloc.postsDataList);
-                          },
-                          child: Image.asset(postDataModel.heartIsActive==true?ImageConstants.redHeartImage:ImageConstants.heartImage)),
-                      SizedBox(width: 3.5.w,),
-                      Text('${postDataModel.loveNumber}',
+                      Text('${data.commentCount}',
                         style: AppKhaledStyles.textStyle(
                           color: AppColors.grey,
                           size: 10,
@@ -165,18 +160,43 @@ class PostContainer extends StatelessWidget {
                               backgroundColor: AppColors.transparent,
                               builder: (context) => RetweetBottomSheet(currentIndex: currentIndex,),);
                           },
-                          child: Image.asset(postDataModel.retweetIsActive==true?ImageConstants.greenRetweetImage:ImageConstants.retweetImage)),
+                          child: Image.asset(ImageConstants.retweetImage)),
                       SizedBox(width: 3.5.w,),
-                      Text('${postDataModel.retweetNumber}',
+                      Text('0',
                         style: AppKhaledStyles.textStyle(
                           color: AppColors.grey,
                           size: 10,
                         ),),
+
                       Spacer(),
+                      GestureDetector(
+                          onTap: ()
+                          {
+                            communityBloc.changeHeartFun(currentIndex,communityBloc.postsDataList);
+                          },
+                          child: Image.asset(ImageConstants.heartImage)),
+                      SizedBox(width: 3.5.w,),
+                      Text('${data.likeCount}',
+                        style: AppKhaledStyles.textStyle(
+                          color: AppColors.grey,
+                          size: 10,
+                        ),),
+
+                      Spacer(),
+                      GestureDetector(
+                          onTap: ()
+                          {
+
+                          },
+                          child: Image.asset(ImageConstants.shareSmallImage,)),
+
+                      SizedBox(width: 11.w,)
 
 
                     ],
-                  )
+                  ),
+                  SizedBox(height: 10.h,),
+
                 ],
               ),
             )

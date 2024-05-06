@@ -120,6 +120,10 @@ class ImageConstants
   static const String whatsAppIcon='assets/icons/whatsapp.svg';
 
 
+  static const String shareSmallImage='assets/images/share_small_image.png';
+
+
+
 
 
 

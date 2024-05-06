@@ -11,6 +11,7 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
+import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
 import 'core/cache/cache_helper.dart';
@@ -25,10 +26,11 @@ import 'features/profile/data/repos/profile_repos.dart';
 
 
 void main() {
-  Bloc.observer=MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper().init();
   runApp(MyApp(),);
+  Bloc.observer=MyBlocObserver();
+
 }
 
 class MyAppWithLanguage extends StatelessWidget {
@@ -78,7 +80,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))..GetUserProfile(),),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
-        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc()),
+        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio())))..getAllPostsFun()),
         BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
             profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
         ),),

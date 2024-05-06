@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/image_constants.dart';
@@ -19,21 +20,22 @@ class CommunityScreen extends StatelessWidget {
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
         return Scaffold(
-          body: Column(
+          body: state is GetAllPostsSuccessState? Column(
             children:
             [
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) =>
                       PostContainer(
-                       postDataModel: communityBloc.postsDataList[index],
+                        data: state.postDetailsModel.data![index],
                         currentIndex: index,
                       ),
-                  itemCount: communityBloc.postsDataList.length,
+                  itemCount: state.postDetailsModel.data!.length,
                 ),
               ),
             ],
-          ),
+          )
+              : state is GetAllPostsLoadingState? CircularProgressIndicator() :Center(child: Text('Error')),
           floatingActionButton: GestureDetector(
             onTap: () {
               navigate(context: context, route: Routes.addPostScreen);
