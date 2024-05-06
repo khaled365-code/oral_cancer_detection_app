@@ -100,7 +100,7 @@ getTimeDifference({required DateTime postDate})
 }
 String getEmail({required String currentEmail})
 {
-  int emailLength=24;
+  int emailLength=14;
   String displayedName=currentEmail.length>emailLength?currentEmail.substring(0,emailLength)+'.':currentEmail;
   return displayedName;
 

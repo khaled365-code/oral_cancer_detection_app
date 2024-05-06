@@ -41,163 +41,157 @@ class PostWithNoDataWidget extends StatelessWidget {
       },
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
-        return GestureDetector(
-          onTap: ()
-          {
-            navigate(context: context, route: Routes.postDetailsScreen);
-          },
-          child: Container(
-            width: 414.w,
-            padding: EdgeInsetsDirectional.only(end: 20.w,),
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, .33),
-                    color: AppColors.white,
-                    spreadRadius: 0.r,
-                    blurRadius: 0.r,
-                  ),
-                ],
-                border: Border.all(
-                    color: AppColors.cE7E7E7,
-                    width: 1
-                )
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.only(start: 5.w, top: 10.h),
-                  child: Shimmer.fromColors(
-                    baseColor: AppColors.cE1E1E1,
-                    highlightColor: Colors.white,
-                    child: Container(
-                      width: 55.w,
-                      height: 55.w,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: AssetImage(ImageConstants.manCommentImage),
-                              fit: BoxFit.fill
-                          )
-                      ),
+        return Container(
+          width: 414.w,
+          padding: EdgeInsetsDirectional.only(end: 20.w,),
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, .33),
+                  color: AppColors.white,
+                  spreadRadius: 0.r,
+                  blurRadius: 0.r,
+                ),
+              ],
+              border: Border.all(
+                  color: AppColors.cE7E7E7,
+                  width: 1
+              )
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.only(start: 5.w, top: 10.h),
+                child: Shimmer.fromColors(
+                  baseColor: AppColors.cE1E1E1,
+                  highlightColor: Colors.white,
+                  child: Container(
+                    width: 55.w,
+                    height: 55.w,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(ImageConstants.manCommentImage),
+                            fit: BoxFit.fill
+                        )
                     ),
                   ),
                 ),
-                SizedBox(width: 8.w,),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 10.h,),
-                      Shimmer.fromColors(
-                        baseColor: AppColors.cE1E1E1,
-                        highlightColor: Colors.white,
-                        child: Row(
-                          children: [
-                            Text(postDataModel.owner, style: AppKhaledStyles.textStyle(
-                              color: AppColors.black,
-                              weight:FontWeight.w700 ,
-                              size: 13,
-                            ),),
-                            SizedBox(width: 3.h,),
-                            Padding(
-                              padding: EdgeInsets.only(top: 2.h),
-                              child: Text(postDataModel.userName, style: AppKhaledStyles
-                                  .textStyle(
-                                color: AppColors.c687684,
-                                weight:FontWeight.w500 ,
-                                size: 11,
-                              ),),
-                            ),
-                            SizedBox(width: 5.h,),
-                            Padding(
-                              padding: EdgeInsets.only(top: 2.h),
-                              child: Text('${postDataModel.hours}h', style: AppKhaledStyles.textStyle(
-                                color: AppColors.c687684,
-                                weight:FontWeight.w500 ,
-                                size: 10,
-                              ),),
-                            ),
-                            Spacer(),
-                            Padding(
-                              padding: EdgeInsetsDirectional.only(top: 2.h),
-                              child: SizedBox(
-                                  width: 10.25,
-                                  height: 5.5,
-                                  child: Image.asset(
-                                      ImageConstants.downArrowImage)),
-                            ),
-
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 2.h,),
-                      Shimmer.fromColors(
-                        baseColor: AppColors.cE1E1E1,
-                        highlightColor: Colors.white,
-                        child: Text(
-                          postDataModel.content,
-                          maxLines: 10,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppKhaledStyles.textStyle(
+              ),
+              SizedBox(width: 8.w,),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 10.h,),
+                    Shimmer.fromColors(
+                      baseColor: AppColors.cE1E1E1,
+                      highlightColor: Colors.white,
+                      child: Row(
+                        children: [
+                          Text(postDataModel.owner, style: AppKhaledStyles.textStyle(
                             color: AppColors.black,
-                            size: 14,
-                            weight: FontWeight.w400,
-
+                            weight:FontWeight.w700 ,
+                            size: 13,
                           ),),
+                          SizedBox(width: 3.h,),
+                          Padding(
+                            padding: EdgeInsets.only(top: 2.h),
+                            child: Text(postDataModel.userName, style: AppKhaledStyles
+                                .textStyle(
+                              color: AppColors.c687684,
+                              weight:FontWeight.w500 ,
+                              size: 11,
+                            ),),
+                          ),
+                          SizedBox(width: 5.h,),
+                          Padding(
+                            padding: EdgeInsets.only(top: 2.h),
+                            child: Text('${postDataModel.hours}h', style: AppKhaledStyles.textStyle(
+                              color: AppColors.c687684,
+                              weight:FontWeight.w500 ,
+                              size: 10,
+                            ),),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsetsDirectional.only(top: 2.h),
+                            child: SizedBox(
+                                width: 10.25,
+                                height: 5.5,
+                                child: Image.asset(
+                                    ImageConstants.downArrowImage)),
+                          ),
+
+                        ],
                       ),
-                      SizedBox(height: 10.h,),
-                      Shimmer.fromColors(
-                        baseColor: AppColors.cE1E1E1,
-                        highlightColor: Colors.white,
-                        child: Row(
-                          children:
-                          [
-                            Image.asset(ImageConstants.commentImage),
-                            SizedBox(width: 3.5.w,),
-                            Text('${postDataModel.commentNumber}',
-                              style: AppKhaledStyles.textStyle(
-                                color: AppColors.grey,
-                                size: 10,
-                              ),),
-                            Spacer(),
-                            Image.asset(ImageConstants.retweetImage),
-                            SizedBox(width: 3.5.w,),
-                            Text('${postDataModel.retweetNumber}',
-                              style: AppKhaledStyles.textStyle(
-                                color: AppColors.grey,
-                                size: 10,
-                              ),),
+                    ),
+                    SizedBox(height: 2.h,),
+                    Shimmer.fromColors(
+                      baseColor: AppColors.cE1E1E1,
+                      highlightColor: Colors.white,
+                      child: Text(
+                        postDataModel.content,
+                        maxLines: 10,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppKhaledStyles.textStyle(
+                          color: AppColors.black,
+                          size: 14,
+                          weight: FontWeight.w400,
 
-                            Spacer(),
-                            Image.asset(ImageConstants.heartImage),
-                            SizedBox(width: 3.5.w,),
-                            Text('${postDataModel.loveNumber}',
-                              style: AppKhaledStyles.textStyle(
-                                color: AppColors.grey,
-                                size: 10,
-                              ),),
+                        ),),
+                    ),
+                    SizedBox(height: 10.h,),
+                    Shimmer.fromColors(
+                      baseColor: AppColors.cE1E1E1,
+                      highlightColor: Colors.white,
+                      child: Row(
+                        children:
+                        [
+                          Image.asset(ImageConstants.commentImage),
+                          SizedBox(width: 3.5.w,),
+                          Text('${postDataModel.commentNumber}',
+                            style: AppKhaledStyles.textStyle(
+                              color: AppColors.grey,
+                              size: 10,
+                            ),),
+                          Spacer(),
+                          Image.asset(ImageConstants.retweetImage),
+                          SizedBox(width: 3.5.w,),
+                          Text('${postDataModel.retweetNumber}',
+                            style: AppKhaledStyles.textStyle(
+                              color: AppColors.grey,
+                              size: 10,
+                            ),),
 
-                            Spacer(),
-                            Image.asset(ImageConstants.shareSmallImage,),
-                            SizedBox(width: 20.w,)
+                          Spacer(),
+                          Image.asset(ImageConstants.heartImage),
+                          SizedBox(width: 3.5.w,),
+                          Text('${postDataModel.loveNumber}',
+                            style: AppKhaledStyles.textStyle(
+                              color: AppColors.grey,
+                              size: 10,
+                            ),),
+
+                          Spacer(),
+                          Image.asset(ImageConstants.shareSmallImage,),
+                          SizedBox(width: 20.w,)
 
 
-                          ],
-                        ),
+                        ],
                       ),
-                      SizedBox(height: 10.h,),
+                    ),
+                    SizedBox(height: 10.h,),
 
-                    ],
-                  ),
-                )
+                  ],
+                ),
+              )
 
 
-              ],
-            ),
+            ],
           ),
         );
       },

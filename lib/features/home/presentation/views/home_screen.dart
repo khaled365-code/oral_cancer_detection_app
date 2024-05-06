@@ -62,7 +62,7 @@ class HomePageState extends State<HomePage> {
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 10.h),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: CurvedNavigationBar(
             height: 30.h,
             onTap: onItemTapped,

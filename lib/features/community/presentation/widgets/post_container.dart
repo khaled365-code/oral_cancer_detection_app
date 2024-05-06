@@ -56,7 +56,7 @@ class PostContainer extends StatelessWidget {
       },
       child: Container(
         width: 414.w,
-        padding: EdgeInsetsDirectional.only(end: 17.w,),
+        padding: EdgeInsetsDirectional.only(end: 20.w,),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -114,7 +114,7 @@ class PostContainer extends StatelessWidget {
                           size: 11,
                         ),),
                       ),
-                      Spacer(),
+                      SizedBox(width: 5.h,),
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
                         child: Text('${getTimeDifference(postDate: DateTime.parse(data.post!.createdAt??''))}', style: AppKhaledStyles.textStyle(

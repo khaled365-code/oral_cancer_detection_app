@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,9 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
+import 'package:graduation_project/features/community/presentation/widgets/no_search_result_widget.dart';
 import 'package:graduation_project/features/community/presentation/widgets/test_widget.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/image_constants.dart';
@@ -48,19 +51,34 @@ class CommunityScreen extends StatelessWidget {
           builder: (context, state) {
             final communityBloc = BlocProvider.of<GlobalCommunityBloc>(context);
             return Scaffold(
-              body: state is GetAllPostsSuccessState ?  Column(
-                children:
+              body: state is GetAllPostsSuccessState ?  CustomScrollView(
+                slivers:
                 [
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder: (context, index) =>
-                          PostContainer(
-                            data: state.postDetailsModel.data![index],
-                            currentIndex: index,
-                          ),
-                      itemCount: state.postDetailsModel.data!.length,
+                  SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                            (context, index) =>  PostContainer(
+                        data: state.postDetailsModel.data![index],
+                        currentIndex: index,
+                      ),
+                        childCount: state.postDetailsModel.data!.length,
+                      )),
+
+                  SliverToBoxAdapter(child: Container(
+                    height: 80.h,
+                    color: AppColors.white,
+                    child: Center(
+                      child: Container(
+                        width: 20.w,
+                        height: 20.h,
+                        child: CircularProgressIndicator(
+                          backgroundColor: AppColors.primary,
+                          color: AppColors.cE1E1E1,
+                          strokeWidth: 2,
+
+                        ),
+                      ),
                     ),
-                  ),
+                  ))
                 ],
               )
                   : state is GetAllPostsLoadingState ? Column(
