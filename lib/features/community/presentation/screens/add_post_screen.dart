@@ -24,7 +24,7 @@ class AddPostScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           AddPostCubit(communityRepoImplementation: CommunityRepoImplementation(
-              api: DioConsumer(dio: Dio()))),
+              api: DioConsumer(dio: Dio(),isModel: false))),
       child: BlocConsumer<AddPostCubit, AddPostState>(
         listener: (context, state) {
           if(state is AddPostSuccessState)

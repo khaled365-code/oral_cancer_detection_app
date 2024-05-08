@@ -78,21 +78,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio())))..GetUserProfile(),),
+        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio(),isModel: false)))..GetUserProfile(),),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
-        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio())))..getAllPostsFun()),
+        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isModel: false)))..getAllPostsFun()),
         BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
-            profileRepos: ProfileRepos(api: DioConsumer(dio: Dio()))
+            profileRepos: ProfileRepos(api: DioConsumer(dio: Dio(),isModel: false))
         ),),
 
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
        // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
-        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio())))),
+        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isModel: false)))),
         BlocProvider<SignUpCubit>(create:
-            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio())))),
+            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isModel: false)))),
         BlocProvider<LogOutCubit>(create:
-          (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio())))),
+          (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isModel: false)))),
         ),
 
       ],
