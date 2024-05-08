@@ -103,7 +103,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) =>
             BlocProvider(
                 create: (context) =>
-                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio()))),
+                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isModel: false))),
                 child: const LoginPage()),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);

@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
+import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
 import 'package:graduation_project/features/community/data/models/post_details_mode;.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -38,12 +39,16 @@ class CommunityRepoImplementation implements CommunityRepo {
     }
   }
   @override
-  Future<Either<String, PostDetailsModel>> getAllPosts({required String token}) async 
+  Future<Either<String, TemporaryPostDetailsModel>> getAllPosts({required String token}) async
   {
     try
     {
-      final response=await api.get(EndPoints.getAllPosts(token));
-      final postDetailsModel=PostDetailsModel.fromJson(response.data);
+      final response=await api.get(EndPoints.getAllPosts(token),
+        queryParams: {
+          ApiKeys.token:token
+        }
+      );
+      final postDetailsModel=TemporaryPostDetailsModel.fromJson(response);
       return Right(postDetailsModel);
 
     } on ServerException catch(e)

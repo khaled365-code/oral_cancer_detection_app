@@ -6,10 +6,11 @@ import 'package:graduation_project/core/api/api_interceptors.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
 
 class DioConsumer extends ApiConsumer{
+  final  bool isModel;
     final Dio dio;
-  DioConsumer({required this.dio}){
+  DioConsumer({required this.dio,required this.isModel}){
 
-    dio.options.baseUrl=EndPoints.baseUrl;
+     isModel?dio.options.baseUrl=EndPoints.textModelBaseUrl:dio.options.baseUrl=EndPoints.baseUrl;
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(
         request: true,
