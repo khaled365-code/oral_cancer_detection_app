@@ -11,18 +11,18 @@ import '../../../../core/utilis/colors.dart';
 
 
 class QuestionChoice extends StatefulWidget {
-   QuestionChoice({Key? key,required this.answersList, required this.QuestionTitle,this.showButton=false}) : super(key: key);
+   QuestionChoice({Key? key,required this.answersList, required this.selectedAnswerIndex,required this.QuestionTitle,this.showButton=false}) : super(key: key);
    String QuestionTitle;
       List<String> answersList = [];
       bool showButton;
+    int selectedAnswerIndex;
 
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
 }
 
 class QuestionChoiceState extends State<QuestionChoice> {
-  int questionCounter=1;
-  int? selectedAnswerIndex;
+
 
 
   @override
@@ -51,10 +51,10 @@ class QuestionChoiceState extends State<QuestionChoice> {
                           ,style: AppTextStyles.font20,
                         ),
                         value: widget.answersList.indexOf(answer),
-                        groupValue: selectedAnswerIndex,
+                        groupValue: widget.selectedAnswerIndex,
                         onChanged: (value) {
                           setState(() {
-                            selectedAnswerIndex = value;
+                            widget.selectedAnswerIndex = value!;
                           });
                         },
                       ),

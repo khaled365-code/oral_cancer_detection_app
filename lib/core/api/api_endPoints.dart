@@ -8,6 +8,7 @@ class EndPoints{
   static String updateProfile="update/profile/";
   static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
+  static String predict="predict";
 
 
   static String getAllPosts(id)
@@ -40,6 +41,16 @@ class ApiKeys{
   static String comment_count= "comment_count";
   static String like_count= "like_count";
   static String profile_photo_url= "profile_photo_url";
+
+  static String predictions= "predictions";
+  static String localization= "localization";
+  static String tobacco_use= "tobacco_use";
+  static String alcohol_consumption= "alcohol_consumption";
+  static String sun_exposure= "sun_exposure";
+  static String gender= "gender";
+  static String age_group= "age_group";
+  static String ulcers_lasts_more_than_3_weeks= "ulcers_lasts_more_than_3_weeks";
+  static String ulcers_spreading= "ulcers_spreading";
 
 
 

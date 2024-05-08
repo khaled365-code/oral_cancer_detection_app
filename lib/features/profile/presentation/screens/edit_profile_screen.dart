@@ -42,7 +42,7 @@ class EditProfileScreen extends StatelessWidget {
     if(updateState is UpdateProfileSuccessState)
     {
       showSnackBar(context, content: updateState.message);
-      navigate(context: context, route: Routes.profileScreen);
+      navigate(context: context, route: Routes.home);
     }
     else if(updateState is UpdateProfileFailureState){
       showSnackBar(context, content: updateState.errMessage);
