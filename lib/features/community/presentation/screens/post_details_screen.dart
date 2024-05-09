@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
+import 'package:graduation_project/features/community/presentation/widgets/one_only_post_widget.dart';
 
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
@@ -21,6 +22,11 @@ class PostDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  builder: (context, state) {
     final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
     return Scaffold(
       appBar: PreferredSize(
@@ -48,7 +54,9 @@ class PostDetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers:
         [
-          SliverToBoxAdapter(child: PostDetailsWidget()),
+          state is GetOnePostSuccessState ? SliverToBoxAdapter(child: OnlyOnePostWidget(
+              data:state.onePostModel
+          ),) :SliverToBoxAdapter(child: PostDetailsWidget()),
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) => CommentContainer(
                 currentIndex: index,
@@ -121,5 +129,7 @@ class PostDetailsScreen extends StatelessWidget {
       ),
 
     );
+  },
+);
   }
 }

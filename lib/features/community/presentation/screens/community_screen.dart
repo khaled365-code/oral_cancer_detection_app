@@ -56,14 +56,15 @@ class CommunityScreen extends StatelessWidget {
                 [
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
-                            (context, index) =>  PostContainer(
-                        data: state.postDetailsModel.data![index],
-                        currentIndex: index,
-                      ),
+                            (context, index) => PostContainer(
+                              data: state.postDetailsModel.data![index],
+                              currentIndex: index,
+                            ),
                         childCount: state.postDetailsModel.data!.length,
                       )),
 
-                  SliverToBoxAdapter(child: Container(
+                  SliverToBoxAdapter(
+                      child: Container(
                     height: 80.h,
                     color: AppColors.white,
                     child: Center(

@@ -1,9 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
-import 'package:graduation_project/features/community/data/models/post_details_mode;.dart';
+import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../features/community/data/models/camera_posts_model.dart';
@@ -103,6 +107,76 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     postDetailsRetweetIsActive=!postDetailsRetweetIsActive;
     emit(ChangeRetweetShapeState());
   }
+
+
+  addLikeCount({required num postId,required num userId}) async
+  {
+    emit(AddLikeLoadingState());
+    final response=await communityRepoImplementation.addLikeForPost(
+        postId: postId,
+        userId: userId,
+        token: CacheHelper().getData(key: ApiKeys.token));
+    response.fold((error) => emit(AddLikeFailureState(errorMessage: error)),
+            (success) => emit(AddLikeSuccessState()));
+
+
+  }
+
+  addComment({required num postId,required num userId,required String comment}) async
+  {
+    emit(AddCommentLoadingState());
+    final response=await communityRepoImplementation.
+    addComment(
+        postId: postId,
+        userId: userId,
+        comment: comment,
+        token: CacheHelper().getData(key: ApiKeys.token));
+
+    response.fold((error) => emit(AddCommentFailureState(errorMessage: error)),
+            (success) => emit(AddLikeSuccessState()));
+
+
+  }
+
+  getOnePostDetails({required num postId}) async
+  {
+
+    emit(GetOnePostLoadingState());
+    final response=await communityRepoImplementation.getOnePostDetails(
+      token: CacheHelper().getData(key: ApiKeys.token),
+      postId: postId,
+    );
+
+    response.fold((error) => emit(GetOnePostFailureState(errorMessage: error)),
+            (success) => emit(GetOnePostSuccessState(onePostModel: success)));
+
+
+  }
+
+  TextEditingController postTitleController=TextEditingController();
+
+  TextEditingController bodyController=TextEditingController();
+
+
+  addNewPost({XFile? image,required String body,required String title}) async
+  {
+    emit(AddPostLoadingState());
+    final response=await communityRepoImplementation.uploadPost(
+      token: CacheHelper().getData(key: ApiKeys.token),
+      userId: CacheHelper().getData(key: ApiKeys.user_id),
+      image:  await uploadImageToAPI(image!),
+      body: body,
+      title: title
+    );
+    response.fold(
+            (error) => emit(AddPostFailureState(errorMessage: error)),
+            (success) => emit(AddPostSuccessState(successMessage: success)));
+
+
+  }
+
+
+
 
 
 
