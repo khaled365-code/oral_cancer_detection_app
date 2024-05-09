@@ -28,7 +28,6 @@ class CommunityRepoImplementation implements CommunityRepo {
         ApiKeys.body: body,
         ApiKeys.user_id: userId,
         ApiKeys.token: token,
-        ApiKeys.image: image
 
       },
           isFormData: true

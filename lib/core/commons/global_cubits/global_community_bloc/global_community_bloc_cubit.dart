@@ -163,8 +163,7 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     emit(AddPostLoadingState());
     final response=await communityRepoImplementation.uploadPost(
       token: CacheHelper().getData(key: ApiKeys.token),
-      userId: CacheHelper().getData(key: ApiKeys.user_id),
-      image:  await uploadImageToAPI(image!),
+      userId: int.parse(CacheHelper().getData(key: ApiKeys.id)),
       body: body,
       title: title
     );
