@@ -11,14 +11,14 @@ class AiRepository{
 
   Future<QuestionDiagnosisModel>questionDiagnose({
     required int localization,
-    required int tobacoUse
-    ,required int alcholConsumption,
+    required int tobacoUse,
+    required int alcholConsumption,
     required int sunExposure,
     required int gender,
     required int ageGroup,
     required int ulcersLastsMoreThan3Weeks,
-    required int ulcersSpreading })async{
-
+    required int ulcersSpreading })
+    async{
 
      final response=await api.post(
          EndPoints.predict,

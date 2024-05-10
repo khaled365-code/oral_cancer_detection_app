@@ -17,15 +17,21 @@ class QuestionChoice extends StatefulWidget {
    String QuestionTitle;
       List<String> answersList = [];
       bool showButton;
-    int? selectedAnswerIndex;
+      int? selectedAnswerIndex;
 
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
 }
+int? selectedLocalizationIndex;
+int? selectedTobaccoUseIndex;
+int? selectedAlcoholConsumptionIndex;
+int? selectedSunExposureIndex;
+int? selectedGenderIndex;
+int? selectedAgeGroupIndex;
+int? selectedUlcersLastsMoreThan3WeeksIndex;
+int? selectedUlcersSpreadingIndex;
 
 class QuestionChoiceState extends State<QuestionChoice> {
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +63,33 @@ class QuestionChoiceState extends State<QuestionChoice> {
                         onChanged: (val) {
                           setState(() {
                              widget.selectedAnswerIndex = val!;
-                             
+                             switch (widget.QuestionTitle) {
+                               case 'Localization':
+                                 selectedLocalizationIndex = val;
+                                 break;
+                               case 'Tobacco Use':
+                                 selectedTobaccoUseIndex = val;
+                                 break;
+                               case 'Alcohol Consumption':
+                                 selectedAlcoholConsumptionIndex = val;
+                                 break;
+                               case 'Sun Exposure':
+                                 selectedSunExposureIndex = val;
+                                 break;
+                               case 'Gender':
+                                 selectedGenderIndex = val;
+                                 break;
+                               case 'Age Group':
+                                 selectedAgeGroupIndex = val;
+                                 break;
+                               case 'Ulcers Lasts More Than 3 Weeks':
+                                 selectedUlcersLastsMoreThan3WeeksIndex = val;
+                                 break;
+                               case 'Ulcers Spreading':
+                                 selectedUlcersSpreadingIndex = val;
+                                 break;
+                             }
                           });
-
                         },
                       ),
                     )
@@ -69,7 +99,13 @@ class QuestionChoiceState extends State<QuestionChoice> {
                      widget.showButton? CustomElevatedButton(
                        width: width,
                        onpress: (){
-                         BlocProvider.of<QuestionDiagnosisCubit>(context).questionDiagnosis(selectedVal: widget.selectedAnswerIndex!);
+                         BlocProvider.of<QuestionDiagnosisCubit>(context).
+                         questionDiagnosis(
+                             localization:selectedLocalizationIndex!, tobacoUse: selectedTobaccoUseIndex!,
+                             alcholConsumption:selectedAlcoholConsumptionIndex!, sunExposure: selectedSunExposureIndex!,
+                             gender:selectedGenderIndex!, ageGroup:selectedAgeGroupIndex!,
+                             ulcersLastsMoreThan3Weeks:selectedUlcersLastsMoreThan3WeeksIndex!,ulcersSpreading:selectedUlcersSpreadingIndex!
+                         );
                          navigate(context: context, route: Routes.result);
                       },
                        buttonBackground: AppColors.white, child:
