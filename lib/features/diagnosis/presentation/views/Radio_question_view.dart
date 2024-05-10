@@ -1,21 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_form_container.dart';
+import 'package:graduation_project/features/diagnosis/data/manager/question_diagnosis_cubit.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 
 
 class QuestionChoice extends StatefulWidget {
-   QuestionChoice({Key? key,required this.answersList, required this.selectedAnswerIndex,required this.QuestionTitle,this.showButton=false}) : super(key: key);
+   QuestionChoice({Key? key,required this.answersList, required this.QuestionTitle,this.showButton=false}) : super(key: key);
    String QuestionTitle;
       List<String> answersList = [];
       bool showButton;
-    int selectedAnswerIndex;
+    int? selectedAnswerIndex;
 
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
@@ -51,31 +53,29 @@ class QuestionChoiceState extends State<QuestionChoice> {
                           ,style: AppTextStyles.font20,
                         ),
                         value: widget.answersList.indexOf(answer),
-                        groupValue: widget.selectedAnswerIndex,
-                        onChanged: (value) {
+                        groupValue:widget.selectedAnswerIndex,
+                        onChanged: (val) {
                           setState(() {
-                            widget.selectedAnswerIndex = value!;
+                             widget.selectedAnswerIndex = val!;
+                             
                           });
+
                         },
                       ),
                     )
                         .toList(),
                   ), SizedBox(height: 40.h,),
-                  // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                     // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
+
                      widget.showButton? CustomElevatedButton(
                        width: width,
                        onpress: (){
-                        navigate(context: context, route: Routes.result);
+                         BlocProvider.of<QuestionDiagnosisCubit>(context).questionDiagnosis(selectedVal: widget.selectedAnswerIndex!);
+                         navigate(context: context, route: Routes.result);
                       },
                        buttonBackground: AppColors.white, child:
                      Row(
                          children: [
                            Text("showresult".tr(context),style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
-                  //   ],
-                  // )
-
                 ],
               ),
             ),

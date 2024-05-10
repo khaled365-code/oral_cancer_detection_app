@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import '../models/questionsqiagnosis_model.dart';
@@ -18,7 +20,8 @@ class AiRepository{
     required int ulcersSpreading })async{
 
 
-     final response=await api.post(EndPoints.predict,
+     final response=await api.post(
+         EndPoints.predict,
          isFormData: true,
          data: {
            ApiKeys.localization:localization,
@@ -31,6 +34,7 @@ class AiRepository{
            ApiKeys.ulcers_spreading:ulcersSpreading
          }
      );
+
      return QuestionDiagnosisModel.fromJson(response);
 
 }
