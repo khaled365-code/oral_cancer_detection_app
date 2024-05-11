@@ -10,10 +10,27 @@ class EndPoints{
   static String storeNewPost="blog";
 
 
-  static String getAllPosts(id)
+  static String getAllPosts(token)
   {
-    return 'blog?token=$id';
+    return 'blog?token=$token';
 
+  }
+  static addLikeForPostEndPoint({required postId,required userId,required token})
+  {
+    return 'posts/like?post_id=$postId&user_id=$userId&token=$token';
+  }
+  static addCommentForPost({required num postId, required num userId, required String comment, required String token})
+  {
+    return 'posts/comments?post_id=$postId&user_id=$userId&comment=$comment&token=$token';
+  }
+
+  static getOnePostEndPoint({required String token,required num postId})
+  {
+    return 'blog/:?token=$token&post_id=$postId';
+  }
+  static searchForPostsEndpoint({required String token,required String searchContent})
+  {
+    return 'posts/search?search=$searchContent&token=%token';
   }
 
 }

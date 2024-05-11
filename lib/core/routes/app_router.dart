@@ -66,7 +66,7 @@ class AppRoutes {
           builder: (context) => const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
         return MaterialPageRoute(
-          builder: (context) => const PostDetailsScreen(),);
+          builder: (context) => const PostDetailsScreen(),settings: routeSettings);
       case Routes.addPostScreen:
         return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:
@@ -132,7 +132,7 @@ class AppRoutes {
               child: PrivacyPolicyScreen(),
             ),);
       case Routes.communityhomescreen:
-        return MaterialPageRoute(builder: (context) => CommunityScreen(),);
+        return MaterialPageRoute(builder: (context) => CommunityScreen(),settings: routeSettings);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);

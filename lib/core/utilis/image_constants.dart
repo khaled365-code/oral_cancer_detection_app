@@ -123,6 +123,18 @@ class ImageConstants
   static const String shareSmallImage='assets/images/share_small_image.png';
 
 
+  static const String earthSolidIcon='assets/icons/earth-americas-solid.svg';
+
+
+  static const String addImageTwitterIcon='assets/icons/add_image_twr_icon.svg';
+
+
+
+  static const String locationTwitterIcon='assets/icons/location_twitter.svg';
+
+
+
+
 
 
 
