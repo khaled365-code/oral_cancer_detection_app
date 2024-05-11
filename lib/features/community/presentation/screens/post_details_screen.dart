@@ -6,7 +6,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
+import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 import 'package:graduation_project/features/community/presentation/widgets/one_only_post_widget.dart';
 
@@ -23,19 +25,30 @@ class PostDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
-  listener: (context, state) {
-    // TODO: implement listener
+  listener: (context, state)
+  { 
+    if(state is AddCommentLoadingState)
+      {
+        showToast(msg: 'Comment Posted Success', toastStates: ToastStates.success);
+      }
+    if(state is AddCommentFailureState)
+      {
+        showToast(msg: state.errorMessage, toastStates: ToastStates.error);
+      }
+
   },
   builder: (context, state) {
     final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
+    final recievedData=ModalRoute.of(context)!.settings.arguments as Data;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 40.h),
         child: DefaultAppBar(
           leading: Padding(
-            padding:  EdgeInsetsDirectional.only(start: 18.5.w),
+            padding:  EdgeInsetsDirectional.only(start: 5.w),
             child: IconButton(
-              onPressed: (){
+              onPressed: ()
+              {
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.c4C9EEB,size: 15.sp,),),
@@ -49,27 +62,29 @@ class PostDetailsScreen extends StatelessWidget {
           hasActions: false,
           hasLeading: true,
           hasTitle: true,
+
         ),
       ),
       body: CustomScrollView(
         slivers:
         [
-          state is GetOnePostSuccessState ? SliverToBoxAdapter(child: OnlyOnePostWidget(
-              data:state.onePostModel
-          ),) :SliverToBoxAdapter(child: PostDetailsWidget()),
+          SliverToBoxAdapter(
+            child: OnlyOnePostWidget(
+              data:recievedData
+          ),),
           SliverList(
-              delegate: SliverChildBuilderDelegate((context, index) => CommentContainer(
-                currentIndex: index,
-                postDataModel: communityBloc.postsDataList[index],
-              ),
+              delegate: SliverChildBuilderDelegate((context, index) =>
+                  Padding(
+                    padding:EdgeInsetsDirectional.only(start: 20.w),
+                    child: CommentContainer(
+                      recievedData: recievedData,
+                                    currentIndex: index,
+                                    postDataModel: communityBloc.postsDataList[index],
+                                  ),
+                  ),
                 childCount: communityBloc.postsDataList.length,
               )),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 32.5.h,
-              color: AppColors.white,
-            ),
-          ),
+
           SliverToBoxAdapter(
             child: Container(
               color: AppColors.cE7ECF0,
@@ -101,11 +116,25 @@ class PostDetailsScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25.r)
                       ),
                       child: TextField(
+                        controller: communityBloc.addCommentControllerField,
+                        onSubmitted: (value)
+                        {
+                          communityBloc.addComment(
+                              postId: recievedData.post!.id!,
+                              userId: recievedData.post!.userId!,
+                              comment: value);
+
+                          communityBloc.addCommentControllerField.clear();
+
+
+                        },
                         decoration: InputDecoration(
+                            enabledBorder: InputBorder.none,
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
-                            contentPadding: EdgeInsetsDirectional.only(start: 12.w,bottom: 8.h,top: 8.h),
+                            contentPadding: EdgeInsetsDirectional.only(start: 12.w,bottom: 8.h,),
                             hintText: 'Tweet your reply',
+
                             hintStyle: AppKhaledStyles.textStyle(
                               color: AppColors.cAFB8C1,
                               size: 12,
@@ -121,7 +150,7 @@ class PostDetailsScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Container(
-              height: 48.h,
+              height: 40.h,
               color: AppColors.cE7ECF0,
             ),
           )

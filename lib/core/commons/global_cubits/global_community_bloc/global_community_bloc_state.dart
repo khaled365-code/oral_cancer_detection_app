@@ -38,7 +38,13 @@ class ConnectionCheckState extends GlobalCommunityBlocState {
 
 class AddLikeLoadingState extends GlobalCommunityBlocState {}
 
-class AddLikeSuccessState extends GlobalCommunityBlocState {}
+class AddLikeSuccessState extends GlobalCommunityBlocState {
+
+  final String successMessage;
+
+  AddLikeSuccessState({required this.successMessage});
+
+}
 
 class AddLikeFailureState extends GlobalCommunityBlocState {
   final String errorMessage;
@@ -98,8 +104,32 @@ class AddPostFailureState extends GlobalCommunityBlocState {
   final String errorMessage;
 
   AddPostFailureState({required this.errorMessage});
+}
+
+class SearchForPostsLoadingState extends GlobalCommunityBlocState {}
+
+class SearchForPostsSuccessState extends GlobalCommunityBlocState {
+
+  final SearchPostModel searchModel;
+
+  SearchForPostsSuccessState({required this.searchModel});
+
 
 }
+
+
+class SearchForPostsFailureState extends GlobalCommunityBlocState {
+
+  final String errorMessage;
+
+  SearchForPostsFailureState({required this.errorMessage});
+
+}
+
+class ChangeAddPostPictureState extends GlobalCommunityBlocState {}
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
@@ -7,8 +8,10 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
 import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
+import 'package:graduation_project/features/community/data/models/search_model/SearchPostModel.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../features/community/data/models/camera_posts_model.dart';
 import '../../../../features/community/data/models/post_data_model.dart';
@@ -25,14 +28,16 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
   final CommunityRepoImplementation communityRepoImplementation;
 
+
   getAllPostsFun() async
   {
     emit(GetAllPostsLoadingState());
-    final response= await communityRepoImplementation.
+    final  response= await communityRepoImplementation.
     getAllPosts(token: CacheHelper().getData(key: ApiKeys.token));
 
     response.fold((error) => emit(GetAllPostsFailureState(errorMessage: error)),
             (successModel) => emit(GetAllPostsSuccessState(postDetailsModel: successModel)));
+
 
 
 
@@ -71,7 +76,16 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     emit(ConnectionCheckState(isConnected: isConnected));
   }
 
+  bool heartISActive=false;
 
+  // changeHeart({required TemporaryPostDetailsModel list,required int index})
+  // {
+  //
+  //   heartISActive=!heartISActive;
+  //   emit(ChangeHeartState());
+  //
+  //
+  // }
 
 
 
@@ -117,11 +131,13 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
         userId: userId,
         token: CacheHelper().getData(key: ApiKeys.token));
     response.fold((error) => emit(AddLikeFailureState(errorMessage: error)),
-            (success) => emit(AddLikeSuccessState()));
+            (success) => emit(AddLikeSuccessState(successMessage: success)));
 
 
   }
 
+
+  TextEditingController addCommentControllerField=TextEditingController();
   addComment({required num postId,required num userId,required String comment}) async
   {
     emit(AddCommentLoadingState());
@@ -133,10 +149,13 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
         token: CacheHelper().getData(key: ApiKeys.token));
 
     response.fold((error) => emit(AddCommentFailureState(errorMessage: error)),
-            (success) => emit(AddLikeSuccessState()));
+            (success) => emit(AddCommentSuccessState(successMessage: success)));
 
 
   }
+  
+  
+  
 
   getOnePostDetails({required num postId}) async
   {
@@ -158,21 +177,49 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
   TextEditingController bodyController=TextEditingController();
 
 
-  addNewPost({XFile? image,required String body,required String title}) async
+  XFile? addPostImage;
+
+
+  addImageFun({required XFile comeImage})
+  {
+    addPostImage=comeImage;
+    emit(ChangeAddPostPictureState());
+  }
+
+
+  addNewPost({required String body,required String title}) async
   {
     emit(AddPostLoadingState());
     final response=await communityRepoImplementation.uploadPost(
-      token: CacheHelper().getData(key: ApiKeys.token),
-      userId: int.parse(CacheHelper().getData(key: ApiKeys.id)),
-      body: body,
-      title: title
-    );
+          token: CacheHelper().getData(key: ApiKeys.token),
+          userId: int.parse(CacheHelper().getData(key: ApiKeys.id)),
+          body: body,
+          image: addPostImage!=null? await uploadImageToAPI(addPostImage!):null,
+          title: title,
+        );
+
     response.fold(
             (error) => emit(AddPostFailureState(errorMessage: error)),
             (success) => emit(AddPostSuccessState(successMessage: success)));
 
+  }
+
+  TextEditingController searchFieldController=TextEditingController();
+
+  searchForPosts({required String searchContent}) async
+  {
+    emit(SearchForPostsLoadingState());
+    final response=await communityRepoImplementation.searchForPosts(
+      token: CacheHelper().getData(key: ApiKeys.token),
+      searchContent: searchContent,
+    );
+
+    response.fold((error) => emit(SearchForPostsFailureState(errorMessage: error)),
+            (success) => emit(SearchForPostsSuccessState(searchModel: success)));
+
 
   }
+
 
 
 

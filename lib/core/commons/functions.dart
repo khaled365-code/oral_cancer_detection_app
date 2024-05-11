@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -29,8 +30,8 @@ void showToast({required String msg,required ToastStates toastStates}) async
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
       backgroundColor: getColor(toastStates),
-      textColor: Colors.black,
-      fontSize: 16.0
+      textColor: Colors.white,
+      fontSize: 14.0.sp
   );
 
 }
@@ -49,11 +50,11 @@ Color getColor(ToastStates toastStates)
   switch (toastStates)
   {
     case ToastStates.success:
-      return AppColors.red;
+      return AppColors.primary;
     case ToastStates.error:
-      return AppColors.c3F4042;
+      return AppColors.primary;
     case ToastStates.warning:
-      return AppColors.red;
+      return AppColors.primary;
   }
 }
 
@@ -114,5 +115,4 @@ String getUserName({required String currentUserName})
 
 
 }
-
 

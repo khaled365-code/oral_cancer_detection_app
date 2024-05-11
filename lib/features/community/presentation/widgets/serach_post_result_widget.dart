@@ -1,24 +1,22 @@
 
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
-import 'package:graduation_project/features/community/data/models/Data.dart';
+import 'package:graduation_project/features/community/data/models/search_model/data_serach.dart';
 
-class OnlyOnePostWidget extends StatelessWidget {
-  const OnlyOnePostWidget({super.key, required this.data});
+import '../../../../core/utilis/colors.dart';
+
+class SearchResultWidget extends StatelessWidget {
+  const SearchResultWidget({super.key,required this.serachModel});
 
 
-  final Data data;
-
+  final DataSearch? serachModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return serachModel==null? SizedBox.shrink():Container(
       width: 414.w,
       padding: EdgeInsetsDirectional.only(end: 20.w,),
       decoration: BoxDecoration(
@@ -48,7 +46,7 @@ class OnlyOnePostWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: NetworkImage(data.post!.image??'',),
+                          image: NetworkImage(serachModel!.post!.image!),
                           fit: BoxFit.fill
                       )
                   ),
@@ -63,7 +61,7 @@ class OnlyOnePostWidget extends StatelessWidget {
                     SizedBox(height: 10.h,),
                     Row(
                       children: [
-                        Text('${getUserName(currentUserName: data.userdata!.name!)}',
+                        Text('${getUserName(currentUserName: serachModel!.userdata!.name ?? '')}',
                           style: AppKhaledStyles.textStyle(
                             color: AppColors.black,
                             weight:FontWeight.w700 ,
@@ -72,7 +70,7 @@ class OnlyOnePostWidget extends StatelessWidget {
                         SizedBox(width: 3.h,),
                         Padding(
                           padding: EdgeInsets.only(top: 2.h),
-                          child: Text('${getEmail(currentEmail:data.userdata!.email!)}', style: AppKhaledStyles
+                          child: Text('${getEmail(currentEmail:serachModel!.userdata!.email ?? '')}', style: AppKhaledStyles
                               .textStyle(
                             color: AppColors.c687684,
                             weight:FontWeight.w500 ,
@@ -82,7 +80,7 @@ class OnlyOnePostWidget extends StatelessWidget {
                         SizedBox(width: 5.h,),
                         Padding(
                           padding: EdgeInsets.only(top: 2.h),
-                          child: Text('${getTimeDifference(postDate: DateTime.parse(data.post!.createdAt!))}', style: AppKhaledStyles.textStyle(
+                          child: Text('${getTimeDifference(postDate: DateTime.parse(serachModel!.post!.createdAt ?? ''))}', style: AppKhaledStyles.textStyle(
                             color: AppColors.c687684,
                             weight:FontWeight.w500 ,
                             size: 10,
@@ -102,7 +100,7 @@ class OnlyOnePostWidget extends StatelessWidget {
                     ),
                     SizedBox(height: 2.h,),
                     Text(
-                      data.post!.body!,
+                      serachModel!.post!.body ?? '',
                       style: AppKhaledStyles.textStyle(
                         color: AppColors.black,
                         size: 14,
@@ -111,58 +109,56 @@ class OnlyOnePostWidget extends StatelessWidget {
                       ),),
                     SizedBox(height: 10.h,),
                     Row(
-                    children:
-                    [
-                          Container(child: Image.asset(ImageConstants.commentImage)),
-                          SizedBox(width: 3.5.w,),
-                          Text('${data.commentCount}',
-                            style: AppKhaledStyles.textStyle(
-                              color: AppColors.grey,
-                              size: 10,
-                            ),),
+                      children:
+                      [
+
+                        Container(child: Image.asset(ImageConstants.commentImage)),
+                        SizedBox(width: 3.5.w,),
+                        Text('${serachModel!.commentCount ??''}',
+                          style: AppKhaledStyles.textStyle(
+                            color: AppColors.grey,
+                            size: 10,
+                          ),),
 
 
-                          Spacer(),
+                        Spacer(),
 
 
-                          Container(child: Image.asset(ImageConstants.retweetImage)),
-                          SizedBox(width: 3.5.w,),
-                          Text('0',
-                            style: AppKhaledStyles.textStyle(
-                              color: AppColors.grey,
-                              size: 10,
-                            ),),
-
-
-
-                          Spacer(),
-
-
-                         Container(child:Image.asset(ImageConstants.heartImage)),
-
-                          SizedBox(width: 3.5.w,),
-                          Text('${data.likeCount}',
-                            style: AppKhaledStyles.textStyle(
-                              color: AppColors.grey,
-                              size: 10,
-                            ),),
+                       Container(child: Image.asset(ImageConstants.retweetImage)),
+                        SizedBox(width: 3.5.w,),
+                        Text('0',
+                          style: AppKhaledStyles.textStyle(
+                            color: AppColors.grey,
+                            size: 10,
+                          ),),
 
 
 
-                          Spacer(),
-                         Container(child: Image.asset(ImageConstants.shareSmallImage,)),
+                        Spacer(),
+                        Image.asset(ImageConstants.heartImage),
+                        SizedBox(width: 3.5.w,),
+                        Text('${serachModel!.likeCount ??''}',
+                          style: AppKhaledStyles.textStyle(
+                            color: AppColors.grey,
+                            size: 10,
+                          ),),
+                        Spacer(),
+                        Container(child: Image.asset(ImageConstants.shareSmallImage,)),
+                        SizedBox(width: 11.w,)
 
-                          SizedBox(width: 11.w,)
+
+                      ],
+                    ),
+                    SizedBox(height: 10.h,),
 
 
-                        ],
-                      ),
-                      SizedBox(height: 10.h,),
-                    ],
-                  ),
+                  ],
+                ),
               )
-              ,
-          ]),
+
+
+            ],
+          ),
 
         ],
       ),

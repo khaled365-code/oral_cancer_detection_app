@@ -24,6 +24,8 @@ class PostContainer extends StatelessWidget {
 
   final Data data;
 
+  final TemporaryPostDetailsModel temporaryPostDetailsModel;
+
 
 
 
@@ -36,15 +38,15 @@ class PostContainer extends StatelessWidget {
 
 
   PostContainer({
-    super.key, required this.currentIndex, required this.data,
+    super.key, required this.currentIndex, required this.data, required this.temporaryPostDetailsModel,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
-    listener: (context, state)
+    listener: (context, state) async
     {
-     // TODO: implement listener
+
     },
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
@@ -77,7 +79,7 @@ class PostContainer extends StatelessWidget {
                       height: 55.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: DecorationImage(
+                        image: DecorationImage (
                           image: NetworkImage(data.userdata!.profilePhotoUrl??'',),
                           fit: BoxFit.fill
                         )
@@ -142,8 +144,8 @@ class PostContainer extends StatelessWidget {
                         GestureDetector(
                           onTap: ()
                           {
-                             communityBloc.getOnePostDetails(postId: data.post!.id!);
-                            navigate(context: context, route: Routes.postDetailsScreen);
+                           // communityBloc.getOnePostDetails(postId: data.post!.id!);
+                            navigate(context: context, route: Routes.postDetailsScreen,arg: data);
                           },
                           child: ResuableText(
                             fontSize: 14,
@@ -159,8 +161,8 @@ class PostContainer extends StatelessWidget {
                             GestureDetector(
                                 onTap: ()
                                 {
-                                    communityBloc.getOnePostDetails(postId: data.post!.id!);
-                                  navigate(context: context, route: Routes.postDetailsScreen);
+                                    // communityBloc.getOnePostDetails(postId: data.post!.id!);
+                                  navigate(context: context, route: Routes.postDetailsScreen,arg: data);
 
                                 },
                                 child: Container(child: Image.asset(ImageConstants.commentImage))),
@@ -197,10 +199,11 @@ class PostContainer extends StatelessWidget {
                             InkWell(
                               onTap: ()
                                 {
-                                  print('hello');
                                   communityBloc.addLikeCount(postId: data.post!.id!,userId: data.post!.userId!);
+
                                 },
-                                child: Container(child: state is AddLikeSuccessState?
+                                child: Container(
+                                    child: state is AddLikeSuccessState?
                                 Image.asset(ImageConstants.redHeartImage):Image.asset(ImageConstants.heartImage)
                                 )),
 
