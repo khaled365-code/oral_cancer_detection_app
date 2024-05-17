@@ -61,7 +61,6 @@ class CommunityScreen extends StatelessWidget {
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
                             (context, index) => PostContainer(
-                              temporaryPostDetailsModel: state.postDetailsModel,
                               data: state.postDetailsModel.data![index],
                               currentIndex: index,
                             ),

@@ -45,11 +45,7 @@ class HomePageState extends State<HomePage> {
     {
       selectedIndex = index;
     });
-    if(selectedIndex==2)
-      {
-        BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
 
-      }
   }
   @override
   Widget build(BuildContext context) {

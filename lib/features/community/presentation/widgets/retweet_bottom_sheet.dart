@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 
 import '../../../../core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 
 class RetweetBottomSheet extends StatelessWidget {
-  const RetweetBottomSheet({super.key, required this.currentIndex,});
+  const RetweetBottomSheet({super.key,required this.data,});
 
-  final int currentIndex;
+
+
+  final NewAllPostsData data;
 
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
-      listener: (context, state) {
-        // TODO: implement listener
+      listener: (context, state)
+      {
+        if (state is AddPostSuccessState)
+          {
+            showToast(msg: 'Post Reposted Successfully', toastStates: ToastStates.success);
+          }
+        if(state is AddPostFailureState)
+          {
+            showToast(msg: state.errorMessage, toastStates: ToastStates.error);
+
+          }
       },
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
@@ -29,17 +42,27 @@ class RetweetBottomSheet extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.only(start: 24.w, top: 38.h),
-                child: Row(
-                  children: [
-                    Image.asset(ImageConstants.retweetImage),
-                    SizedBox(width: 20.w,),
-                    ResuableText(
-                      text: 'Retweet',
-                      color: AppColors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    )
-                  ],
+                child: GestureDetector(
+                  onTap: () async
+                  {
+                   await communityBloc.addNewPost(
+                        body: data.post!.body!,
+                        title: 'Any Title');
+                    communityBloc.getAllPostsFun();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(ImageConstants.retweetImage),
+                      SizedBox(width: 20.w,),
+                      ResuableText(
+                        text: 'Repost',
+                        color: AppColors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                      )
+                    ],
+                  ),
                 ),
               ),
               Padding(
@@ -64,7 +87,7 @@ class RetweetBottomSheet extends StatelessWidget {
                 child: GestureDetector(
                   onTap: ()
                   {
-                    communityBloc.changeRetweetFun(currentIndex, communityBloc.postsDataList);
+
                     Navigator.pop(context);
                   },
                   child: Container(

@@ -15,7 +15,7 @@ class GetAllPostsLoadingState extends GlobalCommunityBlocState {}
 
 
 class GetAllPostsSuccessState extends GlobalCommunityBlocState {
-  final  TemporaryPostDetailsModel postDetailsModel;
+  final  NewAllPostsModel postDetailsModel;
 
   GetAllPostsSuccessState({required this.postDetailsModel});
 
@@ -127,6 +127,26 @@ class SearchForPostsFailureState extends GlobalCommunityBlocState {
 }
 
 class ChangeAddPostPictureState extends GlobalCommunityBlocState {}
+
+
+class GetAllCommentsLoadingState extends GlobalCommunityBlocState {}
+
+
+class GetAllCommentsSuccessState extends GlobalCommunityBlocState {
+
+  final Message commentsModel;
+  GetAllCommentsSuccessState({required this.commentsModel});
+}
+
+
+
+class GetAllCommentsFailureState extends GlobalCommunityBlocState {
+
+  final String errorMessage;
+  GetAllCommentsFailureState({required this.errorMessage});
+}
+
+
 
 
 

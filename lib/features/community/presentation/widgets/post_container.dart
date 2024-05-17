@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,23 +10,22 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/presentation/widgets/retweet_bottom_sheet.dart';
-import 'package:intl/intl.dart';
-import 'package:readmore/readmore.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../data/models/post_data_model.dart';
 
 class PostContainer extends StatelessWidget {
 
   final int currentIndex;
 
-  final Data data;
+  final NewAllPostsData data;
 
-  final TemporaryPostDetailsModel temporaryPostDetailsModel;
+
 
 
 
@@ -38,13 +39,13 @@ class PostContainer extends StatelessWidget {
 
 
   PostContainer({
-    super.key, required this.currentIndex, required this.data, required this.temporaryPostDetailsModel,
+    super.key, required this.currentIndex, required this.data,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
-    listener: (context, state) async
+    listener: (context, state)
     {
 
     },
@@ -144,8 +145,12 @@ class PostContainer extends StatelessWidget {
                         GestureDetector(
                           onTap: ()
                           {
-                           // communityBloc.getOnePostDetails(postId: data.post!.id!);
-                            navigate(context: context, route: Routes.postDetailsScreen,arg: data);
+                            communityBloc.getAllComments(postId: data.post!.id!);
+
+
+                            navigate(context: context, route: Routes.postDetailsScreen,arg:data);
+
+
                           },
                           child: ResuableText(
                             fontSize: 14,
@@ -153,6 +158,7 @@ class PostContainer extends StatelessWidget {
                             color: AppColors.primary,
                           ),
                         ),
+                        data.post!.image!=null? Image.network(data.post!.image!,fit: BoxFit.fill,):SizedBox.shrink(),
                         SizedBox(height: 10.h,),
                         Row(
                           children:
@@ -161,8 +167,7 @@ class PostContainer extends StatelessWidget {
                             GestureDetector(
                                 onTap: ()
                                 {
-                                    // communityBloc.getOnePostDetails(postId: data.post!.id!);
-                                  navigate(context: context, route: Routes.postDetailsScreen,arg: data);
+                                   navigate(context: context, route: Routes.commentScreen,arg: data);
 
                                 },
                                 child: Container(child: Image.asset(ImageConstants.commentImage))),
@@ -181,7 +186,9 @@ class PostContainer extends StatelessWidget {
                                 onTap: () {
                                   showModalBottomSheet(context: context,
                                     backgroundColor: AppColors.transparent,
-                                    builder: (context) => RetweetBottomSheet(currentIndex: currentIndex,),);
+                                    builder: (context) => RetweetBottomSheet(
+                                      data: data,
+                                    ),);
                                 },
                                 child: Container(child: Image.asset(ImageConstants.retweetImage))),
                             SizedBox(width: 3.5.w,),
@@ -199,11 +206,14 @@ class PostContainer extends StatelessWidget {
                             InkWell(
                               onTap: ()
                                 {
-                                  communityBloc.addLikeCount(postId: data.post!.id!,userId: data.post!.userId!);
+                                  communityBloc.addLikeCount(
+                                      postId: data.post!.id!,
+                                      userId: data.post!.userId!);
+
 
                                 },
                                 child: Container(
-                                    child: state is AddLikeSuccessState?
+                                    child: data.likedByThisUser==1?
                                 Image.asset(ImageConstants.redHeartImage):Image.asset(ImageConstants.heartImage)
                                 )),
 
@@ -221,6 +231,8 @@ class PostContainer extends StatelessWidget {
                             GestureDetector(
                                 onTap: ()
                                 {
+                                  Share.share(data.post!.body!);
+
 
                                 },
                                 child: Container(child: Image.asset(ImageConstants.shareSmallImage,))),

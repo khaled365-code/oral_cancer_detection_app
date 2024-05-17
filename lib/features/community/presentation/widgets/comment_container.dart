@@ -9,6 +9,9 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/data/models/Data.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/GetCommentsModel.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 
 import '../../../../core/utilis/app_styles.dart';
@@ -17,11 +20,11 @@ import '../../../../core/utilis/image_constants.dart';
 import '../../data/models/post_data_model.dart';
 
 class CommentContainer extends StatelessWidget {
-  const CommentContainer({super.key, required this.postDataModel, required this.currentIndex, required this.recievedData});
+  const CommentContainer({super.key,required this.currentIndex, required this.recievedData, required this.comments});
 
-  final PostDataModel postDataModel;
   final int currentIndex;
-  final Data recievedData;
+  final NewAllPostsData recievedData;
+  final Comments comments;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,7 @@ class CommentContainer extends StatelessWidget {
                     height: 55.w,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle
-                    ), child: Image.asset(ImageConstants.manCommentImage,fit: BoxFit.contain,),
+                    ), child:  Image.network(comments.userdata!.profilePhotoUrl!,fit: BoxFit.contain,)
                   ),
                 ),
                 SizedBox(width: 8.w,),
@@ -68,7 +71,7 @@ class CommentContainer extends StatelessWidget {
                       SizedBox(height: 10.h,),
                       Row(
                         children: [
-                          Text(postDataModel.owner,style: AppKhaledStyles.textStyle(
+                          Text('${getUserName(currentUserName: comments.userdata!.name!)}',style: AppKhaledStyles.textStyle(
                             color: AppColors.black,
                             weight:FontWeight.w700 ,
                             size: 13 ,
@@ -76,21 +79,21 @@ class CommentContainer extends StatelessWidget {
                           SizedBox(width: 3.h,),
                           Padding(
                             padding:  EdgeInsets.only(top: 2.h),
-                            child: Text(postDataModel.userName,style: AppKhaledStyles.textStyle(
+
+                              child:Text('${getEmail(currentEmail:comments.userdata!.email!)}',style: AppKhaledStyles.textStyle(
                               color: AppColors.c687684,
                               weight:FontWeight.w500 ,
                               size: 11,
-                            ),),
+                            ),)
                           ),
                           SizedBox(width: 5.h,),
                           Padding(
                             padding:  EdgeInsets.only(top: 2.h),
-                            child: Text('${postDataModel.hours}d',style: AppKhaledStyles.textStyle(
+                            child: Text('${getTimeDifference(postDate: DateTime.parse(comments.comment!.createdAt!))}',style: AppKhaledStyles.textStyle(
                               color: AppColors.c687684,
                               weight:FontWeight.w500 ,
                               size: 10,
-                            ),),
-                          ),
+                            ),)),
                           Spacer(),
                           Padding(
                             padding:  EdgeInsets.only(top: 2.h),
@@ -121,13 +124,13 @@ class CommentContainer extends StatelessWidget {
                       ),
                       SizedBox(height: 6.h,),
                       Text(
-                        postDataModel.content,
+                        comments.comment!.comment!,
                         style: AppKhaledStyles.textStyle(
                           color: AppColors.black,
                           size: 14,
                           weight: FontWeight.w400,
             
-                        ),),
+                        ),)
                     ],
                   ),
                 ),

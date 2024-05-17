@@ -99,6 +99,7 @@ class AddPostScreen extends StatelessWidget {
                                 communityBloc.postTitleController.clear();
                                 communityBloc.bodyController.clear();
                                 communityBloc.addPostImage=null;
+                                communityBloc.getAllPostsFun();
                                 Navigator.pop(context);
                               },
                               child: Text(
@@ -117,6 +118,7 @@ class AddPostScreen extends StatelessWidget {
                               await communityBloc.addNewPost(
                                   body: communityBloc.bodyController.text,
                                   title: communityBloc.postTitleController.text,);
+
                               communityBloc.postTitleController.clear();
                               communityBloc.bodyController.clear();
                               communityBloc.addPostImage=null;
