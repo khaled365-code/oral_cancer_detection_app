@@ -7,6 +7,11 @@ import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/GetCommentsModel.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/Message.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/NewAllPostsModel.dart';
 import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
 import 'package:graduation_project/features/community/data/models/search_model/SearchPostModel.dart';
 import 'package:image_picker/image_picker.dart';
@@ -29,6 +34,7 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
   final CommunityRepoImplementation communityRepoImplementation;
 
 
+  late TemporaryPostDetailsModel temporaryPostDetailsModel;
   getAllPostsFun() async
   {
     emit(GetAllPostsLoadingState());
@@ -37,7 +43,6 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
     response.fold((error) => emit(GetAllPostsFailureState(errorMessage: error)),
             (successModel) => emit(GetAllPostsSuccessState(postDetailsModel: successModel)));
-
 
 
 
@@ -138,13 +143,16 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
 
   TextEditingController addCommentControllerField=TextEditingController();
-  addComment({required num postId,required num userId,required String comment}) async
+
+  TextEditingController addCommentforScreenController=TextEditingController();
+
+  addComment({required num postId,required String comment}) async
   {
     emit(AddCommentLoadingState());
     final response=await communityRepoImplementation.
     addComment(
         postId: postId,
-        userId: userId,
+        userId: CacheHelper().getData(key: ApiKeys.id),
         comment: comment,
         token: CacheHelper().getData(key: ApiKeys.token));
 
@@ -216,6 +224,26 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
     response.fold((error) => emit(SearchForPostsFailureState(errorMessage: error)),
             (success) => emit(SearchForPostsSuccessState(searchModel: success)));
+
+
+  }
+
+  getAllComments({required num postId}) async
+  {
+    emit(GetAllCommentsLoadingState());
+   final response= await communityRepoImplementation.getAllComments(
+        postId: postId,
+        userId: CacheHelper().getData(key: ApiKeys.id),
+        token: CacheHelper().getData(key: ApiKeys.token));
+
+
+    response.fold(
+            (error) => emit(GetAllCommentsFailureState(errorMessage: error)),
+            (Success) => emit(GetAllCommentsSuccessState(commentsModel: Success)));
+
+
+
+
 
 
   }

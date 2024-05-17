@@ -9,6 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/data/models/Data.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
+import 'package:graduation_project/features/community/data/models/post_details_data_transfer/post_details_transfer.dart';
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 import 'package:graduation_project/features/community/presentation/widgets/one_only_post_widget.dart';
 
@@ -26,10 +29,10 @@ class PostDetailsScreen extends StatelessWidget {
 
     return BlocConsumer<GlobalCommunityBloc, GlobalCommunityBlocState>(
   listener: (context, state)
-  { 
-    if(state is AddCommentLoadingState)
+  {
+    if(state is AddCommentSuccessState)
       {
-        showToast(msg: 'Comment Posted Success', toastStates: ToastStates.success);
+        showToast(msg: 'Comment Posteded Successfully', toastStates: ToastStates.success);
       }
     if(state is AddCommentFailureState)
       {
@@ -39,7 +42,7 @@ class PostDetailsScreen extends StatelessWidget {
   },
   builder: (context, state) {
     final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
-    final recievedData=ModalRoute.of(context)!.settings.arguments as Data;
+    final recievedData=ModalRoute.of(context)!.settings.arguments as NewAllPostsData;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 40.h),
@@ -49,6 +52,8 @@ class PostDetailsScreen extends StatelessWidget {
             child: IconButton(
               onPressed: ()
               {
+                communityBloc.getAllPostsFun();
+
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.c4C9EEB,size: 15.sp,),),
@@ -72,17 +77,35 @@ class PostDetailsScreen extends StatelessWidget {
             child: OnlyOnePostWidget(
               data:recievedData
           ),),
+          state is GetAllCommentsLoadingState?
+          SliverToBoxAdapter(child: Container()):
+          state is GetAllCommentsSuccessState?
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) =>
                   Padding(
                     padding:EdgeInsetsDirectional.only(start: 20.w),
                     child: CommentContainer(
-                      recievedData: recievedData,
-                                    currentIndex: index,
-                                    postDataModel: communityBloc.postsDataList[index],
+                      comments:state.commentsModel.comments![index],
+                      recievedData: recievedData, currentIndex: index,
                                   ),
                   ),
-                childCount: communityBloc.postsDataList.length,
+                childCount: state.commentsModel.comments!.length,
+              )):
+             SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) =>
+                  Padding(
+                    padding:EdgeInsetsDirectional.only(start: 20.w),
+                    child: Container()
+                  ),
+                childCount: 1,
+              )),
+              SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) =>
+                  Padding(
+                    padding:EdgeInsetsDirectional.only(start: 20.w),
+                    child: Container()
+                  ),
+                childCount: 1,
               )),
 
           SliverToBoxAdapter(
@@ -91,10 +114,15 @@ class PostDetailsScreen extends StatelessWidget {
               height: 7.h,
             ),
           ),
+          SliverFillRemaining(
+            child: Container(
+              color: AppColors.cE7ECF0,
+            ),
+          ),
           SliverToBoxAdapter(
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 52.h,
+              height: 60.h,
               decoration: BoxDecoration(
                   border: Border(
                       top: BorderSide(
@@ -117,12 +145,13 @@ class PostDetailsScreen extends StatelessWidget {
                       ),
                       child: TextField(
                         controller: communityBloc.addCommentControllerField,
-                        onSubmitted: (value)
+                        onSubmitted: (value) async
                         {
                           communityBloc.addComment(
                               postId: recievedData.post!.id!,
-                              userId: recievedData.post!.userId!,
                               comment: value);
+
+                          await communityBloc.getAllComments(postId: recievedData.post!.id!);
 
                           communityBloc.addCommentControllerField.clear();
 
@@ -148,12 +177,7 @@ class PostDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 40.h,
-              color: AppColors.cE7ECF0,
-            ),
-          )
+
         ],
       ),
 
