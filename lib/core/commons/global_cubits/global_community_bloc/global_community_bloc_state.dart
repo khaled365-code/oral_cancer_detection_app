@@ -5,9 +5,6 @@ abstract class GlobalCommunityBlocState {}
 
 class GlobalCommunityBlocInitial extends GlobalCommunityBlocState {}
 
-class ChangeHeartState extends GlobalCommunityBlocState {}
-
-class ChangeRetweetShapeState extends GlobalCommunityBlocState {}
 
 
 
@@ -30,12 +27,6 @@ class GetAllPostsFailureState extends GlobalCommunityBlocState {
 }
 
 
-class ConnectionCheckState extends GlobalCommunityBlocState {
-  final bool isConnected;
-
-  ConnectionCheckState({required this.isConnected});
-}
-
 class AddLikeLoadingState extends GlobalCommunityBlocState {}
 
 class AddLikeSuccessState extends GlobalCommunityBlocState {
@@ -53,6 +44,7 @@ class AddLikeFailureState extends GlobalCommunityBlocState {
 
 }
 
+
 class AddCommentLoadingState extends GlobalCommunityBlocState {}
 
 class AddCommentSuccessState extends GlobalCommunityBlocState {
@@ -66,26 +58,6 @@ class AddCommentFailureState extends GlobalCommunityBlocState {
   final String errorMessage;
 
   AddCommentFailureState({required this.errorMessage});
-
-}
-
-class GetOnePostLoadingState extends GlobalCommunityBlocState {}
-
-class GetOnePostFailureState extends GlobalCommunityBlocState {
-
-  final String errorMessage;
-
-  GetOnePostFailureState({required this.errorMessage});
-
-
-}
-
-
-class GetOnePostSuccessState extends GlobalCommunityBlocState {
-
-  final OnePostModel onePostModel;
-
-  GetOnePostSuccessState({required this.onePostModel});
 
 }
 
@@ -126,6 +98,7 @@ class SearchForPostsFailureState extends GlobalCommunityBlocState {
 
 }
 
+
 class ChangeAddPostPictureState extends GlobalCommunityBlocState {}
 
 
@@ -137,6 +110,7 @@ class GetAllCommentsSuccessState extends GlobalCommunityBlocState {
   final Message commentsModel;
   GetAllCommentsSuccessState({required this.commentsModel});
 }
+
 
 
 

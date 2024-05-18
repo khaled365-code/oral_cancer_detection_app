@@ -150,17 +150,16 @@ class PostDetailsWidget extends StatelessWidget {
                     GestureDetector(
                       onTap: ()
                         {
-                          communityBloc.changeHeartForSingle();
+
                         },
-                        child: Image.asset(communityBloc.postDetailHeartIsActive==false?ImageConstants.heartImage:ImageConstants.redHeartImage)),
+                        child: Image.asset(ImageConstants.heartImage)),
                     Spacer(),
                     GestureDetector(
                       onTap: ()
                         {
-                          communityBloc.changeRetweetForSingle();
 
                         },
-                        child: Image.asset(communityBloc.postDetailsRetweetIsActive==false?ImageConstants.retweetImage:ImageConstants.greenRetweetImage)),
+                        child: Image.asset(ImageConstants.retweetImage)),
                     SizedBox(width: 60.w,),
                   ],
                 ),
