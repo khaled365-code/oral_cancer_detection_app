@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:meta/meta.dart';
 import '../repo/ai_repo.dart';
 part 'question_diagnosis_state.dart';
@@ -32,19 +34,30 @@ class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {
       emit(QuestionDiagnosisSuccessState(response.prediction[0]));
     }
     catch (error) {
-      emit(QuestionDiagnosisFailureState());
+      emit(QuestionDiagnosisFailureState(" try later "));
       }
     }
 
-    String ConvertToClassName(){
+    String ConvertToDiseaseName(BuildContext context){
       if(modelResult == 2){
-        return 'Leukoplakia without dysplasia';
+        return 'LeukoplakiaWithoutDysplasia'.tr(context);
       }
       else if (modelResult == 1){
-        return 'Leukoplakia with dysplasia';
+        return 'leukoplakiaWithDysplasia'.tr(context);
       }
-      else return 'OSCC';
+      else return 'OSCC'.tr(context);
 
     }
+
+  String ConvertToClassName(BuildContext context){
+    if(modelResult == 2 || modelResult == 1 ){
+      return 'NonCancer'.tr(context);
+
+    }
+    else return 'Cancer'.tr(context);
+
   }
+
+
+}
 

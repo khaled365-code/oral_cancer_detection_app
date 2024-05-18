@@ -13,4 +13,8 @@ class QuestionDiagnosisSuccessState extends QuestionDiagnosisState {
 
 class QuestionDiagnosisLoadingState extends QuestionDiagnosisState {}
 
-class QuestionDiagnosisFailureState extends QuestionDiagnosisState {}
+class QuestionDiagnosisFailureState extends QuestionDiagnosisState {
+  final String errorMessage;
+
+  QuestionDiagnosisFailureState(this.errorMessage);
+}

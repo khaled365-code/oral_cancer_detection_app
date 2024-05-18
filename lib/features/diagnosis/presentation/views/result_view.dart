@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,62 +14,70 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      return BlocConsumer<QuestionDiagnosisCubit,QuestionDiagnosisState>(
+        listener: (context, state) {
+          // if (state is QuestionDiagnosisFailureState){
+          //    showToast(msg: state.errorMessage, toastStates: ToastStates.error);
+          // }
+        },
+       builder: (context, state) {
+       return Scaffold(
+            backgroundColor: AppColors.background,
+            body: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:state is QuestionDiagnosisLoadingState?Center(child: CircularProgressIndicator(),): Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("pleaseNote".tr(context),textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
+                  SizedBox(height: 60.h,),
+                  Container(
+                    decoration:  BoxDecoration(
+                      gradient: LinearGradient(colors: [AppColors.background,AppColors.primary],begin: Alignment.topLeft,end: Alignment.bottomRight),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(16.r),topRight: Radius.circular(16.r),bottomLeft: Radius.circular(16.r)),
 
-      backgroundColor: AppColors.background,
-      body:
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             Text("pleaseNote".tr(context),textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
-            // TextButton(onPressed: (){
-            //   navigate(context: context, route: Routes.doctor);
-            // }, child: const Text("Click here to show them",style: TextStyle(color: AppColors.black,decoration: TextDecoration.underline),)),
-             SizedBox(height: 60.h,),
-            Container(
-              decoration:  BoxDecoration(
-                gradient: LinearGradient(colors: [AppColors.background,AppColors.primary],begin: Alignment.topLeft,end: Alignment.bottomRight),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(16.r),topRight: Radius.circular(16.r),bottomLeft: Radius.circular(16.r)),
-
-
-              ),
-              child:  Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(child: Text("TestResult".tr(context),style: AppTextStyles.font24,)
                     ),
-                    SizedBox(height: 40.h,),
-                    Row(
-                      children: [
-                        Text("DiseaseName".tr(context),style: AppTextStyles.font18),
-                        Flexible(
-                          child: Text(BlocProvider.of<QuestionDiagnosisCubit>(context).ConvertToClassName(),style: AppTextStyles.font18,
-                          //overflow:TextOverflow.clip ,
-                          //maxLines: 2,
+                    child:  Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(child: Text("TestResult".tr(context),style: AppTextStyles.font24,)
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 40.h,),
+                          Row(
+                            children: [
+                              Text("DiseaseName".tr(context),style: AppTextStyles.font18),
+                              Flexible(
+                                child: Text(BlocProvider.of<QuestionDiagnosisCubit>(context).ConvertToDiseaseName(context),style: AppTextStyles.font18,
+                                  //overflow:TextOverflow.clip ,
+                                  //maxLines: 2,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20.h,),
+                          Row(
+                            children: [
+                              Text('Classification:'.tr(context),
+                                style:AppTextStyles.font18 ,textAlign: TextAlign.center,),
+                              Text(BlocProvider.of<QuestionDiagnosisCubit>(context).ConvertToClassName(context),style: AppTextStyles.font18,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    SizedBox(height: 20.h,),
-                    Text("Classification:cancer".tr(context),
-                      style:AppTextStyles.font18 ,textAlign: TextAlign.center,)
-                  ],
-                ),
-              ),
+                  ),
+                  SizedBox(height: 50.h,),
+                  CustomElevatedButton(
+                    buttonBackground: AppColors.primary,
+                    onpress: (){
+                      navigate(context: context, route: Routes.home);
+                    }, child:  Text("BackToHome".tr(context)),)
+                ],),
             ),
-             SizedBox(height: 50.h,),
-            CustomElevatedButton(
-              buttonBackground: AppColors.primary,
-              onpress: (){
-              navigate(context: context, route: Routes.home);
-            }, child:  Text("BackToHome".tr(context)),)
-          ],),
-      ),
-    );
+          );
+  },
+);
   }
 }
