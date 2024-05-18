@@ -49,7 +49,7 @@ class QuestionsView extends StatelessWidget {
                       QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context),'NotInformed'.tr(context)], QuestionTitle: 'Doyougetexposedtosun?'.tr(context)),
                       QuestionChoice(answersList:  ['Male'.tr(context),'Female'.tr(context)], QuestionTitle: 'Whatisyougender?'.tr(context)),
                       QuestionChoice(answersList:  ['greaterthan60'.tr(context) ,'between41and60years'.tr(context),'lessthan40years'.tr(context),], QuestionTitle: 'Whatisyourage?'.tr(context)),
-                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle: 'Do the ulcer last more than 3 weeks?'),
+                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle: 'Do the ulcer last more than 3 weeks?'.tr(context)),
                       QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle: 'Dotheulcerspread?'.tr(context),showButton: true),
                     ]
                     )
