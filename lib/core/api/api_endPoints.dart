@@ -1,13 +1,22 @@
 class EndPoints{
   static String textModelBaseUrl="http://127.0.0.1:5000/";
-  static String baseUrl="https://56f8-197-134-59-99.ngrok-free.app/api/";
+  static String baseUrl="https://9c58-197-134-59-99.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
-  static String UserProfile="auth/user-profile";
   static String updatePasswordEndPoint="update/profilepass/";
-  static String updateProfile="update/profile/";
   static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
+
+
+
+  static String updateProfileEndPoint({required String userId})
+  {
+    return 'update/profile/?user_id=$userId';
+  }
+  static String getUserProfile({required String userId,required String token})
+  {
+    return 'user/:$userId?token=$token';
+  }
 
 
   static String getAllPosts(token)

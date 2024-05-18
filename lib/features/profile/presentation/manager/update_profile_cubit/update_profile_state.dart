@@ -5,13 +5,18 @@ abstract class UpdateProfileState {}
 
 class UpdateProfileInitial extends UpdateProfileState {}
 class UpdateProfileLoadingSate extends UpdateProfileState {}
-class UpdateProfileSuccessState extends UpdateProfileState {
-  UpdateProfileSuccessState({required this.message});
-  final String message;
+class UpdateProfileSuccessState extends UpdateProfileState
+{
+
+  final UpdateProfileModel updateProfileModel;
+  UpdateProfileSuccessState({required this.updateProfileModel});
+
 }
-class UpdateProfileFailureState extends UpdateProfileState {
-  UpdateProfileFailureState({required this.errMessage});
+class UpdateProfileFailureState extends UpdateProfileState
+{
   final String errMessage;
+
+  UpdateProfileFailureState({required this.errMessage});
 }
 class UpdateProfilePictureState extends UpdateProfileState {}
 

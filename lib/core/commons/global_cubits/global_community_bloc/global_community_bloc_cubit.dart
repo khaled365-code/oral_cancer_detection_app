@@ -1,16 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
-import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
-import 'package:graduation_project/features/community/data/models/get_comments_model/GetCommentsModel.dart';
 import 'package:graduation_project/features/community/data/models/get_comments_model/Message.dart';
-import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/NewAllPostsModel.dart';
 import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
 import 'package:graduation_project/features/community/data/models/search_model/SearchPostModel.dart';
@@ -32,22 +27,6 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
 
   final CommunityRepoImplementation communityRepoImplementation;
-
-
-  late TemporaryPostDetailsModel temporaryPostDetailsModel;
-  getAllPostsFun() async
-  {
-    emit(GetAllPostsLoadingState());
-    final  response= await communityRepoImplementation.
-    getAllPosts(token: CacheHelper().getData(key: ApiKeys.token));
-
-    response.fold((error) => emit(GetAllPostsFailureState(errorMessage: error)),
-            (successModel) => emit(GetAllPostsSuccessState(postDetailsModel: successModel)));
-
-
-
-  }
-
 
 
   List<CameraPostsModedl>cameraPostsData=[
@@ -75,65 +54,46 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
 
 
-  void checkConnection() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
-    bool isConnected = connectivityResult != ConnectivityResult.none;
-    emit(ConnectionCheckState(isConnected: isConnected));
-  }
-
-  bool heartISActive=false;
-
-  // changeHeart({required TemporaryPostDetailsModel list,required int index})
-  // {
-  //
-  //   heartISActive=!heartISActive;
-  //   emit(ChangeHeartState());
-  //
-  //
-  // }
 
 
 
-  changeHeartFun(int index,List<PostDataModel>postsDataList)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // get all posts logic
+  getAllPostsFun() async
   {
+    emit(GetAllPostsLoadingState());
+    final  response= await communityRepoImplementation.
+    getAllPosts(token: CacheHelper().getData(key: ApiKeys.token));
 
-    postsDataList[index].heartIsActive=!postsDataList[index].heartIsActive;
-    emit(ChangeHeartState());
-
-  }
-
-  changeRetweetFun(int index,List<PostDataModel>postsDataList)
-  {
+    response.fold((error) => emit(GetAllPostsFailureState(errorMessage: error)),
+            (successModel) => emit(GetAllPostsSuccessState(postDetailsModel: successModel)));
 
 
-    postsDataList[index].retweetIsActive=!postsDataList[index].retweetIsActive;
-
-    emit(ChangeRetweetShapeState());
 
   }
 
-   bool postDetailHeartIsActive=false;
-   bool postDetailsRetweetIsActive=false;
 
-
-  changeHeartForSingle()
-  {
-    postDetailHeartIsActive=!postDetailHeartIsActive;
-    emit(ChangeHeartState());
-  }
-  changeRetweetForSingle()
-  {
-    postDetailsRetweetIsActive=!postDetailsRetweetIsActive;
-    emit(ChangeRetweetShapeState());
-  }
-
-
-  addLikeCount({required num postId,required num userId}) async
+  // add like logic
+  addLikeCount({required num postId}) async
   {
     emit(AddLikeLoadingState());
     final response=await communityRepoImplementation.addLikeForPost(
         postId: postId,
-        userId: userId,
+        userId: int.parse(CacheHelper().getData(key: ApiKeys.id)),
         token: CacheHelper().getData(key: ApiKeys.token));
     response.fold((error) => emit(AddLikeFailureState(errorMessage: error)),
             (success) => emit(AddLikeSuccessState(successMessage: success)));
@@ -142,8 +102,9 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
   }
 
 
-  TextEditingController addCommentControllerField=TextEditingController();
 
+  // add comment logic
+  TextEditingController addCommentControllerField=TextEditingController();
   TextEditingController addCommentforScreenController=TextEditingController();
 
   addComment({required num postId,required String comment}) async
@@ -165,36 +126,18 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
   
   
 
-  getOnePostDetails({required num postId}) async
-  {
-
-    emit(GetOnePostLoadingState());
-    final response=await communityRepoImplementation.getOnePostDetails(
-      token: CacheHelper().getData(key: ApiKeys.token),
-      postId: postId,
-    );
-
-    response.fold((error) => emit(GetOnePostFailureState(errorMessage: error)),
-            (success) => emit(GetOnePostSuccessState(onePostModel: success)));
 
 
-  }
+  // add Post Logic
 
   TextEditingController postTitleController=TextEditingController();
-
   TextEditingController bodyController=TextEditingController();
-
-
   XFile? addPostImage;
-
-
   addImageFun({required XFile comeImage})
   {
     addPostImage=comeImage;
     emit(ChangeAddPostPictureState());
   }
-
-
   addNewPost({required String body,required String title}) async
   {
     emit(AddPostLoadingState());
@@ -212,8 +155,10 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
   }
 
-  TextEditingController searchFieldController=TextEditingController();
 
+  //saerch for posts logic
+
+  TextEditingController searchFieldController=TextEditingController();
   searchForPosts({required String searchContent}) async
   {
     emit(SearchForPostsLoadingState());
@@ -228,6 +173,9 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
   }
 
+
+  // get all comments logic
+
   getAllComments({required num postId}) async
   {
     emit(GetAllCommentsLoadingState());
@@ -240,12 +188,6 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     response.fold(
             (error) => emit(GetAllCommentsFailureState(errorMessage: error)),
             (Success) => emit(GetAllCommentsSuccessState(commentsModel: Success)));
-
-
-
-
-
-
   }
 
 

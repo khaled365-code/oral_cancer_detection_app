@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
-import 'package:graduation_project/features/profile/data/models/get_profile_model.dart';
 import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
-import 'package:graduation_project/features/profile/data/repos/profile_repos.dart';
+import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../core/utilis/image_constants.dart';
@@ -11,7 +10,10 @@ import '../../../../../core/utilis/image_constants.dart';
 part 'profile_state.dart';
 
 class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
-  GetProfileDataCubit({required this.profileRepo}) : super(ProfileInitial());
+  GetProfileDataCubit({required this.profileRepoImplementation}) : super(ProfileInitial());
+
+  final ProfileRepoImplementation profileRepoImplementation;
+
 
   final List<ProfileDataModel>profileDataList=
   [
@@ -30,17 +32,5 @@ class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
   ];
 
 
-  final ProfileRepos profileRepo;
-  final userToken=CacheHelper().getData(key: ApiKeys.token);
-
-  GetUserProfile() async{
-    emit(ProfileLoading());
-    final response=await profileRepo.GetUserProfile();
-    response.fold(
-            (errorMessage) => emit(ProfileFailure(errorMessage: errorMessage)),
-            (userProfile) => emit(ProfileSuccess(userProfile: userProfile))
-    );
-
-  }
 
 }

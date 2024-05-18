@@ -1,6 +1,4 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,16 +11,13 @@ import 'package:graduation_project/features/auth/data/manager/update_password_cu
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/commons/bloc_obsever.dart';
 import 'core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
 import 'core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
-import 'core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'core/localization/app_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
-import 'features/profile/data/repos/profile_repos.dart';
 
 
 void main() {
@@ -78,13 +73,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepo: ProfileRepos(api: DioConsumer(dio: Dio(),isModel: false)))..GetUserProfile(),),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isModel: false)))..getAllPostsFun()),
-        BlocProvider<UpdateProfileCubit>(create: (context) => UpdateProfileCubit(
-            profileRepos: ProfileRepos(api: DioConsumer(dio: Dio(),isModel: false))
-        ),),
-
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
        // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),

@@ -21,7 +21,6 @@ abstract class CommunityRepo
 
   Future<Either<String,String>>addComment({required num postId,required String userId,required String comment,required String token});
 
-  Future<Either<String,OnePostModel>> getOnePostDetails({required String token,required num postId});
 
   Future<Either<String,SearchPostModel>>searchForPosts({required String token,required String searchContent});
 
