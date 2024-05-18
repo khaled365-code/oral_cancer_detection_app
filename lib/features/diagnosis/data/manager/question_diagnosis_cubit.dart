@@ -7,14 +7,7 @@ class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {
   QuestionDiagnosisCubit({required this.aiRepository}) : super(QuestionDiagnosisInitial());
  final AiRepository aiRepository;
 
- // int? localization;
- // int? tobacoUse;
- // int? alcholConsumption;
- // int? sunExposure;
- // int? gender;
- // int? ageGroup;
- // int? ulcersLastsMoreThan3Weeks=0;
- // int? ulcersSpreading;
+  dynamic modelResult;
 
   questionDiagnosis({int? localization, int? tobacoUse,
     int?  alcholConsumption, int? sunExposure,
@@ -34,12 +27,24 @@ class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {
           ulcersSpreading: ulcersSpreading!
       );
       
-      print(response.prediction);
-      emit(QuestionDiagnosisSuccessState(response.prediction));
+      print(response.prediction[0]);
+      modelResult=response.prediction[0];
+      emit(QuestionDiagnosisSuccessState(response.prediction[0]));
     }
     catch (error) {
       emit(QuestionDiagnosisFailureState());
       }
+    }
+
+    String ConvertToClassName(){
+      if(modelResult == 2){
+        return 'Leukoplakia without dysplasia';
+      }
+      else if (modelResult == 1){
+        return 'Leukoplakia with dysplasia';
+      }
+      else return 'OSCC';
+
     }
   }
 

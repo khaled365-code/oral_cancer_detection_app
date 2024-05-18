@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,14 +21,14 @@ class QuestionChoice extends StatefulWidget {
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
 }
-int? selectedLocalizationIndex;
-int? selectedTobaccoUseIndex;
-int? selectedAlcoholConsumptionIndex;
-int? selectedSunExposureIndex;
-int? selectedGenderIndex;
-int? selectedAgeGroupIndex;
-int? selectedUlcersLastsMoreThan3WeeksIndex;
-int? selectedUlcersSpreadingIndex;
+  int? selectedLocalizationIndex;
+  int? selectedTobaccoUseIndex;
+  int? selectedAlcoholConsumptionIndex;
+  int? selectedSunExposureIndex;
+  int? selectedGenderIndex;
+  int? selectedAgeGroupIndex;
+  int? selectedUlcersLastsMoreThan3WeeksIndex;
+  int? selectedUlcersSpreadingIndex;
 
 class QuestionChoiceState extends State<QuestionChoice> {
 
@@ -45,17 +44,14 @@ class QuestionChoiceState extends State<QuestionChoice> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
                    SizedBox(height: 20.h,),
                    Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
                    SizedBox(height: 20.h,),
-                  Column(
-                    children: widget.answersList
-                        .map(
+                   Column(
+                     children: widget.answersList.map(
                           (answer) => RadioListTile(
-                        activeColor: AppColors.white,
-
-                        title: Text(answer
+                          activeColor: AppColors.white,
+                          title: Text(answer
                           ,style: AppTextStyles.font20,
                         ),
                         value: widget.answersList.indexOf(answer),
@@ -64,30 +60,30 @@ class QuestionChoiceState extends State<QuestionChoice> {
                           setState(() {
                              widget.selectedAnswerIndex = val!;
                              switch (widget.QuestionTitle) {
-                               case 'Localization':
-                                 selectedLocalizationIndex = val;
-                                 break;
-                               case 'Tobacco Use':
-                                 selectedTobaccoUseIndex = val;
-                                 break;
-                               case 'Alcohol Consumption':
-                                 selectedAlcoholConsumptionIndex = val;
-                                 break;
-                               case 'Sun Exposure':
-                                 selectedSunExposureIndex = val;
-                                 break;
-                               case 'Gender':
-                                 selectedGenderIndex = val;
-                                 break;
-                               case 'Age Group':
-                                 selectedAgeGroupIndex = val;
-                                 break;
-                               case 'Ulcers Lasts More Than 3 Weeks':
-                                 selectedUlcersLastsMoreThan3WeeksIndex = val;
-                                 break;
-                               case 'Ulcers Spreading':
-                                 selectedUlcersSpreadingIndex = val;
-                                 break;
+                                case "Where is the localization of the ulcer ?":
+                                selectedLocalizationIndex = val;
+                                break;
+                                case "Do you use tobacco?":
+                                selectedTobaccoUseIndex = val;
+                                break;
+                                case "Do you consume Alcohol?":
+                                selectedAlcoholConsumptionIndex = val;
+                                break;
+                                case "Do you get exposed to sun ?":
+                                selectedSunExposureIndex = val;
+                                break;
+                                case "What is your gender?":
+                                selectedGenderIndex = val;
+                                break;
+                                case  "What is your age?":
+                                selectedAgeGroupIndex = val;
+                                break;
+                               case "Do the ulcer last more than 3 weeks?":
+                                selectedUlcersLastsMoreThan3WeeksIndex = val;
+                                break;
+                                case "Do the ulcer spread?":
+                                selectedUlcersSpreadingIndex = val;
+                                break;
                              }
                           });
                         },

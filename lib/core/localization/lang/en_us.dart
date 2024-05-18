@@ -164,7 +164,7 @@ final Map<String, String> enUs =
   "Enterthesize": "Enter the size",
   "pleaseNote": "Please note that this result is not definitive and it is important to consult a doctor for further testing and evaluation , we can suggest a professional doctors for you...💙",
   'TestResult':'Test Result',
-  'DiseaseName':'Disease Name:  oscc(oral squamous cancer cell)',
+  'DiseaseName':'Disease Name: ',
   'Classification:cancer':'Classification:  cancer',
   'BackToHome':'Back To Home',
   "login":"Login",

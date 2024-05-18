@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
+import 'package:graduation_project/features/diagnosis/data/manager/question_diagnosis_cubit.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 
@@ -43,9 +45,20 @@ class ResultScreen extends StatelessWidget {
                     Center(child: Text("TestResult".tr(context),style: AppTextStyles.font24,)
                     ),
                     SizedBox(height: 40.h,),
-                    Text("DiseaseName".tr(context),style: AppTextStyles.font18),
+                    Row(
+                      children: [
+                        Text("DiseaseName".tr(context),style: AppTextStyles.font18),
+                        Flexible(
+                          child: Text(BlocProvider.of<QuestionDiagnosisCubit>(context).ConvertToClassName(),style: AppTextStyles.font18,
+                          //overflow:TextOverflow.clip ,
+                          //maxLines: 2,
+                          ),
+                        ),
+                      ],
+                    ),
                     SizedBox(height: 20.h,),
-                    Text("Classification:cancer".tr(context),style:AppTextStyles.font18,)
+                    Text("Classification:cancer".tr(context),
+                      style:AppTextStyles.font18 ,textAlign: TextAlign.center,)
                   ],
                 ),
               ),

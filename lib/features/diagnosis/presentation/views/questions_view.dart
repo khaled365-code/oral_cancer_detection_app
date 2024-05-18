@@ -40,14 +40,14 @@ class QuestionsView extends StatelessWidget {
                     Flexible(
                     flex: 1,
                     child: TabBarView(children:[
-                      QuestionChoice(answersList:  ['Tongue'.tr(context),'Lip'.tr(context),'Floor of mouth'.tr(context),'Palate'.tr(context),"Gingiva".tr(context)], QuestionTitle:'Localization'),
-                      QuestionChoice(answersList:  ['Yes'.tr(context),'Former'.tr(context),'No'.tr(context),'NotInformed'.tr(context)], QuestionTitle:'Tobacco Use'),
-                      QuestionChoice(answersList:  ['No'.tr(context),'Former'.tr(context),'Yes'.tr(context),'NotInformed'.tr(context)], QuestionTitle:'Alcohol Consumption'),
-                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context),'NotInformed'.tr(context)], QuestionTitle: 'Sun Exposure'),
-                      QuestionChoice(answersList:  ['Male'.tr(context),'Female'.tr(context)], QuestionTitle:'Gender'),
-                      QuestionChoice(answersList:  ['greaterthan60'.tr(context) ,'between41and60years'.tr(context),'lessthan40years'.tr(context),], QuestionTitle: 'Age Group'),
-                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle: 'Ulcers Lasts More Than 3 Weeks'),
-                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle:'Ulcers Spreading',showButton: true),
+                      QuestionChoice(answersList:  ['Tongue'.tr(context),'Lip'.tr(context),'Floor of mouth'.tr(context),'Palate'.tr(context),"Gingiva".tr(context)], QuestionTitle:"Where is the localization of the ulcer ?"),
+                      QuestionChoice(answersList:  ['Yes'.tr(context),'Former'.tr(context),'No'.tr(context),'NotInformed'.tr(context)], QuestionTitle: "Do you use tobacco?"),
+                      QuestionChoice(answersList:  ['No'.tr(context),'Former'.tr(context),'Yes'.tr(context),'NotInformed'.tr(context)], QuestionTitle: "Do you consume Alcohol?"),
+                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context),'NotInformed'.tr(context)], QuestionTitle: "Do you get exposed to sun ?"),
+                      QuestionChoice(answersList:  ['Male'.tr(context),'Female'.tr(context)], QuestionTitle:"What is your gender?"),
+                      QuestionChoice(answersList:  ['greaterthan60'.tr(context) ,'between41and60years'.tr(context),'lessthan40years'.tr(context),], QuestionTitle: "What is your age?"),
+                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle: "Do the ulcer last more than 3 weeks?"),
+                      QuestionChoice(answersList:  ['No'.tr(context),'Yes'.tr(context)], QuestionTitle:"Do the ulcer spread?",showButton: true),
                     ]
                     )
                 )
