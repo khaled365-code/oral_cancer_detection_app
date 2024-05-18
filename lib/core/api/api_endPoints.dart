@@ -1,6 +1,7 @@
 class EndPoints{
-  static String textModelBaseUrl="http://10.0.2.2:5000/";
-  static String baseUrl="https://fc6e-197-134-140-150.ngrok-free.app/api/";
+  static String textModelBaseUrl="http://127.0.0.1:5000/";
+  static String baseUrl="https://56f8-197-134-59-99.ngrok-free.app/api/";
+
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String UserProfile="auth/user-profile";
@@ -11,10 +12,31 @@ class EndPoints{
   static String predict="predict";
 
 
-  static String getAllPosts(id)
+  static String getAllPosts(token)
   {
-    return 'blog?token=$id';
+    return 'blog?token=$token';
 
+  }
+  static addLikeForPostEndPoint({required postId,required userId,required token})
+  {
+    return 'posts/like?post_id=$postId&user_id=$userId&token=$token';
+  }
+  static addCommentForPost({required num postId, required String userId, required String comment, required String token})
+  {
+    return 'posts/comments?post_id=$postId&user_id=$userId&comment=$comment&token=$token';
+  }
+
+  static getOnePostEndPoint({required String token,required num postId})
+  {
+    return 'blog/:?token=$token&post_id=$postId';
+  }
+  static searchForPostsEndpoint({required String token,required String searchContent})
+  {
+    return 'posts/search?search=$searchContent&token=%token';
+  }
+  static getAllComments({required num postId,required String userId,required String token})
+  {
+    return 'posts/comments?post_id=$postId&token=$token&user_id=$userId';
   }
 
 }

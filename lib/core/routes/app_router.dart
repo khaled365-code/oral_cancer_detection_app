@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/comment_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
@@ -47,6 +48,8 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
+      case Routes.commentScreen:
+        return MaterialPageRoute(builder: (context) => const CommentScreen(),settings: routeSettings);
       case Routes.termsAndConditionsScreen:
         return MaterialPageRoute(
           builder: (context) => const TermsAndConditionsScreen(),);
@@ -66,7 +69,7 @@ class AppRoutes {
           builder: (context) => const SearchPostsScreen(),);
       case Routes.postDetailsScreen:
         return MaterialPageRoute(
-          builder: (context) => const PostDetailsScreen(),);
+          builder: (context) => const PostDetailsScreen(),settings: routeSettings);
       case Routes.addPostScreen:
         return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:
@@ -132,7 +135,7 @@ class AppRoutes {
               child: PrivacyPolicyScreen(),
             ),);
       case Routes.communityhomescreen:
-        return MaterialPageRoute(builder: (context) => CommunityScreen(),);
+        return MaterialPageRoute(builder: (context) => CommunityScreen(),settings: routeSettings);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);

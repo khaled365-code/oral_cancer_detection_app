@@ -5,8 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
+import 'package:graduation_project/features/community/data/models/Data.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
+import 'package:graduation_project/features/community/data/models/get_comments_model/GetCommentsModel.dart';
+import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
+import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
@@ -14,10 +20,11 @@ import '../../../../core/utilis/image_constants.dart';
 import '../../data/models/post_data_model.dart';
 
 class CommentContainer extends StatelessWidget {
-  const CommentContainer({super.key, required this.postDataModel, required this.currentIndex});
+  const CommentContainer({super.key,required this.currentIndex, required this.recievedData, required this.comments});
 
-  final PostDataModel postDataModel;
   final int currentIndex;
+  final NewAllPostsData recievedData;
+  final Comments comments;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,6 @@ class CommentContainer extends StatelessWidget {
     return Container(
       width: 414.w,
       height: 140.h,
-      margin:  EdgeInsetsDirectional.only(start: 20.w,bottom: 21.h),
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -41,134 +47,100 @@ class CommentContainer extends StatelessWidget {
             ),
           ],
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
         children: [
-          Padding(
-            padding:  EdgeInsetsDirectional.only(top: 11.h),
-            child: Container(
-              width: 55.w,
-              height: 55.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle
-              ), child: Image.asset(ImageConstants.manCommentImage,fit: BoxFit.contain,),
-            ),
-          ),
-          SizedBox(width: 8.w,),
           Expanded(
-            child: Column(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 10.h,),
-                Row(
-                  children: [
-                    Text(postDataModel.owner,style: AppKhaledStyles.textStyle(
-                      color: AppColors.black,
-                      weight:FontWeight.w700 ,
-                      size: 13 ,
-                    ),),
-                    SizedBox(width: 3.h,),
-                    Padding(
-                      padding:  EdgeInsets.only(top: 2.h),
-                      child: Text(postDataModel.userName,style: AppKhaledStyles.textStyle(
-                        color: AppColors.c687684,
-                        weight:FontWeight.w500 ,
-                        size: 11,
-                      ),),
-                    ),
-                    SizedBox(width: 5.h,),
-                    Padding(
-                      padding:  EdgeInsets.only(top: 2.h),
-                      child: Text('${postDataModel.hours}d',style: AppKhaledStyles.textStyle(
-                        color: AppColors.c687684,
-                        weight:FontWeight.w500 ,
-                        size: 10,
-                      ),),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding:  EdgeInsets.only(top: 2.h),
-                      child: SizedBox(
-                          width: 10.25,
-                          height: 5.5,
-                          child: Image.asset(ImageConstants.downArrowImage)),
-                    ),
-                    SizedBox(width: 19.38.w,)
-
-                  ],
+                Padding(
+                  padding:  EdgeInsetsDirectional.only(top: 11.h),
+                  child: Container(
+                    width: 55.w,
+                    height: 55.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle
+                    ), child:  Image.network(comments.userdata!.profilePhotoUrl!,fit: BoxFit.contain,)
+                  ),
                 ),
-                SizedBox(height: 2.h,),
-                Row(
-                  children: [
-                    ResuableText(text: 'Replying to',
-                      color: AppColors.c727E8B,
-                      fontSize: 10,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    SizedBox(width: 5.w,),
-                    ResuableText(text: postDataModel.owner,
-                      color: AppColors.c4C9EEB,
-                      fontSize: 10,
-                      fontWeight: FontWeight.normal,
-                    )
-                  ],
+                SizedBox(width: 8.w,),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10.h,),
+                      Row(
+                        children: [
+                          Text('${getUserName(currentUserName: comments.userdata!.name!)}',style: AppKhaledStyles.textStyle(
+                            color: AppColors.black,
+                            weight:FontWeight.w700 ,
+                            size: 13 ,
+                          ),),
+                          SizedBox(width: 3.h,),
+                          Padding(
+                            padding:  EdgeInsets.only(top: 2.h),
+
+                              child:Text('${getEmail(currentEmail:comments.userdata!.email!)}',style: AppKhaledStyles.textStyle(
+                              color: AppColors.c687684,
+                              weight:FontWeight.w500 ,
+                              size: 11,
+                            ),)
+                          ),
+                          SizedBox(width: 5.h,),
+                          Padding(
+                            padding:  EdgeInsets.only(top: 2.h),
+                            child: Text('${getTimeDifference(postDate: DateTime.parse(comments.comment!.createdAt!))}',style: AppKhaledStyles.textStyle(
+                              color: AppColors.c687684,
+                              weight:FontWeight.w500 ,
+                              size: 10,
+                            ),)),
+                          Spacer(),
+                          Padding(
+                            padding:  EdgeInsets.only(top: 2.h),
+                            child: SizedBox(
+                                width: 10.25,
+                                height: 5.5,
+                                child: Image.asset(ImageConstants.downArrowImage)),
+                          ),
+                          SizedBox(width: 19.38.w,)
+            
+                        ],
+                      ),
+                      SizedBox(height: 2.h,),
+                      Row(
+                        children: [
+                          ResuableText(text: 'Replying to',
+                            color: AppColors.c727E8B,
+                            fontSize: 10,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          SizedBox(width: 5.w,),
+                          ResuableText(text: '${getUserName(currentUserName: recievedData.userdata!.name!)}',
+                            color: AppColors.c4C9EEB,
+                            fontSize: 10,
+                            fontWeight: FontWeight.normal,
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 6.h,),
+                      Text(
+                        comments.comment!.comment!,
+                        style: AppKhaledStyles.textStyle(
+                          color: AppColors.black,
+                          size: 14,
+                          weight: FontWeight.w400,
+            
+                        ),)
+                    ],
+                  ),
                 ),
-                SizedBox(height: 6.h,),
-                Text(postDataModel.content,
-                  maxLines: 5,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppKhaledStyles.textStyle(
-                    color: AppColors.black,
-                    size: 14,
-                    weight: FontWeight.w400,
-
-                  ),),
-                Spacer(),
-                Row(
-                  children:
-                  [
-                    Image.asset(ImageConstants.commentImage),
-                    SizedBox(width: 3.5.w,),
-                    Text('${postDataModel.commentNumber}',
-                      style: AppKhaledStyles.textStyle(
-                        color: AppColors.grey,
-                        size: 10 ,
-                      ),),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: ()
-                        {
-                          communityBloc.changeHeartFun(currentIndex,communityBloc.postsDataList);
-                        },
-                        child: Image.asset(postDataModel.heartIsActive==false?ImageConstants.heartImage:ImageConstants.redHeartImage)),
-                    SizedBox(width: 3.5.w,),
-                    Text('${postDataModel.loveNumber}',
-                      style: AppKhaledStyles.textStyle(
-                        color: AppColors.grey,
-                        size: 10 ,
-                      ),),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: ()
-                        {
-                          communityBloc.changeRetweetFun(currentIndex, communityBloc.postsDataList);
-                        },
-                        child: Image.asset(postDataModel.retweetIsActive==false?ImageConstants.retweetImage:ImageConstants.greenRetweetImage)),
-                    SizedBox(width: 3.5.w,),
-                    Text('${postDataModel.retweetNumber}',
-                      style: AppKhaledStyles.textStyle(
-                        color: AppColors.grey,
-                        size: 10 ,
-                      ),),
-                    SizedBox(width: 40.w,)
-
-
-                  ],
-                )
+            
+            
+            
               ],
             ),
-          )
-
+          ),
+          LineWidget(),
 
         ],
       ),
