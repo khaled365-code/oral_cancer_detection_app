@@ -147,13 +147,13 @@ class PostDetailsScreen extends StatelessWidget {
                         controller: communityBloc.addCommentControllerField,
                         onSubmitted: (value) async
                         {
-                          communityBloc.addComment(
+                         await communityBloc.addComment(
                               postId: recievedData.post!.id!,
                               comment: value);
-
-                          await communityBloc.getAllComments(postId: recievedData.post!.id!);
-
                           communityBloc.addCommentControllerField.clear();
+
+                          communityBloc.getAllComments(postId: recievedData.post!.id!);
+
 
 
                         },

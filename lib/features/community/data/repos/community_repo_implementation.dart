@@ -118,25 +118,6 @@ class CommunityRepoImplementation implements CommunityRepo {
 
   }
 
-  @override
-  Future<Either<String, OnePostModel>> getOnePostDetails({required String token, required num postId}) async
-  {
-    try
-    {
-      final response=api.get(EndPoints.getOnePostEndPoint(
-          token: token,
-          postId: postId));
-
-      final OnePostModel onePostModel=OnePostModel.fromJson(response);
-      return Right(onePostModel);
-
-    } on ServerException catch(e)
-    {
-      return Left(e.errorModel.errorMessage);
-    }
-
-
-  }
 
   @override
   Future<Either<String,SearchPostModel>> searchForPosts({required String token, required String searchContent}) async {

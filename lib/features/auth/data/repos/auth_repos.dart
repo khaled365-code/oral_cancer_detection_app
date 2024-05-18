@@ -4,8 +4,8 @@ import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
 import 'package:graduation_project/features/auth/data/auth_model/log_out_model.dart';
-import 'package:graduation_project/features/auth/data/auth_model/login_model.dart';
 import 'package:graduation_project/features/auth/data/auth_model/register_model.dart';
+import 'package:graduation_project/features/auth/data/auth_model/sign_in_model/NewSignInModel.dart';
 import 'package:graduation_project/features/auth/data/auth_model/update_password_model.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
@@ -42,16 +42,21 @@ class AuthRepos {
 
    }
 
-   Future<Either<String,SignInModel>>signIn({required String email,required String password})async{
+   Future<Either<String,NewSignInModel>>signIn({required String email,required String password})async{
     try{
       final response=await api.post(EndPoints.loginEndPoint,
           data: {
             ApiKeys.email:email,ApiKeys.password:password
           },isFormData: true);
-      final user=SignInModel.fromJson(response);
-      final decodedToken=JwtDecoder.decode(user.token);
+      final NewSignInModel user=NewSignInModel.fromJson(response);
+      final decodedToken=JwtDecoder.decode(user.token!);
       CacheHelper().saveData(key: ApiKeys.token, value: user.token);
       CacheHelper().saveData(key: ApiKeys.id, value:decodedToken["sub"]);
+      CacheHelper().saveData(key: ApiKeys.name, value: user.user!.name);
+      CacheHelper().saveData(key: ApiKeys.email, value: user.user!.email);
+      CacheHelper().saveData(key: ApiKeys.profile_photo_url, value: user.user!.profilePhotoUrl);
+      CacheHelper().saveData(key: ApiKeys.created_at, value: user.user!.createdAt);
+
 
       return right(user);
     }

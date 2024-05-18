@@ -14,9 +14,11 @@ import 'package:graduation_project/features/community/presentation/screens/searc
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
@@ -114,8 +116,14 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
       case Routes.editProfilescreen:
-        return MaterialPageRoute(builder: (context) =>
-            EditProfileScreen(),);
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UpdateProfileCubit(
+                profileRepo: ProfileRepoImplementation(
+                    api: DioConsumer(dio: Dio(), isModel: false))),
+            child: EditProfileScreen(),
+          ),
+        );
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.aboutApp:

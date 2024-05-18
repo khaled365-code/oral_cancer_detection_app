@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
@@ -51,6 +52,7 @@ class PostContainer extends StatelessWidget {
     },
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
+
         return Container(
           width: 414.w,
           padding: EdgeInsetsDirectional.only(end: 20.w,),
@@ -184,6 +186,8 @@ class PostContainer extends StatelessWidget {
 
                             GestureDetector(
                                 onTap: () {
+                                  print(data.post!.id);
+                                  print(data.likedByThisUser);
                                   showModalBottomSheet(context: context,
                                     backgroundColor: AppColors.transparent,
                                     builder: (context) => RetweetBottomSheet(
@@ -204,20 +208,20 @@ class PostContainer extends StatelessWidget {
 
 
                             InkWell(
-                              onTap: ()
+                              onTap: () async
                                 {
-                                  communityBloc.addLikeCount(
-                                      postId: data.post!.id!,
-                                      userId: data.post!.userId!);
+                                  await communityBloc.addLikeCount(
+                                      postId: data.post!.id!,);
+                                  communityBloc.getAllPostsFun();
+
 
 
                                 },
-                                child: Container(
-                                    child: data.likedByThisUser==1?
-                                Image.asset(ImageConstants.redHeartImage):Image.asset(ImageConstants.heartImage)
-                                )),
-
-
+                                child: data.likedByThisUser==1? Container(
+                                    child:Image.asset(ImageConstants.redHeartImage)
+                                ): Container(
+                                        child: Image.asset(
+                                            ImageConstants.heartImage))),
                             SizedBox(width: 3.5.w,),
                             Text('${data.likeCount}',
                               style: AppKhaledStyles.textStyle(

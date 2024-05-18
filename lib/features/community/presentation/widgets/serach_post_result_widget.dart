@@ -46,7 +46,7 @@ class SearchResultWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: NetworkImage(serachModel!.post!.image!),
+                          image: NetworkImage(serachModel!.post!.image ?? ''),
                           fit: BoxFit.fill
                       )
                   ),
