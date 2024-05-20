@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,15 +16,21 @@ class QuestionChoice extends StatefulWidget {
    String QuestionTitle;
       List<String> answersList = [];
       bool showButton;
-    int? selectedAnswerIndex;
+      int? selectedAnswerIndex;
 
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
 }
+  int? selectedLocalizationIndex;
+  int? selectedTobaccoUseIndex;
+  int? selectedAlcoholConsumptionIndex;
+  int? selectedSunExposureIndex;
+  int? selectedGenderIndex;
+  int? selectedAgeGroupIndex;
+  int? selectedUlcersLastsMoreThan3WeeksIndex;
+  int? selectedUlcersSpreadingIndex;
 
 class QuestionChoiceState extends State<QuestionChoice> {
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +44,14 @@ class QuestionChoiceState extends State<QuestionChoice> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
                    SizedBox(height: 20.h,),
                    Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
                    SizedBox(height: 20.h,),
-                  Column(
-                    children: widget.answersList
-                        .map(
+                   Column(
+                     children: widget.answersList.map(
                           (answer) => RadioListTile(
-                        activeColor: AppColors.white,
-
-                        title: Text(answer
+                          activeColor: AppColors.white,
+                          title: Text(answer
                           ,style: AppTextStyles.font20,
                         ),
                         value: widget.answersList.indexOf(answer),
@@ -57,9 +59,33 @@ class QuestionChoiceState extends State<QuestionChoice> {
                         onChanged: (val) {
                           setState(() {
                              widget.selectedAnswerIndex = val!;
-                             
+                             switch (widget.QuestionTitle) {
+                                case "Where is the localization of the ulcer ?":
+                                selectedLocalizationIndex = val;
+                                break;
+                                case "Do you use tobacco?":
+                                selectedTobaccoUseIndex = val;
+                                break;
+                                case "Do you consume Alcohol?":
+                                selectedAlcoholConsumptionIndex = val;
+                                break;
+                                case "Do you get exposed to sun ?":
+                                selectedSunExposureIndex = val;
+                                break;
+                                case "What is your gender?":
+                                selectedGenderIndex = val;
+                                break;
+                                case  "What is your age?":
+                                selectedAgeGroupIndex = val;
+                                break;
+                               case "Do the ulcer last more than 3 weeks?":
+                                selectedUlcersLastsMoreThan3WeeksIndex = val;
+                                break;
+                                case "Do the ulcer spread?":
+                                selectedUlcersSpreadingIndex = val;
+                                break;
+                             }
                           });
-
                         },
                       ),
                     )
@@ -69,7 +95,13 @@ class QuestionChoiceState extends State<QuestionChoice> {
                      widget.showButton? CustomElevatedButton(
                        width: width,
                        onpress: (){
-                         BlocProvider.of<QuestionDiagnosisCubit>(context).questionDiagnosis(selectedVal: widget.selectedAnswerIndex!);
+                         BlocProvider.of<QuestionDiagnosisCubit>(context).
+                         questionDiagnosis(
+                             localization:selectedLocalizationIndex!, tobacoUse: selectedTobaccoUseIndex!,
+                             alcholConsumption:selectedAlcoholConsumptionIndex!, sunExposure: selectedSunExposureIndex!,
+                             gender:selectedGenderIndex!, ageGroup:selectedAgeGroupIndex!,
+                             ulcersLastsMoreThan3Weeks:selectedUlcersLastsMoreThan3WeeksIndex!,ulcersSpreading:selectedUlcersSpreadingIndex!
+                         );
                          navigate(context: context, route: Routes.result);
                       },
                        buttonBackground: AppColors.white, child:
