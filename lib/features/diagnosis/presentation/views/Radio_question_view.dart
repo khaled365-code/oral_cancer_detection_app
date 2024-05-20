@@ -12,6 +12,7 @@ import '../../../../core/utilis/colors.dart';
 
 
 class QuestionChoice extends StatefulWidget {
+
    QuestionChoice({Key? key,required this.answersList, required this.QuestionTitle,this.showButton=false}) : super(key: key);
    String QuestionTitle;
       List<String> answersList = [];
@@ -29,7 +30,6 @@ class QuestionChoice extends StatefulWidget {
   int? selectedAgeGroupIndex;
   int? selectedUlcersLastsMoreThan3WeeksIndex;
   int? selectedUlcersSpreadingIndex;
-
 class QuestionChoiceState extends State<QuestionChoice> {
 
   @override
@@ -58,33 +58,8 @@ class QuestionChoiceState extends State<QuestionChoice> {
                         groupValue:widget.selectedAnswerIndex,
                         onChanged: (val) {
                           setState(() {
-                             widget.selectedAnswerIndex = val!;
-                             switch (widget.QuestionTitle) {
-                                case "Where is the localization of the ulcer ?":
-                                selectedLocalizationIndex = val;
-                                break;
-                                case "Do you use tobacco?":
-                                selectedTobaccoUseIndex = val;
-                                break;
-                                case "Do you consume Alcohol?":
-                                selectedAlcoholConsumptionIndex = val;
-                                break;
-                                case "Do you get exposed to sun ?":
-                                selectedSunExposureIndex = val;
-                                break;
-                                case "What is your gender?":
-                                selectedGenderIndex = val;
-                                break;
-                                case  "What is your age?":
-                                selectedAgeGroupIndex = val;
-                                break;
-                               case "Do the ulcer last more than 3 weeks?":
-                                selectedUlcersLastsMoreThan3WeeksIndex = val;
-                                break;
-                                case "Do the ulcer spread?":
-                                selectedUlcersSpreadingIndex = val;
-                                break;
-                             }
+                            handleOnChangedRadioButton(val!);
+
                           });
                         },
                       ),
@@ -94,17 +69,11 @@ class QuestionChoiceState extends State<QuestionChoice> {
 
                      widget.showButton? CustomElevatedButton(
                        width: width,
-                       onpress: (){
-                         BlocProvider.of<QuestionDiagnosisCubit>(context).
-                         questionDiagnosis(
-                             localization:selectedLocalizationIndex!, tobacoUse: selectedTobaccoUseIndex!,
-                             alcholConsumption:selectedAlcoholConsumptionIndex!, sunExposure: selectedSunExposureIndex!,
-                             gender:selectedGenderIndex!, ageGroup:selectedAgeGroupIndex!,
-                             ulcersLastsMoreThan3Weeks:selectedUlcersLastsMoreThan3WeeksIndex!,ulcersSpreading:selectedUlcersSpreadingIndex!
-                         );
-                         navigate(context: context, route: Routes.result);
-                      },
-                       buttonBackground: AppColors.white, child:
+                       onpress: () {
+                         handleShowResultButton();
+
+                       }
+                      , buttonBackground: AppColors.white, child:
                      Row(
                          children: [
                            Text("showresult".tr(context),style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
@@ -115,5 +84,77 @@ class QuestionChoiceState extends State<QuestionChoice> {
 
 
     );
+  }
+  nullAllIndices(){
+    selectedLocalizationIndex=null;
+    selectedTobaccoUseIndex=null;
+    selectedAlcoholConsumptionIndex=null;
+    selectedSunExposureIndex=null;
+    selectedGenderIndex=null;
+    selectedAgeGroupIndex=null;
+    selectedUlcersLastsMoreThan3WeeksIndex=null;
+    selectedUlcersSpreadingIndex=null;
+  }
+
+  handleShowResultButton(){
+    if (selectedLocalizationIndex == null ||
+        selectedTobaccoUseIndex == null ||
+        selectedAlcoholConsumptionIndex == null ||
+        selectedSunExposureIndex == null ||
+        selectedGenderIndex == null ||
+        selectedAgeGroupIndex == null ||
+        selectedUlcersLastsMoreThan3WeeksIndex == null ||
+        selectedUlcersSpreadingIndex == null) {
+      showSnackBar(context,
+          content: 'ThereisaQuestionYouDidnotAnswer'.tr(context),
+          contentColor: AppColors.primary);
+      return;
+    }
+    else {
+      BlocProvider.of<QuestionDiagnosisCubit>(context).
+      questionDiagnosis(
+          context,
+          localization: selectedLocalizationIndex,
+          tobacoUse: selectedTobaccoUseIndex,
+          alcholConsumption: selectedAlcoholConsumptionIndex,
+          sunExposure: selectedSunExposureIndex,
+          gender: selectedGenderIndex,
+          ageGroup: selectedAgeGroupIndex,
+          ulcersLastsMoreThan3Weeks: selectedUlcersLastsMoreThan3WeeksIndex,
+          ulcersSpreading: selectedUlcersSpreadingIndex
+      );
+      navigate(context: context, route: Routes.result);
+      nullAllIndices();
+    }
+  }
+
+  handleOnChangedRadioButton(int val){
+    widget.selectedAnswerIndex = val;
+    switch (widget.QuestionTitle) {
+      case "Where is the localization of the ulcer ?":
+        selectedLocalizationIndex = val;
+        break;
+      case "Do you use tobacco?":
+        selectedTobaccoUseIndex = val;
+        break;
+      case "Do you consume Alcohol?":
+        selectedAlcoholConsumptionIndex = val;
+        break;
+      case "Do you get exposed to sun ?":
+        selectedSunExposureIndex = val;
+        break;
+      case "What is your gender?":
+        selectedGenderIndex = val;
+        break;
+      case  "What is your age?":
+        selectedAgeGroupIndex = val;
+        break;
+      case "Do the ulcer last more than 3 weeks?":
+        selectedUlcersLastsMoreThan3WeeksIndex = val;
+        break;
+      case "Do the ulcer spread?":
+        selectedUlcersSpreadingIndex = val;
+        break;
+    }
   }
 }

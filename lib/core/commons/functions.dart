@@ -57,12 +57,12 @@ Color getColor(ToastStates toastStates)
   }
 }
 
-showSnackBar(BuildContext context,{String? content,Color? color,Widget? specificWidget}){
+showSnackBar(BuildContext context,{ Color? contentColor,String? content,Color? backgroundColor,Widget? specificWidget}){
   ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: specificWidget ??Text(
-          content??'',style: AppTextStyles.font12,)
-        ,backgroundColor: color??AppColors.white,
+          content??'',style: AppTextStyles.font12.copyWith(color:contentColor??Colors.black ),)
+        ,backgroundColor: backgroundColor??AppColors.white,
         behavior: SnackBarBehavior.floating,
       )
   );

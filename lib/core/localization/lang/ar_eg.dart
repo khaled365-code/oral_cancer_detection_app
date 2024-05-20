@@ -94,5 +94,6 @@ final Map<String, String> arEg =
   "LeukoplakiaWithoutDysplasia":" الطلاوة بدون خلل التنسج",
   "OSCC":"سرطان الخلايا الحرشفية للفم",
   'Cancer':'سرطان',
-  'NonCancer':'لا سرطان'
+  'NonCancer':'لا سرطان',
+  'ThereisaQuestionYouDidnotAnswer':'هناك سؤال لم يتم الجواب عليه ,راجع الاسئله',
 };

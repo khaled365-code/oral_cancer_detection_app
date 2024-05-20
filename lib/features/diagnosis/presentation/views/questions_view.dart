@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -8,6 +9,7 @@ import 'package:graduation_project/features/diagnosis/presentation/widgets/tab_b
 
 class QuestionsView extends StatelessWidget {
   const QuestionsView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return  DefaultTabController(
@@ -19,8 +21,6 @@ class QuestionsView extends StatelessWidget {
                 child: Column(
                   children: [
                       TabBar(
-                        
-
                       labelStyle:AppTextStyles.font15.copyWith(fontWeight: FontWeight.bold),
                       isScrollable: true,
                       labelColor: AppColors.white,
@@ -29,7 +29,6 @@ class QuestionsView extends StatelessWidget {
                       labelPadding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                       tabs:  [
                         Tab(child: TabBarContainer(text: "first".tr(context)))
-                        // Tab(text: "second".tr(context),),
                        , Tab(child: TabBarContainer(text: "second".tr(context))),
                         Tab(child: TabBarContainer(text: "third".tr(context)),),
                         Tab(child: TabBarContainer(text:"fourth".tr(context))),
