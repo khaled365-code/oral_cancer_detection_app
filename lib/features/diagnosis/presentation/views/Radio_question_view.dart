@@ -36,6 +36,7 @@ class QuestionChoiceState extends State<QuestionChoice> {
   Widget build(BuildContext context) {
     double width=MediaQuery.of(context).size.width*0.35;
     return CustomFormContainer(
+
             borderRadius:  BorderRadius.all(Radius.circular(40.r)),
             height: 500.h,
             width: ScreenUtil().screenWidth,
@@ -50,9 +51,10 @@ class QuestionChoiceState extends State<QuestionChoice> {
                    Column(
                      children: widget.answersList.map(
                           (answer) => RadioListTile(
-                          activeColor: AppColors.white,
+
+                          activeColor: AppColors.grey,
                           title: Text(answer
-                          ,style: AppTextStyles.font20,
+                          ,style: AppTextStyles.font20.copyWith(color: AppColors.white),
                         ),
                         value: widget.answersList.indexOf(answer),
                         groupValue:widget.selectedAnswerIndex,

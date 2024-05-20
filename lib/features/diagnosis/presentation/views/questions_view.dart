@@ -25,7 +25,7 @@ class QuestionsView extends StatelessWidget {
                       isScrollable: true,
                       labelColor: AppColors.white,
                       indicatorColor: AppColors.primary,
-                        unselectedLabelColor: Colors.black,
+                        unselectedLabelColor: Colors.grey,
                       labelPadding:  EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                       tabs:  [
                         Tab(child: TabBarContainer(text: "first".tr(context)))
