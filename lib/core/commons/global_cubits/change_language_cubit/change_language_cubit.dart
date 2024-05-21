@@ -5,6 +5,7 @@ part 'change_language_state.dart';
 
 class ChangeLanguageCubit extends Cubit<ChangeLanguageState> {
   ChangeLanguageCubit() : super(ChangeLanguageInitial());
+
   String pressedLanguage='';
   String languageCode='en';
   bool isArabic=false;

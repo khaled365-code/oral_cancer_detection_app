@@ -14,6 +14,11 @@ import 'package:graduation_project/features/profile/data/models/update_profile_m
       {required String userId,required String token,String? name,String? email,MultipartFile? updatedPhoto});
 
 
+  Future<Either<String,String>>updatePassword({required String userId,required String token,required String oldPassword,required String newPassword,required String confirmNewPassword});
+
+  Future<Either<String,String>>logout({required String token});
+
+
 
 
 
