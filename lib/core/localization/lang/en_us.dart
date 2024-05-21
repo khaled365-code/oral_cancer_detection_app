@@ -164,8 +164,8 @@ final Map<String, String> enUs =
   "Enterthesize": "Enter the size",
   "pleaseNote": "Please note that this result is not definitive and it is important to consult a doctor for further testing and evaluation , we can suggest a professional doctors for you...💙",
   'TestResult':'Test Result',
-  'DiseaseName':'Disease Name:  oscc(oral squamous cancer cell)',
-  'Classification:cancer':'Classification:  cancer',
+  'DiseaseName':'Disease Name: ',
+  'Classification:':'Classification: ',
   'BackToHome':'Back To Home',
   "login":"Login",
   "welcome back":"Welcome Back!",
@@ -182,4 +182,11 @@ final Map<String, String> enUs =
   "Confirm password":"Confirm  password",
   "Confirm your password":"Confirm your password",
   "Already have an account?":"Already have an account?",
+  "leukoplakiaWithDysplasia":"Leukoplakia with dysplasia",
+  "LeukoplakiaWithoutDysplasia":"Leukoplakia without dysplasia",
+  "OSCC":"OSCC",
+  'Cancer':'Cancer',
+  'NonCancer':'Non Cancer',
+  'ThereisaQuestionYouDidnotAnswer':'There is a question you did not answer! please check it'
+
 };

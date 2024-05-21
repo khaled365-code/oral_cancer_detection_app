@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 
 import '../utilis/app_text_styles.dart';
 import '../utilis/colors.dart';
@@ -58,12 +57,12 @@ Color getColor(ToastStates toastStates)
   }
 }
 
-showSnackBar(BuildContext context,{String? content,Color? color,Widget? specificWidget}){
+showSnackBar(BuildContext context,{ Color? contentColor,String? content,Color? backgroundColor,Widget? specificWidget}){
   ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: specificWidget ??Text(
-          content??'',style: AppTextStyles.font12,)
-        ,backgroundColor: color??AppColors.white,
+          content??'',style: AppTextStyles.font12.copyWith(color:contentColor??Colors.black ),)
+        ,backgroundColor: backgroundColor??AppColors.white,
         behavior: SnackBarBehavior.floating,
       )
   );

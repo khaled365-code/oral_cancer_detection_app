@@ -1,34 +1,42 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_form_container.dart';
+import 'package:graduation_project/features/diagnosis/data/manager/question_diagnosis_cubit.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 
 
 class QuestionChoice extends StatefulWidget {
+
    QuestionChoice({Key? key,required this.answersList, required this.QuestionTitle,this.showButton=false}) : super(key: key);
    String QuestionTitle;
       List<String> answersList = [];
       bool showButton;
+      int? selectedAnswerIndex;
 
   @override
   State<QuestionChoice> createState() => QuestionChoiceState();
 }
-
+  int? selectedLocalizationIndex;
+  int? selectedTobaccoUseIndex;
+  int? selectedAlcoholConsumptionIndex;
+  int? selectedSunExposureIndex;
+  int? selectedGenderIndex;
+  int? selectedAgeGroupIndex;
+  int? selectedUlcersLastsMoreThan3WeeksIndex;
+  int? selectedUlcersSpreadingIndex;
 class QuestionChoiceState extends State<QuestionChoice> {
-  int questionCounter=1;
-  int? selectedAnswerIndex;
-
 
   @override
   Widget build(BuildContext context) {
     double width=MediaQuery.of(context).size.width*0.35;
     return CustomFormContainer(
+
             borderRadius:  BorderRadius.all(Radius.circular(40.r)),
             height: 500.h,
             width: ScreenUtil().screenWidth,
@@ -37,45 +45,40 @@ class QuestionChoiceState extends State<QuestionChoice> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                //  Text("$questionCounter /9",textAlign: TextAlign.center,style: AppTextStyles.font18.copyWith(color: AppColors.primary,))
                    SizedBox(height: 20.h,),
                    Text(widget.QuestionTitle,style: AppTextStyles.font24.copyWith(color: AppColors.white),textAlign: TextAlign.center,),
                    SizedBox(height: 20.h,),
-                  Column(
-                    children: widget.answersList
-                        .map(
+                   Column(
+                     children: widget.answersList.map(
                           (answer) => RadioListTile(
-                        activeColor: AppColors.white,
 
-                        title: Text(answer
-                          ,style: AppTextStyles.font20,
+                          activeColor: AppColors.grey,
+                          title: Text(answer
+                          ,style: AppTextStyles.font20.copyWith(color: AppColors.white),
                         ),
                         value: widget.answersList.indexOf(answer),
-                        groupValue: selectedAnswerIndex,
-                        onChanged: (value) {
+                        groupValue:widget.selectedAnswerIndex,
+                        onChanged: (val) {
                           setState(() {
-                            selectedAnswerIndex = value;
+                            handleOnChangedRadioButton(val!);
+
                           });
                         },
                       ),
                     )
                         .toList(),
                   ), SizedBox(height: 40.h,),
-                  // Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                     // CustomElevatedButton( onpress: (){},buttonBackground: AppColors.primary, child: const Row(children: [Icon(Icons.arrow_back_outlined),Text("Back")],),),
+
                      widget.showButton? CustomElevatedButton(
                        width: width,
-                       onpress: (){
-                        navigate(context: context, route: Routes.result);
-                      },
-                       buttonBackground: AppColors.white, child:
+                       onpress: () {
+                         handleShowResultButton();
+
+                       }
+                      , buttonBackground: AppColors.white, child:
                      Row(
                          children: [
                            Text("showresult".tr(context),style: AppTextStyles.font12.copyWith(color: AppColors.primary),),Icon(Icons.arrow_forward,color: AppColors.primary,),]),):SizedBox()
-                  //   ],
-                  // )
-
                 ],
               ),
             ),
@@ -83,5 +86,77 @@ class QuestionChoiceState extends State<QuestionChoice> {
 
 
     );
+  }
+  nullAllIndices(){
+    selectedLocalizationIndex=null;
+    selectedTobaccoUseIndex=null;
+    selectedAlcoholConsumptionIndex=null;
+    selectedSunExposureIndex=null;
+    selectedGenderIndex=null;
+    selectedAgeGroupIndex=null;
+    selectedUlcersLastsMoreThan3WeeksIndex=null;
+    selectedUlcersSpreadingIndex=null;
+  }
+
+  handleShowResultButton(){
+    if (selectedLocalizationIndex == null ||
+        selectedTobaccoUseIndex == null ||
+        selectedAlcoholConsumptionIndex == null ||
+        selectedSunExposureIndex == null ||
+        selectedGenderIndex == null ||
+        selectedAgeGroupIndex == null ||
+        selectedUlcersLastsMoreThan3WeeksIndex == null ||
+        selectedUlcersSpreadingIndex == null) {
+      showSnackBar(context,
+          content: 'ThereisaQuestionYouDidnotAnswer'.tr(context),
+          contentColor: AppColors.primary);
+      return;
+    }
+    else {
+      BlocProvider.of<QuestionDiagnosisCubit>(context).
+      questionDiagnosis(
+          context,
+          localization: selectedLocalizationIndex,
+          tobacoUse: selectedTobaccoUseIndex,
+          alcholConsumption: selectedAlcoholConsumptionIndex,
+          sunExposure: selectedSunExposureIndex,
+          gender: selectedGenderIndex,
+          ageGroup: selectedAgeGroupIndex,
+          ulcersLastsMoreThan3Weeks: selectedUlcersLastsMoreThan3WeeksIndex,
+          ulcersSpreading: selectedUlcersSpreadingIndex
+      );
+      navigate(context: context, route: Routes.result);
+      nullAllIndices();
+    }
+  }
+
+  handleOnChangedRadioButton(int val){
+    widget.selectedAnswerIndex = val;
+    switch (widget.QuestionTitle) {
+      case "Where is the localization of the ulcer ?":
+        selectedLocalizationIndex = val;
+        break;
+      case "Do you use tobacco?":
+        selectedTobaccoUseIndex = val;
+        break;
+      case "Do you consume Alcohol?":
+        selectedAlcoholConsumptionIndex = val;
+        break;
+      case "Do you get exposed to sun ?":
+        selectedSunExposureIndex = val;
+        break;
+      case "What is your gender?":
+        selectedGenderIndex = val;
+        break;
+      case  "What is your age?":
+        selectedAgeGroupIndex = val;
+        break;
+      case "Do the ulcer last more than 3 weeks?":
+        selectedUlcersLastsMoreThan3WeeksIndex = val;
+        break;
+      case "Do the ulcer spread?":
+        selectedUlcersSpreadingIndex = val;
+        break;
+    }
   }
 }

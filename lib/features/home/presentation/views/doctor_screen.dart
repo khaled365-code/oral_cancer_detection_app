@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
-
 import 'componants/doctor_card.dart';
 
 class DoctorPage extends StatelessWidget{
@@ -12,19 +11,6 @@ class DoctorPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:AppColors.background,
-      // appBar: AppBar(
-      //   elevation: 0 ,
-      //   backgroundColor:AppColors.background,
-      //   centerTitle: true,
-      //   title:const  Text('Recommended Doctors',
-      //     style:TextStyle(
-      //       fontSize: 24,
-      //       fontWeight: FontWeight.bold,
-      //       fontStyle: FontStyle.italic,
-      //       color: AppColors.primary,
-      //     ),
-      //   ),
-      // ),
       body: Padding(
         padding:EdgeInsetsDirectional.only(top:16.h,end: 16.w,start: 16.w ),
         child:SingleChildScrollView(
