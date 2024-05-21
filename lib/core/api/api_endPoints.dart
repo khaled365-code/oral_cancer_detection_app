@@ -1,14 +1,18 @@
 class EndPoints{
   static String textModelBaseUrl="http://10.0.2.2:5000/";
-  static String baseUrl="https://68cd-197-134-59-99.ngrok-free.app/api/";
+  static String baseUrl="https://e82b-197-134-59-99.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String updatePasswordEndPoint="update/profilepass/";
-  static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
   static String predict="predict";
 
 
+
+  static String logoutEndPoint({required String token})
+  {
+    return 'auth/logout?token=$token';
+  }
 
   static String updateProfileEndPoint({required String userId})
   {

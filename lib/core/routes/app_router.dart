@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
@@ -18,6 +19,7 @@ import 'package:graduation_project/features/profile/data/repos/profile_repo_impl
 import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/manager/update_password_cubit/update_password_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
@@ -89,7 +91,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.putNewPassword:
         return MaterialPageRoute(
-          builder: (context) => const PutNewPasswordScreen(),);
+          builder: (context) => BlocProvider(
+            create: (context) => UpdatePasswordFromSettingsCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(), isModel: false))),
+              child: const PutNewPasswordScreen()),);
       case Routes.sendCode:
         return MaterialPageRoute(builder: (context) => const SendCode(),);
       case Routes.onBoard:
