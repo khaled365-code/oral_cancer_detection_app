@@ -1,6 +1,6 @@
 class EndPoints{
   static String textModelBaseUrl="http://10.0.2.2:5000/";
-  static String baseUrl="https://9c58-197-134-59-99.ngrok-free.app/api/";
+  static String baseUrl="https://68cd-197-134-59-99.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
   static String updatePasswordEndPoint="update/profilepass/";

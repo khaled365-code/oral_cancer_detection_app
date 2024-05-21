@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
@@ -19,7 +18,7 @@ import 'package:graduation_project/features/home/presentation/views/componants/b
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
-//////////////////
+
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
   @override
@@ -87,12 +86,11 @@ class HomePageState extends State<HomePage> {
   }
   PreferredSize showAppBar(){
     if(selectedIndex==0 || selectedIndex==1){
-
       return PreferredSize(
           preferredSize: Size(double.infinity, 40.h),
           child: DefaultAppBar(
             hasTitle: false,
-            hasActions: true,
+            hasActions:false,
             hasLeading: true,
             leading: Builder(builder: (context) {
               return GestureDetector(
@@ -100,22 +98,8 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.background));
             }),
-            actions: [
-              Padding(
-                padding: EdgeInsetsDirectional.only(end: 20.w),
-                child: IconButton(
-                  onPressed: () {
-                    navigate(context: context, route: Routes.profileScreen);
-                  },
-                  icon: Icon(
-                    Icons.person,
-                    size: 35,
-                  ),
-                ),
-              )
-            ],
             backgroundColor: AppColors.primary,
           ));
     }
@@ -161,7 +145,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines,color: AppColors.black));
+                  child: Image.asset(ImageConstants.homelines,color: AppColors.background));
             }
         ),
         title: Text('Medical News'),backgroundColor:AppColors.primary ,));
@@ -178,7 +162,7 @@ class HomePageState extends State<HomePage> {
                   {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Image.asset(ImageConstants.homelines,color: AppColors.black,));
+                  child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
             }
         ),
         title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
