@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../../data/models/news_model.dart';
 import 'news_card.dart';
 

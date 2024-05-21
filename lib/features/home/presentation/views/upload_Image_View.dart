@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'componants/upload_image_body.dart';
 
 class UploadImageView extends StatelessWidget {

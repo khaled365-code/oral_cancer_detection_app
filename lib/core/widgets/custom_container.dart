@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key, required this.conHeight,
-    required this.conWidth,  required this.conImage,this.borderRadius
+    required this.conWidth,  required this.conImage,this.borderRadius,this.border
   });
 
   final double conHeight;
   final double conWidth;
   final String conImage;
   final BorderRadiusGeometry? borderRadius;
+  final Border? border;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class CustomContainer extends StatelessWidget {
       width:conWidth,
       decoration:BoxDecoration(
         borderRadius:borderRadius ,
+        border:border ,
         image: DecorationImage(
           image: AssetImage(conImage),
           fit: BoxFit.fill,
