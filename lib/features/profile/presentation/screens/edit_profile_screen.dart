@@ -18,6 +18,8 @@ import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
