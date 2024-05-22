@@ -5,7 +5,10 @@ abstract class ChangeThemeState {}
 
 class ChangeThemeInitial extends ChangeThemeState {}
 class ChangeThemeLoadingState extends ChangeThemeState {}
-class ChangeThemeSuccessState extends ChangeThemeState {
-  ChangeThemeSuccessState({required this.message});
-  final String message;
+class ChangeThemeSuccessState extends ChangeThemeState
+{
+  final String successMessage;
+  ChangeThemeSuccessState({required this.successMessage});
 }
+
+class ChangeThemeCurrentActiveState extends ChangeThemeState {}

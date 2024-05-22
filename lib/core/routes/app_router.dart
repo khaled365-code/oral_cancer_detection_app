@@ -22,8 +22,10 @@ import 'package:graduation_project/features/profile/presentation/manager/help_sc
 import 'package:graduation_project/features/profile/presentation/manager/update_password_cubit/update_password_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/dark_mode.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
@@ -52,6 +54,10 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
+      case Routes.darkModeScreen:
+        return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
+      case Routes.initialProfileScreen:
+        return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
         return MaterialPageRoute(builder: (context) => const CommentScreen(),settings: routeSettings);
       case Routes.termsAndConditionsScreen:
@@ -92,7 +98,7 @@ class AppRoutes {
       case Routes.putNewPassword:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => UpdatePasswordFromSettingsCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false, ))),
+            create: (context) => UpdatePasswordFromSettingsCubit(profileRepoImplementation: ProfileRepoImplementation(api:DioConsumer(dio: Dio(), isModel: false))),
               child: const PutNewPasswordScreen()),);
       case Routes.sendCode:
         return MaterialPageRoute(builder: (context) => const SendCode(),);
@@ -112,7 +118,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) =>
             BlocProvider(
                 create: (context) =>
-                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false))),
+                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isModel: false))),
                 child: const LoginPage()),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);
@@ -124,7 +130,7 @@ class AppRoutes {
           builder: (context) => BlocProvider(
             create: (context) => UpdateProfileCubit(
                 profileRepo: ProfileRepoImplementation(
-                    api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+                    api: DioConsumer(dio: Dio(), isModel: false))),
             child: EditProfileScreen(),
           ),
         );
