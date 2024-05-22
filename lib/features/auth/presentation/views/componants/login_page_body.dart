@@ -13,6 +13,7 @@ import 'package:graduation_project/core/widgets/custom_textformfield.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_in_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/componants/custom_empty_container.dart';
 import '../../../../../core/commons/functions.dart';
+import '../../../../../core/utilis/app_styles.dart';
 
 class LoginBody extends StatefulWidget{
   const LoginBody({super.key});
@@ -129,6 +130,30 @@ class _LoginBodyState extends State<LoginBody> {
                          ),
                        ],
                      ),
+                     Padding(
+                       padding:  EdgeInsetsDirectional.only(top: 20.h),
+                       child: GestureDetector(
+                         onTap: ()
+                         {
+                           navigate(context: context, route: Routes.home);
+                         },
+                         child: Container(
+                           width: 80.w,
+                           height: 50.h,
+                           decoration: BoxDecoration(
+                             borderRadius: BorderRadius.circular(16),
+                             color: AppColors.c4C9EEB,
+                           ),
+                           child: Center(
+                             child: Text('Home',style: AppKhaledStyles.textStyle(
+                                 color: AppColors.black,
+                                 size: 15,
+                                 weight: FontWeight.w700
+                             ),),
+                           ),
+                         ),
+                       ),
+                     )
 
                      ],
 
