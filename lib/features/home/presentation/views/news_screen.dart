@@ -36,7 +36,6 @@ class _MedicalNewsState extends State<MedicalNews> {
          }
 
        },
-
      )
     );
   }
