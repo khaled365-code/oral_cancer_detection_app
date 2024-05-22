@@ -10,6 +10,7 @@ import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
+import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'core/cache/cache_helper.dart';
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel:true, isImageModel: false,))) ),
+        BlocProvider<ImageDiagnosisCubit>(create: (context) => ImageDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel:false, isImageModel:true,))) ),
         BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false,)))),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))..getAllPostsFun()),
