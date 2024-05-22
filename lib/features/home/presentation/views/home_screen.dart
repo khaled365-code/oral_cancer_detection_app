@@ -125,7 +125,8 @@ class HomePageState extends State<HomePage> {
         Padding(
         padding:EdgeInsetsDirectional.only(end: 20.w,),
         child: GestureDetector(
-          onTap: (){
+          onTap: ()
+          {
             navigate(context: context, route: Routes.searchPostsScreen);
           },
             child: Image.asset(ImageConstants.searchCommunityImage,color: AppColors.primary,))

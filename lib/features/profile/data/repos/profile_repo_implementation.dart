@@ -97,4 +97,45 @@ class ProfileRepoImplementation implements ProfileRepo {
     
   }
 
+  @override
+  Future<Either<String, String>> updatePassword({required String userId, required String token, required String oldPassword, required String newPassword, required String confirmNewPassword}) async
+  {
+    try
+        {
+          final response=await api.post(EndPoints.updatePasswordEndPoint,
+            data: {
+            ApiKeys.current_password:oldPassword,
+              ApiKeys.password:newPassword,
+              ApiKeys.password_confirmation:confirmNewPassword,
+              ApiKeys.token:token,
+              ApiKeys.user_id:userId
+            }
+          );
+
+          return Right(response['message']);
+
+
+        }on ServerException catch (e)
+        {
+          return Left(e.errorModel.errorMessage);
+        }
+
+
+  }
+
+  @override
+  Future<Either<String, String>> logout({required String token}) async
+  {
+    try
+    {
+      final response=await api.post(EndPoints.logoutEndPoint(token: token));
+      
+      return Right(response['message']);
+
+    }on ServerException catch(e)
+    {
+      return Left(e.errorModel.errorMessage);
+    }
+  }
+
 }

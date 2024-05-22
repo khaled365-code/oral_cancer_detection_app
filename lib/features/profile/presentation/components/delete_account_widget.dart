@@ -36,7 +36,7 @@ class DeleteAccountwidget extends StatelessWidget {
           Padding(
               padding: EdgeInsetsDirectional.only(top: 25.h),
             child: ResuableText(text: 'Delete Account',
-              fontSize: 13,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -51,7 +51,7 @@ class DeleteAccountwidget extends StatelessWidget {
           ),
           Spacer(),
           ResuableText(text: 'Are You Sure You Want to Delete Account?',
-          fontSize: 11,
+          fontSize: 14,
           fontWeight: FontWeight.normal,
           color:AppColors.grey ,),
           Padding(
@@ -69,7 +69,9 @@ class DeleteAccountwidget extends StatelessWidget {
                   height: 50,
                   buttonColor: AppColors.white,
                   btnTextStyle: AppKhaledStyles.textStyle(
-                    color: AppColors.primary
+                    color: AppColors.primary,
+                      size: 18
+
                   ),
                 ),
                 SizedBox(width: 10.w,),
@@ -78,7 +80,9 @@ class DeleteAccountwidget extends StatelessWidget {
                   borderRadiusValue: 25.r,
                   height: 50,
                   btnTextStyle: AppKhaledStyles.textStyle(
-                      color: AppColors.white
+                      color: AppColors.white,
+                      size: 18
+
                   ),
 
                 ),
