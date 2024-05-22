@@ -1,18 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
-import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
-import 'package:graduation_project/features/profile/presentation/manager/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
@@ -56,12 +51,7 @@ class HomePageState extends State<HomePage> {
       backgroundColor:const Color(0xfffafafa),
       drawer: Drawer(
         width: MediaQuery.of(context).size.width,
-        child: BlocProvider(
-          create: (context) => GetProfileDataCubit(
-              profileRepoImplementation: ProfileRepoImplementation(
-                  api: DioConsumer(dio: Dio(), isModel: false))),
-          child: ProfileOutScreen(),
-        ),
+        child: ProfileOutScreen(),
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(

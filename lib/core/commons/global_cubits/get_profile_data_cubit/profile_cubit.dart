@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/features/profile/data/models/get_profile_data_model/profile_data_model.dart';
 import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:meta/meta.dart';
@@ -30,6 +31,21 @@ class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
 
 
   ];
+
+
+  getProfileDataFun() async
+  {
+    emit(GetProfileDataLoadingState());
+
+    final response=await profileRepoImplementation.getProfileData(
+        userId: CacheHelper().getData(key: ApiKeys.id),
+        token: CacheHelper().getData(key: ApiKeys.token));
+
+    response.fold((error) => GetProfileDataFailureState(errorMessage: error),
+            (success) => emit(GetProfileDataSucccessState(getProfileDataModel: success)));
+
+
+  }
 
 
 

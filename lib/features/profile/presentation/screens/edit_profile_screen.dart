@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
@@ -36,7 +37,8 @@ class EditProfileScreen extends StatelessWidget {
         if(state is UpdateProfileSuccessState)
         {
           showToast(msg: 'Profile Updated Successfully', toastStates: ToastStates.success);
-          Navigator.pop(context);
+          BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+          navigate(context: context, route: Routes.initialProfileScreen);
         }
         else if(state is UpdateProfileFailureState)
         {
@@ -163,6 +165,7 @@ class EditProfileScreen extends StatelessWidget {
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                   child: CustomOutlinedTextField(
+
                     controller: updateProfileCubit.phoneController,
                     keyboardType: TextInputType.text,),
                 ),
@@ -263,9 +266,45 @@ class EditProfileScreen extends StatelessWidget {
                       width: 510,
                       onPressed: ()
                       {
-                        updateProfileCubit.updateProfileFun(
-                            updatedPhoto: updateProfileCubit.updatedProfilePic
-                        );
+                        if(updateProfileCubit.nameController.text=='' &&
+                            updateProfileCubit.emailController.text==''&&
+                            updateProfileCubit.updatedProfilePic==null&&
+                            updateProfileCubit.dateOfBirthController.text==''&&
+                            updateProfileCubit.genderController.text==''&&
+                            updateProfileCubit.phoneController.text=='')
+                          {
+                            showToast(msg: 'No changes to update', toastStates: ToastStates.error);
+                          }
+
+                        else if(updateProfileCubit.nameController.text!=''&& updateProfileCubit.emailController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                              name: updateProfileCubit.nameController.text,
+                                email: updateProfileCubit.emailController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else if(updateProfileCubit.nameController.text==''&& updateProfileCubit.emailController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                email: updateProfileCubit.emailController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else if(updateProfileCubit.emailController.text==''&& updateProfileCubit.nameController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                name: updateProfileCubit.nameController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+
                       },
                       hasBorderRadius: true,
                       borderRadiusValue: 30,
