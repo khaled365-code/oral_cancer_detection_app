@@ -28,6 +28,8 @@ class SettingsItemWidget extends StatelessWidget {
           case 1:
             showModalBottomSheet(
                 context: context, builder: (context) => DeleteAccountwidget());
+          case 2:
+            navigate(context: context, route: Routes.darkModeScreen);
         }
       },
       child: Container(
@@ -44,7 +46,9 @@ class SettingsItemWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20.w,),
-            LineWidget(),
+            LineWidget(
+              height: 2,
+            ),
           ],
         ),
       ),

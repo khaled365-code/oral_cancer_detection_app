@@ -43,8 +43,7 @@ class MyAppWithLanguage extends StatelessWidget {
          builder: (context, state) {
           return MaterialApp(
 
-
-          theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
+          theme:context.read<ChangeThemeCubit>().isDarkMode==true?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
             localizationsDelegates: const [
               AppLocalizationDelegate(),

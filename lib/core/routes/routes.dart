@@ -47,7 +47,11 @@ class Routes
   static const String  commentScreen='/comment_screen';
 
 
-  static const String  initialProfileScreen='initial_profile_screen';
+  static const String  initialProfileScreen='/initial_profile_screen';
+
+
+  static const String  darkModeScreen='/dark_mode_screen';
+
 
 
 

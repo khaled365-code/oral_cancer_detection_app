@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/features/profile/data/models/settings_data_model.dart';
 import '../../../../core/utilis/app_styles.dart';
@@ -17,7 +16,9 @@ class SettingsScreen extends StatefulWidget {
 }
    final List<SettingsDataModel> settingsDataList=[
      SettingsDataModel(settingName: 'Password Manager', iconForm: Icons.lock_outlined),
-     SettingsDataModel(settingName: 'Delete Account', iconForm: Icons.cancel_outlined)
+     SettingsDataModel(settingName: 'Delete Account', iconForm: Icons.cancel_outlined),
+     SettingsDataModel(settingName: 'Dark Mode', iconForm:FontAwesomeIcons.moon)
+
 
    ];
 class SettingsScreenState extends State<SettingsScreen> {
@@ -63,7 +64,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                  settingsDataModel: settingsDataList[index],
                 ),
                 separatorBuilder: (context, index) => SizedBox(height: 10.h,),
-                itemCount: 2),
+                itemCount: settingsDataList.length),
           )
          
 
