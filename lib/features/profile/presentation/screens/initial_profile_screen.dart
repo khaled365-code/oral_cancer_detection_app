@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/utilis/custom_app_bar.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
 import 'package:graduation_project/features/profile/presentation/components/profile_item_widget.dart';
-import 'package:graduation_project/features/profile/presentation/manager/get_profile_data_cubit/profile_cubit.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 
@@ -19,10 +19,8 @@ class ProfileOutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-    return BlocConsumer<GetProfileDataCubit, GetProfileDataCubitState>(
-          listener: (context, state)
-          {
+        return BlocConsumer<GetProfileDataCubit, GetProfileDataCubitState>(
+          listener: (context, state) {
 
           },
           builder: (context, state) {
@@ -65,10 +63,36 @@ class ProfileOutScreen extends StatelessWidget {
                 child: CustomScrollView(
                   slivers:
                   [
+                    state is GetProfileDataSucccessState?
                     SliverToBoxAdapter(
                       child: Center(
                         child: CustomImagePickerAvatar(
-                          image: NetworkImage(CacheHelper().getData(key: ApiKeys.profile_photo_url)),
+                          image: NetworkImage(
+                              state.getProfileDataModel.data!.profilePhotoUrl!),
+                          hasBottom: true,
+                          hasEnd: true,
+                          hasCustomChild: true,
+                          customChild: Container(
+                            width: 35.w,
+                            height: 35.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.c0165FC,
+                                border: Border.all(
+                                    color: AppColors.white, width: 2.w)),
+                            child: Image.asset(
+                              ImageConstants.pencilImage,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ):
+                    SliverToBoxAdapter(
+                      child: Center(
+                        child: CustomImagePickerAvatar(
+                          image: NetworkImage(CacheHelper().getData(
+                              key: ApiKeys.profile_photo_url)),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -94,34 +118,54 @@ class ProfileOutScreen extends StatelessWidget {
                         height: 15.h,
                       ),
                     ),
-
+                    state is GetProfileDataSucccessState?
                     SliverToBoxAdapter(
-                      child: Center(
-                        child: Text(
-                          CacheHelper().getData(key: ApiKeys.name),
-                          style: AppKhaledStyles.textStyle(
-                              color: AppColors.black,
-                              weight: FontWeight.bold,
-                              size: 15.sp),
-                        ),
-                      )),
+                        child: Center(
+                          child: Text(
+                            state.getProfileDataModel.data!.name!,
+                            style: AppKhaledStyles.textStyle(
+                                color: AppColors.black,
+                                weight: FontWeight.bold,
+                                size: 15.sp),
+                          ),
+                        )):
+                    SliverToBoxAdapter(
+                        child: Center(
+                          child: Text(
+                            CacheHelper().getData(key: ApiKeys.name),
+                            style: AppKhaledStyles.textStyle(
+                                color: AppColors.black,
+                                weight: FontWeight.bold,
+                                size: 15.sp),
+                          ),
+                        )),
 
                     SliverToBoxAdapter(
                       child: SizedBox(
                         height: 3.h,
                       ),
                     ),
-
+                    state is GetProfileDataSucccessState?
                     SliverToBoxAdapter(
-                      child: Center(
-                        child: Text(
-                          CacheHelper().getData(key: ApiKeys.email),
-                          style: AppKhaledStyles.textStyle(
-                              color: AppColors.grey,
-                              weight: FontWeight.normal,
-                              size: 15.sp),
-                        ),
-                      )),
+                        child: Center(
+                          child: Text(
+                          state.getProfileDataModel.data!.email!,
+                            style: AppKhaledStyles.textStyle(
+                                color: AppColors.grey,
+                                weight: FontWeight.normal,
+                                size: 15.sp),
+                          ),
+                        )):
+                    SliverToBoxAdapter(
+                        child: Center(
+                          child: Text(
+                            CacheHelper().getData(key: ApiKeys.email),
+                            style: AppKhaledStyles.textStyle(
+                                color: AppColors.grey,
+                                weight: FontWeight.normal,
+                                size: 15.sp),
+                          ),
+                        )),
 
                     SliverToBoxAdapter(
                       child: SizedBox(
