@@ -39,7 +39,7 @@ class AiRepository {
   }
 
   Future<Either<String, ImageDiagnosisModel>> imageDiagnosis(
-      {required File image}) async {
+      {required XFile image}) async {
    try{
 
      final response = await api.post(EndPoints.classify,
