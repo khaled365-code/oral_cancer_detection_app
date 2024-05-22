@@ -95,7 +95,6 @@ class AppRoutes {
       case Routes.putNewPassword:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => UpdatePasswordFromSettingsCubit(profileRepoImplementation: ProfileRepoImplementation(api:DioConsumer(dio: Dio(), isModel: false))),
             create: (context) => UpdatePasswordFromSettingsCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false, ))),
               child: const PutNewPasswordScreen()),);
       case Routes.sendCode:

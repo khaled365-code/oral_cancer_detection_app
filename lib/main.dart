@@ -85,8 +85,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: true, isImageModel: false))) ),
         BlocProvider<ImageDiagnosisCubit>(create: (context) => ImageDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: true))) ),
 
-        BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isModel: true))) ),
-        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(), isModel: false)))),
+        BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))) ),
+        BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(),  isTextModel: false, isImageModel: false)))),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))..getAllPostsFun()),
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
@@ -95,11 +95,6 @@ class MyApp extends StatelessWidget {
         BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))),
         BlocProvider<SignUpCubit>(create:
             (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio() ,isTextModel: false, isImageModel: false)))),
-
-        // BlocProvider<LogOutCubit>(create:
-        //     (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false,isImageModel: false)))),
-        // ),
-
       ],
       child: ScreenUtilInit(
         designSize: Size(360, 690),

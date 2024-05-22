@@ -1,5 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
@@ -11,6 +13,9 @@ import 'package:graduation_project/features/community/presentation/screens/commu
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
+import '../../../../core/api/dio_consumer.dart';
+import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import '../../../profile/data/repos/profile_repo_implementation.dart';
 import 'doctor_screen.dart';
 import 'news_screen.dart';
 
@@ -52,12 +57,12 @@ class HomePageState extends State<HomePage> {
       drawer: Drawer(
         width: MediaQuery.of(context).size.width,
         child: ProfileOutScreen(),
-        child: BlocProvider(
-          create: (context) => GetProfileDataCubit(
-              profileRepoImplementation: ProfileRepoImplementation(
-                  api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
-          child: ProfileOutScreen(),
-        ),
+        // child: BlocProvider(
+        //   create: (context) => GetProfileDataCubit(
+        //       profileRepoImplementation: ProfileRepoImplementation(
+        //           api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+        //
+        // ),
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(
