@@ -6,7 +6,7 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/colors.dart';
 
@@ -44,8 +44,7 @@ class OnboardingScreen extends StatelessWidget {
             onSkip: (){navigate(context: context, route: Routes.registerScreen);},
             showSkipButton: true,
             done:  Text('Finish'.tr(context),style: AppTextStyles.font12.copyWith(color:AppColors.primary )),
-            onDone: (){navigate(context: context, route: Routes.registerScreen);},
-
+            onDone: (){completeOnboarding(context);},
 
             dotsDecorator: DotsDecorator(
               size: const Size.square(10.0),
@@ -63,8 +62,8 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 
-  Future<bool> isFirstTimeUser() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isFirstTimeUser') ?? true;
-  }
+   Future<void> completeOnboarding(BuildContext context) async {
+     CacheHelper().saveData(key: "seenOnboarding", value: true);
+     navigate(context: context, route: Routes.registerScreen);
+   }
 }

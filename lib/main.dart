@@ -23,15 +23,18 @@ import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
 
 
-void main() {
+void main()async {
   WidgetsFlutterBinding.ensureInitialized();
-  CacheHelper().init();
-  runApp(MyApp(),);
+ await CacheHelper().init();
+  bool seenOnBorading=CacheHelper().getData(key: 'seenOnboarding')??false;
+  runApp(MyApp(seenOnBoard: seenOnBorading,),);
   Bloc.observer=MyBlocObserver();
 
 }
 
 class MyAppWithLanguage extends StatelessWidget {
+  MyAppWithLanguage({ required this.seenOnBoard});
+ final bool seenOnBoard;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeLanguageCubit, ChangeLanguageState>(
@@ -39,6 +42,7 @@ class MyAppWithLanguage extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
          builder: (context, state) {
           return MaterialApp(
+
 
           theme:context.read<ChangeThemeCubit>().isDarkMode?ThemeData.dark():ThemeData.light(),
           locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
@@ -59,7 +63,7 @@ class MyAppWithLanguage extends StatelessWidget {
               return supportedLocales.first;
             },
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.splash,
+          initialRoute: seenOnBoard?Routes.loginScreen:Routes.splash,
           onGenerateRoute: AppRoutes.onGenerateRoutes,
         );
   },
@@ -70,8 +74,9 @@ class MyAppWithLanguage extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
+  final bool seenOnBoard;
 
-  const MyApp({super.key});
+  const MyApp({super.key,required this.seenOnBoard});
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -92,7 +97,7 @@ class MyApp extends StatelessWidget {
         designSize: Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        child: MyAppWithLanguage(),
+        child: MyAppWithLanguage(seenOnBoard:seenOnBoard ,),
       ),
     );
   }
