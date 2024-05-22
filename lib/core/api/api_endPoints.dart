@@ -24,7 +24,7 @@ class EndPoints{
   }
   static String getUserProfile({required String userId,required String token})
   {
-    return 'user/:$userId?token=$token';
+    return 'user/$userId?token=$token';
   }
 
 

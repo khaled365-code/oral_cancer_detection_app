@@ -34,8 +34,9 @@ class EditProfileScreen extends StatelessWidget {
       listener: (context, state) {
         if(state is UpdateProfileSuccessState)
         {
-          showToast(msg: 'Profile Update Successfully', toastStates: ToastStates.success);
-          Navigator.pop(context);
+          showToast(msg: 'Profile Updated Successfully', toastStates: ToastStates.success);
+          BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+          navigate(context: context, route: Routes.initialProfileScreen);
         }
         else if(state is UpdateProfileFailureState)
         {
@@ -138,7 +139,6 @@ class EditProfileScreen extends StatelessWidget {
                   height: 5.h,
                 ),
 
-
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                   child: CustomOutlinedTextField(
@@ -163,6 +163,7 @@ class EditProfileScreen extends StatelessWidget {
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                   child: CustomOutlinedTextField(
+
                     controller: updateProfileCubit.phoneController,
                     keyboardType: TextInputType.text,),
                 ),
@@ -263,9 +264,45 @@ class EditProfileScreen extends StatelessWidget {
                       width: 510,
                       onPressed: ()
                       {
-                        updateProfileCubit.updateProfileFun(
-                            updatedPhoto: updateProfileCubit.updatedProfilePic
-                        );
+                        if(updateProfileCubit.nameController.text=='' &&
+                            updateProfileCubit.emailController.text==''&&
+                            updateProfileCubit.updatedProfilePic==null&&
+                            updateProfileCubit.dateOfBirthController.text==''&&
+                            updateProfileCubit.genderController.text==''&&
+                            updateProfileCubit.phoneController.text=='')
+                          {
+                            showToast(msg: 'No changes to update', toastStates: ToastStates.error);
+                          }
+
+                        else if(updateProfileCubit.nameController.text!=''&& updateProfileCubit.emailController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                              name: updateProfileCubit.nameController.text,
+                                email: updateProfileCubit.emailController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else if(updateProfileCubit.nameController.text==''&& updateProfileCubit.emailController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                email: updateProfileCubit.emailController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else if(updateProfileCubit.emailController.text==''&& updateProfileCubit.nameController.text!='')
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                name: updateProfileCubit.nameController.text,
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+                        else
+                          {
+                            updateProfileCubit.updateProfileFun(
+                                updatedPhoto: updateProfileCubit.updatedProfilePic
+                            );
+                          }
+
                       },
                       hasBorderRadius: true,
                       borderRadiusValue: 30,
