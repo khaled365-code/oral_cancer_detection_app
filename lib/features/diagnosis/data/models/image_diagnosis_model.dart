@@ -5,8 +5,8 @@ class ImageDiagnosisModel{
   final double probCancer;
   final double probNoNCancer;
   ImageDiagnosisModel({required this.className,required this.probCancer,required this.probNoNCancer});
-  
-  
+
+
   factory ImageDiagnosisModel.fromJson(jsonData){
     return ImageDiagnosisModel(
         className: jsonData[ApiKeys.className],
@@ -14,5 +14,5 @@ class ImageDiagnosisModel{
         probNoNCancer: jsonData[ApiKeys.probNonCancer]
     );
   }
-  
+
 }
