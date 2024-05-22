@@ -57,12 +57,7 @@ class HomePageState extends State<HomePage> {
       drawer: Drawer(
         width: MediaQuery.of(context).size.width,
         child: ProfileOutScreen(),
-        // child: BlocProvider(
-        //   create: (context) => GetProfileDataCubit(
-        //       profileRepoImplementation: ProfileRepoImplementation(
-        //           api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
-        //
-        // ),
+
       ),
       body:pages[selectedIndex],
       bottomNavigationBar: Padding(
