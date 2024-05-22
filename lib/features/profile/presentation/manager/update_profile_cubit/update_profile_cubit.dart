@@ -37,13 +37,13 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
     emit(UpdateProfilePictureState());
   }
 
-  updateProfileFun({XFile? updatedPhoto}) async
+  updateProfileFun({XFile? updatedPhoto,String? name, String? email}) async
   {
      final response =await profileRepo.updateMyProfile(
         userId: CacheHelper().getData(key: ApiKeys.id),
         token: CacheHelper().getData(key: ApiKeys.token),
-        name:  nameController.text.toString(),
-        email: emailController.text.toString(),
+        name: name==null ? null:name,
+        email: email==null?null:email,
         updatedPhoto: updatedPhoto!=null? await uploadImageToAPI(updatedPhoto):null);
 
 

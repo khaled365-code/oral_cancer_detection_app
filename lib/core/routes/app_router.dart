@@ -24,6 +24,7 @@ import 'package:graduation_project/features/profile/presentation/manager/update_
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/help_screen.dart';
+import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/privacy_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/feedback_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/settings_screen.dart';
@@ -52,6 +53,8 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomePage(),);
+      case Routes.initialProfileScreen:
+        return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
         return MaterialPageRoute(builder: (context) => const CommentScreen(),settings: routeSettings);
       case Routes.termsAndConditionsScreen:
