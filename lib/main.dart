@@ -84,8 +84,6 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: true, isImageModel: false))) ),
         BlocProvider<ImageDiagnosisCubit>(create: (context) => ImageDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: true))) ),
-
-        BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))) ),
         BlocProvider<GetProfileDataCubit>(create: (context) => GetProfileDataCubit(profileRepoImplementation: ProfileRepoImplementation(api: DioConsumer(dio: Dio(),  isTextModel: false, isImageModel: false)))),
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))..getAllPostsFun()),
