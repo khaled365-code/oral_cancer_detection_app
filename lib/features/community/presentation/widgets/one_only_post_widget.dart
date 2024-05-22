@@ -8,7 +8,6 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/app_styles.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
-import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 
 class OnlyOnePostWidget extends StatelessWidget {

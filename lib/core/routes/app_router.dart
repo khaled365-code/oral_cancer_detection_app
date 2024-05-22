@@ -108,7 +108,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) =>
             BlocProvider(
                 create: (context) =>
-                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isModel: false))),
+                    SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false))),
                 child: const LoginPage()),);
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterPage(),);
@@ -120,7 +120,7 @@ class AppRoutes {
           builder: (context) => BlocProvider(
             create: (context) => UpdateProfileCubit(
                 profileRepo: ProfileRepoImplementation(
-                    api: DioConsumer(dio: Dio(), isModel: false))),
+                    api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
             child: EditProfileScreen(),
           ),
         );

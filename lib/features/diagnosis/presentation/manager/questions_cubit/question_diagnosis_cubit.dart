@@ -1,12 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:meta/meta.dart';
-import '../../../../core/routes/routes.dart';
-import '../../presentation/views/Radio_question_view.dart';
-import '../repo/ai_repo.dart';
+
+import '../../../data/repo/ai_repo.dart';
 part 'question_diagnosis_state.dart';
 
 class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {

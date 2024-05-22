@@ -7,6 +7,7 @@ import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
+import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/commons/functions.dart';
@@ -63,6 +64,14 @@ class UploadImageBody extends StatelessWidget {
                     },),
                 ],
               ),
+              SizedBox(height: 30.h,),
+              CustomTextButton(
+                textState: 'Test',
+                bIcon: const Icon(
+                  Icons.arrow_forward_rounded, color: Colors.white,),
+                onPressed: () {
+                 BlocProvider.of<ImageDiagnosisCubit>(context).imageDiagnosis(context);
+                },),
             ],
           ),
         );

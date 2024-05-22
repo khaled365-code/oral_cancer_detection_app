@@ -10,8 +10,8 @@ import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
-import 'package:graduation_project/features/diagnosis/data/manager/question_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
+import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/commons/bloc_obsever.dart';
@@ -20,6 +20,7 @@ import 'core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
 import 'core/localization/app_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
+import 'features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
 
 
 void main() {
@@ -75,18 +76,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isModel: true))) ),
+        BlocProvider<QuestionDiagnosisCubit>(create: (context) => QuestionDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: true, isImageModel: false))) ),
+        BlocProvider<ImageDiagnosisCubit>(create: (context) => ImageDiagnosisCubit(aiRepository: AiRepository(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: true))) ),
 
         BlocProvider<ChangeLanguageCubit>(create: (context) => ChangeLanguageCubit()),
-        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isModel: false)))..getAllPostsFun()),
+        BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))..getAllPostsFun()),
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
         // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
-        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isModel: false)))),
+        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))),
         BlocProvider<SignUpCubit>(create:
-            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isModel: false)))),
+            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false, isImageModel: false)))),
         BlocProvider<LogOutCubit>(create:
-            (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isModel: false)))),
+            (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false,isImageModel: false)))),
         ),
 
       ],

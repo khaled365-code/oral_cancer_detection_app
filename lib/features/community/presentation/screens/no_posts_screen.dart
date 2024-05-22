@@ -7,9 +7,7 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 
 import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
-import '../../../../core/utilis/custom_app_bar.dart';
 import '../../../../core/widgets/resuable_text.dart';
 import '../widgets/line_widget.dart';
 import '../widgets/no_search_result_widget.dart';

@@ -2,12 +2,8 @@
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
-import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
 import 'package:graduation_project/features/community/data/models/get_comments_model/Message.dart';
-import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/NewAllPostsModel.dart';
-import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
 import 'package:graduation_project/features/community/data/models/search_model/SearchPostModel.dart';
 
 

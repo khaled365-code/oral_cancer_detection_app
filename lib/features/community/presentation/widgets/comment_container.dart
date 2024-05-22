@@ -8,16 +8,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
-import 'package:graduation_project/features/community/data/models/Data.dart';
 import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
-import 'package:graduation_project/features/community/data/models/get_comments_model/GetCommentsModel.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 
 import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/image_constants.dart';
-import '../../data/models/post_data_model.dart';
 
 class CommentContainer extends StatelessWidget {
   const CommentContainer({super.key,required this.currentIndex, required this.recievedData, required this.comments});

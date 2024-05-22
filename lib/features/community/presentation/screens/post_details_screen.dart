@@ -8,10 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
-import 'package:graduation_project/features/community/data/models/Data.dart';
-import 'package:graduation_project/features/community/data/models/get_comments_model/Comments.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
-import 'package:graduation_project/features/community/data/models/post_details_data_transfer/post_details_transfer.dart';
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 import 'package:graduation_project/features/community/presentation/widgets/one_only_post_widget.dart';
 
@@ -19,7 +16,6 @@ import '../../../../core/utilis/app_styles.dart';
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/custom_app_bar.dart';
 import '../../../../core/utilis/image_constants.dart';
-import '../widgets/post_details_widget.dart';
 
 class PostDetailsScreen extends StatelessWidget {
   const PostDetailsScreen({super.key});

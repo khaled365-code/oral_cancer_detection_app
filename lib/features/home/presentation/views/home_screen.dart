@@ -59,7 +59,7 @@ class HomePageState extends State<HomePage> {
         child: BlocProvider(
           create: (context) => GetProfileDataCubit(
               profileRepoImplementation: ProfileRepoImplementation(
-                  api: DioConsumer(dio: Dio(), isModel: false))),
+                  api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
           child: ProfileOutScreen(),
         ),
       ),

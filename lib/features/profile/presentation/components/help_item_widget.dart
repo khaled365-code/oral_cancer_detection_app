@@ -9,7 +9,6 @@ import 'package:graduation_project/features/community/presentation/widgets/line_
 import 'package:graduation_project/features/profile/data/models/help_model.dart';
 import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
 
-import '../../../../core/utilis/app_text_styles.dart';
 import '../../../../core/utilis/colors.dart';
 
 class HelpItemWidget extends StatelessWidget {

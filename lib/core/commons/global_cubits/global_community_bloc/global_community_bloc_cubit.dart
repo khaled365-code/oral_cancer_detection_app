@@ -1,13 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/features/community/data/models/TemporaryPostDetailsModel.dart';
 import 'package:graduation_project/features/community/data/models/get_comments_model/Message.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/NewAllPostsModel.dart';
-import 'package:graduation_project/features/community/data/models/one_post_model/OnePostModel.dart';
 import 'package:graduation_project/features/community/data/models/search_model/SearchPostModel.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';

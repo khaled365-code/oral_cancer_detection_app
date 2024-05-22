@@ -1,4 +1,7 @@
+
+
 class EndPoints{
+  static String photoModelBaseUrl="http://10.0.2.2:80/";
   static String textModelBaseUrl="http://10.0.2.2:5000/";
   static String baseUrl="https://68cd-197-134-59-99.ngrok-free.app/api/";
   static String register="auth/register";
@@ -7,6 +10,7 @@ class EndPoints{
   static String logOutEndPoint="auth/logout";
   static String storeNewPost="blog";
   static String predict="predict";
+  static String classify="classify";
 
 
 
@@ -81,6 +85,11 @@ class ApiKeys{
   static String age_group= "age_group";
   static String ulcers_lasts_more_than_3_weeks= "ulcers_lasts_more_than_3_weeks";
   static String ulcers_spreading= "ulcers_spreading";
+  static String error= "error";
+  static String className= "class_name";
+  static String probCancer= "prob_cancer";
+  static String probNonCancer= "prob_noncancer";
+  static String file= "file";
 
 
 

@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
-import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/widgets/custom_app_bar.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 
 import '../../../../core/routes/routes.dart';

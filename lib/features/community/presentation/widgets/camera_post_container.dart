@@ -3,10 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/data/models/camera_posts_model.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/utilis/colors.dart';
 import '../../../../core/utilis/image_constants.dart';
