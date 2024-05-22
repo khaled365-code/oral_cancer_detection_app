@@ -48,7 +48,9 @@ class AiRepository {
            ApiKeys.file: await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
          },
          isFormData: true);
+     print(response[ApiKeys.className]);
      return right(ImageDiagnosisModel.fromJson(response));
+
    }
    on ServerException catch(e){
      return left(e.errorModel.error);
