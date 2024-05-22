@@ -85,12 +85,11 @@ class MyApp extends StatelessWidget {
         // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
         BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel: false, isImageModel: false)))),
         BlocProvider<SignUpCubit>(create:
-            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isModel: false)))),
+            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio() ,isTextModel: false, isImageModel: false)))),
 
-            (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false, isImageModel: false)))),
-        BlocProvider<LogOutCubit>(create:
-            (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false,isImageModel: false)))),
-        ),
+        // BlocProvider<LogOutCubit>(create:
+        //     (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel: false,isImageModel: false)))),
+        // ),
 
       ],
       child: ScreenUtilInit(
