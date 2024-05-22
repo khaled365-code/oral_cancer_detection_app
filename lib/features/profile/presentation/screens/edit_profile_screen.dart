@@ -35,7 +35,7 @@ class EditProfileScreen extends StatelessWidget {
       listener: (context, state) {
         if(state is UpdateProfileSuccessState)
         {
-          showToast(msg: 'Profile Update Successfully', toastStates: ToastStates.success);
+          showToast(msg: 'Profile Updated Successfully', toastStates: ToastStates.success);
           Navigator.pop(context);
         }
         else if(state is UpdateProfileFailureState)
@@ -138,7 +138,6 @@ class EditProfileScreen extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-
 
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),

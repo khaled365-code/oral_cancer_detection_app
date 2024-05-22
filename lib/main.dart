@@ -85,12 +85,6 @@ class MyApp extends StatelessWidget {
         BlocProvider<SignUpCubit>(create:
             (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(), isModel: false,)))),
 
-        BlocProvider<LogOutCubit>(create:
-            (context)=>(LogOutCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(), isModel: false,)))),
-        ),
-        
-
-
       ],
       child: ScreenUtilInit(
         designSize: Size(360, 690),

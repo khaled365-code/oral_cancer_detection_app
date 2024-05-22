@@ -25,7 +25,7 @@ class LogoutBottomSheet extends StatelessWidget {
       create: (context) =>
           LogoutFromSettingsCubit(
               profileRepoImplementation: ProfileRepoImplementation(
-                  api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false, ))),
+                  api: DioConsumer(dio: Dio(), isModel: false, ))),
       child: BlocConsumer<LogoutFromSettingsCubit, LogoutFromSettingsState>(
         listener: (context, state)
         {
