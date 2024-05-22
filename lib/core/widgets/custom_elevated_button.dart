@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
-  CustomButton({Key? key,required this.onpress,required this.child,this.style,this.width}) : super(key: key);
-  String? buttonName;
+class CustomElevatedButton extends StatelessWidget {
+  CustomElevatedButton({Key? key,required this.child,required this.onpress,this.width,this.buttonBackground}) : super(key: key);
+
   VoidCallback onpress;
   Widget child;
-  ButtonStyle? style;
+
   double? width;
+  Color? buttonBackground;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CustomButton extends StatelessWidget {
       width: width,
       child: ElevatedButton(
         onPressed: onpress,
-        style: style,
+        style: ElevatedButton.styleFrom(backgroundColor:buttonBackground ),
         child: child,
       ),
     );

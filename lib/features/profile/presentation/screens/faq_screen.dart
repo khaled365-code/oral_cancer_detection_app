@@ -1,12 +1,13 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
 
-import '../../../../core/widgets/custom_app_bar.dart';
-import '../../../../generated/l10n.dart';
-import '../components/privacy_item.dart';
+import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/colors.dart';
+import '../../../../core/widgets/body_app_bar.dart';
+import '../components/faq_item_widget.dart';
 
 class FaqScreen extends StatefulWidget {
 
@@ -16,189 +17,63 @@ class FaqScreen extends StatefulWidget {
 
 class _FaqScreenState extends State<FaqScreen> {
 
-  bool pressed1=false;
-  bool pressed2=false;
-  bool pressed3=false;
-  bool pressed4=false;
-  bool pressed5=false;
-  bool pressed6=false;
-  bool pressed7=false;
-  bool pressed8=false;
-  bool pressed9=false;
-  bool pressed10=false;
-
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, 50),
-        child: CustomAppBar(
-          title: S.of(context).faq,
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 30,left: 15,right: 15,bottom: 15),
-          child: Column(
+    return BlocBuilder<FaqScreenCubit, FaqScreenState>(
+      builder: (context, state) {
+        final faqCubit=BlocProvider.of<FaqScreenCubit>(context);
+        return Scaffold(
+
+          body: Column(
             children: [
-              PrivacyContainerItem(
-                text: S.of(context).faq1,
-                onTap: () {
-                  setState(() {
-                    pressed1 = !pressed1;
-                  });
-                },
-                isPressed: pressed1,
-                answerText: S.of(context).faqans1,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq2,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed2 = !pressed2;
+              Padding(
+                padding: EdgeInsetsDirectional.only(
+                    top: 40.h, start: 15.w, end: 25.w),
+                child: BodyAppBar(
+                  hasLeading: true,
+                  hasTitle: true,
+                  leading: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
                     },
-                  );
-                },
-                isPressed: pressed2,
-                answerText: S.of(context).faqans2,
+                    child: Container(
+                      width: 45.w,
+                      height: 45.h,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                              color: AppColors.cEFF0F3,
+                              width: 2.w
+                          )
+                      ),
+                      child: Icon(Icons.arrow_back_outlined, size: 20.sp,),
+                    ),
+                  ),
+                  title: Text('FAQ', style: AppKhaledStyles.textStyle(
+                      color: AppColors.black,
+                      weight: FontWeight.bold,
+                      size: 16),),
+                ),
               ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq3,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed3 = !pressed3;
-                    },
-                  );
-                },
-                isPressed: pressed3,
-                answerText: S.of(context).faqans3,
+              Expanded(
 
+                child: ListView.separated(
+                    padding: EdgeInsetsDirectional.only(
+                    start: 15.w, end: 10.w, top: 20.h,bottom:30.h),
+                    itemBuilder: (context, index) =>
+                        FaqItemWidget(
+                          faqModel: faqCubit.faqDataList[index],
+                        ),
+                    separatorBuilder: (context, index) =>
+                        SizedBox(height: 15.h,),
+                    itemCount: faqCubit.faqDataList.length),
               ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq4,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed4 = !pressed4;
-                    },
-                  );
-                },
-                isPressed: pressed4,
-                answerText: S.of(context).faqans4,
 
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq5,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed5 = !pressed5;
-                    },
-                  );
-                },
-                isPressed: pressed5,
-                answerText: S.of(context).faqans5,
-
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq6,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed6 = !pressed6;
-                    },
-                  );
-                },
-                isPressed: pressed6,
-                answerText: S.of(context).faqans6,
-
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq7,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed7 = !pressed7;
-                    },
-                  );
-                },
-                isPressed: pressed7,
-                answerText: S.of(context).faqans7,
-
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq8,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed8 = !pressed8;
-                    },
-                  );
-                },
-                isPressed: pressed8,
-                answerText: S.of(context).faqans8,
-
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq9,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed9 = !pressed9;
-                    },
-                  );
-                },
-                isPressed: pressed9,
-                answerText: S.of(context).faqans9,
-
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              PrivacyContainerItem(
-                text: S.of(context).faq10,
-                onTap: () {
-                  setState(
-                        () {
-                      pressed10 = !pressed10;
-                    },
-                  );
-                },
-                isPressed: pressed10,
-                answerText: S.of(context).faqans10,
-
-              ),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
