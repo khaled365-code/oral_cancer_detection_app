@@ -64,6 +64,7 @@ dependencies:
   connectivity_plus: ^5.0.2
   readmore: ^3.0.0
   custom_refresh_indicator: ^3.1.0
+  percent_indicator:
 
 
 

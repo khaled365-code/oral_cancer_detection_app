@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/colors.dart';
 import '../manager/questions_cubit/question_diagnosis_cubit.dart';
@@ -29,7 +31,19 @@ class ResultScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("pleaseNote".tr(context),textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
-                SizedBox(height: 60.h,),
+                SizedBox(height: 20.h,),
+                CircularPercentIndicator(
+                  animationDuration: 1700,
+                  animation: true,
+                  radius: 100,
+                  lineWidth: 22,
+                  percent:CacheHelper().getData(key: 'probCancer'),
+                  progressColor: AppColors.primary,
+                  backgroundColor: AppColors.primary.withOpacity(0.4),
+                  circularStrokeCap: CircularStrokeCap.square,
+                  center: Text("Percentage of Cancer ${(CacheHelper().getData(key: 'probCancer')*100).toStringAsFixed(0)}%",style: AppTextStyles.font12,),
+                ),
+                SizedBox(height: 20.h,),
                 Container(
                   decoration:  BoxDecoration(
                     gradient: LinearGradient(colors: [AppColors.background,AppColors.primary],begin: Alignment.topLeft,end: Alignment.bottomRight),
@@ -61,6 +75,15 @@ class ResultScreen extends StatelessWidget {
                             Text('Classification:'.tr(context),
                               style:AppTextStyles.font18 ,textAlign: TextAlign.center,),
                             Text(BlocProvider.of<QuestionDiagnosisCubit>(context).ConvertToClassName(context),style: AppTextStyles.font18,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20.h,),
+                        Row(
+                          children: [
+                            Text('Image Classification: ',
+                              style:AppTextStyles.font18 ,textAlign: TextAlign.center,),
+                            Text(CacheHelper().getData(key: "imageClassify"),style: AppTextStyles.font18,
                             ),
                           ],
                         )

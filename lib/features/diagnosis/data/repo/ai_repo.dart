@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
 import 'package:graduation_project/features/diagnosis/data/models/image_diagnosis_model.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,7 +49,10 @@ class AiRepository {
            ApiKeys.file: await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
          },
          isFormData: true);
+     CacheHelper().saveData(key: 'imageClassify', value: response[ApiKeys.className]);
+     CacheHelper().saveData(key: 'probCancer', value: response[ApiKeys.probCancer]);
      print(response[ApiKeys.className]);
+     print(response[ApiKeys.probCancer]);
      return right(ImageDiagnosisModel.fromJson(response));
 
    }

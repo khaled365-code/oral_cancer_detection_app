@@ -13,7 +13,12 @@ class ImageDiagnosisCubit extends Cubit<ImageDiagnosisState> {
 
   imageDiagnosis(BuildContext context)async{
     emit(ImageDiagnosisLoadingState());
-    final response=await aiRepository.imageDiagnosis(image:BlocProvider.of<UploadImageCubit>(context).mouthImage!);
+    final image = BlocProvider.of<UploadImageCubit>(context).mouthImage;
+    if (image == null) {
+      emit(ImageDiagnosisFailureState(errMessage: 'No image selected.'));
+      return;
+    }
+    final response=await aiRepository.imageDiagnosis(image:image);
     print(response);
     response.fold((errModel) => emit(ImageDiagnosisFailureState(errMessage: errModel)), (imageModel) => emit(ImageDiagnosisSuccessState()));
   }

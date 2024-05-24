@@ -15,67 +15,71 @@ import '../../../../../core/commons/functions.dart';
 
 class UploadImageBody extends StatelessWidget {
   const UploadImageBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UploadImageCubit , UploadImageState>(
-      builder: (context, state) {
-       
-        return Padding(
-          padding: EdgeInsetsDirectional.symmetric(
-              horizontal: 18.w, vertical: 8.h),
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              SizedBox(height: 32.h,),
-              const Text(
-                'Upload the image of the impaired tissue in your mouth',
-                textAlign: TextAlign.center,),
-              SizedBox(height: 20.h,),
-              state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
-              UImageContainer(
-                  conHeight: 240.h, conWidth: 210.w, conImage:FileImage(File(context.read<UploadImageCubit>().mouthImage!.path ))
-              ):
-             CustomContainer( conHeight: 240.h, conWidth: 210.w,
-               conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),
-               border: Border.all(
-                 color:AppColors.primary,
-                 width: 2.0,
-                 style:BorderStyle.solid,
-               ),),
-              SizedBox(height: 50.h,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomTextButton(
-                      textState: 'UPLOAD',
-                      bIcon: const Icon(Icons.upload, color: Colors.white,),
-                      onPressed: () {
-                        imagePick(imageSource: ImageSource.gallery)
-                            .then((value) => context.read<UploadImageCubit>().uploadMouthImage(tissueImg: value!));
-                      }),
-                  //const SizedBox(width:16,),
-                  CustomTextButton(
+    builder: (context, state) {
+     
+      return Padding(
+        padding: EdgeInsetsDirectional.symmetric(
+            horizontal: 18.w, vertical: 8.h),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            SizedBox(height: 32.h,),
+            const Text(
+              'Upload the image of the impaired tissue in your mouth',
+              textAlign: TextAlign.center,),
+            SizedBox(height: 20.h,),
+            state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
+            UImageContainer(
+                conHeight: 240.h, conWidth: 210.w, conImage:FileImage(File(context.read<UploadImageCubit>().mouthImage!.path ))
+            ):
+           CustomContainer( conHeight: 240.h, conWidth: 210.w,
+             conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),
+             border: Border.all(
+               color:AppColors.primary,
+               width: 2.0,
+               style:BorderStyle.solid,
+             ),),
+            SizedBox(height: 50.h,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomTextButton(
+                    textState: 'UPLOAD',
+                    bIcon: const Icon(Icons.upload, color: Colors.white,),
+                    onPressed: () {
+                      imagePick(imageSource: ImageSource.gallery)
+                          .then((value) => context.read<UploadImageCubit>().uploadMouthImage(tissueImg: value!));
+                    }),
+                BlocListener<ImageDiagnosisCubit, ImageDiagnosisState>(
+                  listener: (context, state) {
+                    if(state is ImageDiagnosisFailureState){
+                      showSnackBar(context,content: state.errMessage,contentColor: AppColors.primary);
+                    }
+                    else if(state is ImageDiagnosisSuccessState){
+                      navigate(context: context, route: Routes.questionsView);
+                    }
+
+                  },
+                  child: CustomTextButton(
                     textState: 'NEXT',
                     bIcon: const Icon(
                       Icons.arrow_forward_rounded, color: Colors.white,),
                     onPressed: () {
-                      navigate(context: context, route: Routes.questionsView);
+                      BlocProvider.of<ImageDiagnosisCubit>(context).imageDiagnosis(context);
+
                     },),
-                ],
-              ),
-              SizedBox(height: 30.h,),
-              CustomTextButton(
-                textState: 'Test',
-                bIcon: const Icon(
-                  Icons.arrow_forward_rounded, color: Colors.white,),
-                onPressed: () {
-                 BlocProvider.of<ImageDiagnosisCubit>(context).imageDiagnosis(context);
-                },),
-            ],
-          ),
-        );
-      },
+                ),
+
+              ],
+            ),
+
+          ],
+        ),
+      );
+    },
     );
   }
 }

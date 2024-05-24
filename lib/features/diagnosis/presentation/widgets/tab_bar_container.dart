@@ -8,8 +8,8 @@ class TabBarContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      height: 30,
-      width: 60,
+      height: 40,
+      width: 90,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color:AppColors.primary,shape: BoxShape.rectangle),

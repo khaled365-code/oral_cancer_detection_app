@@ -90,10 +90,12 @@ class ApiKeys{
   static String ulcers_lasts_more_than_3_weeks= "ulcers_lasts_more_than_3_weeks";
   static String ulcers_spreading= "ulcers_spreading";
   static String error= "error";
-  static String className= "class_name";
-  static String probCancer= "prob_cancer";
-  static String probNonCancer= "prob_noncancer";
+  static String className= "cancer_class";
+  static String probCancer= "probability_cancer";
+  static String probNonCancer= "probability_noncancer";
+  static String domainClass= "domain_class";
   static String file= "file";
+
 
 
 

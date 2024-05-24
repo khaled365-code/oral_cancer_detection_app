@@ -9,9 +9,9 @@ class ErrorModel{
   ErrorModel({required this.errorMessage ,required this.status, required this.error});
   factory ErrorModel.fromJson(Map<String,dynamic> jsonData){
     return ErrorModel(
-      errorMessage: jsonData[ApiKeys.message],
+      errorMessage: jsonData[ApiKeys.message]??"",
       status: jsonData[ApiKeys.status] as int? ?? 0,
-      error: jsonData[ApiKeys.error]
+      error: jsonData[ApiKeys.error]??""
     );
 
   }
