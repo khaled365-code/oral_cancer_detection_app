@@ -40,7 +40,7 @@ class EditProfileScreen extends StatelessWidget {
           showToast(msg: 'Profile Updated Successfully', toastStates: ToastStates.success);
           BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
           navigate(context: context, route: Routes.initialProfileScreen);
-          //
+
         }
         else if(state is UpdateProfileFailureState)
         {
