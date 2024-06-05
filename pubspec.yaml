@@ -79,8 +79,9 @@ flutter_native_splash:
   color: "#FFFFFF"
 #  background_image: "assets/images/white.jpg"
   image: "assets/images/nativeImage.JPG"
-  #image_dark: assets/images/darkImagetest.webp
-  #color_dark: "#000000"
+  image_dark: "assets/images/launcher_icon.png"
+  color_dark: "#000000"
+  icon_background_color_dark: "#FFFFFF"
 
 
 dev_dependencies:
