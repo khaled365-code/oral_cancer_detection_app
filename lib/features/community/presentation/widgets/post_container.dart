@@ -232,8 +232,6 @@ class PostContainer extends StatelessWidget {
                                 onTap: ()
                                 {
                                   Share.share(data.post!.body!);
-
-
                                 },
                                 child: Container(child: Image.asset(ImageConstants.shareSmallImage,))),
 

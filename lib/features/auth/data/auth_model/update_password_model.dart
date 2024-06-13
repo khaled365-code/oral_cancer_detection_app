@@ -1,4 +1,4 @@
-import 'package:graduation_project/core/api/api_endPoints.dart';
+import 'package:graduation_project/core/api/api_keys.dart';
 
 class UpdatePasswordModel{
   final String mesaage;

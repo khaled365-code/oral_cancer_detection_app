@@ -9,9 +9,11 @@ class UploadImageCubit extends Cubit<UploadImageState> {
 
   XFile? mouthImage;
 
-  uploadMouthImage({required XFile tissueImg}){
+  uploadMouthImage({required XFile tissueImg})
+  {
       mouthImage=tissueImg;
       emit(UploadImageSuccess());
-
   }
+
+
 }
