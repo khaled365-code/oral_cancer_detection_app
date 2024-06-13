@@ -2,8 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
+import 'package:graduation_project/core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
@@ -13,6 +17,9 @@ import 'package:graduation_project/features/community/presentation/screens/commu
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
+import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
+import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
+import 'package:graduation_project/features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
@@ -53,7 +60,21 @@ class AppRoutes {
   static Route? onGenerateRoutes(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.home:
-        return MaterialPageRoute(builder: (context) => const HomePage(),);
+        return MaterialPageRoute(builder: (context) =>
+            MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ImageDiagnosisCubit(
+                    aiRepository: AiRepository(
+                        api: DioConsumer(
+                            dio: Dio(),
+                            isTextModel: false,
+                            isImageModel: true))),
+              ),
+
+            ],
+            child: HomePage(),
+          ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
       case Routes.initialProfileScreen:
@@ -121,15 +142,17 @@ class AppRoutes {
                     SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false))),
                 child: const LoginPage()),);
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (context) => const RegisterPage(),);
+        return MaterialPageRoute(builder: (context) =>  BlocProvider(
+  create: (context) => SignUpCubit(authRepos: AuthRepos(api:DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+  child: RegisterPage(),
+),);
       case Routes.doctor:
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
       case Routes.editProfilescreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => UpdateProfileCubit(
-                profileRepo: ProfileRepoImplementation(
+            create: (context) => UpdateProfileCubit(profileRepo: ProfileRepoImplementation(
                     api: DioConsumer(dio: Dio(), isTextModel:false, isImageModel: false))),
             child: EditProfileScreen(),
           ),
