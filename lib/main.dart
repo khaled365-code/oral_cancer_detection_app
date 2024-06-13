@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
         // BlocProvider<SignInCubit>(create: (context) => SignInCubit(AuthRepos(api: DioConsumer(dio: Dio())))),
-        BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))),
+      //  BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))),
         BlocProvider<SignUpCubit>(create:
             (context)=>SignUpCubit(authRepos: AuthRepos(api: DioConsumer(dio:Dio(),isTextModel:false, isImageModel: false)))),
 
