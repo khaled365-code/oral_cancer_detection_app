@@ -33,7 +33,8 @@ class _ResetPasswordState extends State<ResetPassword> {
    if(state is UpdatePasswordFailureState){
      showSnackBar(context, content: state.errMessage);
    }
-   if(state is UpdatePasswordSuccessState){
+   if(state is UpdatePasswordSuccessState)
+   {
      showSnackBar(context, content: state.message);
      navigate(context: context, route: Routes.congratulationScreen);
    }
@@ -52,7 +53,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                 prefixIcon: const Icon(Icons.lock),
                 suffixIcon:IconButton(
                   icon:isNotShowed1?const Icon(Icons.visibility_off):const Icon(Icons.visibility),
-                  onPressed: (){
+                  onPressed: ()
+                  {
                     isNotShowed1=!isNotShowed1;
                     setState(() {});
                   },),
