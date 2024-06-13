@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:graduation_project/core/api/api_consumer.dart';
 import 'package:graduation_project/core/api/api_endPoints.dart';
+import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/errors/handle_error.dart';
 import 'package:graduation_project/features/diagnosis/data/models/image_diagnosis_model.dart';
