@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/data/models/camera_posts_model.dart';
 
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 
 class CmaeraPostContainer extends StatelessWidget {

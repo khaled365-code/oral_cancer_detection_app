@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
+import 'package:graduation_project/features/diagnosis/presentation/cubits/questions_cubit/question_diagnosis_cubit.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../../../core/commons/functions.dart';
-import '../../../../core/utilis/colors.dart';
-import '../manager/questions_cubit/question_diagnosis_cubit.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({Key? key}) : super(key: key);

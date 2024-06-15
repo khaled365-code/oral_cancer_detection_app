@@ -46,9 +46,11 @@ class AuthRepos {
     try{
       final response=await api.post(EndPoints.loginEndPoint,
           data: {
-            ApiKeys.email:email,ApiKeys.password:password
+            ApiKeys.email:email,
+            ApiKeys.password:password
           },isFormData: true);
       final NewSignInModel user=NewSignInModel.fromJson(response);
+      CacheHelper().removeData(key: ApiKeys.token);
       final decodedToken=JwtDecoder.decode(user.token!);
       CacheHelper().saveData(key: ApiKeys.token, value: user.token);
       CacheHelper().saveData(key: ApiKeys.id, value:decodedToken["sub"]);

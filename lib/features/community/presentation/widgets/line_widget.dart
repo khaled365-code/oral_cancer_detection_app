@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_colors.dart';
 
 class LineWidget extends StatelessWidget {
   const LineWidget({super.key, this.color, this.height});

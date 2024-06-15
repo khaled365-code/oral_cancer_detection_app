@@ -3,11 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
-import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 
-import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../widgets/line_widget.dart';
 import '../widgets/post_with_image_container.dart';

@@ -3,15 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
-import 'package:graduation_project/core/utilis/app_styles.dart';
-import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
+import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
-import 'package:graduation_project/features/profile/presentation/components/profile_item_widget.dart';
-import '../../../../core/utilis/colors.dart';
+import 'package:graduation_project/features/profile/presentation/widgets/profile_item_widget.dart';
+import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 
 class ProfileOutScreen extends StatelessWidget {
@@ -93,7 +92,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: NetworkImage(CacheHelper().getData(
-                              key: ApiKeys.profile_photo_url)),
+                              key: ApiKeys.profile_photo_url).toString()),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,

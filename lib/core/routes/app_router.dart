@@ -2,13 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
-import 'package:graduation_project/core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
-import 'package:graduation_project/core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
-import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
-import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
@@ -18,16 +14,17 @@ import 'package:graduation_project/features/community/presentation/screens/no_po
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
+import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
-import 'package:graduation_project/features/profile/presentation/manager/contact_us_cubit/contact_us_bloc_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/faq_screen_cubit/faq_screen_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/update_password_cubit/update_password_cubit.dart';
-import 'package:graduation_project/features/profile/presentation/manager/update_profile_cubit/update_profile_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/faq_screen_cubit/faq_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/help_screen_cubit/help_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/privacy_screen_cubit/privacy_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/update_password_cubit/update_password_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/update_profile_cubit/update_profile_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/screens/about_app_screen.dart';
 import 'package:graduation_project/features/profile/presentation/screens/dark_mode.dart';
 import 'package:graduation_project/features/profile/presentation/screens/edit_profile_screen.dart';
@@ -48,7 +45,6 @@ import '../../features/auth/presentation/views/send_code_screen.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
-import '../../features/profile/presentation/manager/privacy_screen_cubit/privacy_screen_cubit.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/put_new_password_screen.dart';
@@ -77,6 +73,8 @@ class AppRoutes {
           ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
+      case Routes.completeNewsArticle:
+        return MaterialPageRoute(builder: (context) => const CompleteNewsArticle(),settings: routeSettings);
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:

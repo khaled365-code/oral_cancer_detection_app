@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
 import 'package:graduation_project/core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
@@ -11,14 +13,12 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
-import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
-import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
+import 'package:graduation_project/features/diagnosis/presentation/cubits/questions_cubit/question_diagnosis_cubit.dart';
+import 'package:graduation_project/features/home/presentation/cubits/image_diagnosis_cubit/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 
 class OralCancerApp extends StatelessWidget {
@@ -50,8 +50,9 @@ class OralCancerApp extends StatelessWidget {
                 return supportedLocales.first;
               },
               debugShowCheckedModeBanner: false,
-              initialRoute: seenOnBoard?Routes.loginScreen:Routes.splash,
+              initialRoute: CacheHelper().getData(key: ApiKeys.token)==null||seenOnBoard?Routes.loginScreen:Routes.home,
               onGenerateRoute: AppRoutes.onGenerateRoutes,
+              //seenOnBoard?Routes.loginScreen:Routes.splash
             );
           },
         );
