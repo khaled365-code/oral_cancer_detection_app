@@ -1,8 +1,7 @@
-import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
+import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit/upload_image_cubit.dart';
 import '../../../data/repo/ai_repo.dart';
 part 'image_diagnosis_state.dart';
 

@@ -11,14 +11,12 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
-import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
-import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
+import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 
 class OralCancerApp extends StatelessWidget {

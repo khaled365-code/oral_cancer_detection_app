@@ -8,9 +8,10 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
 import 'package:graduation_project/features/diagnosis/presentation/manager/image_cubit/image_diagnosis_cubit.dart';
-import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit.dart';
+import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit/upload_image_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/commons/functions.dart';
+import '../../manager/upload_image_cubit/upload_image_state.dart';
 
 
 class UploadImageBody extends StatelessWidget {
