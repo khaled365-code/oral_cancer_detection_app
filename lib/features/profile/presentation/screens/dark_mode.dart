@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
-import 'package:graduation_project/core/utilis/app_styles.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/widgets/body_app_bar.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
-import 'package:graduation_project/features/profile/presentation/components/dark_mode_item_widget.dart';
+import 'package:graduation_project/features/profile/presentation/widgets/dark_mode_item_widget.dart';
 
 class DarkModeScreen extends StatelessWidget {
   const DarkModeScreen({super.key});

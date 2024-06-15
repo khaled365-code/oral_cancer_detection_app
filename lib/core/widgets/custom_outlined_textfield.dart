@@ -6,9 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/utilis/app_styles.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 
-import '../utilis/colors.dart';
 
 class CustomOutlinedTextField extends StatelessWidget {
 

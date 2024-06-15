@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
 import 'package:graduation_project/features/community/presentation/widgets/test_widget.dart';
 
@@ -128,24 +128,6 @@ class CommunityScreen extends StatelessWidget {
     );
   }
 
-/*
-
-  Column(
-                children:
-                [
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder: (context, index) =>
-                          PostContainer(
-                            data: state.postDetailsModel.data![index],
-                            currentIndex: index,
-                          ),
-                      itemCount: state.postDetailsModel.data!.length,
-                    ),
-                  ),
-                ],
-              )
-   */
 }
 
 

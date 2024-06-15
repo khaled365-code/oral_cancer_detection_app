@@ -5,11 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
-import 'package:graduation_project/features/profile/presentation/manager/update_password_cubit/update_password_cubit.dart';
-
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/update_password_cubit/update_password_cubit.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
 import '../../../../core/widgets/resuable_text.dart';

@@ -1,13 +1,12 @@
 
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../utilis/app_text_styles.dart';
-import '../utilis/colors.dart';
 
 void navigate({required context ,required String route,arg})
 {
@@ -15,8 +14,8 @@ void navigate({required context ,required String route,arg})
 
 }
 
-Future uploadImageToAPI(XFile image) async {
-  return MultipartFile.fromFile(image.path,
+Future uploadImageToAPI(XFile image) async
+{return MultipartFile.fromFile(image.path,
       filename: image.path.split('/').last);
 }
 
@@ -112,6 +111,23 @@ String getUserName({required String currentUserName})
   String displayedName=currentUserName.length>userNameLength?currentUserName.substring(0,userNameLength)+'.':currentUserName;
   return displayedName;
 
-
 }
+
+Future<void> launchInAppWithBrowserOptions({required Uri url}) async {
+  if (!await launchUrl(
+    url,
+    mode: LaunchMode.inAppBrowserView,
+    browserConfiguration: const BrowserConfiguration(showTitle: true),
+  )) {
+    throw Exception('Could not launch $url');
+  }
+}
+
+Future<void> _launchUrl(_url) async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+
+
 

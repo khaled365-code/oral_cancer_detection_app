@@ -133,6 +133,16 @@ class ImageConstants
   static const String locationTwitterIcon='assets/icons/location_twitter.svg';
 
 
+  static const String womanDoctorImage='assets/images/woman_doctor_image.png';
+
+  static const String oralCancerImage='assets/images/oral_cancer_image.jpg';
+
+  static const String arrowBackIcon='assets/icons/arrow_back_icon.svg';
+
+
+
+
+
 
 
 

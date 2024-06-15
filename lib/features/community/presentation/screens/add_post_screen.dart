@@ -6,13 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../../../core/commons/functions.dart';
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../widgets/camera_post_container.dart';
 
