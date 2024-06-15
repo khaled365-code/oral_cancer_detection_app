@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
@@ -19,7 +20,7 @@ class UploadImageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UploadImageCubit , UploadImageState>(
     builder: (context, state) {
-     
+
       return Padding(
         padding: EdgeInsetsDirectional.symmetric(
             horizontal: 18.w, vertical: 8.h),
@@ -27,9 +28,10 @@ class UploadImageBody extends StatelessWidget {
           shrinkWrap: true,
           children: [
             SizedBox(height: 32.h,),
-            const Text(
+            Text(
               'Upload the image of the impaired tissue in your mouth',
-              textAlign: TextAlign.center,),
+              textAlign: TextAlign.center,
+            style: AppTextStyles.font14.copyWith(fontWeight:FontWeight.w400),),
             SizedBox(height: 20.h,),
             state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
             UImageContainer(
