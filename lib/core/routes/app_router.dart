@@ -74,6 +74,7 @@ class AppRoutes {
           ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
+
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:

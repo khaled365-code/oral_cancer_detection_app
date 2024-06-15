@@ -34,7 +34,7 @@ class AppTextStyles
   static  TextStyle font16 = TextStyle(
       fontSize: 16.sp,
       // fontFamily: 'lato',
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
       color: AppColors.black);
   static  TextStyle font17 = TextStyle(
       fontSize: 17.sp,
