@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilis/app_colors.dart';
-import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/widgets/resuable_text.dart';
 
 class AboutAppContainerItem extends StatelessWidget {
