@@ -8,44 +8,42 @@ import 'package:graduation_project/core/api/dio_consumer.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
-import 'package:graduation_project/core/utilis/custom_app_bar.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/initial_home_screen.dart';
+import 'package:graduation_project/features/home/presentation/widgets/bottomnav_bar_column.dart';
+import 'package:graduation_project/features/home/presentation/views/hospital_city.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
-import 'package:graduation_project/features/home/presentation/views/componants/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
-import 'doctor_screen.dart';
 import 'news_screen.dart';
 
 class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+   HomePage({super.key});
+
+  int selectedIndex =0;
+
   @override
   State<HomePage> createState() => HomePageState();
 
 }
 class HomePageState extends State<HomePage> {
-  int selectedIndex =0;
-  final List<String>navBarIcons=[
-    ImageConstants.diagnosisImage,
-    ImageConstants.diagnosisImage,
-    ImageConstants.diagnosisImage,
-    ImageConstants.diagnosisImage,
-    ImageConstants.diagnosisImage
-  ];
+
   final List<Widget> pages=
   [
-    const UploadImageView(),
+    const InitialHomeScreen(),
     const UploadImageView(),
     CommunityScreen(),
     const MedicalNews(),
-    const DoctorPage(),
+    HospitalCity(),
   ];
-  void onItemTapped(int index) {
+  void onItemTapped(int index)
+  {
     setState(()
     {
-      selectedIndex = index;
+      widget.selectedIndex = index;
     });
 
   }
@@ -63,7 +61,7 @@ class HomePageState extends State<HomePage> {
           child: ProfileOutScreen(),
         ),
       ),
-      body:pages[selectedIndex],
+      body: pages[widget.selectedIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: CurvedNavigationBar(
@@ -78,14 +76,15 @@ class HomePageState extends State<HomePage> {
               BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
               BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
               BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
+              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.hospital, text: 'Hospitals')
             ]
         ),
       ),
     );
   }
-  PreferredSize showAppBar(){
-    if(selectedIndex==0 || selectedIndex==1){
+  PreferredSize showAppBar()
+  {
+    if(widget.selectedIndex==0 || widget.selectedIndex==1){
       return PreferredSize(
           preferredSize: Size(double.infinity, 40.h),
           child: DefaultAppBar(
@@ -103,7 +102,7 @@ class HomePageState extends State<HomePage> {
             backgroundColor: AppColors.primary,
           ));
     }
-    else if(selectedIndex==2){
+    else if(widget.selectedIndex==2){
       return   PreferredSize(preferredSize: Size(double.infinity, 40.h,),
       child: DefaultAppBar(
         hasActions: true,
@@ -134,7 +133,7 @@ class HomePageState extends State<HomePage> {
       ],
         backgroundColor: AppColors.white,));
     }
-    else if(selectedIndex==3){
+    else if(widget.selectedIndex==3){
       return PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
         actions: [
@@ -173,7 +172,7 @@ class HomePageState extends State<HomePage> {
                   child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
             }
         ),
-        title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
+        title: Text('Recommended Hospitals'),backgroundColor: AppColors.primary,));
     }
   }
 }

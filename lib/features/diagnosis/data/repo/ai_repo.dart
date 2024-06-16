@@ -46,7 +46,7 @@ class AiRepository {
      final response = await api.post(EndPoints.classify,
          data: {
 
-           ApiKeys.file: await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
+           ApiKeys.file: await  MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
          },
          isFormData: true);
      CacheHelper().saveData(key: 'imageClassify', value: response[ApiKeys.className]);

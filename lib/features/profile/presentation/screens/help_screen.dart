@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/features/profile/presentation/manager/help_screen_cubit/help_screen_cubit.dart';
-
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/help_screen_cubit/help_screen_cubit.dart';
+import 'package:graduation_project/features/profile/presentation/widgets/help_item_widget.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
-import '../components/help_item_widget.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});

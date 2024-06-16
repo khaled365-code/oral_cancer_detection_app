@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import '../../../../core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 
 class TabBarContainer extends StatelessWidget {
   const TabBarContainer({super.key,required this.text});

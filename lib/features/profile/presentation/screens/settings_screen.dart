@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/profile/data/models/settings_data_model.dart';
-import '../../../../core/utilis/app_styles.dart';
+import 'package:graduation_project/features/profile/presentation/widgets/settings_item_widget.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
-import '../components/settings_item_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
 

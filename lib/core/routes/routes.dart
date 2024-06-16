@@ -41,6 +41,10 @@ class Routes
   static const String  searchNewsScreen='/searchNewsScreen';
 
 
+  static const String  completeNewsArticle='/complete_news_article_screen';
+
+
+
 
 
 

@@ -9,9 +9,11 @@ class DioConsumer extends ApiConsumer{
   final  bool isTextModel;
   final  bool isImageModel;
     final Dio dio;
-  DioConsumer({required this.dio,required this.isTextModel,required this.isImageModel}){
+    final bool? isTopHeadlinesNews;
+  DioConsumer({this.isTopHeadlinesNews=false ,required this.dio,required this.isTextModel,required this.isImageModel}){
 
-     isTextModel?dio.options.baseUrl=EndPoints.textModelBaseUrl:isImageModel?dio.options.baseUrl=EndPoints.photoModelBaseUrl:dio.options.baseUrl=EndPoints.baseUrl;
+     isTextModel?dio.options.baseUrl=EndPoints.textModelBaseUrl:isImageModel?dio.options.baseUrl=EndPoints.photoModelBaseUrl:
+     isTopHeadlinesNews!?dio.options.baseUrl=EndPoints.topHeadLinesBaseUrl:dio.options.baseUrl=EndPoints.baseUrl;
 
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(

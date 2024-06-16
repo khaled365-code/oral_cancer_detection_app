@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
-import 'package:graduation_project/core/utilis/app_styles.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/data/models/search_model/data_serach.dart';
 
-import '../../../../core/utilis/colors.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key,required this.serachModel});

@@ -1,4 +1,5 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -12,9 +13,9 @@ import 'package:graduation_project/features/community/presentation/widgets/retwe
 import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_colors.dart';
 
 class PostContainer extends StatelessWidget {
 
@@ -79,7 +80,7 @@ class PostContainer extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage (
-                          image: NetworkImage(data.userdata!.profilePhotoUrl??'',),
+                          image: CachedNetworkImageProvider(data.userdata!.profilePhotoUrl??'',),
                           fit: BoxFit.fill
                         )
                       ),
@@ -156,7 +157,7 @@ class PostContainer extends StatelessWidget {
                             color: AppColors.primary,
                           ),
                         ),
-                        data.post!.image!=null? Image.network(data.post!.image!,fit: BoxFit.fill,):SizedBox.shrink(),
+                        data.post!.image!=null? CachedNetworkImage(imageUrl:data.post!.image!,fit: BoxFit.fill,):SizedBox.shrink(),
                         SizedBox(height: 10.h,),
                         Row(
                           children:

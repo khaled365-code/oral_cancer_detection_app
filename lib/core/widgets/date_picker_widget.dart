@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utilis/colors.dart';
+import '../utilis/app_colors.dart';
 
 class CustomDatePicker extends StatelessWidget {
   final Widget child;

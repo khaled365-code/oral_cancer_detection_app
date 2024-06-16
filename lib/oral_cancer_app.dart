@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
 import 'package:graduation_project/core/commons/global_cubits/change_theme_cubit/change_theme_cubit.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
@@ -15,8 +17,8 @@ import 'package:graduation_project/features/auth/data/manager/update_password_cu
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
-import 'package:graduation_project/features/diagnosis/presentation/manager/questions_cubit/question_diagnosis_cubit.dart';
-import 'package:graduation_project/features/home/presentation/manager/upload_image_cubit/upload_image_cubit.dart';
+import 'package:graduation_project/features/diagnosis/presentation/cubits/questions_cubit/question_diagnosis_cubit.dart';
+import 'package:graduation_project/features/home/presentation/cubits/image_diagnosis_cubit/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 
 class OralCancerApp extends StatelessWidget {
@@ -48,13 +50,28 @@ class OralCancerApp extends StatelessWidget {
                 return supportedLocales.first;
               },
               debugShowCheckedModeBanner: false,
-              initialRoute: seenOnBoard?Routes.loginScreen:Routes.splash,
+              initialRoute: initialRouteHandler(),
               onGenerateRoute: AppRoutes.onGenerateRoutes,
+              //CacheHelper().getData(key: ApiKeys.token)==null||seenOnBoard?Routes.loginScreen:seenOnBoard==false?Routes.splash:Routes.home,
+              //seenOnBoard?Routes.loginScreen:Routes.splash
             );
           },
         );
       },
     );
+  }
+  String initialRouteHandler(){
+    if(CacheHelper().getData(key: ApiKeys.token)==null&&seenOnBoard==false){
+     return Routes.splash;
+    }
+    else if(CacheHelper().getData(key: ApiKeys.token)==null&&seenOnBoard==true){
+     return Routes.loginScreen;
+    }
+    else{
+      return Routes.home;
+    }
+
+
   }
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
+import '../../../../core/utilis/app_colors.dart';
 import 'learnmore_row_widget.dart';
 
 class LearnMoreComponent extends StatelessWidget {

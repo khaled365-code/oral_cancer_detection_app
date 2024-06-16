@@ -4,10 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
-
 import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/colors.dart';
 import '../../../../core/widgets/resuable_text.dart';
 import '../widgets/line_widget.dart';
 import '../widgets/no_search_result_widget.dart';

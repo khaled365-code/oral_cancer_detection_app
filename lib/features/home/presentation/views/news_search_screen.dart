@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/widgets/custom_outlined_textfield.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
-import 'package:graduation_project/features/home/presentation/views/componants/news_search_body.dart';
+
+import '../../../../core/utilis/app_colors.dart';
+import '../widgets/news_search_body.dart';
 
 class NewsSearchScreen extends StatelessWidget {
   const NewsSearchScreen({super.key});

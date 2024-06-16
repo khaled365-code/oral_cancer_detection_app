@@ -133,6 +133,26 @@ class ImageConstants
   static const String locationTwitterIcon='assets/icons/location_twitter.svg';
 
 
+  static const String womanDoctorImage='assets/images/woman_doctor_image.png';
+
+  static const String oralCancerImage='assets/images/oral_cancer_image.jpg';
+
+  static const String arrowBackIcon='assets/icons/arrow_back_icon.svg';
+  static const String cairoNationalHos='assets/images/cairo_national.png';
+  static const String cairoNaserHos='assets/images/cairo_naser_hos.png';
+  static const String cairo6OctoberHos='assets/images/cairo6th_oct.png';
+  static const String tantaHos='assets/images/tanta_hos.png';
+  static const String sibienHos='assets/images/sibin_hos.png';
+  static const String luxorHos='assets/images/luxor_hos.png';
+  static const String assiotHos='assets/images/assiot_hos.png';
+  static const String mansouraHos='assets/images/mansoura_hos.png';
+
+
+
+
+
+
+
 
 
 

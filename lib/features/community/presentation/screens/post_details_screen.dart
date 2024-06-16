@@ -12,9 +12,9 @@ import 'package:graduation_project/features/community/data/models/new_all_posts_
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 import 'package:graduation_project/features/community/presentation/widgets/one_only_post_widget.dart';
 
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
-import '../../../../core/utilis/custom_app_bar.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
+import '../../../../core/utilis/app_colors.dart';
+import '../../../../core/widgets/default_app_bar.dart';
 import '../../../../core/utilis/image_constants.dart';
 
 class PostDetailsScreen extends StatelessWidget {
