@@ -3,6 +3,7 @@
 class EndPoints{
   static String photoModelBaseUrl="http://10.0.2.2:80/";
   static String textModelBaseUrl="http://10.0.2.2:5000/";
+  static String topHeadLinesBaseUrl='https://newsapi.org/v2/';
   static String baseUrl="https://dd5d-197-134-53-152.ngrok-free.app/api/";
   static String register="auth/register";
   static String loginEndPoint="auth/login";
@@ -10,6 +11,12 @@ class EndPoints{
   static String storeNewPost="blog";
   static String predict="predict";
   static String classify="classify";
+
+  static String findTopMedicalHeadLines({required  apiKey, required  country, required  category,required  totalResults})
+  {
+
+    return 'top-headlines?country=$country&apiKey=$apiKey&category=$category&totalResults=$totalResults';
+  }
 
 
 

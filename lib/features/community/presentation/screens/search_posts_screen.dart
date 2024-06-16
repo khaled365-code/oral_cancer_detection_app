@@ -5,12 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/community/presentation/widgets/serach_post_result_widget.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../../../core/commons/functions.dart';
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../../../core/widgets/resuable_text.dart';
 import '../widgets/line_widget.dart';

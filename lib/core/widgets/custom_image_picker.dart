@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import '../routes/routes.dart';
-import '../utilis/colors.dart';
+import '../utilis/app_colors.dart';
 
 
 class CustomImagePickerAvatar extends StatelessWidget {

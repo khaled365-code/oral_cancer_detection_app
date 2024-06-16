@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 
-import '../../../../core/utilis/app_styles.dart';
-import '../../../../core/utilis/colors.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
+import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 
 class PostDetailsWidget extends StatelessWidget {

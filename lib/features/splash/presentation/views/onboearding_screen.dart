@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/colors.dart';
 
 class OnboardingScreen extends StatelessWidget {
    OnboardingScreen({super.key, });

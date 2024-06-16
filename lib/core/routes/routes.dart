@@ -53,6 +53,10 @@ class Routes
   static const String  darkModeScreen='/dark_mode_screen';
 
 
+  static const String  completeNewsArticle='/complete_news_article_screen';
+
+
+
 
 
 

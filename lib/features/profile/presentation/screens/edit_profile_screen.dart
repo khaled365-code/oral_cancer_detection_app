@@ -8,25 +8,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/api/api_endPoints.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
-import 'package:graduation_project/core/utilis/colors.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/core/widgets/shared_button.dart';
+import 'package:graduation_project/features/profile/presentation/cubits/update_profile_cubit/update_profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
-import '../../../../core/routes/routes.dart';
-import '../../../../core/utilis/app_styles.dart';
+import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/widgets/body_app_bar.dart';
 import '../../../../core/widgets/custom_outlined_textfield.dart';
-import '../manager/update_profile_cubit/update_profile_cubit.dart';
 
 
 class EditProfileScreen extends StatelessWidget {
@@ -97,15 +93,15 @@ class EditProfileScreen extends StatelessWidget {
                       imagePick(imageSource: ImageSource.camera).then((value) =>
                           updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
                       Navigator.pop(context);
-
+            
                     },
                     galleryOnTap: () async
                     {
                       imagePick(imageSource: ImageSource.gallery).then((value) =>
                           updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
-
+            
                       Navigator.pop(context);
-
+            
                     },
                   ),
                 ):
@@ -124,9 +120,9 @@ class EditProfileScreen extends StatelessWidget {
                     {
                       imagePick(imageSource: ImageSource.gallery).then((value) =>
                           updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
-
+            
                       Navigator.pop(context);
-
+            
                     },
                   ),
                 ),
@@ -144,7 +140,7 @@ class EditProfileScreen extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-
+            
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                   child: CustomOutlinedTextField(
@@ -169,7 +165,7 @@ class EditProfileScreen extends StatelessWidget {
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,end:  20.w),
                   child: CustomOutlinedTextField(
-
+            
                     controller: updateProfileCubit.phoneController,
                     keyboardType: TextInputType.text,),
                 ),
@@ -229,11 +225,9 @@ class EditProfileScreen extends StatelessWidget {
                     controller: updateProfileCubit.dateOfBirthController,
                     keyboardType: TextInputType.text,),
                 ),
-
                 SizedBox(
                   height: 10.h,
                 ),
-
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w,),
                   child: ResuableText(
@@ -242,7 +236,6 @@ class EditProfileScreen extends StatelessWidget {
                     color: AppColors.c353535,
                   ),
                 ),
-
                 SizedBox(
                   height: 5.h,
                 ),
@@ -252,14 +245,19 @@ class EditProfileScreen extends StatelessWidget {
                     controller: updateProfileCubit.genderController,
                     keyboardType: TextInputType.text,),
                 ),
-
+            
+            
                 state is UpdateProfileLoadingSate ?
-                Center(
-                  child: SizedBox(
-                    width: 10.w,
-                    height: 10.w,
-                    child: CircularProgressIndicator(
-                      color: AppColors.primary,
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 70.h,start: 20.w,end: 20.w),
+                  child: Center(
+                    child: SizedBox(
+                      width: 25.w,
+                      height: 25.h,
+                      child: const CircularProgressIndicator(
+                        color: AppColors.primary,
+                        strokeWidth: 2,
+                      ),
                     ),
                   ),
                 ):
@@ -279,7 +277,7 @@ class EditProfileScreen extends StatelessWidget {
                           {
                             showToast(msg: 'No changes to update', toastStates: ToastStates.error);
                           }
-
+            
                         else if(updateProfileCubit.nameController.text!=''&& updateProfileCubit.emailController.text!='')
                           {
                             updateProfileCubit.updateProfileFun(
@@ -308,7 +306,7 @@ class EditProfileScreen extends StatelessWidget {
                                 updatedPhoto: updateProfileCubit.updatedProfilePic
                             );
                           }
-
+            
                       },
                       hasBorderRadius: true,
                       borderRadiusValue: 30,

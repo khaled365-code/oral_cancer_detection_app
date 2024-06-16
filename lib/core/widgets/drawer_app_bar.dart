@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utilis/image_constants.dart';
-import '../utilis/colors.dart';
+import '../utilis/app_colors.dart';
 import '../utilis/app_text_styles.dart';
 
 class DrawerAppBar extends StatelessWidget {
