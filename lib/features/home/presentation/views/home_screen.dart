@@ -19,6 +19,7 @@ import 'package:graduation_project/features/profile/data/repos/profile_repo_impl
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'news_screen.dart';
+import 'news_search_screen.dart';
 
 class HomePage extends StatefulWidget{
    HomePage({super.key});
@@ -36,7 +37,7 @@ class HomePageState extends State<HomePage> {
     const InitialHomeScreen(),
     const UploadImageView(),
     CommunityScreen(),
-    const MedicalNews(),
+    const NewsSearchScreen(),
     HospitalCity(),
   ];
   void onItemTapped(int index)
