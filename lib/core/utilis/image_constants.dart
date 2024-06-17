@@ -140,6 +140,10 @@ class ImageConstants
   static const String arrowBackIcon='assets/icons/arrow_back_icon.svg';
 
 
+  static const String userDefaultImage='assets/images/user_profile-modified.png';
+
+
+
 
 
 

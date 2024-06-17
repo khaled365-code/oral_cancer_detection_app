@@ -56,6 +56,14 @@ class Routes
   static const String  completeNewsArticle='/complete_news_article_screen';
 
 
+  static const String  forYouArticle='/for_you_article_screen';
+
+  static const String  postDetails='/post_details_screen';
+
+
+
+
+
 
 
 

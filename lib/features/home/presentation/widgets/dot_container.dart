@@ -11,9 +11,9 @@ class DotContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 10.w,
-      height: 10.h,
-      margin: EdgeInsetsDirectional.symmetric(horizontal: 5.w),
+      width: 8.w,
+      height: 8.h,
+      margin: EdgeInsetsDirectional.symmetric(horizontal: 4.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.r),
           color: indicatorIsActive? AppColors.white:AppColors.cB3B3B3

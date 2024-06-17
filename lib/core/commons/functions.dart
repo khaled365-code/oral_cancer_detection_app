@@ -81,27 +81,26 @@ getTimeDifference({required DateTime postDate})
 
   if(differenceInDays>0)
   {
-    return '${differenceInDays}d';
+    return '${differenceInDays} d';
   }
   else if(differenceInHours>0)
   {
-    return '${differenceInHours}h';
+    return '${differenceInHours} h';
   }
   else if(differenceInMinutes>0)
   {
-    return '${differenceInMinutes}m';
+    return '${differenceInMinutes} m';
   }
   else
   {
-    return '${differenceInSeconds}s';
+    return '${differenceInSeconds} s';
   }
 
 }
 String getEmail({required String currentEmail})
 {
-  int emailLength=14;
-  String displayedName=currentEmail.length>emailLength?currentEmail.substring(0,emailLength)+'.':currentEmail;
-  return displayedName;
+  return currentEmail.split('@')[0];
+
 
 
 }
