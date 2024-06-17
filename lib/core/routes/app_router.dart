@@ -17,6 +17,8 @@ import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
+import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
@@ -75,6 +77,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
       case Routes.completeNewsArticle:
         return MaterialPageRoute(builder: (context) => const CompleteNewsArticle(),settings: routeSettings);
+
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
@@ -157,6 +160,12 @@ class AppRoutes {
         );
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
+      case Routes.searchNewsScreen:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+        create: (context) => SearchNewsCubit(),
+          child: NewsSearchScreen(),
+         ),
+        );
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (context) => AboutAppScreen(),);
       case Routes.faqscreen:

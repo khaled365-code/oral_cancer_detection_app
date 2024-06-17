@@ -22,4 +22,5 @@ class ImageDiagnosisCubit extends Cubit<ImageDiagnosisState> {
     response.fold((errModel) => emit(ImageDiagnosisFailureState(errMessage: errModel)), (imageModel) => emit(ImageDiagnosisSuccessState()));
   }
 
+
 }

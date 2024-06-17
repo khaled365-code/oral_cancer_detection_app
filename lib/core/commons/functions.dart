@@ -116,7 +116,7 @@ String getUserName({required String currentUserName})
 Future<void> launchInAppWithBrowserOptions({required Uri url}) async {
   if (!await launchUrl(
     url,
-    mode: LaunchMode.inAppBrowserView,
+    mode: LaunchMode.inAppWebView,
     //browserConfiguration: const BrowserConfiguration(showTitle: true),
   )) {
     throw Exception('Could not launch $url');

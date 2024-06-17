@@ -50,14 +50,28 @@ class OralCancerApp extends StatelessWidget {
                 return supportedLocales.first;
               },
               debugShowCheckedModeBanner: false,
-              initialRoute: CacheHelper().getData(key: ApiKeys.token)==null||seenOnBoard?Routes.loginScreen:Routes.home,
+              initialRoute: initialRouteHandler(),
               onGenerateRoute: AppRoutes.onGenerateRoutes,
+              //CacheHelper().getData(key: ApiKeys.token)==null||seenOnBoard?Routes.loginScreen:seenOnBoard==false?Routes.splash:Routes.home,
               //seenOnBoard?Routes.loginScreen:Routes.splash
             );
           },
         );
       },
     );
+  }
+  String initialRouteHandler(){
+    if(CacheHelper().getData(key: ApiKeys.token)==null&&seenOnBoard==false){
+     return Routes.splash;
+    }
+    else if(CacheHelper().getData(key: ApiKeys.token)==null&&seenOnBoard==true){
+     return Routes.loginScreen;
+    }
+    else{
+      return Routes.home;
+    }
+
+
   }
 }
 

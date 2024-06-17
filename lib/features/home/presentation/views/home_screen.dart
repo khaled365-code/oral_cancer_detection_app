@@ -136,6 +136,13 @@ class HomePageState extends State<HomePage> {
     else if(widget.selectedIndex==3){
       return PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
+        actions: [
+          IconButton(onPressed: (){
+            navigate(context: context, route: Routes.searchNewsScreen);
+
+        },
+              icon: Icon(Icons.search,size: 28,))],
+        hasActions: true,
         hasLeading: true,
         hasTitle: true,
         leading: Builder(

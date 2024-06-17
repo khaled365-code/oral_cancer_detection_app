@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/features/home/presentation/services/news_services.dart';
-import 'package:graduation_project/features/home/presentation/widgets/news_listview.dart';
 import '../../data/models/news_model.dart';
+import '../manager/services/news_services.dart';
+import '../widgets/news_listview.dart';
 
 class MedicalNews extends StatefulWidget {
   
