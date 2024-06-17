@@ -13,6 +13,13 @@ class UploadImageCubit extends Cubit<UploadImageState> {
       mouthImage=tissueImg;
       emit(UploadImageSuccess());
   }
-
-
+  deleteMouthImage(){
+    if(mouthImage==null){
+      emit(UploadImageFailure(errMessage: 'There is no Image to delete !'));
+    }
+    else{
+      mouthImage=null;
+      emit(UploadImageFailure(errMessage: 'The image is deleted'));
+    }
+  }
 }
