@@ -6,3 +6,7 @@ abstract class UploadImageState {}
 
 class UploadImageInitial extends UploadImageState {}
 class UploadImageSuccess extends UploadImageState {}
+class UploadImageFailure extends UploadImageState {
+  UploadImageFailure({required this.errMessage});
+  final String errMessage;
+}

@@ -9,6 +9,8 @@ import 'package:graduation_project/core/widgets/custom_elevated_button.dart';
 import 'package:graduation_project/features/auth/presentation/widgets/custom_form_container.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/questions_cubit/question_diagnosis_cubit.dart';
 import '../../../../core/commons/functions.dart';
+import '../../../../core/utilis/image_constants.dart';
+import '../../../auth/presentation/widgets/custom_questions_container.dart';
 
 
 class QuestionChoice extends StatefulWidget {
@@ -36,7 +38,6 @@ class QuestionChoiceState extends State<QuestionChoice> {
   Widget build(BuildContext context) {
     double width=MediaQuery.of(context).size.width*0.35;
     return CustomFormContainer(
-
             borderRadius:  BorderRadius.all(Radius.circular(40.r)),
             height: 500.h,
             width: ScreenUtil().screenWidth,
