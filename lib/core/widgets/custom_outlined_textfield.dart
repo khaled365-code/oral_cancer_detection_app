@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 
 
@@ -20,30 +21,33 @@ class CustomOutlinedTextField extends StatelessWidget {
   final bool obsecureText;
   final TextEditingController controller;
   final double? borderRadius;
-  final Color? textFieldColor;
+  // final Color? textFieldColor;
   final bool hasPrefixIcon;
   final bool hasSuffixIcon;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType keyboardType;
-  final Color? borderSideColor;
+  final Color? enabledBorderSideColor;
+  final Color? focusedBorderSideColor;
   final void Function(String)? onFieldSubmitte;
   final String? Function(String?)? validator;
   final void Function()? suffixIconOnTap;
+  final TextStyle? textStyle;
 
 
 
-  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.textFieldColor, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.borderSideColor, this.onFieldSubmitte, this.validator, this.suffixIconOnTap});
+  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.onFieldSubmitte, this.validator, this.suffixIconOnTap, this.enabledBorderSideColor, this.focusedBorderSideColor,  this.textStyle});
 
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style:textStyle??AppTextStyles.font12 ,
       validator: validator,
       onFieldSubmitted: onFieldSubmitte,
       controller: controller,
-      cursorColor: crusorColor?? AppColors.black,
+      cursorColor: crusorColor?? AppColors.white,
       inputFormatters: inputFormatters??null,
       keyboardType: keyboardType,
       obscureText: obsecureText,
@@ -52,16 +56,17 @@ class CustomOutlinedTextField extends StatelessWidget {
         prefixIcon: hasPrefixIcon?Icon(prefixIcon):null,
         suffixIcon: hasSuffixIcon?GestureDetector(
           onTap: suffixIconOnTap,
-            child: Icon(suffixIcon)):null,
+            child: Icon(suffixIcon,color: AppColors.white,)):null,
         hintText: hintText??null,
-        hintStyle: hintStyle??null,
+        hintStyle: AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal,color:AppColors.background.withOpacity(0.5) )??null,
         focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color:focusedBorderSideColor??AppColors.cEFEFEF ),
             borderRadius: BorderRadius.circular((borderRadius??8).r),
         ),
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular((borderRadius??8).r),
             borderSide: BorderSide(
-              color: borderSideColor??AppColors.cEFEFEF,
+              color: enabledBorderSideColor??AppColors.cEFEFEF,
                 width: 1.2.w
             )
         ),

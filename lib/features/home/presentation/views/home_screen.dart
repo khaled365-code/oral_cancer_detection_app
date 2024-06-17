@@ -14,10 +14,10 @@ import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/initial_home_screen.dart';
 import 'package:graduation_project/features/home/presentation/widgets/bottomnav_bar_column.dart';
+import 'package:graduation_project/features/home/presentation/views/hospital_city.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
-import 'doctor_screen.dart';
 import 'news_screen.dart';
 
 class HomePage extends StatefulWidget{
@@ -37,7 +37,7 @@ class HomePageState extends State<HomePage> {
     const UploadImageView(),
     CommunityScreen(),
     const MedicalNews(),
-    const DoctorPage(),
+    HospitalCity(),
   ];
   void onItemTapped(int index)
   {
@@ -76,7 +76,7 @@ class HomePageState extends State<HomePage> {
               BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
               BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
               BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.userDoctor, text: 'Doctors')
+              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.hospital, text: 'Hospitals')
             ]
         ),
       ),
@@ -136,6 +136,13 @@ class HomePageState extends State<HomePage> {
     else if(widget.selectedIndex==3){
       return PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
+        actions: [
+          IconButton(onPressed: (){
+            navigate(context: context, route: Routes.searchNewsScreen);
+
+        },
+              icon: Icon(Icons.search,size: 28,))],
+        hasActions: true,
         hasLeading: true,
         hasTitle: true,
         leading: Builder(
@@ -165,7 +172,7 @@ class HomePageState extends State<HomePage> {
                   child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
             }
         ),
-        title: Text('Recommended Doctors'),backgroundColor: AppColors.primary,));
+        title: Text('Recommended Hospitals'),backgroundColor: AppColors.primary,));
     }
   }
 }

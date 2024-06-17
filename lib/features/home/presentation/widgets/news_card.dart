@@ -17,37 +17,43 @@ class News_tile extends StatelessWidget{
       Padding(
         padding:  EdgeInsetsDirectional.symmetric(horizontal: 18.w,vertical: 10.h),
         child: Container(
-          color: Colors.white,
-
+          decoration: BoxDecoration(
+            boxShadow: [BoxShadow(blurRadius: 5,color: AppColors.grey)],
+              color: Colors.white,
+            borderRadius: BorderRadius.circular(16)
+          ),
           child:
           GestureDetector(onTap: _launchUrl,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
 
-                ClipRRect(
+                  ClipRRect(
 
-                  borderRadius: BorderRadius.circular(8.r),
-                  child:CachedNetworkImage(
-                    errorWidget: (context,url,error)=>const Icon(Icons.error_outline_outlined),
-                    placeholder: (context,url)=>const Center(child: CircularProgressIndicator()),
-                    height:200 ,width: double.infinity,
-                    fit: BoxFit.cover, imageUrl: articleModel.image??"",),
-                ),
+                    borderRadius: BorderRadius.circular(8.r),
+                    child:CachedNetworkImage(
+                      errorWidget: (context,url,error)=>const Icon(Icons.error_outline_outlined),
+                      placeholder: (context,url)=>const Center(child: CircularProgressIndicator()),
+                      height:200 ,width: double.infinity,
+                      fit: BoxFit.cover, imageUrl: articleModel.image??"",),
+                  ),
 
 
-                 SizedBox(height: 15.h,),
-                Text(newsTitlesHandler(),
-                  style:  AppTextStyles.font24.copyWith(color: AppColors.primary),
-                  maxLines: 2,overflow: TextOverflow.ellipsis,),
+                   SizedBox(height: 15.h,),
+                  Text(newsTitlesHandler(),
+                    style:  AppTextStyles.font24.copyWith(color: AppColors.primary),
+                    maxLines: 2,overflow: TextOverflow.ellipsis,),
 
-                 SizedBox(height: 8.h,),
-                Text( newsDescHandler(),style:AppTextStyles.font18.copyWith(color: AppColors.grey,fontWeight: FontWeight.w400),
-                  maxLines: 1,overflow: TextOverflow.ellipsis,)
-                , SizedBox(height: 10.h,)
-                , const Divider(indent: 80,endIndent: 80,color: AppColors.primary,thickness: 2,)
+                   SizedBox(height: 8.h,),
+                  Text( newsDescHandler(),style:AppTextStyles.font18.copyWith(color: AppColors.grey,fontWeight: FontWeight.w400),
+                    maxLines: 1,overflow: TextOverflow.ellipsis,)
+                  , SizedBox(height: 10.h,)
+                  ,// const Divider(indent: 80,endIndent: 80,color: AppColors.primary,thickness: 2,)
 
-              ],
+                ],
+              ),
             ),
           ),
 

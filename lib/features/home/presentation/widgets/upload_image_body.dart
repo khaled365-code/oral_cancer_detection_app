@@ -11,75 +11,99 @@ import 'package:graduation_project/features/diagnosis/presentation/cubits/image_
 import 'package:graduation_project/features/home/presentation/cubits/image_diagnosis_cubit/upload_image_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/commons/functions.dart';
+import '../cubits/image_diagnosis_cubit/upload_image_state.dart';
 
 
 class UploadImageBody extends StatelessWidget {
   const UploadImageBody({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UploadImageCubit , UploadImageState>(
-    builder: (context, state) {
-     
-      return Padding(
-        padding: EdgeInsetsDirectional.symmetric(
-            horizontal: 18.w, vertical: 8.h),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            SizedBox(height: 32.h,),
-            const Text(
-              'Upload the image of the impaired tissue in your mouth',
-              textAlign: TextAlign.center,),
-            SizedBox(height: 20.h,),
-            state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
-            UImageContainer(
-                conHeight: 240.h, conWidth: 210.w, conImage:FileImage(File(context.read<UploadImageCubit>().mouthImage!.path ))
-            ):
-           CustomContainer( conHeight: 240.h, conWidth: 210.w,
-             conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),
-             border: Border.all(
-               color:AppColors.primary,
-               width: 2.0,
-               style:BorderStyle.solid,
-             ),),
-            SizedBox(height: 50.h,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      return BlocConsumer<UploadImageCubit,UploadImageState>(
+      listener: (BuildContext context, Object? state) {
+        if(state is UploadImageFailure){
+          showSnackBar(context,content: state.errMessage,contentColor: AppColors.primary);
+        }
+      },
+        builder: (BuildContext context, state) {
+          return  Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+                horizontal: 12.w, vertical: 8.h),
+            child: Stack(
+              clipBehavior: Clip.none,
               children: [
-                CustomTextButton(
-                    textState: 'UPLOAD',
-                    bIcon: const Icon(Icons.upload, color: Colors.white,),
-                    onPressed: () {
-                      imagePick(imageSource: ImageSource.gallery)
-                          .then((value) => context.read<UploadImageCubit>().uploadMouthImage(tissueImg: value!));
-                    }),
-                BlocListener<ImageDiagnosisCubit, ImageDiagnosisState>(
-                  listener: (context, state) {
-                    if(state is ImageDiagnosisFailureState){
-                      showSnackBar(context,content: state.errMessage,contentColor: AppColors.primary);
-                    }
-                    else if(state is ImageDiagnosisSuccessState){
-                      navigate(context: context, route: Routes.questionsView);
-                    }
+                ListView(
+                  shrinkWrap: true,
+                  children: [
+                    SizedBox(height: 32.h,),
+                    const Text(
+                      'Upload the image of the impaired tissue in your mouth',
+                      textAlign: TextAlign.center,),
+                    SizedBox(height: 20.h,),
+                    state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
 
-                  },
-                  child: CustomTextButton(
-                    textState: 'NEXT',
-                    bIcon: const Icon(
-                      Icons.arrow_forward_rounded, color: Colors.white,),
-                    onPressed: () {
-                      BlocProvider.of<ImageDiagnosisCubit>(context).imageDiagnosis(context);
+                    UImageContainer(
+                        conHeight: 240.h, conWidth: 350.w, conImage:FileImage(File(context.read<UploadImageCubit>().mouthImage!.path ))
+                    ) :
+                    CustomContainer( conHeight: 240.h, conWidth: 210.w,
+                      conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),
+                      border: Border.all(
+                        color:AppColors.primary,
+                        width: 2.0,
+                        style:BorderStyle.solid,
+                      ),),
+                    SizedBox(height: 50.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomTextButton(
+                            textState: 'UPLOAD',
+                            bIcon: const Icon(Icons.upload, color: Colors.white,),
+                            onPressed: () {
+                              imagePick(imageSource: ImageSource.gallery)
+                                  .then((value) => context.read<UploadImageCubit>().uploadMouthImage(tissueImg: value!));
+                            }),
+                        BlocListener<ImageDiagnosisCubit, ImageDiagnosisState>(
+                          listener: (context, state) {
+                            if(state is ImageDiagnosisFailureState){
+                              showSnackBar(context,content: state.errMessage,contentColor: AppColors.primary);
+                            }
+                            else if(state is ImageDiagnosisSuccessState){
+                              navigate(context: context, route: Routes.questionsView);
+                            }
+                          },
+                          child: CustomTextButton(
+                            textState: 'NEXT',
+                            bIcon: const Icon(
+                              Icons.arrow_forward_rounded, color: Colors.white,),
+                            onPressed: () {
+                              BlocProvider.of<ImageDiagnosisCubit>(context).imageDiagnosis(context);
 
-                    },),
+                            },),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
+              Positioned(
+                  left: 310,
+                  bottom: 85,
+                  child: CircleAvatar(
+                    radius: 30.r,
+                    backgroundColor: AppColors.primary,
+                    child: IconButton(onPressed: (){
+                      // BlocProvider.of<UploadImageCubit>(context).mouthImage==null;
+                      BlocProvider.of<UploadImageCubit>(context).deleteMouthImage();
 
-              ],
+                    }, icon: Icon(Icons.delete,size: 33,color: AppColors.white,)),
+                  )
+              )
+              ]
             ),
+          );
+        }
 
-          ],
-        ),
       );
-    },
-    );
+
+
   }
 }

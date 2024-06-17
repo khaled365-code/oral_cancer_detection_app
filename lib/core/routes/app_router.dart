@@ -17,6 +17,8 @@ import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
+import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
 import 'package:graduation_project/features/home/presentation/views/for_you_article.dart';
@@ -163,6 +165,12 @@ class AppRoutes {
         );
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
+      case Routes.searchNewsScreen:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+        create: (context) => SearchNewsCubit(),
+          child: NewsSearchScreen(),
+         ),
+        );
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (context) => AboutAppScreen(),);
       case Routes.faqscreen:

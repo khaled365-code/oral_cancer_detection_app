@@ -6,7 +6,7 @@ import 'package:graduation_project/core/utilis/app_text_styles.dart';
 class DoctorCard extends StatelessWidget{
   DoctorCard({super.key , required this.image, required this.doctorName,
     required this.docDegree , required this.aboutDoc ,
-    required this.docNumber,required this.docAddress});
+    required this.docNumber,required this.docAddress,});
 
   String image;
   String doctorName;

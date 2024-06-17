@@ -30,18 +30,19 @@ class ResultScreen extends StatelessWidget {
             child:state is QuestionDiagnosisLoadingState?Center(child: CircularProgressIndicator(),): Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("pleaseNote".tr(context),textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
-                SizedBox(height: 20.h,),
+                // Text("pleaseNote".tr(context),textAlign: TextAlign.center,style: AppTextStyles.font16.copyWith(color: AppColors.primary)),
+                // SizedBox(height: 20.h,),
                 CircularPercentIndicator(
                   animationDuration: 1700,
                   animation: true,
                   radius: 100,
-                  lineWidth: 22,
+                  lineWidth: 20,
                   percent:CacheHelper().getData(key: 'probCancer'),
                   progressColor: AppColors.primary,
                   backgroundColor: AppColors.primary.withOpacity(0.4),
                   circularStrokeCap: CircularStrokeCap.square,
                   center: Text("Percentage of Cancer ${(CacheHelper().getData(key: 'probCancer')*100).toStringAsFixed(0)}%",style: AppTextStyles.font12,),
+
                 ),
                 SizedBox(height: 20.h,),
                 Container(
@@ -92,11 +93,25 @@ class ResultScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 50.h,),
-                CustomElevatedButton(
-                  buttonBackground: AppColors.primary,
-                  onpress: (){
-                    navigate(context: context, route: Routes.home);
-                  }, child:  Text("BackToHome".tr(context)),)
+                Padding(
+                  padding:  EdgeInsetsDirectional.only(start: 60.w),
+                  child: Row(
+                    children: [
+                      CustomElevatedButton(
+                        buttonBackground: AppColors.primary,
+                        onpress: (){
+                          navigate(context: context, route: Routes.home);
+                        }, child:  Text("BackToHome".tr(context)),),
+                      SizedBox(width: 30.w,),
+                      CustomElevatedButton(
+                        buttonBackground: AppColors.primary,
+                        onpress: (){
+                          BlocProvider.of<QuestionDiagnosisCubit>(context).navigationToLearnMore(context);
+                        },
+                        child:  Text("Learn More"),),
+                    ],
+                  ),
+                )
               ],),
           ),
         );
