@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
-import 'package:graduation_project/features/diagnosis/presentation/widgets/learn_more_view.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/learn_more_view.dart';
 import '../../../data/repo/ai_repo.dart';
 part 'question_diagnosis_state.dart';
 
