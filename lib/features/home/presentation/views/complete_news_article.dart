@@ -1,5 +1,6 @@
 
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -72,7 +73,8 @@ class CompleteNewsArticle extends StatelessWidget {
             child: SizedBox(
                 height: 200.h,
                 width: MediaQuery.of(context).size.width,
-                child: Image.network(recievedData.urlToImage??'https://clipground.com/images/no-image-png-5.jpg',fit: BoxFit.fill,)),
+                child: CachedNetworkImage(
+                  imageUrl: recievedData.urlToImage??'https://clipground.com/images/no-image-png-5.jpg',fit: BoxFit.fill,)),
           ),
           SliverToBoxAdapter(
             child: Padding(

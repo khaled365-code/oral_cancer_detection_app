@@ -68,7 +68,6 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
 
 
-
   // get all posts logic
   getAllPostsFun() async
   {
@@ -127,23 +126,26 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
   // add Post Logic
 
-  TextEditingController postTitleController=TextEditingController();
-  TextEditingController bodyController=TextEditingController();
+  TextEditingController addPostBodyController=TextEditingController();
   XFile? addPostImage;
   addImageFun({required XFile comeImage})
   {
     addPostImage=comeImage;
     emit(ChangeAddPostPictureState());
   }
-  addNewPost({required String body,required String title}) async
+  deleteImageFun()
+  {
+    addPostImage=null;
+    emit(AddPostPictureToNullState());
+  }
+  addNewPost({String? body}) async
   {
     emit(AddPostLoadingState());
     final response=await communityRepoImplementation.uploadPost(
           token: CacheHelper().getData(key: ApiKeys.token),
           userId: int.parse(CacheHelper().getData(key: ApiKeys.id)),
-          body: body,
+          body: body!=null&&body!=''?body: null,
           image: addPostImage!=null? await uploadImageToAPI(addPostImage!):null,
-          title: title,
         );
 
     response.fold(
@@ -155,6 +157,10 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
 
   //saerch for posts logic
 
+  getPostsNumber({required int postsNumber})
+  {
+    return postsNumber;
+  }
   TextEditingController searchFieldController=TextEditingController();
   searchForPosts({required String searchContent}) async
   {
@@ -164,8 +170,16 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
       searchContent: searchContent,
     );
 
-    response.fold((error) => emit(SearchForPostsFailureState(errorMessage: error)),
-            (success) => emit(SearchForPostsSuccessState(searchModel: success)));
+    var postsNum = getPostsNumber(postsNumber: response.data!.length);
+
+    if (postsNum == 0)
+    {
+      emit(SearchForPostsFailureState());
+    } else 
+    {
+      emit(SearchForPostsSuccessState(searchModel: response));
+    }
+
 
 
   }

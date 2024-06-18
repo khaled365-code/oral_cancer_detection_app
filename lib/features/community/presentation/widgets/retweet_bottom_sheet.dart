@@ -35,7 +35,7 @@ class RetweetBottomSheet extends StatelessWidget {
       builder: (context, state) {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
         return Container(
-          width: 414.w,
+          width: MediaQuery.of(context).size.width,
           height: 235.h,
           color: AppColors.white,
           child: Column(
@@ -45,9 +45,7 @@ class RetweetBottomSheet extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () async
                   {
-                   await communityBloc.addNewPost(
-                        body: data.post!.body!,
-                        title: 'Any Title');
+                    await communityBloc.addNewPost(body: data.post!.body);
                     communityBloc.getAllPostsFun();
                     Navigator.pop(context);
                   },
@@ -87,11 +85,10 @@ class RetweetBottomSheet extends StatelessWidget {
                 child: GestureDetector(
                   onTap: ()
                   {
-
                     Navigator.pop(context);
                   },
                   child: Container(
-                    width: 398.w,
+                    width: MediaQuery.of(context).size.width*.9,
                     height: 48.h,
                     decoration: BoxDecoration(
                         color: AppColors.cE7ECF0,

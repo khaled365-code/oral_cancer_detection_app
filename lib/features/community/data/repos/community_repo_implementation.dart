@@ -20,40 +20,23 @@ class CommunityRepoImplementation implements CommunityRepo {
   CommunityRepoImplementation({required this.api});
 
   @override
-  Future<Either<String, String>> uploadPost({required String title, required String body,MultipartFile? image, required int userId, required String token}) async {
+  Future<Either<String, String>> uploadPost({ String? body,MultipartFile? image, required int userId, required String token}) async {
     try
     {
-      late var response;
+      Map<String,dynamic> data={};
+      if(body!=null)
+        data[ApiKeys.body]=body;
       if(image!=null)
-        {
-           response = await api.post(EndPoints.storeNewPost, data:
-          {
-            ApiKeys.title: title,
-            ApiKeys.body: body,
-            ApiKeys.user_id: userId,
-            ApiKeys.token: token,
-            ApiKeys.image:image
+        data[ApiKeys.image]=image;
+      data[ApiKeys.user_id]=userId;
+      data[ApiKeys.token]=token;
 
-          },
-              isFormData: true
-          );
-        }
-      else
-        {
-           response = await api.post(EndPoints.storeNewPost, data:
-          {
-            ApiKeys.title: title,
-            ApiKeys.body: body,
-            ApiKeys.user_id: userId,
-            ApiKeys.token: token,
-          },
-              isFormData: true
-          );
-        }
-
+      final response = await api.post(EndPoints.storeNewPost, data:data, isFormData: true);
       final postSuccesUpladedInstance = PostUploadedSuccessFully.fromJson(response);
+
       return Right(postSuccesUpladedInstance.message);
-    } on ServerException catch (e) {
+    } on ServerException catch (e)
+    {
       return Left(e.errorModel.errorMessage);
     }
   }
@@ -116,20 +99,14 @@ class CommunityRepoImplementation implements CommunityRepo {
 
 
   @override
-  Future<Either<String,SearchPostModel>> searchForPosts({required String token, required String searchContent}) async {
-    try {
+  Future<SearchPostModel> searchForPosts({required String token, required String searchContent}) async {
 
       final response=await api.post(EndPoints.searchForPostsEndpoint(
           token: token,
           searchContent: searchContent));
 
       final SearchPostModel searchModel=SearchPostModel.fromJson(response);
-      return Right(searchModel);
-
-    } on ServerException catch (e) {
-
-       return Left(e.errorModel.errorMessage);
-    }
+      return searchModel;
 
 
   }

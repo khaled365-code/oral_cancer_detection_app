@@ -90,16 +90,13 @@ class SearchForPostsSuccessState extends GlobalCommunityBlocState {
 }
 
 
-class SearchForPostsFailureState extends GlobalCommunityBlocState {
-
-  final String errorMessage;
-
-  SearchForPostsFailureState({required this.errorMessage});
-
-}
+class SearchForPostsFailureState extends GlobalCommunityBlocState {}
 
 
 class ChangeAddPostPictureState extends GlobalCommunityBlocState {}
+
+class AddPostPictureToNullState extends GlobalCommunityBlocState {}
+
 
 
 class GetAllCommentsLoadingState extends GlobalCommunityBlocState {}

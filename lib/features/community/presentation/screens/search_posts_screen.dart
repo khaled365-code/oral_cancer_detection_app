@@ -28,19 +28,19 @@ class SearchPostsScreen extends StatelessWidget {
         }
         else if(state is SearchForPostsFailureState )
         {
-          showToast(msg: state.errorMessage,toastStates: ToastStates.error);
+          showToast(msg: 'No Matching Posts',toastStates: ToastStates.error);
 
         }
       },
       builder: (context, state) {
         final communityBloc = BlocProvider.of<GlobalCommunityBloc>(context);
         return Scaffold(
-          body: state is SearchForPostsLoadingState ?
-          SafeArea(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
+          body: SafeArea(
+            child: CustomScrollView(
+              slivers: [
+                state is SearchForPostsLoadingState ?
+                SliverToBoxAdapter(
+                  child: Container(
                     width: double.infinity,
                     height: 40.h,
                     child: Row(
@@ -48,7 +48,71 @@ class SearchPostsScreen extends StatelessWidget {
                       [
                         SizedBox(width: 15.w,),
                         GestureDetector(
-                            onTap: () {
+                            onTap: ()
+                            {
+                              communityBloc.getAllPostsFun();
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: AppColors.c4C9EEB,
+                              size: 15.sp,
+                            )),
+                        SizedBox(width: 16.w,),
+                        Container(
+                          height: 32.h,
+                          width: 270.w,
+                          decoration: BoxDecoration(
+                              color: AppColors.cE7ECF0,
+                              borderRadius: BorderRadius.circular(25.r)
+                          ),
+                          child: Expanded(
+                            child: TextField(
+                              controller: communityBloc.searchFieldController,
+                              onSubmitted: (value) async
+                              {
+                                await communityBloc.searchForPosts(
+                                    searchContent: value);
+                              },
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  contentPadding: EdgeInsetsDirectional.only(
+                                    start: 20.w, bottom: 10.h,),
+                                  hintText: 'Search Posts',
+                                  hintStyle: AppKhaledStyles.textStyle(
+                                    color: AppColors.cAFB8C1,
+                                    size: 13,
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(start: 16.w),
+                          child: GestureDetector(
+                              onTap: ()
+                              {
+
+                              },
+                              child: Image.asset(ImageConstants.communitySettingsImage)),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ):
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: double.infinity,
+                    height: 40.h,
+                    child: Row(
+                      children:
+                      [
+                        SizedBox(width: 15.w,),
+                        GestureDetector(
+                            onTap: ()
+                            {
                               communityBloc.getAllPostsFun();
                               Navigator.pop(context);
                             },
@@ -100,203 +164,49 @@ class SearchPostsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 6.h,),
-                  LineWidget(),
-                  Shimmer.fromColors(
-                    baseColor: AppColors.cE1E1E1,
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 6.h,)),
+                state is SearchForPostsSuccessState?
+                SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                          (context, index) => SearchResultWidget(
+                              serachModel: state.searchModel.data![index]),
+                      childCount: state.searchModel.data!.length,
+                    ),
+                ):
+                state is SearchForPostsLoadingState ?
+                SliverFillRemaining(
+                  child: Shimmer.fromColors(
+                    baseColor: AppColors.white,
                     highlightColor: AppColors.primary,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.only(start: 20.w, top: 10.h),
-                      child: ResuableText(
-                        text: 'Posts for you',
-                        color: AppColors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-            
-                      ),
+                    child: Container(
+                      color: AppColors.white,
                     ),
                   ),
-                  SizedBox(height: 12.3.h,),
-                  LineWidget(),
-                  Shimmer.fromColors(
-                      baseColor: AppColors.cE1E1E1,
-                      highlightColor: AppColors.primary,
-                      child: NoSearchResultWidget()),
-                  Shimmer.fromColors(
-                    baseColor: AppColors.cE1E1E1,
-                    highlightColor: AppColors.primary,
-                    child: Expanded(
-                        child: Container(
-                          color: AppColors.cE7ECF0,
-                        )),
-                  )
-
-                ]
-            ),
-          ):
-          state is SearchForPostsSuccessState ?
-          SafeArea(
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 40.h,
-                  child: Row(
+                ):SliverToBoxAdapter(
+                  child: Column(
+                    crossAxisAlignment:CrossAxisAlignment.start ,
                     children:
                     [
-                      SizedBox(width: 15.w,),
-                      GestureDetector(
-                          onTap: () {
-                            communityBloc.getAllPostsFun();
-                            Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: AppColors.c4C9EEB,
-                            size: 15.sp,
-                          )),
-                      SizedBox(width: 16.w,),
-                      Container(
-                        height: 32.h,
-                        width: 270.w,
-                        decoration: BoxDecoration(
-                            color: AppColors.cE7ECF0,
-                            borderRadius: BorderRadius.circular(25.r)
-                        ),
-                        child: Expanded(
-                          child: TextField(
-                            controller: communityBloc.searchFieldController,
-                            onSubmitted: (value) async
-                            {
-                              await communityBloc.searchForPosts(
-                                  searchContent: value);
-                            },
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                contentPadding: EdgeInsetsDirectional.only(
-                                  start: 20.w, bottom: 10.h,),
-                                hintText: 'Search Posts',
-                                hintStyle: AppKhaledStyles.textStyle(
-                                  color: AppColors.cAFB8C1,
-                                  size: 13,
-                                )
-                            ),
-                          ),
-                        ),
-                      ),
+                      LineWidget(),
                       Padding(
-                        padding: EdgeInsetsDirectional.only(start: 16.w),
-                        child: GestureDetector(
-                            onTap: () {
-                              // navigate(context: context, route: Routes.noPostsScreen);
-                            },
-                            child: Image.asset(
-                                ImageConstants.communitySettingsImage)),
+                        padding: EdgeInsetsDirectional.only(start: 20.w, top: 10.h),
+                        child: ResuableText(
+                          text: 'Posts for you',
+                          color: AppColors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                  
+                        ),
                       ),
-
+                      SizedBox(height: 12.3.h,),
+                      LineWidget(),
+                      NoSearchResultWidget(),
                     ],
                   ),
-                ),
-                SizedBox(height: 6.h,),
-                Expanded(
-                child: ListView.builder(
-                 itemBuilder: (context, index) =>
-                 SearchResultWidget(
-                serachModel: state.searchModel.data![index]),
-                itemCount: state.searchModel.data!.length,
-                        )),
+                )
               ],
             ),
-          ) :
-          SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 40.h,
-                  child: Row(
-                    children:
-                    [
-                      SizedBox(width: 15.w,),
-                      GestureDetector(
-                          onTap: () {
-                            communityBloc.getAllPostsFun();
-                            Navigator.pop(context);
-                            },
-                          child: Icon(
-                                        Icons.arrow_back_ios_new_rounded,
-                                        color: AppColors.c4C9EEB,
-                                        size: 15.sp,
-                                      )),
-                      SizedBox(width: 16.w,),
-                      Container(
-                        height: 32.h,
-                        width: 270.w,
-                        decoration: BoxDecoration(
-                            color: AppColors.cE7ECF0,
-                            borderRadius: BorderRadius.circular(25.r)
-                        ),
-                        child: Expanded(
-                          child: TextField(
-                            controller: communityBloc.searchFieldController,
-                            onSubmitted: (value) async
-                            {
-                              await communityBloc.searchForPosts(
-                                  searchContent: value);
-                            },
-                            cursorHeight: 18.h,
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                contentPadding: EdgeInsetsDirectional.only(
-                                  start: 20.w, bottom: 10.h,),
-                                hintText: 'Search Posts',
-                                hintStyle: AppKhaledStyles.textStyle(
-                                  color: AppColors.cAFB8C1,
-                                  size: 13,
-                                )
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(start: 16.w),
-                        child: GestureDetector(
-                            onTap: () {
-                              // navigate(context: context, route: Routes.noPostsScreen);
-                            },
-                            child: Image.asset(
-                                ImageConstants.communitySettingsImage)),
-                      ),
-            
-                    ],
-                  ),
-                ),
-                SizedBox(height: 6.h,),
-                LineWidget(),
-                Padding(
-                  padding: EdgeInsetsDirectional.only(start: 20.w, top: 10.h),
-                  child: ResuableText(
-                    text: 'Posts for you',
-                    color: AppColors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-            
-                  ),
-                ),
-                SizedBox(height: 12.3.h,),
-                LineWidget(),
-                NoSearchResultWidget(),
-                Expanded(
-                    child: Container(
-                      color: AppColors.cE7ECF0,
-                    ))
-            
-            
-              ]
-                    ),
           ),
 
 
@@ -321,3 +231,27 @@ class SearchPostsScreen extends StatelessWidget {
     );
   }
 }
+
+/*
+
+ SizedBox(height: 6.h,),
+                LineWidget(),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(start: 20.w, top: 10.h),
+                  child: ResuableText(
+                    text: 'Posts for you',
+                    color: AppColors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+
+                  ),
+                ),
+                SizedBox(height: 12.3.h,),
+                LineWidget(),
+                NoSearchResultWidget(),
+                Expanded(
+                    child: Container(
+                      color: AppColors.cE7ECF0,
+                    ))
+
+ */
