@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/features/home/presentation/widgets/news_shimmer.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../../../core/utilis/lotties_constants.dart';
 import '../../data/models/news_model.dart';
 import '../manager/search_news_cubit/search_news_cubit.dart';
@@ -27,12 +30,15 @@ class NewsSearchBody extends StatelessWidget {
                 }
                 else{
                   //here shimmer should be applied
-                  return Text("loading");
+                  return NewsShimmer();
                 }
               });
         }
         else if(state is SearchNewsFailureState){
           return Center(child:  Lottie.asset(AppLoties.noDataFoundLottie));
+        }
+        else if (state is SearchNewsLoadingState){
+          return NewsShimmer();
         }
         else{
           return Center(child: Lottie.asset(AppLoties.searchNewsLottie));

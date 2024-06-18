@@ -16,18 +16,21 @@ class NewsSearchScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        title: CustomOutlinedTextField(
-          textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
-          focusedBorderSideColor: AppColors.white,
-          hintText: 'Search for a Title...',
-            onFieldSubmitte: (data) {
-              searchCubit.onSubmittedSearch(data);
-            },
-           enabledBorderSideColor: AppColors.white,
-            hasSuffixIcon: true,
-            suffixIcon: Icons.search,
-            controller: searchCubit.searchController,
-            keyboardType: TextInputType.text
+        title: Padding(
+          padding: const EdgeInsets.all(18),
+          child: CustomOutlinedTextField(
+            textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
+            focusedBorderSideColor: AppColors.white,
+            hintText: 'Search for Medical News...',
+              onFieldSubmitte: (data) {
+                searchCubit.onSubmittedSearch(data);
+              },
+             enabledBorderSideColor: AppColors.white,
+              hasSuffixIcon: true,
+              suffixIcon: Icons.search,
+              controller: searchCubit.searchController,
+              keyboardType: TextInputType.text
+          ),
         ),
       ),
       body:NewsSearchBody()

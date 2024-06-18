@@ -64,6 +64,9 @@ class AppRoutes {
             MultiBlocProvider(
             providers: [
               BlocProvider(
+                create: (context) => SearchNewsCubit(),
+              ),
+              BlocProvider(
                 create: (context) => ImageDiagnosisCubit(
                     aiRepository: AiRepository(
                         api: DioConsumer(
@@ -148,9 +151,9 @@ class AppRoutes {
                     SignInCubit(AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false))),
                 child: const LoginPage()),);
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (context) =>  BlocProvider(
-  create: (context) => SignUpCubit(authRepos: AuthRepos(api:DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
-  child: RegisterPage(),
+             return MaterialPageRoute(builder: (context) =>  BlocProvider(
+             create: (context) => SignUpCubit(authRepos: AuthRepos(api:DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+               child: RegisterPage(),
 ),);
       case Routes.doctor:
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
@@ -166,10 +169,7 @@ class AppRoutes {
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.searchNewsScreen:
-        return MaterialPageRoute(builder: (context) => BlocProvider(
-        create: (context) => SearchNewsCubit(),
-          child: NewsSearchScreen(),
-         ),
+        return MaterialPageRoute(builder: (context) => NewsSearchScreen(),
         );
       case Routes.aboutApp:
         return MaterialPageRoute(builder: (context) => AboutAppScreen(),);
