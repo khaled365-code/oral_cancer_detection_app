@@ -42,6 +42,7 @@ class EditProfileScreen extends StatelessWidget {
         }
         else if(state is UpdateProfileFailureState)
         {
+
           showToast(msg: state.errMessage, toastStates: ToastStates.error);
         }
       },
