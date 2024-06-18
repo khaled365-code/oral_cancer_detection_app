@@ -35,7 +35,7 @@ class News_tile extends StatelessWidget{
                     borderRadius: BorderRadius.circular(8.r),
                     child:CachedNetworkImage(
                       errorWidget: (context,url,error)=>const Icon(Icons.error_outline_outlined),
-                      placeholder: (context,url)=>const Center(child: CircularProgressIndicator()),
+                      //placeholder: (context,url)=>const Center(child: CircularProgressIndicator()),
                       height:200 ,width: double.infinity,
                       fit: BoxFit.cover, imageUrl: articleModel.image??"",),
                   ),

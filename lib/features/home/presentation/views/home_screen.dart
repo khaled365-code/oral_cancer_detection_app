@@ -9,9 +9,12 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/widgets/custom_outlined_textfield.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/initial_home_screen.dart';
 import 'package:graduation_project/features/home/presentation/widgets/bottomnav_bar_column.dart';
 import 'package:graduation_project/features/home/presentation/views/hospital_city.dart';
@@ -85,6 +88,7 @@ class HomePageState extends State<HomePage> {
   }
   PreferredSize showAppBar()
   {
+    var searchCubit = BlocProvider.of<SearchNewsCubit>(context);
     if(widget.selectedIndex==0 || widget.selectedIndex==1){
       return PreferredSize(
           preferredSize: Size(double.infinity, 40.h),
@@ -135,7 +139,7 @@ class HomePageState extends State<HomePage> {
         backgroundColor: AppColors.white,));
     }
     else if(widget.selectedIndex==3){
-      return PreferredSize(preferredSize: Size(double.infinity, 40.h),
+      return PreferredSize(preferredSize: Size(double.infinity,0.h),
       child: DefaultAppBar(
         actions: [
           IconButton(onPressed: (){
@@ -143,21 +147,33 @@ class HomePageState extends State<HomePage> {
 
         },
               icon: Icon(Icons.search,size: 28,))],
-        hasActions: true,
+        hasActions: false,
         hasLeading: true,
-        hasTitle: true,
+        hasTitle: false,
         leading: Builder(
             builder: (context) {
-              return GestureDetector(
-                  onTap: ()
-                  {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child: Image.asset(ImageConstants.homelines,color: AppColors.background));
+              return Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: CustomOutlinedTextField(
+                      textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
+                      focusedBorderSideColor: AppColors.white,
+                      hintText: 'Search for a Medical News...',
+                      onFieldSubmitte: (data) {
+                        searchCubit.onSubmittedSearch(data);
+                      },
+                      enabledBorderSideColor: AppColors.white,
+                      hasSuffixIcon: true,
+                      suffixIcon: Icons.search,
+                      controller: searchCubit.searchController,
+                      keyboardType: TextInputType.text
+                  ),
+                );
             }
         ),
-        title: Text('Medical News'),backgroundColor:AppColors.primary ,));
-    }
+
+         )
+          );
+          }
     else{
       return  PreferredSize(preferredSize: Size(double.infinity, 40.h),
       child: DefaultAppBar(
