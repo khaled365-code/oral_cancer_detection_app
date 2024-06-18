@@ -39,9 +39,10 @@ class Routes
   static const String  initialProfileScreen='/initial_profile_screen';
   static const String  darkModeScreen='/dark_mode_screen';
   static const String  searchNewsScreen='/searchNewsScreen';
-
-
   static const String  completeNewsArticle='/complete_news_article_screen';
+  static const String  UploadImageView='/upload_image_view';
+
+
 
 
 
