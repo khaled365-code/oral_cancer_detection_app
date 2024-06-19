@@ -17,7 +17,7 @@ class DiagnosisIntro extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal:12.w ,vertical: 12.h ),
+          padding: EdgeInsets.symmetric(horizontal:16.w ,vertical: 12.h ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,7 +27,7 @@ class DiagnosisIntro extends StatelessWidget {
                 color: AppColors.primary,
               ),),
               SizedBox(height: 10.h,),
-              Text('Take a short (5 min) symptom assessment. The'
+              Text('Take a short (5 min) symptom assessment,The '
                   'information you give  is safe and will not be shared.',
                 style: AppTextStyles.font18.copyWith(fontWeight: FontWeight.w300),),
               SizedBox(height: 14.h,),
