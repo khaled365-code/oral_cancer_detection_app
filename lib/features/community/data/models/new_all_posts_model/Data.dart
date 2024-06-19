@@ -12,7 +12,8 @@ class NewAllPostsData {
       this.post, 
       this.commentCount, 
       this.likeCount, 
-      this.userdata, 
+      this.userdata,
+      this.retweetISActive=false,
       this.likedByThisUser,});
 
   NewAllPostsData.fromJson(dynamic json) {
@@ -27,6 +28,7 @@ class NewAllPostsData {
   num? likeCount;
   NewAllUserData? userdata;
   num? likedByThisUser;
+  bool? retweetISActive;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

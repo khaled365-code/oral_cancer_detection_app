@@ -18,6 +18,7 @@ import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/app_khaled_styles.dart';
+import '../../../../core/utilis/fontweight_helper.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../widgets/camera_post_container.dart';
 
@@ -32,6 +33,8 @@ class AddPostScreen extends StatelessWidget {
         if(state is AddPostSuccessState)
           {
             showToast(msg: 'Post Created Successfully',toastStates: ToastStates.success);
+            BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
+            Navigator.pop(context);
           }
         else if(state is AddPostFailureState )
           {
@@ -57,8 +60,10 @@ class AddPostScreen extends StatelessWidget {
                             child: Text(
                               'Cancel',
                               style: AppKhaledStyles.textStyle(
-                                color: AppColors.c4C9EEB,
-                                size: 16,
+                                  color: AppColors.c4C9EEB,
+                                  size: 17,
+                                  weight: FontWeightHelper.regular
+
                               ),
                             ),
                           ),
@@ -89,14 +94,15 @@ class AddPostScreen extends StatelessWidget {
                               {
                                 communityBloc.addPostBodyController.clear();
                                 communityBloc.addPostImage=null;
-                                communityBloc.getAllPostsFun();
                                 Navigator.pop(context);
+
                               },
                               child: Text(
                                 'Cancel',
                                 style: AppKhaledStyles.textStyle(
-                                  color: AppColors.c4C9EEB,
-                                  size: 16,
+                                    color: AppColors.c4C9EEB,
+                                    size: 17,
+                                    weight: FontWeightHelper.regular
                                 ),
                               ),
                             ),
@@ -107,7 +113,7 @@ class AddPostScreen extends StatelessWidget {
                             {
                               if(communityBloc.addPostBodyController.text.isEmpty&&communityBloc.addPostImage==null)
                                 {
-                                  showToast(msg: 'You should add a post or an image to continue', toastStates: ToastStates.error);
+                                  showToast(msg: 'You should add a text or an image to continue', toastStates: ToastStates.error);
                                 }
                               else
                                 {
@@ -121,15 +127,16 @@ class AddPostScreen extends StatelessWidget {
                               width: 67.w,
                               height: 34.h,
                               decoration: BoxDecoration(
-                                color: AppColors.cB9DCF7,
+                                color: AppColors.primary,
                                 borderRadius: BorderRadius.circular(16.r),
                               ),
                               child: Center(
                                 child: Text(
                                   'Post',
                                   style: AppKhaledStyles.textStyle(
-                                    color: AppColors.white,
-                                    size: 13,
+                                      color: AppColors.white,
+                                      size: 15,
+                                      weight: FontWeightHelper.regular
                                   ),
                                 ),
                               ),
@@ -148,12 +155,12 @@ class AddPostScreen extends StatelessWidget {
                         children:
                         [
                           Container(
-                            width: 55.w,
-                            height: 55.w,
+                            width: 37.w,
+                            height: 37.w,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage (
-                                    image: CachedNetworkImageProvider(CacheHelper().getData(key: ApiKeys.profile_photo_url)),
+                                    image: CachedNetworkImageProvider('${CacheHelper().getData(key: ApiKeys.profile_photo_url)}'),
                                     fit: BoxFit.fill
                                 )
                             ),
@@ -177,21 +184,18 @@ class AddPostScreen extends StatelessWidget {
                                            await communityBloc.addNewPost(body: communityBloc.addPostBodyController.text);
                                            communityBloc.addPostBodyController.clear();
                                            communityBloc.addPostImage=null;
-                                           communityBloc.getAllPostsFun();
-                                           Navigator.pop(context);
                                          }
                                       },
                                       decoration: InputDecoration(
                                           border: InputBorder.none,
                                           focusedBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
                                           hintText: 'What\'s happening ?',
                                           hintTextDirection: TextDirection.ltr,
                                           hintStyle: AppKhaledStyles.textStyle(
                                             color: AppColors.c687684,
                                             size: 14,
+                                            weight: FontWeightHelper.regular
                                           )
-
                                       ),
                                     ),
                                   ],
@@ -207,32 +211,24 @@ class AddPostScreen extends StatelessWidget {
 
 
 
-
                     state is AddPostLoadingState?
-                    Shimmer.fromColors(
-                      baseColor: AppColors.cE1E1E1,
-                      highlightColor: AppColors.primary,
-                      child: Padding(
-                        padding:  EdgeInsets.only(top: 30.h),
-                        child: Container(
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width,
-                          height: 94.h,
-                          child: ListView.separated(
-                              padding: EdgeInsetsDirectional.all(8.w),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) =>
-                                  CmaeraPostContainer(
-                                    cameraPostsModedl: communityBloc
-                                        .cameraPostsData[index],
+                    Padding(
+                      padding:  EdgeInsets.only(top: 30.h),
+                      child: Container(width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                        height: 94.h,
+                        child: ListView.separated(
+                            padding: EdgeInsetsDirectional.all(8.w),
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) =>
+                                CmaeraPostContainer(
+                                  cameraPostsModedl: communityBloc.cameraPostsData[index],
 
-                                  ),
-                              separatorBuilder: (context, index) =>
-                                  SizedBox(width: 12.w),
-                              itemCount: 4),
-                        ),
+                                ),
+                            separatorBuilder: (context, index) => SizedBox(width: 12.w),
+                            itemCount: 4),
                       ),
                     ):
                     Padding(
@@ -257,55 +253,49 @@ class AddPostScreen extends StatelessWidget {
                                       }
                                   },
                                   child: CmaeraPostContainer(
-                                    cameraPostsModedl: communityBloc
-                                        .cameraPostsData[index],
+                                    cameraPostsModedl: communityBloc.cameraPostsData[index],
 
                                   ),
                                 ),
-                            separatorBuilder: (context, index) =>
-                                SizedBox(width: 12.w),
+                            separatorBuilder: (context, index) => SizedBox(width: 12.w),
                             itemCount: 4),
                       ),
                     ),
 
                     state is AddPostLoadingState?
-                    Shimmer.fromColors(
-                        baseColor: AppColors.cE1E1E1,
-                        highlightColor: AppColors.primary,
-                        child:Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 40.h,
-                          decoration: BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                    color: AppColors.cEFF0F3,
-                                    width: 1.5.w
-                                ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 40.h,
+                      decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                                color: AppColors.cEFF0F3,
+                                width: 1.5.w
+                            ),
 
-                              )
+                          )
+                      ),
+                      child: Row(
+                        children:
+                        [
+                          SizedBox(width: 10.w,),
+                          SvgPicture.asset(ImageConstants.addImageTwitterIcon,color: AppColors.primary,width: 20.w,height: 20.h,),
+                          SizedBox(width: 15.w,),
+                          Icon(Icons.delete_outline_sharp,color: AppColors.primary,size: 25.w,),
+                          Spacer(),
+                          SizedBox(
+                              width: 22.w,
+                              height: 22.h,
+                              child: SvgPicture.asset(ImageConstants.earthSolidIcon,color: AppColors.primary,)),
+                          SizedBox(width: 10.w,),
+                          ResuableText(
+                            text: 'Public',
+                            color: AppColors.primary,
                           ),
-                          child: Row(
-                            children:
-                            [
-                              SizedBox(width: 10.w,),
-                              SvgPicture.asset(ImageConstants.addImageTwitterIcon,color: AppColors.primary,width: 20.w,height: 20.h,),
-                              SizedBox(width: 15.w,),
-                              Icon(Icons.delete_outline_sharp,color: AppColors.primary,size: 25.w,),
-                              Spacer(),
-                              SizedBox(
-                                  width: 22.w,
-                                  height: 22.h,
-                                  child: SvgPicture.asset(ImageConstants.earthSolidIcon,color: AppColors.primary,)),
-                              SizedBox(width: 10.w,),
-                              ResuableText(
-                                text: 'Public',
-                                color: AppColors.primary,
-                              ),
-                              SizedBox(width: 10.w,),
-                            ],
-                          ),
-                        ),
-                      ):
+                          SizedBox(width: 10.w,),
+                        ],
+                      ),
+                    ):
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: 40.h,

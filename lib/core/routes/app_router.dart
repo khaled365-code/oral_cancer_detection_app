@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart';
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
+import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_comment_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
@@ -46,6 +47,7 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
+import '../../features/community/cubits/search_for_posts_cubit/search_for_posts_cubit.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
@@ -84,7 +86,7 @@ class AppRoutes {
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
       case Routes.postDetails:
-        return MaterialPageRoute(builder: (context) => const PostDetails(),settings: routeSettings);
+        return MaterialPageRoute(builder: (context) =>  PostDetails(),settings: routeSettings);
       case Routes.forYouArticle:
         return MaterialPageRoute(builder: (context) => const ForYouArticle(),settings: routeSettings);
       case Routes.completeNewsArticle:
@@ -109,7 +111,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const NoPostsScreen(),);
       case Routes.searchPostsScreen:
         return MaterialPageRoute(
-          builder: (context) => const SearchPostsScreen(),);
+          builder: (context) =>  BlocProvider(
+          create: (context) => SearchForPostsCubit(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+          child: SearchPostsScreen(),
+),);
       case Routes.addPostScreen:
         return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:

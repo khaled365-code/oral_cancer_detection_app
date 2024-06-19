@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/core/commons/functions.dart';
@@ -14,6 +15,8 @@ import 'package:graduation_project/features/community/data/models/new_all_posts_
 import 'package:graduation_project/features/community/presentation/widgets/comment_container.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 import 'package:graduation_project/features/community/presentation/widgets/post_container.dart';
+
+import '../../../../core/utilis/fontweight_helper.dart';
 
 class PostDetails extends StatelessWidget
 {
@@ -42,19 +45,25 @@ class PostDetails extends StatelessWidget
             child: DefaultAppBar(
               leading: Padding(
                 padding:  EdgeInsetsDirectional.only(start: 5.w),
-                child: IconButton(
-                  onPressed: ()
+                child: GestureDetector(
+                  onTap: ()
                   {
-                    communityCubit.getAllPostsFun();
                     Navigator.pop(context);
+                    BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
 
                   },
-                  icon: Icon(Icons.arrow_back_ios_new_rounded,color: AppColors.c4C9EEB,size: 15.sp,),),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.primary,
+                    size: 15.sp,
+                  ),
+                )
               ),
-              title: Text('Post',
+              title: Text(
+                'Post',
                 style: AppKhaledStyles.textStyle(
-                    color: AppColors.black,
-                    size: 16 ,
+                    color: AppColors.c141619,
+                    size: 17 ,
                     weight: FontWeight.bold
                 ),),
               hasActions: false,
@@ -64,7 +73,8 @@ class PostDetails extends StatelessWidget
             ),
           ),
           body: CustomScrollView(
-            slivers: [
+            slivers:
+            [
               const SliverToBoxAdapter(
                 child: LineWidget(),
               ),
@@ -82,9 +92,9 @@ class PostDetails extends StatelessWidget
               SliverList(
                   delegate: SliverChildBuilderDelegate(
                           (context, index) => Padding(
-                          padding: EdgeInsetsDirectional.only(
-                              start: 25.w, top: 9.h, end: 12.w, bottom: 12.h),
+                          padding: EdgeInsetsDirectional.only(start: 25.w,end: 12.w,top: index==0?11.h:0),
                           child:CommentContainer(
+                            width: MediaQuery.of(context).size.width,
                             comments:state.commentsModel.comments![index],
                             recievedData: recievedData, currentIndex: index,
                           ),
@@ -110,8 +120,8 @@ class PostDetails extends StatelessWidget
                       Padding(
                         padding: EdgeInsetsDirectional.only(start: 10.w),
                         child: Container(
-                          width: 45.w,
-                          height: 45.h,
+                          width: 35.w,
+                          height: 35.h,
                           decoration:  BoxDecoration(
                               shape: BoxShape.circle,
                               image: CacheHelper().getData(key: ApiKeys.profile_photo_url) != null ?
@@ -120,13 +130,12 @@ class PostDetails extends StatelessWidget
                                       "${CacheHelper().getData(key: ApiKeys.profile_photo_url)}"),
                                   fit: BoxFit.fill):
                               DecorationImage(
-                                  image: AssetImage(
-                                      ImageConstants.userDefaultImage),
+                                  image: AssetImage(ImageConstants.userDefaultImage),
                                   fit: BoxFit.fill)
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.w,),
+                      SizedBox(width: 8.w,),
                       Container(
                         height: 35.h,
                         width: MediaQuery.of(context).size.width*.7,
@@ -152,10 +161,10 @@ class PostDetails extends StatelessWidget
                               focusedBorder: InputBorder.none,
                               contentPadding: EdgeInsetsDirectional.only(start: 12.w,bottom: 8.h,),
                               hintText: 'Tweet your reply',
-
                               hintStyle: AppKhaledStyles.textStyle(
-                                color: AppColors.cAFB8C1,
-                                size: 12,
+                                color: AppColors.c687684,
+                                size: 16,
+                                weight: FontWeightHelper.regular
                               )
                           ),
                         ),
@@ -171,13 +180,9 @@ class PostDetails extends StatelessWidget
                           communityCubit.getAllComments(postId: recievedData.post!.id!);
 
                         },
-                        child: SizedBox(
-                            width: 22.w,
-                            height: 22.h,
-                            child: Icon(Icons.send_outlined,
-                                color: AppColors.primary)),
+                        child: SvgPicture.asset(ImageConstants.addIcon,color: AppColors.primary,),
                       ),
-                      SizedBox(width: 12.w,),
+                      SizedBox(width: 15.w,),
                     ],
                   ),
                 ),

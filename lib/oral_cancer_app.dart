@@ -15,6 +15,8 @@ import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
+import 'package:graduation_project/features/community/cubits/change_post_heart_shape/change_post_heart_shape_cubit.dart';
+import 'package:graduation_project/features/community/cubits/change_retweet_shape_cubit/change_retweet_shape_cubit.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/questions_cubit/question_diagnosis_cubit.dart';
@@ -89,6 +91,10 @@ class MyApp extends StatelessWidget {
         BlocProvider<GlobalCommunityBloc>(create: (context) => GlobalCommunityBloc(communityRepoImplementation: CommunityRepoImplementation(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))..getAllPostsFun()),
         BlocProvider<UploadImageCubit>(create: (context) => UploadImageCubit()),
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
+        BlocProvider<ChangeRetweetCubit>(create: (context) => ChangeRetweetCubit()),
+        BlocProvider<ChangePostHeartShapeCubit>(create: (context) => ChangePostHeartShapeCubit()),
+
+
         BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))),
 
       ],
