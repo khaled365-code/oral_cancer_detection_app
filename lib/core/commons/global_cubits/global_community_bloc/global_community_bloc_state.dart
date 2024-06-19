@@ -6,6 +6,10 @@ abstract class GlobalCommunityBlocState {}
 class GlobalCommunityBlocInitial extends GlobalCommunityBlocState {}
 
 
+class ChangeRetweetShapeState extends GlobalCommunityBlocState {}
+
+
+
 
 
 class GetAllPostsLoadingState extends GlobalCommunityBlocState {}
@@ -78,19 +82,7 @@ class AddPostFailureState extends GlobalCommunityBlocState {
   AddPostFailureState({required this.errorMessage});
 }
 
-class SearchForPostsLoadingState extends GlobalCommunityBlocState {}
 
-class SearchForPostsSuccessState extends GlobalCommunityBlocState {
-
-  final SearchPostModel searchModel;
-
-  SearchForPostsSuccessState({required this.searchModel});
-
-
-}
-
-
-class SearchForPostsFailureState extends GlobalCommunityBlocState {}
 
 
 class ChangeAddPostPictureState extends GlobalCommunityBlocState {}

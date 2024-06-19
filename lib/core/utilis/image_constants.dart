@@ -151,6 +151,10 @@ class ImageConstants
   static const String userDefaultImage='assets/images/user_profile-modified.png';
 
 
+  static const String addIcon='assets/icons/add.svg';
+
+
+
 
 
 

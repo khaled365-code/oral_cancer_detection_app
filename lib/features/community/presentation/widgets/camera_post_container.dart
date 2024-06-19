@@ -35,11 +35,11 @@ class CmaeraPostContainer extends StatelessWidget {
                     color: AppColors.cCED5DC,
                     width: 1.w
                 ),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16.r),
                 image: communityBloc.addPostImage!=null? DecorationImage(
                     image: FileImage(File(communityBloc.addPostImage!.path)),fit: BoxFit.cover
                 ):DecorationImage(
-                    image: AssetImage( ImageConstants.cameraBlueImage))
+                    image: AssetImage(ImageConstants.cameraBlueImage),)
             ),
           )) :
 

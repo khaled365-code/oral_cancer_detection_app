@@ -9,17 +9,20 @@ import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/data/models/search_model/data_serach.dart';
 
+import '../../../../core/utilis/fontweight_helper.dart';
+
 
 class SearchResultWidget extends StatelessWidget {
-  const SearchResultWidget({super.key,required this.serachModel});
+  const SearchResultWidget({super.key,required this.serachModel, required this.maxWidth});
 
 
   final DataSearch? serachModel;
+  final double maxWidth;
   @override
   Widget build(BuildContext context) {
     return serachModel==null? SizedBox.shrink():
     Container(
-      width: MediaQuery.of(context).size.width,
+      width: maxWidth,
       padding: EdgeInsetsDirectional.only(end: 20.w,),
       decoration: BoxDecoration(
           boxShadow: [
@@ -65,7 +68,7 @@ class SearchResultWidget extends StatelessWidget {
                       children: [
                         Text('${getUserName(currentUserName: serachModel!.userdata!.name ?? '')}',
                           style: AppKhaledStyles.textStyle(
-                            color: AppColors.black,
+                            color: AppColors.c141619,
                             weight:FontWeight.w700 ,
                             size: 13,
                           ),),
@@ -95,25 +98,30 @@ class SearchResultWidget extends StatelessWidget {
                               width: 10.25,
                               height: 5.5,
                               child: Image.asset(
-                                  ImageConstants.downArrowImage)),
+                                  ImageConstants.downArrowImage,color: AppColors.primary)),
                         ),
 
                       ],
                     ),
                     SizedBox(height: 2.h,),
                     serachModel!.post!.body!=null?
-                    Text(
-                      serachModel!.post!.body!,
-                      style: AppKhaledStyles.textStyle(
-                        color: AppColors.black,
-                        size: 14,
-                        weight: FontWeight.w400,
+                    Padding(
+                      padding:  EdgeInsetsDirectional.only(end: 10.w),
+                      child: Text(
+                        serachModel!.post!.body!,
+                        style: AppKhaledStyles.textStyle(
+                          color: AppColors.c141619,
+                          size: 14,
+                          weight: FontWeightHelper.regular,
 
-                      ),):SizedBox.shrink(),
+                        ),),
+                    ):
+                    SizedBox.shrink(),
+                    SizedBox(height: 5.h,),
                     serachModel!.post!.image!=null?
                     CachedNetworkImage(imageUrl:serachModel!.post!.image!,fit: BoxFit.fill,):
                     SizedBox.shrink(),
-                    SizedBox(height: 10.h,),
+                    SizedBox(height: 20.h,),
                   ],
                 ),
               )

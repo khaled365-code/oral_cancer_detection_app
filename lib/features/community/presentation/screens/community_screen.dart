@@ -58,6 +58,8 @@ class CommunityScreen extends StatelessWidget {
                             final length = state.postDetailsModel.data!.length;
                             final reversedIndex = length - 1 - index;
                             return PostContainer(
+                              currentIndex: index,
+                              newAllPostsDataList: state.postDetailsModel.data,
                               isPostDetailsScreen: false,
                               maxWidth: MediaQuery.of(context).size.width,
                               data: state.postDetailsModel.data![reversedIndex],

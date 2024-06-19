@@ -11,6 +11,7 @@ import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/fontweight_helper.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/data/models/new_all_posts_model/Data.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
@@ -27,6 +28,8 @@ class CommentScreen extends StatelessWidget {
     if(state is AddCommentSuccessState)
     {
       showToast(msg: 'Comment Posteded Successfully', toastStates: ToastStates.success);
+       BlocProvider.of<GlobalCommunityBloc>(context).getAllPostsFun();
+      Navigator.pop(context);
     }
     if(state is AddCommentFailureState)
     {
@@ -42,6 +45,7 @@ class CommentScreen extends StatelessWidget {
             Column(
               children:
               [
+                state is AddCommentLoadingState?
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 40.h,
@@ -52,14 +56,51 @@ class CommentScreen extends StatelessWidget {
                         child: GestureDetector(
                           onTap: ()
                           {
-                            communityBloc.getAllPostsFun();
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Cancel',
+                            style: AppKhaledStyles.textStyle(
+                                color: AppColors.c4C9EEB,
+                                size: 17,
+                                weight: FontWeightHelper.regular
+                            ),
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      SizedBox(
+                        width: 25.w,
+                        height: 25.h,
+                        child: const CircularProgressIndicator(
+                          color: AppColors.primary,
+                          strokeWidth: 2,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 21.w,
+                      ),
+                    ],
+                  ),
+                ):
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 40.h,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.only(start: 20.w),
+                        child: GestureDetector(
+                          onTap: ()
+                          {
                             Navigator.pop(context);
                           },
                           child: Text(
                             'Cancel',
                             style: AppKhaledStyles.textStyle(
                               color: AppColors.c4C9EEB,
-                              size: 16,
+                              size: 17,
+                              weight: FontWeightHelper.regular
                             ),
                           ),
                         ),
@@ -72,14 +113,13 @@ class CommentScreen extends StatelessWidget {
                               postId: recievedData.post!.id!,
                               comment: communityBloc.addCommentforScreenController.text);
                           communityBloc.addCommentforScreenController.clear();
-                          await communityBloc.getAllPostsFun();
-                          Navigator.pop(context);
+
                         },
                         child: Container(
                           width: 67.w,
                           height: 34.h,
                           decoration: BoxDecoration(
-                            color: AppColors.cB9DCF7,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                           child: Center(
@@ -87,7 +127,9 @@ class CommentScreen extends StatelessWidget {
                               'Post',
                               style: AppKhaledStyles.textStyle(
                                 color: AppColors.white,
-                                size: 13,
+                                size: 15,
+                                weight: FontWeightHelper.regular
+
                               ),
                             ),
                           ),
@@ -99,6 +141,7 @@ class CommentScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 SizedBox(height: 5.h,),
                 LineWidget(
                   height: 2,
@@ -118,8 +161,8 @@ class CommentScreen extends StatelessWidget {
                         padding:  EdgeInsets.only(top: 5.h),
                         child: ResuableText(text: 'Replying to',
                           color: AppColors.c727E8B,
-                          fontSize: 10,
-                          fontWeight: FontWeight.normal,
+                          fontSize: 14,
+                          fontWeight: FontWeightHelper.regular,
                         ),
                       ),
                       SizedBox(width: 5.w,),
@@ -127,8 +170,8 @@ class CommentScreen extends StatelessWidget {
                         padding:  EdgeInsets.only(top: 5.h),
                         child: ResuableText(text: '${getUserName(currentUserName: recievedData.userdata!.name!)}',
                           color: AppColors.c4C9EEB,
-                          fontSize: 10,
-                          fontWeight: FontWeight.normal,
+                          fontSize: 14,
+                          fontWeight: FontWeightHelper.regular,
                         ),
                       )
                     ],
@@ -164,18 +207,17 @@ class CommentScreen extends StatelessWidget {
                                         postId: recievedData.post!.id!,
                                         comment: value);
                                     communityBloc.addCommentforScreenController.clear();
-                                    communityBloc.getAllPostsFun();
-                                    Navigator.pop(context);
+
                                   },
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
                                     hintText: 'Post Your Comment',
                                     hintTextDirection: TextDirection.ltr,
                                       hintStyle: AppKhaledStyles.textStyle(
                                         color: AppColors.c687684,
                                         size: 14,
+                                        weight: FontWeightHelper.regular
                                       )
 
                                   ),
