@@ -14,7 +14,6 @@ import '../cubits/questions_cubit/question_diagnosis_cubit.dart';
 
 class DiagnosisResultView extends StatelessWidget {
   const DiagnosisResultView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,17 +130,12 @@ class DiagnosisResultView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10.h,),
-                    Image.asset('assets/images/vector (1).png')
-
-
+                    Image.asset('assets/images/tttt.jpg')
 
                   ],
                 ),
               ),
             )
-
-
-
           ],
         ),
       ),
