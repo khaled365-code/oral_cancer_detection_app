@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/core/widgets/custom_container.dart';
 import 'package:graduation_project/core/widgets/custom_text_button.dart';
@@ -35,10 +37,20 @@ class UploadImageBody extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
                     SizedBox(height: 32.h,),
-                    const Text(
-                      'Upload the image of the impaired tissue in your mouth',
-                      textAlign: TextAlign.center,),
-                    SizedBox(height: 20.h,),
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                            "Upload the image of the impaired tissue in your mouth",
+                            textStyle:AppTextStyles.font20.copyWith(color: AppColors.primary,),
+                            textAlign: TextAlign.center,
+                            speed: const Duration(milliseconds: 100)
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                      stopPauseOnTap: true,
+                      displayFullTextOnTap: true,
+                    ),
+                    SizedBox(height: 30.h,),
                     state is UploadImageSuccess && context.read<UploadImageCubit>().mouthImage != null?
 
                     UImageContainer(
@@ -48,7 +60,7 @@ class UploadImageBody extends StatelessWidget {
                       conImage: ImageConstants.empty,borderRadius:BorderRadius.circular(16),
                       border: Border.all(
                         color:AppColors.primary,
-                        width: 2.0,
+                        width: 1.0,
                         style:BorderStyle.solid,
                       ),),
                     SizedBox(height: 50.h,),
@@ -85,10 +97,10 @@ class UploadImageBody extends StatelessWidget {
                   ],
                 ),
               Positioned(
-                  left: 310,
-                  bottom: 85,
+                  left: 295.w,
+                  bottom: 85.h,
                   child: CircleAvatar(
-                    radius: 30.r,
+                    radius: 25.r,
                     backgroundColor: AppColors.primary,
                     child: IconButton(onPressed: (){
                       // BlocProvider.of<UploadImageCubit>(context).mouthImage==null;

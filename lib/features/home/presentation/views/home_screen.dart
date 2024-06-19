@@ -139,59 +139,29 @@ class HomePageState extends State<HomePage> {
       ],
         backgroundColor: AppColors.white,));
     }
-    else if(widget.selectedIndex==3){
-      return PreferredSize(preferredSize: Size(double.infinity,0.h),
-      child: DefaultAppBar(
-        actions: [
-          IconButton(onPressed: (){
-            navigate(context: context, route: Routes.searchNewsScreen);
-
-        },
-              icon: Icon(Icons.search,size: 28,))],
-        hasActions: false,
-        hasLeading: true,
-        hasTitle: false,
-        leading: Builder(
-            builder: (context) {
-              return Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: CustomOutlinedTextField(
-                      textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
-                      focusedBorderSideColor: AppColors.white,
-                      hintText: 'Search for a Medical News...',
-                      onFieldSubmitte: (data) {
-                        searchCubit.onSubmittedSearch(data);
+    else if(widget.selectedIndex==4){
+      return PreferredSize(preferredSize: Size(double.infinity, 40.h),
+          child: DefaultAppBar(
+            hasTitle: true,
+            hasLeading: true,
+            leading: Builder(
+                builder: (context) {
+                  return GestureDetector(
+                      onTap: ()
+                      {
+                        Scaffold.of(context).openDrawer();
                       },
-                      enabledBorderSideColor: AppColors.white,
-                      hasSuffixIcon: true,
-                      suffixIcon: Icons.search,
-                      controller: searchCubit.searchController,
-                      keyboardType: TextInputType.text
-                  ),
-                );
-            }
-        ),
-
-         )
-          );
+                      child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
+                }
+            ),
+            title: Text('Recommended Hospitals'),backgroundColor: AppColors.primary,));
           }
     else{
-      return  PreferredSize(preferredSize: Size(double.infinity, 40.h),
-      child: DefaultAppBar(
-        hasTitle: true,
-        hasLeading: true,
-        leading: Builder(
-            builder: (context) {
-              return GestureDetector(
-                  onTap: ()
-                  {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
-            }
-        ),
-        title: Text('Recommended Hospitals'),backgroundColor: AppColors.primary,));
+      //index==3(news)
+      return PreferredSize(preferredSize: Size(double.infinity, 0.h),
+      child: SizedBox());
     }
+
   }
 }
 

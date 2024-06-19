@@ -17,11 +17,11 @@ class NewsSearchScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(18),
           child: CustomOutlinedTextField(
             textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
             focusedBorderSideColor: AppColors.white,
-            hintText: 'Search for a Title...',
+            hintText: 'Search for Medical News...',
               onFieldSubmitte: (data) {
                 searchCubit.onSubmittedSearch(data);
               },
