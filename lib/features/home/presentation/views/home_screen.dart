@@ -22,6 +22,7 @@ import 'package:graduation_project/features/home/presentation/views/hospital_cit
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/screens/initial_profile_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'news_screen.dart';
 import 'news_search_screen.dart';
 
@@ -67,25 +68,39 @@ class HomePageState extends State<HomePage> {
         ),
       ),
       body: pages[widget.selectedIndex],
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: CurvedNavigationBar(
-            height: 30.h,
-            onTap: onItemTapped,
-            animationDuration: Duration(milliseconds: 500),
-            backgroundColor: AppColors.white,
-            color: AppColors.white,
-            buttonBackgroundColor: AppColors.primary,
-            items: [
-              BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
-              BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
-              BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
-              BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
-              BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.hospital, text: 'Hospitals')
-            ]
+      bottomNavigationBar: SalomonBottomBar(
+          currentIndex: widget.selectedIndex,
+          onTap: onItemTapped,
+          backgroundColor: AppColors.white,
+          items: [
+          SalomonBottomBarItem(
+          icon:Icon(Icons.home_outlined,),
+          title: Text("Home"),
+          selectedColor: AppColors.primary,
         ),
-      ),
-    );
+
+        SalomonBottomBarItem(
+          icon: Icon(FontAwesomeIcons.stethoscope),
+          title: Text('Diagnosis'),
+          selectedColor: AppColors.primary,
+       ),
+       SalomonBottomBarItem(
+           icon: Icon(Icons.mark_unread_chat_alt),
+           title: Text('Community'),
+           selectedColor:AppColors.primary,
+            ),
+       SalomonBottomBarItem(
+          icon: Icon(Icons.newspaper_sharp),
+          title: Text('News'),
+          selectedColor:AppColors.primary,
+            ),
+        SalomonBottomBarItem(
+           icon: Icon(FontAwesomeIcons.hospital),
+           title: Text('Hospitals'),
+           selectedColor:AppColors.primary,
+            ),
+          ]
+      ));
   }
   PreferredSize showAppBar()
   {
@@ -163,6 +178,25 @@ class HomePageState extends State<HomePage> {
     }
 
   }
+
 }
 
 
+// bottomNavigationBar: Padding(
+// padding: const EdgeInsets.symmetric(vertical: 15),
+// child: CurvedNavigationBar(
+// height: 30.h,
+// onTap: onItemTapped,
+// animationDuration: Duration(milliseconds: 500),
+// backgroundColor: AppColors.white,
+// color: AppColors.white,
+// buttonBackgroundColor: AppColors.primary,
+// items: [
+// BottomNavColumn(paddingValue: 8,icon: Icons.home_outlined, text: 'Home'),
+// BottomNavColumn(paddingValue: 2,icon: FontAwesomeIcons.stethoscope, text: 'Diagnosis'),
+// BottomNavColumn(paddingValue: 3,icon: Icons.mark_unread_chat_alt, text: 'Community'),
+// BottomNavColumn(paddingValue: 5,icon: Icons.newspaper_sharp, text: 'News'),
+// BottomNavColumn(paddingValue: 5,icon:FontAwesomeIcons.hospital, text: 'Hospitals')
+// ]
+// ),
+// ),
