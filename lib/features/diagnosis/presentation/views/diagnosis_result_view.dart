@@ -22,28 +22,33 @@ class DiagnosisResultView extends StatelessWidget {
       body: Center(
         child: ListView(
           children: [
+            SizedBox(height: 20.h,),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                backgroundColor: AppColors.white,
-                radius: 105.r,
-                child: CircularPercentIndicator(
-                  animationDuration: 1900,
-                  animation: true,
-                  radius: 100,
-                  lineWidth: 20,
-                  percent:CacheHelper().getData(key: 'probCancer'),
-                  progressColor: AppColors.primary,
-                  backgroundColor: AppColors.grey,
-                  circularStrokeCap: CircularStrokeCap.square,
-                  center: Text("Percentage  ${(CacheHelper().getData(key: 'probCancer')*100).toStringAsFixed(0)}%",style: AppTextStyles.font12,),
+              child: Material(
+                elevation: 35,
+                shape: CircleBorder(),
+                child: CircleAvatar(
+                  backgroundColor: AppColors.white,
+                  radius: 100.r,
+                  child: CircularPercentIndicator(
+                    animationDuration: 1900,
+                    animation: true,
+                    radius: 90,
+                    lineWidth: 20,
+                    percent:CacheHelper().getData(key: 'probCancer'),
+                    progressColor: AppColors.primary,
+                    backgroundColor: AppColors.grey.withOpacity(0.4),
+                    circularStrokeCap: CircularStrokeCap.square,
+                    center: Text("Percentage  ${(CacheHelper().getData(key: 'probCancer')*100).toStringAsFixed(0)}%",style: AppTextStyles.font12,),
 
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 60.h,),
+            SizedBox(height: 50.h,),
             Container(
-              height: 500.h,
+              height: 470.h,
               decoration: BoxDecoration(
 
                 color: AppColors.white,
@@ -125,7 +130,9 @@ class DiagnosisResultView extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 10.h,),
                     Image.asset('assets/images/vector (1).png')
+
 
 
                   ],
