@@ -22,6 +22,7 @@ import 'package:graduation_project/features/home/presentation/manager/search_new
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
+import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/home/presentation/views/for_you_article.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
@@ -90,6 +91,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const ForYouArticle(),settings: routeSettings);
       case Routes.completeNewsArticle:
         return MaterialPageRoute(builder: (context) => const CompleteNewsArticle(),settings: routeSettings);
+
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
@@ -190,9 +192,12 @@ class AppRoutes {
             ),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),settings: routeSettings);
+      case Routes.UploadImageView:
+        return MaterialPageRoute(builder: (context) => UploadImageView(),);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);
+
     }
   }
 
