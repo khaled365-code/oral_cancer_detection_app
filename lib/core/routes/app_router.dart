@@ -69,17 +69,8 @@ class AppRoutes {
                 create: (context) => SearchNewsCubit(),
               ),
               BlocProvider(
-                create: (context) => ImageDiagnosisCubit(
-                    aiRepository: AiRepository(
-                        api: DioConsumer(
-                            dio: Dio(),
-                            isTextModel: false,
-                            isImageModel: true))),
-              ),
-              BlocProvider(
                 create: (context) => InitialHomeScreenCubit(),
               ),
-
             ],
             child: HomePage(),
           ),);
@@ -193,7 +184,15 @@ class AppRoutes {
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),settings: routeSettings);
       case Routes.UploadImageView:
-        return MaterialPageRoute(builder: (context) => UploadImageView(),);
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+            create: (context) => ImageDiagnosisCubit(
+           aiRepository: AiRepository(
+              api: DioConsumer(
+                  dio: Dio(),
+                  isTextModel: false,
+                  isImageModel: true))),
+            child: UploadImageView(),
+),);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);
