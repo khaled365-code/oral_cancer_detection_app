@@ -146,11 +146,8 @@ class ImageConstants
   static const String luxorHos='assets/images/luxor_hos.png';
   static const String assiotHos='assets/images/assiot_hos.png';
   static const String mansouraHos='assets/images/mansoura_hos.png';
-  //static const String quesBackground='assets/images/health.jpg';
-
-
-
-
+  static const String quesBackground='assets/images/questions_background.jpg';
+  static const String diagnosisIntro='assets/images/intro_di.png';
   static const String userDefaultImage='assets/images/user_profile-modified.png';
 
 

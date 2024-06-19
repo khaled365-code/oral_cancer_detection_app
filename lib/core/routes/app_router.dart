@@ -16,12 +16,14 @@ import 'package:graduation_project/features/community/presentation/screens/post_
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_result_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
+import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
 import 'package:graduation_project/features/home/presentation/views/for_you_article.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
@@ -69,17 +71,8 @@ class AppRoutes {
                 create: (context) => SearchNewsCubit(),
               ),
               BlocProvider(
-                create: (context) => ImageDiagnosisCubit(
-                    aiRepository: AiRepository(
-                        api: DioConsumer(
-                            dio: Dio(),
-                            isTextModel: false,
-                            isImageModel: true))),
-              ),
-              BlocProvider(
                 create: (context) => InitialHomeScreenCubit(),
               ),
-
             ],
             child: HomePage(),
           ),);
@@ -91,6 +84,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const ForYouArticle(),settings: routeSettings);
       case Routes.completeNewsArticle:
         return MaterialPageRoute(builder: (context) => const CompleteNewsArticle(),settings: routeSettings);
+
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
@@ -126,7 +120,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => const CongratulationScreen(),);
       case Routes.result:
-        return MaterialPageRoute(builder: (context) => const ResultScreen(),);
+        return MaterialPageRoute(builder: (context) => const DiagnosisResultView(),);
 
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
@@ -194,9 +188,20 @@ class AppRoutes {
             ),);
       case Routes.communityhomescreen:
         return MaterialPageRoute(builder: (context) => CommunityScreen(),settings: routeSettings);
+      case Routes.UploadImageView:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+            create: (context) => ImageDiagnosisCubit(
+           aiRepository: AiRepository(
+              api: DioConsumer(
+                  dio: Dio(),
+                  isTextModel: false,
+                  isImageModel: true))),
+            child: UploadImageView(),
+),);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);
+
     }
   }
 

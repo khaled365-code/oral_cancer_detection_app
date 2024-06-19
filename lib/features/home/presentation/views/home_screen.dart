@@ -14,6 +14,7 @@ import 'package:graduation_project/core/widgets/custom_outlined_textfield.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/diagnosis_intro.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/initial_home_screen.dart';
 import 'package:graduation_project/features/home/presentation/widgets/bottomnav_bar_column.dart';
@@ -38,7 +39,7 @@ class HomePageState extends State<HomePage> {
   final List<Widget> pages=
   [
     const InitialHomeScreen(),
-    const UploadImageView(),
+    const DiagnosisIntro(),
     CommunityScreen(),
     const NewsSearchScreen(),
     HospitalCity(),
