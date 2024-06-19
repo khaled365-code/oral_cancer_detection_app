@@ -75,6 +75,7 @@ class RetweetBottomSheet extends StatelessWidget {
                       children: [
                         Image.asset(ImageConstants.penCommunityImage),
                         SizedBox(width: 20.w,),
+
                         ResuableText(
                           text: 'Report Offensive Content',
                           color: AppColors.black,
