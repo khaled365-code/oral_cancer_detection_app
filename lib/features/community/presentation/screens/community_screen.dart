@@ -28,23 +28,8 @@ class CommunityScreen extends StatelessWidget {
           }
         if(state is GetAllPostsFailureState)
           {
-            // showSnackBar(context,
-            //         color: AppColors.c3F4042,
-            //         specificWidget: Row(
-            //           children:
-            //           [
-            //             SizedBox(width: 5.w,),
-            //             Icon(Icons.wifi_off, size: 20.sp, color: AppColors.white,),
-            //             SizedBox(width: 10.w,),
-            //             Text(
-            //               state.errorMessage,style: AppTextStyles.font12.copyWith(color: AppColors.white),)
-            //
-            //           ],
-            //         )
-            //     );
+
             showToast(msg: state.errorMessage, toastStates: ToastStates.error);
-
-
           }
 
 
@@ -53,40 +38,35 @@ class CommunityScreen extends StatelessWidget {
         return BlocBuilder<GlobalCommunityBloc, GlobalCommunityBlocState>(
           builder: (context, state) {
             final communityBloc = BlocProvider.of<GlobalCommunityBloc>(context);
+            final refreshIndicatorKey=GlobalKey<RefreshIndicatorState>();
             return Scaffold(
               body: state is GetAllPostsSuccessState ?
-              CustomScrollView(
-                slivers:
-                [
-                  SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                            (context, index) => PostContainer(
-                              data: state.postDetailsModel.data![index],
-                              currentIndex: index,
-                            ),
-                        childCount: state.postDetailsModel.data!.length,
-                      )),
-
-                  SliverToBoxAdapter(
-                      child: Container(
-                    height: 80.h,
-                    color: AppColors.white,
-                    child: Center(
-                      child: Container(
-                        width: 20.w,
-                        height: 20.h,
-                        child: CircularProgressIndicator(
-                          backgroundColor: AppColors.primary,
-                          color: AppColors.cE1E1E1,
-                          strokeWidth: 2,
-
-                        ),
-                      ),
-                    ),
-                  ))
-                ],
-              )
-                  :
+              RefreshIndicator(
+                edgeOffset: 1,
+                key: refreshIndicatorKey,
+                onRefresh: () async
+                {
+                  await communityBloc.getAllPostsFun();
+                },
+                child: CustomScrollView(
+                  slivers:
+                  [
+                    SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                              (context, index)
+                          {
+                            final length = state.postDetailsModel.data!.length;
+                            final reversedIndex = length - 1 - index;
+                            return PostContainer(
+                              isPostDetailsScreen: false,
+                              maxWidth: MediaQuery.of(context).size.width,
+                              data: state.postDetailsModel.data![reversedIndex],
+                            );},
+                          childCount: state.postDetailsModel.data!.length,
+                        )),
+                  ],
+                ),
+              ) :
               state is GetAllPostsFailureState ?
               const NoPostsScreen() :
                 Column(
@@ -103,8 +83,6 @@ class CommunityScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-
 
               floatingActionButton: GestureDetector(
                 onTap: ()

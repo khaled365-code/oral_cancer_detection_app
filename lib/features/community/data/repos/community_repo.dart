@@ -10,7 +10,7 @@ import 'package:graduation_project/features/community/data/models/search_model/S
 abstract class CommunityRepo
 {
 
-  Future<Either<String,String>>uploadPost({required String title,required String body,MultipartFile? image,required int userId,required String token});
+  Future<Either<String,String>>uploadPost({ String? body, MultipartFile? image,required int userId,required String token});
   Future<Either<String,NewAllPostsModel>>getAllPosts({required String token});
 
   Future<Either<String,String>>addLikeForPost({required num postId,required num userId,required String token});
@@ -18,7 +18,7 @@ abstract class CommunityRepo
   Future<Either<String,String>>addComment({required num postId,required String userId,required String comment,required String token});
 
 
-  Future<Either<String,SearchPostModel>>searchForPosts({required String token,required String searchContent});
+  Future<SearchPostModel>searchForPosts({required String token,required String searchContent});
 
   Future<Either<String,Message>> getAllComments({required num postId,required String userId,required String token});
 

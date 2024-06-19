@@ -31,10 +31,12 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
    return BlocConsumer<SignInCubit, SignInState>(
   listener: (context, state) {
-    if(state is SignInFailureState){
-    showSnackBar(context, content: state.errMessage);
+    if(state is SignInFailureState)
+    {
+      showSnackBar(context, content: state.errMessage);
     }
-    if(state is SignInSuccessState){
+    if(state is SignInSuccessState)
+    {
       showSnackBar(context, content: state.message);
       navigate(context: context, route: Routes.home);
      // context.read<SignInCubit>().signInEmail.clear();
@@ -99,14 +101,16 @@ class _LoginBodyState extends State<LoginBody> {
                        ),
                      ),
                      SizedBox(height: 16.h,),
-                    state is SignInLoadingState?CircularProgressIndicator(): CustomButton(
+                    state is SignInLoadingState?
+                    CircularProgressIndicator():
+                    CustomButton(
                        buttonText:"login".tr(context),
                        buttonBackground: AppColors.background,
                        buttonTextColor: AppColors.primary,
                        onTap:(){
-                         if(formKey.currentState!.validate()){
+                         if(formKey.currentState!.validate())
+                         {
                            context.read<SignInCubit>().signIn();
-
                          }
                      },),
                      SizedBox(height: 10.h,),

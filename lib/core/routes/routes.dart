@@ -45,6 +45,14 @@ class Routes
 
 
 
+  static const String  forYouArticle='/for_you_article_screen';
+
+  static const String  postDetails='/post_details_screen';
+
+
+
+
+
 
 
 

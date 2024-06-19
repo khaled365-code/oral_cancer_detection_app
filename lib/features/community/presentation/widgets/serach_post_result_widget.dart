@@ -1,5 +1,6 @@
 
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
@@ -16,8 +17,9 @@ class SearchResultWidget extends StatelessWidget {
   final DataSearch? serachModel;
   @override
   Widget build(BuildContext context) {
-    return serachModel==null? SizedBox.shrink():Container(
-      width: 414.w,
+    return serachModel==null? SizedBox.shrink():
+    Container(
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsetsDirectional.only(end: 20.w,),
       decoration: BoxDecoration(
           boxShadow: [
@@ -46,7 +48,7 @@ class SearchResultWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: NetworkImage(serachModel!.post!.image ?? ''),
+                          image: CachedNetworkImageProvider(serachModel!.post!.image ?? ''),
                           fit: BoxFit.fill
                       )
                   ),
@@ -99,59 +101,19 @@ class SearchResultWidget extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 2.h,),
+                    serachModel!.post!.body!=null?
                     Text(
-                      serachModel!.post!.body ?? '',
+                      serachModel!.post!.body!,
                       style: AppKhaledStyles.textStyle(
                         color: AppColors.black,
                         size: 14,
                         weight: FontWeight.w400,
 
-                      ),),
+                      ),):SizedBox.shrink(),
+                    serachModel!.post!.image!=null?
+                    CachedNetworkImage(imageUrl:serachModel!.post!.image!,fit: BoxFit.fill,):
+                    SizedBox.shrink(),
                     SizedBox(height: 10.h,),
-                    Row(
-                      children:
-                      [
-
-                        Container(child: Image.asset(ImageConstants.commentImage)),
-                        SizedBox(width: 3.5.w,),
-                        Text('${serachModel!.commentCount ??''}',
-                          style: AppKhaledStyles.textStyle(
-                            color: AppColors.grey,
-                            size: 10,
-                          ),),
-
-
-                        Spacer(),
-
-
-                       Container(child: Image.asset(ImageConstants.retweetImage)),
-                        SizedBox(width: 3.5.w,),
-                        Text('0',
-                          style: AppKhaledStyles.textStyle(
-                            color: AppColors.grey,
-                            size: 10,
-                          ),),
-
-
-
-                        Spacer(),
-                        Image.asset(ImageConstants.heartImage),
-                        SizedBox(width: 3.5.w,),
-                        Text('${serachModel!.likeCount ??''}',
-                          style: AppKhaledStyles.textStyle(
-                            color: AppColors.grey,
-                            size: 10,
-                          ),),
-                        Spacer(),
-                        Container(child: Image.asset(ImageConstants.shareSmallImage,)),
-                        SizedBox(width: 11.w,)
-
-
-                      ],
-                    ),
-                    SizedBox(height: 10.h,),
-
-
                   ],
                 ),
               )

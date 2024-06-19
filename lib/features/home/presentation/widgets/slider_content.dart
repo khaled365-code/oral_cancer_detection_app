@@ -53,7 +53,7 @@ class SliderContent extends StatelessWidget {
                   ),
                   Spacer(),
                   Padding(
-                    padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width/3/1.5),
+                    padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width/3/1.2),
                     child: Row(
                         children: carouselDataList.asMap().entries.map((entry) {
                           return DotContainer(
@@ -62,7 +62,7 @@ class SliderContent extends StatelessWidget {
                         }).toList()
                     ),
                   ),
-                  SizedBox(height: 10.h,)
+                  SizedBox(height: 13.h,)
 
 
                 ],
