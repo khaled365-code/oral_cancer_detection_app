@@ -8,11 +8,11 @@ import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/comment_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/add_comment_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
+import 'package:graduation_project/features/community/presentation/screens/post_details.dart';
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/post_details_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_result_view.dart';
@@ -20,7 +20,9 @@ import 'package:graduation_project/features/diagnosis/presentation/views/questio
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
+import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
+import 'package:graduation_project/features/home/presentation/views/for_you_article.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/faq_screen_cubit/faq_screen_cubit.dart';
@@ -73,15 +75,21 @@ class AppRoutes {
                             isTextModel: false,
                             isImageModel: true))),
               ),
+              BlocProvider(
+                create: (context) => InitialHomeScreenCubit(),
+              ),
 
             ],
             child: HomePage(),
           ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
+      case Routes.postDetails:
+        return MaterialPageRoute(builder: (context) => const PostDetails(),settings: routeSettings);
+      case Routes.forYouArticle:
+        return MaterialPageRoute(builder: (context) => const ForYouArticle(),settings: routeSettings);
       case Routes.completeNewsArticle:
         return MaterialPageRoute(builder: (context) => const CompleteNewsArticle(),settings: routeSettings);
-
       case Routes.initialProfileScreen:
         return MaterialPageRoute(builder: (context) =>  ProfileOutScreen(),);
       case Routes.commentScreen:
@@ -103,9 +111,6 @@ class AppRoutes {
       case Routes.searchPostsScreen:
         return MaterialPageRoute(
           builder: (context) => const SearchPostsScreen(),);
-      case Routes.postDetailsScreen:
-        return MaterialPageRoute(
-          builder: (context) => const PostDetailsScreen(),settings: routeSettings);
       case Routes.addPostScreen:
         return MaterialPageRoute(builder: (context) => AddPostScreen(),);
       case Routes.otpScreen:

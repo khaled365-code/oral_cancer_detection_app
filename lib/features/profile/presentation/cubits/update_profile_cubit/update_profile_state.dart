@@ -20,3 +20,4 @@ class UpdateProfileFailureState extends UpdateProfileState
 }
 class UpdateProfilePictureState extends UpdateProfileState {}
 
+

@@ -31,8 +31,7 @@ class CommentContainer extends StatelessWidget {
   builder: (context, state) {
     final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
     return Container(
-      width: 414.w,
-      height: 140.h,
+      width: double.infinity,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -45,7 +44,7 @@ class CommentContainer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(
+          Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -75,7 +74,7 @@ class CommentContainer extends StatelessWidget {
                           SizedBox(width: 3.h,),
                           Padding(
                             padding:  EdgeInsets.only(top: 2.h),
-
+            
                               child:Text('${getEmail(currentEmail:comments.userdata!.email!)}',style: AppKhaledStyles.textStyle(
                               color: AppColors.c687684,
                               weight:FontWeight.w500 ,

@@ -19,9 +19,12 @@ import '../../../../core/utilis/app_colors.dart';
 
 class PostContainer extends StatelessWidget {
 
-  final int currentIndex;
 
   final NewAllPostsData data;
+
+  final double maxWidth;
+
+  final bool isPostDetailsScreen;
 
 
 
@@ -37,7 +40,7 @@ class PostContainer extends StatelessWidget {
 
 
   PostContainer({
-    super.key, required this.currentIndex, required this.data,
+    super.key, required this.data, required this.maxWidth, required this.isPostDetailsScreen,
   });
 
   @override
@@ -51,7 +54,7 @@ class PostContainer extends StatelessWidget {
         final communityBloc=BlocProvider.of<GlobalCommunityBloc>(context);
 
         return Container(
-          width: 414.w,
+          width: maxWidth,
           padding: EdgeInsetsDirectional.only(end: 20.w,),
           decoration: BoxDecoration(
               boxShadow: [
@@ -79,11 +82,14 @@ class PostContainer extends StatelessWidget {
                       height: 55.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: DecorationImage (
-                          image: CachedNetworkImageProvider(data.userdata!.profilePhotoUrl??'',),
+                        image: data.userdata!.profilePhotoUrl!=null? DecorationImage (
+                          image: CachedNetworkImageProvider(data.userdata!.profilePhotoUrl!),
                           fit: BoxFit.fill
+                        ):DecorationImage (
+                            image: AssetImage(ImageConstants.userDefaultImage),
+                            fit: BoxFit.fill
                         )
-                      ),
+                      )
                     ),
                   ),
                   SizedBox(width: 8.w,),
@@ -94,7 +100,9 @@ class PostContainer extends StatelessWidget {
                       children: [
                         SizedBox(height: 10.h,),
                         Row(
-                          children: [
+                          children:
+                          [
+
                             Text('${getUserName(currentUserName: data.userdata!.name??'')}',
                               style: AppKhaledStyles.textStyle(
                               color: AppColors.black,
@@ -126,29 +134,28 @@ class PostContainer extends StatelessWidget {
                               child: SizedBox(
                                   width: 10.25,
                                   height: 5.5,
-                                  child: Image.asset(
-                                      ImageConstants.downArrowImage)),
+                                  child: Image.asset(ImageConstants.downArrowImage)),
                             ),
 
                           ],
                         ),
                         SizedBox(height: 2.h,),
+                        data.post!.body!=null?
                         Text(
-                          data.post!.body ?? '',
+                          data.post!.body!,
                           style: AppKhaledStyles.textStyle(
                             color: AppColors.black,
                             size: 14,
                             weight: FontWeight.w400,
+                          ),):
+                        SizedBox.shrink(),
 
-                          ),),
+                        isPostDetailsScreen==false?
                         GestureDetector(
                           onTap: ()
                           {
                             communityBloc.getAllComments(postId: data.post!.id!);
-
-
                             navigate(context: context, route: Routes.postDetailsScreen,arg:data);
-
 
                           },
                           child: ResuableText(
@@ -156,13 +163,15 @@ class PostContainer extends StatelessWidget {
                             text: 'show More',
                             color: AppColors.primary,
                           ),
-                        ),
+                        )
+                        :SizedBox.shrink(),
+
                         data.post!.image!=null? CachedNetworkImage(imageUrl:data.post!.image!,fit: BoxFit.fill,):SizedBox.shrink(),
                         SizedBox(height: 10.h,),
+                        isPostDetailsScreen==false?
                         Row(
                           children:
                           [
-
                             GestureDetector(
                                 onTap: ()
                                 {
@@ -182,9 +191,8 @@ class PostContainer extends StatelessWidget {
 
 
                             GestureDetector(
-                                onTap: () {
-                                  print(data.post!.id);
-                                  print(data.likedByThisUser);
+                                onTap: ()
+                                {
                                   showModalBottomSheet(context: context,
                                     backgroundColor: AppColors.transparent,
                                     builder: (context) => RetweetBottomSheet(
@@ -240,8 +248,11 @@ class PostContainer extends StatelessWidget {
 
 
                           ],
-                        ),
+                        ):
+                        SizedBox.shrink(),
                         SizedBox(height: 10.h,),
+                        isPostDetailsScreen==true?
+                        SizedBox(height: 10.h,):SizedBox.shrink()
 
 
                       ],

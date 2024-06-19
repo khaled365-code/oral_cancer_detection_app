@@ -1,6 +1,7 @@
 
 
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,11 +68,11 @@ class CommentScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () async
                         {
-                          communityBloc.addComment(
+                          await communityBloc.addComment(
                               postId: recievedData.post!.id!,
                               comment: communityBloc.addCommentforScreenController.text);
                           communityBloc.addCommentforScreenController.clear();
-                          communityBloc.getAllPostsFun();
+                          await communityBloc.getAllPostsFun();
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -99,8 +100,9 @@ class CommentScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5.h,),
-                LineWidget(),
-
+                LineWidget(
+                  height: 2,
+                ),
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 20.w),
                   child: Row(
@@ -132,19 +134,19 @@ class CommentScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 Padding(
                   padding:  EdgeInsetsDirectional.only(start: 15.w),
                   child: Row(
                     children:
                     [
-
                       Container(
                         width: 55.w,
                         height: 55.w,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage (
-                                image: NetworkImage(CacheHelper().getData(key: ApiKeys.profile_photo_url).toString()),
+                                image: CachedNetworkImageProvider(CacheHelper().getData(key: ApiKeys.profile_photo_url).toString()),
                                 fit: BoxFit.fill
                             )
                         ),
@@ -156,7 +158,6 @@ class CommentScreen extends StatelessWidget {
                               children: [
                                 TextFormField(
                                   controller: communityBloc.addCommentforScreenController,
-                                  textDirection: TextDirection.rtl,
                                   onFieldSubmitted: (value)
                                   {
                                     communityBloc.addComment(
@@ -171,7 +172,7 @@ class CommentScreen extends StatelessWidget {
                                     focusedBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     hintText: 'Post Your Comment',
-                                    hintTextDirection: TextDirection.rtl,
+                                    hintTextDirection: TextDirection.ltr,
                                       hintStyle: AppKhaledStyles.textStyle(
                                         color: AppColors.c687684,
                                         size: 14,
