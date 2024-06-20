@@ -150,6 +150,7 @@ class ImageConstants
   static const String diagnosisIntro='assets/images/intro_di.png';
   static const String userDefaultImage='assets/images/user_profile-modified.png';
   static const String applicationLogo='assets/images/appLogo.jpg';
+  static const String resultImg='assets/images/resultImg.jpg';
 
 
   static const String addIcon='assets/icons/add.svg';

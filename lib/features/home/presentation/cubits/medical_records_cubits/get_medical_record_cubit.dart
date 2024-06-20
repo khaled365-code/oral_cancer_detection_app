@@ -15,11 +15,12 @@ import '../../../data/repos/home_repo_implementation.dart';
 part 'medical_record_state.dart';
 
 class MedicalRecordCubit extends Cubit<MedicalRecordState> {
-  MedicalRecordCubit({required this.apiConsumer}) : super(MedicalRecordInitial());
+  MedicalRecordCubit({required this.apiConsumer,}) : super(MedicalRecordInitial());
 
   ApiConsumer apiConsumer;
+
   List<MedicalRecordModel> medicalRecordList=[];
-  String diagnosisResult='';
+  // String diagnosisResult='';
 
   Future<Either<String, List<MedicalRecordModel>>> getMedicalRecords()async {
     try{
@@ -36,7 +37,7 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
             diagnosis: record[ApiKeys.diagnosis],
             diagnosisDate: record[ApiKeys.diagnosis_date]);
         medicalRecordList.add(medicalRecordModel);
-        diagnosisResult=record[ApiKeys.diagnosis];
+        // diagnosisResult=record[ApiKeys.diagnosis];
 
       }
       emit(MedicalRecordSuccess());
@@ -48,6 +49,8 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
       return left(e.errorModel.errorMessage);
     }
   }
+
+
 
 
 }

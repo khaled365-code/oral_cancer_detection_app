@@ -6,7 +6,7 @@ import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
 import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
-import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/medical_record_cubit.dart';
+import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/get_medical_record_cubit.dart';
 import 'package:graduation_project/features/home/presentation/widgets/mr_item.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,22 +25,14 @@ class MedicalRecordView extends StatelessWidget {
     return Scaffold(
       appBar:PreferredSize(preferredSize: Size(double.infinity, 40.h),
           child:DefaultAppBar(
-            hasActions:false,hasTitle: false,hasLeading: false,
+            hasActions:false,hasTitle: true,hasLeading: false,title: Text('Medical Record'),
             backgroundColor: AppColors.primary,)),
        backgroundColor:AppColors.background,
        body:state is MedicalRecordSuccess? Padding(
          padding: EdgeInsets.symmetric(horizontal: 24.w ,vertical: 12.h),
          child: Column(
+           mainAxisAlignment:  MainAxisAlignment.start,
            children: [
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Text('Diagnosis Result',
-                   style:AppTextStyles.font20.copyWith(color: AppColors.primary,),),
-                 Text('Date',
-                   style:AppTextStyles.font20.copyWith(color: AppColors.primary,),),
-             ]
-             ),
              SizedBox(height: 18.h,),
              Expanded(
                child: ListView.builder(

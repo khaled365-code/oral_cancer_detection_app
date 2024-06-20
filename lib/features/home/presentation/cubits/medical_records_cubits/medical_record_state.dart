@@ -1,4 +1,4 @@
-part of 'medical_record_cubit.dart';
+part of 'get_medical_record_cubit.dart';
 
 @immutable
 sealed class MedicalRecordState {}
