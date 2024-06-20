@@ -49,6 +49,9 @@ class Routes
 
   static const String  postDetails='/post_details_screen';
 
+  static const String  diagnosisInstructionsScreen='/diagnosis_instructions_screen';
+
+
 
 
 

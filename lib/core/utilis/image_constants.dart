@@ -154,6 +154,9 @@ class ImageConstants
   static const String addIcon='assets/icons/add.svg';
 
 
+  static const String photoInstructionsImage='assets/images/photo_instructions_image.jpg';
+
+
 
 
 

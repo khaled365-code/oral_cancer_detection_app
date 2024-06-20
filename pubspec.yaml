@@ -68,6 +68,8 @@ dependencies:
   carousel_slider:
   url_launcher: ^6.0.9
   animated_text_kit: ^4.2.2
+  dotted_border: ^2.1.0
+
 
 
 

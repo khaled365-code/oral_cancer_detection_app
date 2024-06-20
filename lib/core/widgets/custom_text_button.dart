@@ -12,7 +12,9 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed:onPressed,
+    return TextButton(
+
+      onPressed:onPressed,
       style: ButtonStyle(
         backgroundColor:MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
@@ -21,27 +23,29 @@ class CustomTextButton extends StatelessWidget {
         ),
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r)
+              borderRadius: BorderRadius.circular(6.r),
           ),
         ),
+        minimumSize: MaterialStateProperty.all<Size>(
+          Size(double.infinity, 45.h),
+        )
 
       ),
-      child: Padding(
-        padding:  EdgeInsetsDirectional.symmetric(horizontal:8.w,vertical:4.h),
-        child: Row(
-          children: [
-            Text(textState ,
-              style:AppTextStyles.font16.copyWith(
-                  color: AppColors.white,
-                 fontWeight: FontWeight.w500) ,
-            ),
-             SizedBox(width: 4.w),
-            if (bIcon != null) bIcon!,
-             SizedBox(width: 4.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            textState ,
+            style:AppTextStyles.font16.copyWith(
+                color: AppColors.white,
+               fontWeight: FontWeight.w500) ,
+          ),
+           SizedBox(width: 1.w),
+          if (bIcon != null) bIcon!,
 
 
-          ],
-        ),
+
+        ],
       ),
     );
   }
