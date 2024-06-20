@@ -36,6 +36,9 @@ class ApiKeys{
   static String probNonCancer= "probability_noncancer";
   static String domainClass= "domain_class";
   static String file= "file";
+  static String medicalRecords= "medicalRecords";
+  static String diagnosis= "diagnosis";
+  static String diagnosis_date= "diagnosis_date";
 
 
 

@@ -109,6 +109,7 @@ class _ProfileItemWidgetState extends State<ProfileItemWidget> {
                 print('Error sharing: $e');
               }
             case 4:
+              navigate(context: context, route: Routes.MRView);
             case 5:
             navigate(context: context, route: Routes.contactUsScreen);
             case 6:

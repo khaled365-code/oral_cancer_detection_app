@@ -5,4 +5,5 @@ class AppLoties{
   static final String thirdOnBoradLottie='assets/lotties/Animationnn.json';
   static final String searchNewsLottie='assets/lotties/searchLottie.json';
   static final String noDataFoundLottie='assets/lotties/nodataFound.json';
+  static final String LoadingMedicalRecLottie='assets/lotties/medicalRecordLoading.json';
 }

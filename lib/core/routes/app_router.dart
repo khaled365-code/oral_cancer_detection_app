@@ -15,10 +15,15 @@ import 'package:graduation_project/features/community/presentation/screens/no_po
 import 'package:graduation_project/features/community/presentation/screens/post_details.dart';
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/medical_record_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_result_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/home/data/repos/home_repo.dart';
+import 'package:graduation_project/features/home/data/repos/home_repo_implementation.dart';
+import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/get_medical_record_cubit.dart';
+import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/save_medical_record_cubit.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
@@ -123,8 +128,14 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => const CongratulationScreen(),);
       case Routes.result:
-        return MaterialPageRoute(builder: (context) => const DiagnosisResultView(),);
-
+        return MaterialPageRoute(builder: (context) =>
+            BlocProvider(
+              create: (context) => SaveMedicalRecordCubit(
+                  HomeRepoImplementation(apiConsumer: DioConsumer(dio: Dio(),
+                  isTextModel: false, isImageModel: false)),
+              ),
+              child:  DiagnosisResultView(),
+            ),);
       case Routes.resetNewPass:
         return MaterialPageRoute(builder: (context) => const ResetPassword(),);
       case Routes.putNewPassword:
@@ -200,6 +211,11 @@ class AppRoutes {
                   isTextModel: false,
                   isImageModel: true))),
             child: UploadImageView(),
+),);
+      case Routes.MRView:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => MedicalRecordCubit(apiConsumer: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))..getMedicalRecords(),
+          child: MedicalRecordView(),
 ),);
       default:
         return MaterialPageRoute(

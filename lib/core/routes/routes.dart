@@ -48,6 +48,7 @@ class Routes
   static const String  forYouArticle='/for_you_article_screen';
 
   static const String  postDetails='/post_details_screen';
+  static const String  MRView='/medical_record_screen';
 
   static const String  diagnosisInstructionsScreen='/diagnosis_instructions_screen';
 

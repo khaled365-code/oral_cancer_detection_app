@@ -45,7 +45,7 @@ class ProfileOutScreen extends StatelessWidget {
                                 width: 2.w
                             )
                         ),
-                        child: Icon(Icons.arrow_back, size: 20.sp,),
+                        child: Icon(Icons.arrow_back, size: 20.sp,color: AppColors.black,),
                       ),
                     ),
                     title: Text('Profile',

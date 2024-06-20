@@ -29,7 +29,8 @@ class DiagnosisIntro extends StatelessWidget {
               SizedBox(height: 10.h,),
               Text('Take a short (5 min) symptom assessment,The '
                   'information you give  is safe and will not be shared.',
-                style: AppTextStyles.font18.copyWith(fontWeight: FontWeight.w300),),
+                style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
+                    color: AppColors.c8A8A8A ),),
               SizedBox(height: 14.h,),
               Text('Your result will include: ',style: AppTextStyles.font20.copyWith(
                 color: AppColors.primary,
@@ -38,24 +39,28 @@ class DiagnosisIntro extends StatelessWidget {
              Row(
               children: [
                 Padding(
-                  padding:const EdgeInsets.only(bottom:8),
-                  child: Icon(FontAwesomeIcons.circle,size: 12,),
+                  padding:EdgeInsets.only(top: 5.h),
+                  child:Image.asset(ImageConstants.roundPointCommunityImage),
                 ),
                 SizedBox(width: 10.w,),
                 Flexible(child: Text("Possible Diagnosis based on  Symptoms",
-                  style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),)),
+                  style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
+                      color: AppColors.c8A8A8A ),)),
               ],
             ),
               SizedBox(height: 10.h,),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
                 children: [
                   Padding(
-                    padding:const EdgeInsets.only(bottom: 8),
-                    child: Icon(FontAwesomeIcons.circle,size: 12,),
+                    padding: EdgeInsets.only(top: 5.h),
+                    child:Image.asset(ImageConstants.roundPointCommunityImage),
                   ),
                   SizedBox(width: 10.w,),
                   Flexible(child: Text("Recommendations on what to do next",
-                    style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal),)),
+                    style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
+                        color: AppColors.c8A8A8A),)),
                 ],
               ),
               SizedBox(height: 24.h,),
@@ -65,8 +70,9 @@ class DiagnosisIntro extends StatelessWidget {
               SizedBox(height: 8.h,),
               Text("This result is not definitive and it is important to consult"
                   "a doctor for further testing and evaluation to be fully sure...",
-                style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.normal), ),
-              SizedBox(height: 8.h,),
+                style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
+                    color: AppColors.c8A8A8A), ),
+              SizedBox(height:16.h,),
               Align(
                 alignment: Alignment.bottomRight,
                 child: GestureDetector(
