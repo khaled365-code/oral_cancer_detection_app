@@ -44,26 +44,27 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height:40.h,),
+              SizedBox(height:50.h,),
               const RowTitle(),
                SizedBox(height:60.h,),
                CustomContainer(conHeight:190.h,conWidth:230.w,conImage:ImageConstants.splash),
                SizedBox(height:14.h,),
                Text(
-                  "oralCancerDetectionSystem".tr(context),
+                   "oralCancerDetectionApp".tr(context),
                   textAlign: TextAlign.center,
                   style: AppTextStyles.font24.copyWith(color: AppColors.primary)
               ),
                SizedBox(height: 8.h,),
                Text(
-                  "healthcareSystem".tr(context),
+                   "TogeatherWeCare".tr(context),
                   textAlign: TextAlign.center,
-                  style:AppTextStyles.font14.copyWith(
+                  style:AppTextStyles.font16.copyWith(
                     color: AppColors.primary,
-                    fontFamily: 'lato', )
+                    fontWeight:FontWeight.w400,
+                    fontFamily: 'urbanist', )
               ),
                SizedBox(
-                height:50.h,
+                height:70.h,
               ),
               AnimatedBuilder(
                 animation: slidingAnimation,
