@@ -20,6 +20,9 @@ import 'package:graduation_project/features/diagnosis/presentation/cubits/image_
 import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_result_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/result_view.dart';
+import 'package:graduation_project/features/home/data/repos/home_repo.dart';
+import 'package:graduation_project/features/home/data/repos/home_repo_implementation.dart';
+import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/medical_record_cubit.dart';
 import 'package:graduation_project/features/home/presentation/manager/search_news_cubit/search_news_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
@@ -200,7 +203,10 @@ class AppRoutes {
             child: UploadImageView(),
 ),);
       case Routes.MRView:
-        return MaterialPageRoute(builder: (context) => MedicalRecordView(),);
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => MedicalRecordCubit(apiConsumer: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))..getMedicalRecords(),
+          child: MedicalRecordView(),
+),);
       default:
         return MaterialPageRoute(
           builder: (context) => const Center(child: Text('No screen found')),);

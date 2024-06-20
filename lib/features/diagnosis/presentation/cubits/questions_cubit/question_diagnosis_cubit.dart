@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/learn_more_view.dart';
+import '../../../../home/presentation/cubits/medical_records_cubits/medical_record_cubit.dart';
 import '../../../data/repo/ai_repo.dart';
 part 'question_diagnosis_state.dart';
 
@@ -10,6 +12,7 @@ class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {
   QuestionDiagnosisCubit({required this.aiRepository}) : super(QuestionDiagnosisInitial());
   final AiRepository aiRepository;
   dynamic modelResult;
+
 
   questionDiagnosis(BuildContext context,
       {int? localization, int? tobacoUse,
@@ -42,10 +45,11 @@ class QuestionDiagnosisCubit extends Cubit<QuestionDiagnosisState> {
 
 
   String ConvertToDiseaseName(BuildContext context){
-    if(modelResult == 2){
+   var medicalRecordCubit= BlocProvider.of<MedicalRecordCubit>(context);
+    if(modelResult == 2 || medicalRecordCubit.diagnosisResult=='2'){
       return 'LeukoplakiaWithoutDysplasia'.tr(context);
     }
-    else if (modelResult == 1){
+    else if (modelResult == 1|| medicalRecordCubit.diagnosisResult=='1'){
       return 'leukoplakiaWithDysplasia'.tr(context);
     }
     else return 'OSCC'.tr(context);
