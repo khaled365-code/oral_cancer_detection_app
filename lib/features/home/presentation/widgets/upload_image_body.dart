@@ -152,6 +152,7 @@ class UploadImageBody extends StatelessWidget {
                       Container(
                         height: 200.h,
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
                           image: DecorationImage(
                               image: FileImage(File(uploadImageCubit
                                   .mouthImage!

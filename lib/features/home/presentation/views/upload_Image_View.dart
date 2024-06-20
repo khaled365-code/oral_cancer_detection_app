@@ -22,7 +22,7 @@ class UploadImageView extends StatelessWidget {
             hasActions:false,
             hasTitle: true,
             hasLeading: true,
-            backgroundColor: AppColors.white,
+            backgroundColor: AppColors.primary,
             leading:Padding(
               padding:  EdgeInsetsDirectional.only(start: 5.w,top: 3.h),
               child: Builder(
@@ -34,7 +34,7 @@ class UploadImageView extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.primary,
+                      color: AppColors.white,
                     ),
                   );
                 }
@@ -44,7 +44,7 @@ class UploadImageView extends StatelessWidget {
               padding:  EdgeInsetsDirectional.only(top: 3.h),
               child: ResuableText(
                 text: 'OralGuard',
-                color: AppColors.primary,
+                color: AppColors.white,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),

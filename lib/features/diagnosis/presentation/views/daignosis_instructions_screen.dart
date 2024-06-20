@@ -33,16 +33,17 @@ class DiagnosisInstructionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.primary,
         centerTitle: true,
         leading: GestureDetector(
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(Icons.arrow_back_ios_new_outlined,color: AppColors.primary,),
+          child: Icon(Icons.arrow_back_ios_new_outlined,color: AppColors.white,),
         ),
         title: ResuableText(
             text: 'instructions',
-            color: AppColors.primary,
+            color: AppColors.white,
             fontSize: 22,
             fontWeight: FontWeight.bold
         ),
