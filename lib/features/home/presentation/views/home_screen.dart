@@ -74,28 +74,28 @@ class HomePageState extends State<HomePage> {
           items: [
           SalomonBottomBarItem(
           icon:Icon(Icons.home_outlined,),
-          title: Text("Home"),
+          title: Text("Home",style: AppTextStyles.font10,),
           selectedColor: AppColors.primary,
         ),
 
         SalomonBottomBarItem(
           icon: Icon(FontAwesomeIcons.stethoscope),
-          title: Text('Diagnosis'),
+          title: Text('Diagnosis',style: AppTextStyles.font12,),
           selectedColor: AppColors.primary,
        ),
        SalomonBottomBarItem(
            icon: Icon(Icons.mark_unread_chat_alt),
-           title: Text('Community'),
+           title: Text('Community',style: AppTextStyles.font10,),
            selectedColor:AppColors.primary,
             ),
        SalomonBottomBarItem(
           icon: Icon(Icons.newspaper_sharp),
-          title: Text('News'),
+          title: Text('News',style: AppTextStyles.font10,),
           selectedColor:AppColors.primary,
             ),
         SalomonBottomBarItem(
            icon: Icon(FontAwesomeIcons.hospital),
-           title: Text('Hospitals'),
+           title: Text('Hospitals',style: AppTextStyles.font10,),
            selectedColor:AppColors.primary,
             ),
           ]
