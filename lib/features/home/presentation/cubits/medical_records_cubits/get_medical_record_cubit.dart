@@ -20,8 +20,6 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
   ApiConsumer apiConsumer;
 
   List<MedicalRecordModel> medicalRecordList=[];
-  // String diagnosisResult='';
-
   Future<Either<String, List<MedicalRecordModel>>> getMedicalRecords()async {
     try{
       emit(MedicalRecordLoading());
@@ -37,8 +35,6 @@ class MedicalRecordCubit extends Cubit<MedicalRecordState> {
             diagnosis: record[ApiKeys.diagnosis],
             diagnosisDate: record[ApiKeys.diagnosis_date]);
         medicalRecordList.add(medicalRecordModel);
-        // diagnosisResult=record[ApiKeys.diagnosis];
-
       }
       emit(MedicalRecordSuccess());
       return right(medicalRecordList);
