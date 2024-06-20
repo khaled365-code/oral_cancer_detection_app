@@ -152,6 +152,7 @@ class ImageConstants
 
 
   static const String addIcon='assets/icons/add.svg';
+  static const String medicalRecord='assets/icons/medical-record.svg';
 
 
 
