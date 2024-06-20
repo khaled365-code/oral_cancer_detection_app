@@ -19,7 +19,7 @@ class DefaultAppBar extends StatelessWidget {
     return
          AppBar(title: hasTitle ?title:null ,centerTitle: titleISCenter ?? true,elevation: 0,
           backgroundColor:backgroundColor
-          ,leading: hasLeading? leading:Icon(Icons.arrow_back_ios_outlined,size: 16.sp,),actions: hasActions ?actions:null,);
+          ,leading: hasLeading? leading:IconButton( onPressed: () {  Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios_outlined,size: 16.sp),),actions: hasActions ?actions:null,);
 
 
   }
