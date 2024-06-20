@@ -16,10 +16,10 @@ class RowTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomContainer(conHeight:60.h,conWidth:80.w,conImage:ImageConstants.heart),
+        CustomContainer(conHeight:50.h,conWidth:50.w,conImage:ImageConstants.mouthLogo),
         SizedBox(height: 10.h,),
         Text(
-          "staySafe".tr(context),
+          "OralGuard".tr(context),
           textAlign: TextAlign.center,
           style:AppTextStyles.font22.copyWith(
             color: AppColors.primary,

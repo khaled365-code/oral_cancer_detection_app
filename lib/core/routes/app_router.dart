@@ -15,7 +15,7 @@ import 'package:graduation_project/features/community/presentation/screens/no_po
 import 'package:graduation_project/features/community/presentation/screens/post_details.dart';
 import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
-import 'package:graduation_project/features/diagnosis/medical_record_view.dart';
+import 'package:graduation_project/features/diagnosis/presentation/views/medical_record_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_result_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/questions_view.dart';
