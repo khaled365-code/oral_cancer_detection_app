@@ -61,10 +61,10 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                   style:AppTextStyles.font16.copyWith(
                     color: AppColors.primary,
                     fontWeight:FontWeight.w400,
-                    fontFamily: 'urbanist', )
+                    fontFamily: 'lato', )
               ),
                SizedBox(
-                height:70.h,
+                height:100.h,
               ),
               AnimatedBuilder(
                 animation: slidingAnimation,
