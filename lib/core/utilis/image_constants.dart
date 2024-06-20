@@ -158,6 +158,9 @@ class ImageConstants
   static const String mouthLogo='assets/images/appLogo.jpg';
 
 
+  static const String photoInstructionsImage='assets/images/photo_instructions_image.jpg';
+
+
 
 
 

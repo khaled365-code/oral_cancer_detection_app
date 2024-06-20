@@ -56,6 +56,7 @@ import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
 import '../../features/community/cubits/search_for_posts_cubit/search_for_posts_cubit.dart';
 import '../../features/community/presentation/screens/post_with_image_screen.dart';
+import '../../features/diagnosis/presentation/views/daignosis_instructions_screen.dart';
 import '../../features/home/presentation/views/doctor_screen.dart';
 import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
@@ -83,6 +84,8 @@ class AppRoutes {
           ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
+      case Routes.diagnosisInstructionsScreen:
+        return MaterialPageRoute(builder: (context) =>  DiagnosisInstructionsScreen(),);
       case Routes.postDetails:
         return MaterialPageRoute(builder: (context) =>  PostDetails(),settings: routeSettings);
       case Routes.forYouArticle:
