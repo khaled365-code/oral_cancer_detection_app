@@ -68,7 +68,8 @@ class DiagnosisIntro extends StatelessWidget {
                 color: AppColors.primary,
               ), ),
               SizedBox(height: 8.h,),
-              Text("This result is not definitive and it is important to consult"
+              Text("You must answer the questions accurately to get the correct result,"
+                "This result is not definitive and it is important to consult"
                   "a doctor for further testing and evaluation to be fully sure...",
                 style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
                     color: AppColors.c8A8A8A), ),
