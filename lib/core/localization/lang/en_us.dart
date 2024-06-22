@@ -187,6 +187,10 @@ final Map<String, String> enUs =
   "OSCC":"OSCC",
   'Cancer':'Cancer',
   'NonCancer':'Non Cancer',
-  'ThereisaQuestionYouDidnotAnswer':'There is a question you did not answer! please check it'
+  'ThereisaQuestionYouDidnotAnswer':'There is a question you did not answer! please check it',
+  'checkYourSymptoms':'Check  your Symptoms',
+  'YourResultWillInclude: ':"Your result will include: "
+
+
 
 };
