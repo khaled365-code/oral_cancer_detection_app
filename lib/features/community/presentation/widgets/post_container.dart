@@ -105,7 +105,8 @@ class PostContainer extends StatelessWidget {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: data.userdata!.profilePhotoUrl!=null? DecorationImage (
-                              image: CachedNetworkImageProvider(data.userdata!.profilePhotoUrl!),
+                              image: CachedNetworkImageProvider(
+                                  data.userdata!.profilePhotoUrl!, ),
                               fit: BoxFit.fill
                             ):DecorationImage (
                                 image: AssetImage(ImageConstants.userDefaultImage),
@@ -284,7 +285,117 @@ class PostContainer extends StatelessWidget {
                                 GestureDetector(
                                     onTap: ()
                                     {
-                                      Share.share(data.post!.body!);
+                                      showDialog(context: context, builder: (context) => AlertDialog(
+                                        backgroundColor: AppColors.white,
+                                        contentPadding: EdgeInsetsDirectional.zero,
+                                        content: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              SizedBox(
+                                                height: 15.h,
+                                              ),
+                                              Builder(builder: (context) {
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    if(data.post!.body==null)
+                                                    {
+                                                      showToast(msg: 'This post doesn\'t have text to share', toastStates: ToastStates.error);
+                                                    }
+                                                    else
+                                                    {
+                                                      Share.share(data.post!.body!);
+                                                      Navigator.pop(context);
+
+                                                    }
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width: 20.w,
+                                                      ),
+                                                      Container(
+                                                          width: 30.w,
+                                                          height: 30.h,
+                                                          decoration:
+                                                          const BoxDecoration(
+                                                            shape: BoxShape.circle,
+                                                            color: AppColors.white,
+                                                          ),
+                                                          child:  Center(
+                                                              child: Icon(
+                                                                Icons.share_outlined,
+                                                                color: AppColors.primary,
+                                                                size: 25.sp,
+                                                              ))),
+                                                      SizedBox(
+                                                        width: 10.w,
+                                                      ),
+                                                      const ResuableText(
+                                                        text: 'Share Text',
+                                                        color: AppColors.primary,
+                                                        fontWeight: FontWeight.normal,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              }),
+                                              SizedBox(
+                                                height: 10.h,
+                                              ),
+                                              GestureDetector(
+                                                onTap: ()
+                                                {
+                                                  if(data.post!.image==null)
+                                                  {
+                                                    showToast(msg: 'This post doesn\'t have image to share', toastStates: ToastStates.error);
+                                                  }
+                                                  else
+                                                  {
+                                                    Share.shareUri(Uri.parse(data.post!.image!));
+                                                    Navigator.pop(context);
+
+
+                                                  }
+
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    SizedBox(
+                                                      width: 20.w,
+                                                    ),
+                                                    Container(
+                                                        width: 30.w,
+                                                        height: 30.h,
+                                                        decoration:
+                                                        const BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          color: AppColors.white,
+                                                        ),
+                                                        child:  Center(
+                                                            child: Icon(
+                                                              Icons.share_outlined,
+                                                              color: AppColors.primary,
+                                                              size: 25.sp,
+                                                            ))),
+                                                    SizedBox(
+                                                      width: 10.w,
+                                                    ),
+                                                    const ResuableText(
+                                                      color: AppColors.primary,
+                                                      text: 'Share Image',
+                                                      fontWeight: FontWeight.normal,
+                                                      fontSize: 14,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 15.h,)
+
+                                            ]
+
+                                        ),
+                                      ));
                                     },
                                     child: Container(child: Image.asset(ImageConstants.shareSmallImage,))),
 
