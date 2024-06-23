@@ -9,9 +9,11 @@ import 'package:graduation_project/core/commons/global_cubits/get_profile_data_c
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/fontweight_helper.dart';
 import 'package:graduation_project/core/widgets/custom_outlined_textfield.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
+import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/views/community_screen.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/diagnosis_intro.dart';
 import 'package:graduation_project/features/home/presentation/cubits/home_contrller_cubit/home_controller_cubit.dart';
@@ -33,7 +35,7 @@ class MainControllerPage extends StatelessWidget{
     final homeControllerCubit =BlocProvider.of<HomeControllerCubit>(context);
     return Scaffold(
       appBar: showAppBar(homeControllerCubit) ,
-      backgroundColor:const Color(0xfffafafa),
+      backgroundColor: AppColors.white,
       drawer: Drawer(
         width: MediaQuery.of(context).size.width,
         child: BlocProvider(
@@ -48,32 +50,35 @@ class MainControllerPage extends StatelessWidget{
           currentIndex: homeControllerCubit.selectedIndex,
           onTap: homeControllerCubit.onItemTapped,
           backgroundColor: AppColors.white,
+          margin: EdgeInsets.only(right: 5.w),
+
           items: 
           [
           SalomonBottomBarItem(
           icon:Icon(Icons.home_outlined,),
           title: Text("Home",style: AppTextStyles.font10,),
+
           selectedColor: AppColors.primary,
         ),
 
         SalomonBottomBarItem(
           icon: Icon(FontAwesomeIcons.stethoscope),
-          title: Text('Diagnosis',style: AppTextStyles.font12,),
+          title: Text(' Diagnosis',style: AppTextStyles.font12,),
           selectedColor: AppColors.primary,
        ),
        SalomonBottomBarItem(
            icon: Icon(Icons.mark_unread_chat_alt),
-           title: Text('Community',style: AppTextStyles.font10,),
+           title: Text(' Community',style: AppTextStyles.font10,),
            selectedColor:AppColors.primary,
             ),
        SalomonBottomBarItem(
           icon: Icon(Icons.newspaper_sharp),
-          title: Text('News',style: AppTextStyles.font10,),
+          title: Text(' News',style: AppTextStyles.font10,),
           selectedColor:AppColors.primary,
             ),
         SalomonBottomBarItem(
            icon: Icon(FontAwesomeIcons.hospital),
-           title: Text('Hospitals',style: AppTextStyles.font10,),
+           title: Text(' Hospitals',style: AppTextStyles.font10,),
            selectedColor:AppColors.primary,
             ),
           ]
@@ -114,7 +119,7 @@ class MainControllerPage extends StatelessWidget{
                 {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Image.asset(ImageConstants.homelines,color: AppColors.primary));
+                child: Image.asset(ImageConstants.homelines,color: AppColors.white));
           }
         ),
 
@@ -129,12 +134,12 @@ class MainControllerPage extends StatelessWidget{
               {
                 navigate(context: context, route: Routes.searchPostsScreen);
               },
-                child: Image.asset(ImageConstants.searchCommunityImage,color: AppColors.primary,));
+                child: Image.asset(ImageConstants.searchCommunityImage,color: AppColors.white,));
           }
         )
       ),
       ],
-        backgroundColor: AppColors.white,));
+        backgroundColor: AppColors.primary,));
     }
     else if(homeControllerCubit.selectedIndex==4){
       return PreferredSize(preferredSize: Size(double.infinity, 40.h),
@@ -151,9 +156,16 @@ class MainControllerPage extends StatelessWidget{
                       child: Image.asset(ImageConstants.homelines,color:AppColors.background,));
                 }
             ),
-            title: Text('Recommended Hospitals'),backgroundColor: AppColors.primary,));
+            title: ResuableText(
+              text: 'Hospitals',
+              color: AppColors.white,
+              fontWeight: FontWeightHelper.regular,
+              fontSize: 18,
+
+            ),backgroundColor: AppColors.primary,));
           }
-    else{
+    else
+    {
       //index==3(news)
       return PreferredSize(preferredSize: Size(double.infinity, 0.h),
       child: SizedBox());

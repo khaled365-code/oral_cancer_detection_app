@@ -44,6 +44,7 @@ class CommunityScreen extends StatelessWidget {
               RefreshIndicator(
                 edgeOffset: 1,
                 key: refreshIndicatorKey,
+                color: AppColors.primary,
                 onRefresh: () async
                 {
                   await communityBloc.getAllPostsFun();

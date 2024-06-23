@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 
 class DefaultAppBar extends StatelessWidget {
    DefaultAppBar({Key? key,this.title,this.actions,this.leading,this.backgroundColor=Colors.transparent, this.hasTitle=false, this.hasLeading=false, this.hasActions=false,  this.titleISCenter}) : super(key: key);
@@ -18,11 +19,11 @@ class DefaultAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return
          AppBar(
-          title: hasTitle ?title:null ,
+          title: hasTitle?title:null ,
           centerTitle: titleISCenter ?? true,
           elevation: 0,
           backgroundColor:backgroundColor
-          ,leading: hasLeading? leading:IconButton( onPressed: () {  Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios_outlined,size: 16.sp),),actions: hasActions ?actions:null,);
+          ,leading: hasLeading? leading:IconButton( onPressed: () {  Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios_outlined,size: 20.sp,color: AppColors.white,),),actions: hasActions ?actions:null,);
 
 
   }

@@ -1,4 +1,5 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,7 +68,7 @@ class ProfileOutScreen extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: Center(
                         child: CustomImagePickerAvatar(
-                          image: NetworkImage(
+                          image: CachedNetworkImageProvider(
                               state.getProfileDataModel.data!.profilePhotoUrl!),
                           hasBottom: true,
                           hasEnd: true,
@@ -91,8 +92,8 @@ class ProfileOutScreen extends StatelessWidget {
                     SliverToBoxAdapter(
                       child: Center(
                         child: CustomImagePickerAvatar(
-                          image: NetworkImage(CacheHelper().getData(
-                              key: ApiKeys.profile_photo_url).toString()),
+                          image: CachedNetworkImageProvider(
+                              CacheHelper().getData(key: ApiKeys.profile_photo_url)),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,

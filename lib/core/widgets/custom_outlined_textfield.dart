@@ -14,8 +14,6 @@ class CustomOutlinedTextField extends StatelessWidget {
 
 
   final String? hintText;
-  final TextStyle? hintStyle;
-
   final double? height;
   final Color? crusorColor;
   final bool obsecureText;
@@ -34,10 +32,11 @@ class CustomOutlinedTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function()? suffixIconOnTap;
   final TextStyle? textStyle;
+  final TextStyle? hintTextStyle;
 
 
 
-  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,  this.hintStyle, this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.onFieldSubmitte, this.validator, this.suffixIconOnTap, this.enabledBorderSideColor, this.focusedBorderSideColor,  this.textStyle});
+  const CustomOutlinedTextField({super.key,required this.controller,  this.hintText,this.height,  this.crusorColor, this.obsecureText=false, this.borderRadius, this.hasPrefixIcon=false, this.hasSuffixIcon=false, this.prefixIcon, this.suffixIcon, this.inputFormatters,required this.keyboardType, this.onFieldSubmitte, this.validator, this.suffixIconOnTap, this.enabledBorderSideColor, this.focusedBorderSideColor,  this.textStyle, this.hintTextStyle});
 
 
   @override
@@ -58,7 +57,7 @@ class CustomOutlinedTextField extends StatelessWidget {
           onTap: suffixIconOnTap,
             child: Icon(suffixIcon,color: AppColors.white,)):null,
         hintText: hintText??null,
-        hintStyle: AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal,color:AppColors.background.withOpacity(0.5) )??null,
+        hintStyle: hintTextStyle??AppTextStyles.font14.copyWith(fontWeight: FontWeight.normal,color:AppColors.background.withOpacity(0.5)),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color:focusedBorderSideColor??AppColors.cEFEFEF ),
             borderRadius: BorderRadius.circular((borderRadius??8).r),
