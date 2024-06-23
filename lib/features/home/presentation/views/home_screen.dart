@@ -54,52 +54,54 @@ class HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: showAppBar() ,
-      backgroundColor:const Color(0xfffafafa),
-      drawer: Drawer(
-        width: MediaQuery.of(context).size.width,
-        child: BlocProvider(
-          create: (context) => GetProfileDataCubit(
-              profileRepoImplementation: ProfileRepoImplementation(
-                  api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
-          child: ProfileOutScreen(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: showAppBar() ,
+        backgroundColor:const Color(0xfffafafa),
+        drawer: Drawer(
+          width: MediaQuery.of(context).size.width,
+          child: BlocProvider(
+            create: (context) => GetProfileDataCubit(
+                profileRepoImplementation: ProfileRepoImplementation(
+                    api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
+            child: ProfileOutScreen(),
+          ),
         ),
-      ),
-      body: pages[widget.selectedIndex],
-      bottomNavigationBar: SalomonBottomBar(
-          currentIndex: widget.selectedIndex,
-          onTap: onItemTapped,
-          backgroundColor: AppColors.white,
-          items: [
-          SalomonBottomBarItem(
-          icon:Icon(Icons.home_outlined,),
-          title: Text("Home",style: AppTextStyles.font10,),
-          selectedColor: AppColors.primary,
-        ),
+        body: pages[widget.selectedIndex],
+        bottomNavigationBar: SalomonBottomBar(
+            currentIndex: widget.selectedIndex,
+            onTap: onItemTapped,
+            backgroundColor: AppColors.white,
+            items: [
+            SalomonBottomBarItem(
+            icon:Icon(Icons.home_outlined,),
+            title: Text("Home",style: AppTextStyles.font10,),
+            selectedColor: AppColors.primary,
+          ),
 
-        SalomonBottomBarItem(
-          icon: Icon(FontAwesomeIcons.stethoscope),
-          title: Text('Diagnosis',style: AppTextStyles.font12,),
-          selectedColor: AppColors.primary,
-       ),
-       SalomonBottomBarItem(
-           icon: Icon(Icons.mark_unread_chat_alt),
-           title: Text('Community',style: AppTextStyles.font10,),
-           selectedColor:AppColors.primary,
-            ),
-       SalomonBottomBarItem(
-          icon: Icon(Icons.newspaper_sharp),
-          title: Text('News',style: AppTextStyles.font10,),
-          selectedColor:AppColors.primary,
-            ),
-        SalomonBottomBarItem(
-           icon: Icon(FontAwesomeIcons.hospital),
-           title: Text('Hospitals',style: AppTextStyles.font10,),
-           selectedColor:AppColors.primary,
-            ),
-          ]
-      ));
+          SalomonBottomBarItem(
+            icon: Icon(FontAwesomeIcons.stethoscope),
+            title: Text('Diagnosis',style: AppTextStyles.font12,),
+            selectedColor: AppColors.primary,
+         ),
+         SalomonBottomBarItem(
+             icon: Icon(Icons.mark_unread_chat_alt),
+             title: Text('Community',style: AppTextStyles.font10,),
+             selectedColor:AppColors.primary,
+              ),
+         SalomonBottomBarItem(
+            icon: Icon(Icons.newspaper_sharp),
+            title: Text('News',style: AppTextStyles.font10,),
+            selectedColor:AppColors.primary,
+              ),
+          SalomonBottomBarItem(
+             icon: Icon(FontAwesomeIcons.hospital),
+             title: Text('Hospitals',style: AppTextStyles.font10,),
+             selectedColor:AppColors.primary,
+              ),
+            ]
+        )),
+    );
   }
   PreferredSize showAppBar()
   {

@@ -13,37 +13,35 @@ class NewsSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var searchCubit = BlocProvider.of<SearchNewsCubit>(context);
-    return SafeArea(
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60.h),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: AppColors.primary,
-            flexibleSpace: Padding(
-              padding: const EdgeInsets.all(8.0),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60.h),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: AppColors.primary,
+          flexibleSpace: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18.w,vertical: 10.h),
 
-              child: Center(
-                child: CustomOutlinedTextField(
-                  textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
-                  focusedBorderSideColor: AppColors.white,
-                  hintText: 'Search for Medical News...',
-                    onFieldSubmitte: (data) {
-                      searchCubit.onSubmittedSearch(data);
-                    },
-                   enabledBorderSideColor: AppColors.white,
-                    hasSuffixIcon: true,
-                    suffixIcon: Icons.search,
-                    controller: searchCubit.searchController,
-                    keyboardType: TextInputType.text
-                ),
+            child: Center(
+              child: CustomOutlinedTextField(
+                textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),
+                focusedBorderSideColor: AppColors.white,
+                hintText: 'Search for Medical News...',
+                  onFieldSubmitte: (data) {
+                    searchCubit.onSubmittedSearch(data);
+                  },
+                 enabledBorderSideColor: AppColors.white,
+                  hasSuffixIcon: true,
+                  suffixIcon: Icons.search,
+                  controller: searchCubit.searchController,
+                  keyboardType: TextInputType.text
               ),
             ),
           ),
         ),
-        body:NewsSearchBody()
-
       ),
+      body:NewsSearchBody()
+
     );
   }
 }
