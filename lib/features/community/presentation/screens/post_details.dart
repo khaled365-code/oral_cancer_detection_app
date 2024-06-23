@@ -160,7 +160,7 @@ class PostDetails extends StatelessWidget
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               contentPadding: EdgeInsetsDirectional.only(start: 12.w,bottom: 8.h,),
-                              hintText: 'Tweet your reply',
+                              hintText: 'Add your reply',
                               hintStyle: AppKhaledStyles.textStyle(
                                 color: AppColors.c687684,
                                 size: 16,

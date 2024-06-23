@@ -128,7 +128,7 @@ class HomePageState extends State<HomePage> {
       return   PreferredSize(preferredSize: Size(double.infinity, 40.h,),
       child: DefaultAppBar(
         hasActions: true,
-        hasTitle: true,
+        hasTitle: false,
         hasLeading: true,
         leading: Builder(
           builder: (context) {
@@ -140,7 +140,7 @@ class HomePageState extends State<HomePage> {
                 child: Image.asset(ImageConstants.homelines,color: AppColors.primary));
           }
         ),
-        title: Image.asset(ImageConstants.appLogo,color: AppColors.primary,),
+
         actions:
       [
         Padding(
