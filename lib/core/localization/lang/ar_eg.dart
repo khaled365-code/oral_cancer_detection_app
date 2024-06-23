@@ -98,5 +98,6 @@ final Map<String, String> arEg =
   'ThereisaQuestionYouDidnotAnswer':'هناك سؤال لم يتم الجواب عليه ,راجع الاسئله',
   'checkYourSymptoms':'تحقق من أعراضك',
   'YourResultWillInclude: ':'النتيجة ستتضمن: ',
+  'AboutApp':'حول التطبيق ',
 
 };

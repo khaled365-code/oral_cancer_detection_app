@@ -12,7 +12,7 @@ class EmptyContainer extends StatelessWidget{
       clipBehavior: Clip.none,
       children: [
         Container(
-          width:ScreenUtil().screenWidth,
+          width:double.infinity,
           height:ScreenUtil().screenHeight,
           decoration: BoxDecoration(
             color: AppColors.background,

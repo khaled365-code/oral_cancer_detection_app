@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/features/profile/data/models/get_profile_data_model/profile_data_model.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
 import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
@@ -19,7 +21,7 @@ class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
   final List<ProfileDataModel>profileDataList=
   [
     ProfileDataModel(profileTitle: 'Your Profile', image: ImageConstants.userIcon,isSvg: true,),
-    ProfileDataModel(profileTitle: 'Language', image: ImageConstants.language,),
+    ProfileDataModel(profileTitle:'language', image: ImageConstants.language,),
     ProfileDataModel(profileTitle: 'Settings', image: ImageConstants.settings,),
     ProfileDataModel(profileTitle: 'Share App', image: ImageConstants.shareAppIcon,isSvg: true,),
     //ProfileDataModel(profileTitle: 'Notifications', image: ImageConstants.notificationsIcon,isSvg: true,),
