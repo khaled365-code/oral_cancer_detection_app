@@ -52,7 +52,7 @@ class OralCancerApp extends StatelessWidget {
                 return supportedLocales.first;
               },
               debugShowCheckedModeBanner: false,
-              initialRoute:initialRouteHandler(),
+              initialRoute:Routes.splash,
               onGenerateRoute: AppRoutes.onGenerateRoutes,
               //CacheHelper().getData(key: ApiKeys.token)==null||seenOnBoard?Routes.loginScreen:seenOnBoard==false?Routes.splash:Routes.home,
               //seenOnBoard?Routes.loginScreen:Routes.splash
