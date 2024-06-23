@@ -1,7 +1,7 @@
 
 class EndPoints{
-  static String photoModelBaseUrl="http://10.0.2.2:80/";
-  static String textModelBaseUrl="http://10.0.2.2:5000/";
+  static String photoModelBaseUrl="http://192.168.1.6:80/";
+  static String textModelBaseUrl="http://192.168.1.6:5000/";
   static String medicalRecordBaseUrl="user/medicalrecord";
   static String topHeadLinesBaseUrl='https://newsapi.org/v2/';
   static String baseUrl="https://162d-197-134-173-20.ngrok-free.app/api/";

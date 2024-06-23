@@ -96,7 +96,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              getOldImage()),
+                         CacheHelper().getData(key: ApiKeys.profile_photo_url)),  //getOldImage()),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
