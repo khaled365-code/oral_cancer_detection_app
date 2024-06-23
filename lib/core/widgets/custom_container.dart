@@ -7,7 +7,7 @@ import 'package:graduation_project/features/home/presentation/cubits/image_diagn
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key, required this.conHeight,
-    required this.conWidth,this.conImage,this.borderRadius,this.border
+    required this.conWidth,this.conImage,this.borderRadius,this.border, this.color
   });
 
   final double conHeight;
@@ -15,6 +15,7 @@ class CustomContainer extends StatelessWidget {
   final String? conImage;
   final BorderRadiusGeometry? borderRadius;
   final Border? border;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CustomContainer extends StatelessWidget {
       height:conHeight,
       width:conWidth,
       decoration:BoxDecoration(
-        color: Colors.grey.withOpacity(.5),
+        color: color??Colors.transparent,
         borderRadius:borderRadius ,
         border:border ,
         image:  conImage!=null? DecorationImage(
