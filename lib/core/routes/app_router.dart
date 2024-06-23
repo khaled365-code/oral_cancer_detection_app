@@ -8,12 +8,6 @@ import 'package:graduation_project/features/auth/data/manager/sign_up_cubit.dart
 import 'package:graduation_project/features/auth/presentation/views/congratulation_view.dart';
 import 'package:graduation_project/features/auth/presentation/views/otp_verfication_view.dart';
 import 'package:graduation_project/features/community/data/repos/community_repo_implementation.dart';
-import 'package:graduation_project/features/community/presentation/screens/add_post_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/add_comment_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/no_posts_screen.dart';
-import 'package:graduation_project/features/community/presentation/screens/post_details.dart';
-import 'package:graduation_project/features/community/presentation/screens/search_posts_screen.dart';
 import 'package:graduation_project/features/diagnosis/data/repo/ai_repo.dart';
 import 'package:graduation_project/features/diagnosis/presentation/views/medical_record_view.dart';
 import 'package:graduation_project/features/diagnosis/presentation/cubits/image_cubit/image_diagnosis_cubit.dart';
@@ -28,8 +22,8 @@ import 'package:graduation_project/features/home/presentation/manager/search_new
 import 'package:graduation_project/features/home/presentation/views/news_search_screen.dart';
 import 'package:graduation_project/features/home/presentation/cubits/initial_home_screen_cubit/initial_home_screen_cubit.dart';
 import 'package:graduation_project/features/home/presentation/views/complete_news_article.dart';
-import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
-import 'package:graduation_project/features/home/presentation/views/for_you_article.dart';
+import 'package:graduation_project/features/home/presentation/views/upload_Image_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/for_you_article_screen.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/contact_us_cubit/contact_us_bloc_cubit.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/faq_screen_cubit/faq_screen_cubit.dart';
@@ -55,10 +49,16 @@ import '../../features/auth/presentation/views/regisrer_screen.dart';
 import '../../features/auth/presentation/views/reset_pass_screen.dart';
 import '../../features/auth/presentation/views/send_code_screen.dart';
 import '../../features/community/cubits/search_for_posts_cubit/search_for_posts_cubit.dart';
-import '../../features/community/presentation/screens/post_with_image_screen.dart';
+import '../../features/community/presentation/views/add_comment_screen.dart';
+import '../../features/community/presentation/views/add_post_screen.dart';
+import '../../features/community/presentation/views/community_screen.dart';
+import '../../features/community/presentation/views/no_posts_screen.dart';
+import '../../features/community/presentation/views/post_details.dart';
+import '../../features/community/presentation/views/post_with_image_screen.dart';
+import '../../features/community/presentation/views/search_posts_screen.dart';
 import '../../features/diagnosis/presentation/views/daignosis_instructions_screen.dart';
-import '../../features/home/presentation/views/doctor_screen.dart';
-import '../../features/home/presentation/views/home_screen.dart';
+import '../../features/home/presentation/views/doctors_screen.dart';
+import '../../features/home/presentation/views/main_controller_screen.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/faq_screen.dart';
 import '../../features/profile/presentation/screens/put_new_password_screen.dart';
@@ -80,7 +80,7 @@ class AppRoutes {
                 create: (context) => InitialHomeScreenCubit(),
               ),
             ],
-            child: HomePage(),
+            child: MainControllerPage(),
           ),);
       case Routes.darkModeScreen:
         return MaterialPageRoute(builder: (context) => const DarkModeScreen(),);
