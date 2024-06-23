@@ -22,7 +22,6 @@ class NewsSearchScreen extends StatelessWidget {
             backgroundColor: AppColors.primary,
             flexibleSpace: Padding(
               padding: const EdgeInsets.all(8.0),
-
               child: Center(
                 child: CustomOutlinedTextField(
                   textStyle: AppTextStyles.font14.copyWith(color: AppColors.white),

@@ -84,8 +84,8 @@ flutter_native_splash:
   web: false
   color: "#FFFFFF"
 #  background_image: "assets/images/white.jpg"
-  image: "assets/images/applicationLogo.JPG"
-  image_dark: "assets/images/applicationLogo.JPG"
+  image: "assets/images/appLogo.jpg"
+  image_dark: "assets/images/appLogo.jpg"
   color_dark: "#000000"
   icon_background_color_dark: "#FFFFFF"
 
@@ -95,7 +95,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/launcher_icon.png"
+  image_path: "assets/images/appLogo.jpg"
 
   flutter_test:
     sdk: flutter
