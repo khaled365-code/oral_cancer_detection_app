@@ -12,6 +12,7 @@ import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/community/presentation/widgets/line_widget.dart';
 import 'package:graduation_project/features/profile/data/models/profile_data_model.dart';
+import 'package:graduation_project/features/profile/presentation/widgets/update_profile_widget.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../core/commons/global_cubits/change_language_cubit/change_language_cubit.dart';
 import '../../../../core/routes/routes.dart';
@@ -41,7 +42,7 @@ class _ProfileItemWidgetState extends State<ProfileItemWidget> {
           switch(widget.currentIndex)
           {
             case 0:
-              navigate(context: context, route: Routes.editProfilescreen);
+              showDialog(context: context, builder: (context) => UpdateProfileWidget(),);
             case 1:
              showDialog(context: context, builder: (context) =>
              Dialog(
