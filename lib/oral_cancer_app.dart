@@ -37,8 +37,7 @@ class OralCancerApp extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
           builder: (context, state) {
             return MaterialApp(
-
-              builder: DevicePreview.appBuilder,
+              //builder: DevicePreview.appBuilder,
               theme:context.read<ChangeThemeCubit>().isDarkMode==true?ThemeData.dark():ThemeData.light(),
               locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
               localizationsDelegates: const [
