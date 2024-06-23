@@ -13,13 +13,16 @@ import 'package:graduation_project/core/widgets/custom_image_picker.dart';
 import 'package:graduation_project/features/profile/presentation/widgets/profile_item_widget.dart';
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
+import '../../data/models/get_profile_data_model/profile_data_model.dart';
 
 class ProfileOutScreen extends StatelessWidget {
+
   ProfileOutScreen({super.key});
 
 
   @override
   Widget build(BuildContext context) {
+
         return BlocConsumer<GetProfileDataCubit, GetProfileDataCubitState>(
           listener: (context, state) {
 
@@ -69,7 +72,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              state.getProfileDataModel.data!.profilePhotoUrl!),
+                              "https://162d-197-134-173-20.ngrok-free.app/storage/${state.getProfileDataModel.data!.profilePhotoPath!}"),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -93,7 +96,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              CacheHelper().getData(key: ApiKeys.profile_photo_url)),
+                              getOldImage()),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -190,5 +193,11 @@ class ProfileOutScreen extends StatelessWidget {
           },
         );
   }
+  String getOldImage(){
+    return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
+
+  }
+
+
 }
 
