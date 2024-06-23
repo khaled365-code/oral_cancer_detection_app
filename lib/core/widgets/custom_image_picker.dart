@@ -146,7 +146,7 @@ class CustomImagePickerAvatar extends StatelessWidget {
                   height: (smallContainerHeight??35).h,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppColors.primary,
+                    color: AppColors.c0165FC,
                   ),
                   child: Icon(smallContainerIcon??Icons.camera_alt_outlined,color: AppColors.white,),
                 ),
