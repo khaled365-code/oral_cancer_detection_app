@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/functions.dart';
+import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
@@ -23,7 +23,7 @@ class DiagnosisIntro extends StatelessWidget {
             children: [
               Center(child: CustomContainer(conHeight:180.h, conWidth: 210.w, conImage:ImageConstants.diagnosisIntro)),
               SizedBox(height: 12.h,),
-              Text('Check  your Symptoms',style: AppTextStyles.font20.copyWith(
+              Text('checkYourSymptoms'.tr(context),style: AppTextStyles.font20.copyWith(
                 color: AppColors.primary,
               ),),
               SizedBox(height: 10.h,),
@@ -32,7 +32,7 @@ class DiagnosisIntro extends StatelessWidget {
                 style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
                     color: AppColors.c8A8A8A ),),
               SizedBox(height: 14.h,),
-              Text('Your result will include: ',style: AppTextStyles.font20.copyWith(
+              Text('YourResultWillInclude: '.tr(context),style: AppTextStyles.font20.copyWith(
                 color: AppColors.primary,
               ),),
               SizedBox(height: 12.h,),

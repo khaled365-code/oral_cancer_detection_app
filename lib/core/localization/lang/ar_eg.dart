@@ -96,4 +96,7 @@ final Map<String, String> arEg =
   'Cancer':'سرطان',
   'NonCancer':'لا سرطان',
   'ThereisaQuestionYouDidnotAnswer':'هناك سؤال لم يتم الجواب عليه ,راجع الاسئله',
+  'checkYourSymptoms':'تحقق من أعراضك',
+  'YourResultWillInclude: ':'النتيجة ستتضمن: ',
+
 };
