@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/dio_consumer.dart';
+import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import 'package:graduation_project/core/routes/app_router.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 import 'package:graduation_project/features/profile/presentation/cubits/update_profile_cubit/update_profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
@@ -198,6 +201,8 @@ class UpdateProfileWidget extends StatelessWidget {
                                       email: updateProfileCubit.emailController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
+                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+                                   navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                                 else if(updateProfileCubit.nameController.text==''&& updateProfileCubit.emailController.text!='')
                                 {
@@ -205,6 +210,8 @@ class UpdateProfileWidget extends StatelessWidget {
                                       email: updateProfileCubit.emailController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
+                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+                                  navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                                 else if(updateProfileCubit.emailController.text==''&& updateProfileCubit.nameController.text!='')
                                 {
@@ -212,12 +219,16 @@ class UpdateProfileWidget extends StatelessWidget {
                                       name: updateProfileCubit.nameController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
+                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+                                  navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                                 else
                                 {
                                   updateProfileCubit.updateProfileFun(
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
+                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+                                  navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                               },
                               child: ResuableText(
