@@ -96,7 +96,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              getOldImage()),
+                              CacheHelper().getData(key: ApiKeys.profile_photo_url)),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -193,10 +193,10 @@ class ProfileOutScreen extends StatelessWidget {
           },
         );
   }
-  String getOldImage(){
-    return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
-
-  }
+  // String getOldImage(){
+  //   return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
+  //
+  // }
 
 
 }
