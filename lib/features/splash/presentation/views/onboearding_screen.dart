@@ -37,6 +37,7 @@ class OnboardingScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: IntroductionScreen(
+            globalBackgroundColor: AppColors.white,
             pages: getPages,
             next:  Text('Next'.tr(context),style: AppTextStyles.font12.copyWith(color:AppColors.primary )),
             showNextButton: true,

@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/core/utilis/app_text_styles.dart';
+import 'package:graduation_project/core/utilis/fontweight_helper.dart';
 import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
+import 'package:graduation_project/core/widgets/resuable_text.dart';
 import 'package:graduation_project/features/home/presentation/cubits/medical_records_cubits/get_medical_record_cubit.dart';
 import 'package:graduation_project/features/home/presentation/widgets/mr_item.dart';
 import 'package:lottie/lottie.dart';
@@ -25,7 +27,15 @@ class MedicalRecordView extends StatelessWidget {
     return Scaffold(
       appBar:PreferredSize(preferredSize: Size(double.infinity, 40.h),
           child:DefaultAppBar(
-            hasActions:false,hasTitle: true,hasLeading: false,title: Text('Medical Record'),
+            hasActions:false,
+            hasTitle: true,
+            hasLeading: false,
+            title: ResuableText(
+                text: 'Medical Record',
+              color: AppColors.white,
+              fontWeight: FontWeightHelper.regular,
+              fontSize: 18,
+            ),
             backgroundColor: AppColors.primary,)),
        backgroundColor:AppColors.background,
        body:state is MedicalRecordSuccess? Padding(

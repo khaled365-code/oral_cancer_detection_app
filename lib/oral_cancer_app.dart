@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,7 @@ import 'package:graduation_project/core/commons/global_cubits/global_community_b
 import 'package:graduation_project/core/localization/app_localization.dart';
 import 'package:graduation_project/core/routes/app_router.dart';
 import 'package:graduation_project/core/routes/routes.dart';
+import 'package:graduation_project/core/utilis/app_colors.dart';
 import 'package:graduation_project/features/auth/data/manager/update_password_cubit.dart';
 import 'package:graduation_project/features/auth/data/repos/auth_repos.dart';
 import 'package:graduation_project/features/community/cubits/change_post_heart_shape/change_post_heart_shape_cubit.dart';
@@ -35,6 +37,8 @@ class OralCancerApp extends StatelessWidget {
         return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
           builder: (context, state) {
             return MaterialApp(
+
+              builder: DevicePreview.appBuilder,
               theme:context.read<ChangeThemeCubit>().isDarkMode==true?ThemeData.dark():ThemeData.light(),
               locale:  Locale(BlocProvider.of<ChangeLanguageCubit>(context).languageCode),
               localizationsDelegates: const [

@@ -21,7 +21,6 @@ class HospitalCard extends StatelessWidget{
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       child: Container(
-        height: MediaQuery.of(context).size.height* 0.50,
         width:MediaQuery.of(context).size.width* 0.50,
         decoration: BoxDecoration(
           color: AppColors.background,
@@ -56,7 +55,8 @@ class HospitalCard extends StatelessWidget{
                   color: AppColors.black ,),
               ),
               SizedBox(height:8.h,),
-              Text(aboutHos ,
+              Text(
+                aboutHos ,
                 style:AppTextStyles.font16.copyWith(
                     color: AppColors.black ,
                     fontFamily: 'lato'),

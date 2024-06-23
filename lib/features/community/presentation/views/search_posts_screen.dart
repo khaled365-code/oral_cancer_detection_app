@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/commons/global_cubits/global_community_bloc/global_community_bloc_cubit.dart';
 import 'package:graduation_project/core/utilis/app_colors.dart';
+import 'package:graduation_project/core/utilis/lotties_constants.dart';
 import 'package:graduation_project/features/community/cubits/search_for_posts_cubit/search_for_posts_cubit.dart';
 import 'package:graduation_project/features/community/presentation/widgets/serach_post_result_widget.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/commons/functions.dart';
 import '../../../../core/utilis/app_khaled_styles.dart';
@@ -48,7 +50,7 @@ class SearchPostsScreen extends StatelessWidget {
                     child: Row(
                       children:
                       [
-                        SizedBox(width: 15.w,),
+                       Spacer(),
                         GestureDetector(
                             onTap: ()
                             {
@@ -59,13 +61,13 @@ class SearchPostsScreen extends StatelessWidget {
                               color: AppColors.primary,
                               size: 15.sp,
                             )),
-                        SizedBox(width: 16.w,),
+                        SizedBox(width: 10.w,),
                         Container(
                           height: 32.h,
-                          width: 270.w,
+                          width: MediaQuery.of(context).size.width*0.75,
                           decoration: BoxDecoration(
                               color: AppColors.cE7ECF0,
-                              borderRadius: BorderRadius.circular(25.r)
+                              borderRadius: BorderRadius.circular(4.r)
                           ),
                           child: Expanded(
                             child: TextField(
@@ -111,7 +113,7 @@ class SearchPostsScreen extends StatelessWidget {
                     child: Row(
                       children:
                       [
-                        SizedBox(width: 15.w,),
+                        Spacer(),
                         GestureDetector(
                             onTap: ()
                             {
@@ -122,13 +124,13 @@ class SearchPostsScreen extends StatelessWidget {
                               color: AppColors.primary,
                               size: 15.sp,
                             )),
-                        SizedBox(width: 16.w,),
+                        SizedBox(width: 10.w,),
                         Container(
                           height: 32.h,
-                          width: 270.w,
+                          width: MediaQuery.of(context).size.width*0.75,
                           decoration: BoxDecoration(
                               color: AppColors.cE7ECF0,
-                              borderRadius: BorderRadius.circular(25.r)
+                              borderRadius: BorderRadius.circular(4.r)
                           ),
                           child: Expanded(
                             child: TextField(
@@ -180,15 +182,12 @@ class SearchPostsScreen extends StatelessWidget {
                     ),
                 ):
                 state is SearchForPostsLoadingState ?
-                SliverFillRemaining(
-                  child: Shimmer.fromColors(
-                    baseColor: AppColors.white,
-                    highlightColor: AppColors.primary,
-                    child: Container(
-                      color: AppColors.white,
-                    ),
-                  ),
-                ):SliverToBoxAdapter(
+                SliverToBoxAdapter(
+                    child:
+                    Container(
+                      color: AppColors.cE7ECF0,
+                        child: Lottie.asset(AppLoties.LoadingMedicalRecLottie,)))
+                        :SliverToBoxAdapter(
                   child: Column(
                     crossAxisAlignment:CrossAxisAlignment.start ,
                     children:
