@@ -2,14 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utilis/image_constants.dart';
-import 'package:graduation_project/features/community/presentation/screens/community_screen.dart';
 import 'package:graduation_project/features/home/data/models/carousel_data_model/carousel_data_model.dart';
 import 'package:graduation_project/features/home/data/models/for_you_article_data_model/for_you_article_data.dart';
 import 'package:graduation_project/features/home/data/models/for_your_knowledge_model/for_your_knowledge_model.dart';
-import 'package:graduation_project/features/home/presentation/views/doctor_screen.dart';
+import 'package:graduation_project/features/home/presentation/views/doctors_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/initial_home_screen.dart';
 import 'package:graduation_project/features/home/presentation/views/news_screen.dart';
-import 'package:graduation_project/features/home/presentation/views/upload_Image_View.dart';
+import 'package:graduation_project/features/home/presentation/views/upload_Image_screen.dart';
 import 'package:meta/meta.dart';
 
 part 'initial_home_screen_state.dart';

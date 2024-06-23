@@ -72,6 +72,7 @@ class InitialHomeScreen extends StatelessWidget {
                             return Builder(
                               builder: (BuildContext context) {
                                 return SliderContent(
+                                  currentIndex: i,
                                   carouselDataList: initialHomeCubit.carouselDataList,
                                   carouselDataModel: initialHomeCubit.carouselDataList[i],
                                 );

@@ -23,6 +23,8 @@ import 'package:graduation_project/features/diagnosis/presentation/cubits/questi
 import 'package:graduation_project/features/home/presentation/cubits/image_diagnosis_cubit/upload_image_cubit.dart';
 import 'package:graduation_project/features/profile/data/repos/profile_repo_implementation.dart';
 
+import 'features/home/presentation/cubits/home_contrller_cubit/home_controller_cubit.dart';
+
 class OralCancerApp extends StatelessWidget {
   OralCancerApp({ required this.seenOnBoard});
   final bool seenOnBoard;
@@ -93,6 +95,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<ChangeThemeCubit>(create: (context) => ChangeThemeCubit()),
         BlocProvider<ChangeRetweetCubit>(create: (context) => ChangeRetweetCubit()),
         BlocProvider<ChangePostHeartShapeCubit>(create: (context) => ChangePostHeartShapeCubit()),
+        BlocProvider<HomeControllerCubit>(create: (context) => HomeControllerCubit()),
+
 
 
         BlocProvider<UpdatePasswordCubit>(create: (context) => UpdatePasswordCubit(authRepos: AuthRepos(api: DioConsumer(dio: Dio(),isTextModel:false, isImageModel: false)))),
