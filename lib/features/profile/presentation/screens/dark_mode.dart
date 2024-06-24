@@ -50,7 +50,7 @@ class DarkModeScreen extends StatelessWidget {
                   title: Text('Dark mode', style: AppKhaledStyles.textStyle(
                       color: AppColors.black,
                       weight: FontWeight.bold,
-                      size: 16),),
+                      size: 16)),
                 ),
               ),
               SizedBox(height: 10.h,),

@@ -24,7 +24,7 @@ class ResuableText extends StatelessWidget {
       overflow: textOverflow??null,
       style: AppKhaledStyles.textStyle(
           decoration: textDecoration??null,
-          color: color ??AppColors.black,
+           color: color ??AppColors.black,
           size: (fontSize?? 15).sp,
           weight: fontWeight ?? FontWeight.w400
       ),);

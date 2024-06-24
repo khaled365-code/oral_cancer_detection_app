@@ -78,6 +78,11 @@ class _LoginBodyState extends State<LoginBody> {
                        labelText:"password".tr(context),
                        hintText:"enter your password".tr(context),
                        obscureValue: isSecured,
+                       onSubmitted: (value){
+                         if(formKey.currentState!.validate())
+                         {
+                           context.read<SignInCubit>().signIn();
+                         }},
                        suffixIcon: IconButton(onPressed: () {
                          isSecured = !isSecured;
                          setState(() {});

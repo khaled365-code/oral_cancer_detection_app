@@ -89,6 +89,11 @@ class _RegisterBodyState extends State<RegisterBody> {
                             hintText:"Confirm your password".tr(context),
                             controller:context.read<SignUpCubit>().signUpConfPassword,
                             obscureValue: isSecuredConf,
+                            onSubmitted: (value){
+                              if(formKey.currentState!.validate()){
+                                context.read<SignUpCubit>().Register();
+                              }
+                            },
                             suffixIcon:IconButton(
                             onPressed: (){
                               isSecuredConf=!isSecuredConf;
