@@ -184,8 +184,8 @@ class CommentScreen extends StatelessWidget {
                     children:
                     [
                       Container(
-                        width: 55.w,
-                        height: 55.w,
+                        width: 45.w,
+                        height: 45.w,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage (
@@ -198,7 +198,7 @@ class CommentScreen extends StatelessWidget {
                       ),
                       Expanded(
                           child: Padding(
-                            padding:  EdgeInsetsDirectional.only(start: 5.w,end: 10.w),
+                            padding:  EdgeInsetsDirectional.only(start: 10.w,end: 10.w),
                             child: Column(
                               children: [
                                 TextFormField(
