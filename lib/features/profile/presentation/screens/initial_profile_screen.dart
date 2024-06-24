@@ -1,6 +1,4 @@
 
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,21 +16,17 @@ import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../data/models/get_profile_data_model/profile_data_model.dart';
-
 class ProfileOutScreen extends StatelessWidget {
 
   ProfileOutScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-
         return BlocConsumer<GetProfileDataCubit, GetProfileDataCubitState>(
           listener: (context, state) {
             if(state is GetProfileDataSucccessState){
               CacheHelper().saveData(key: 'updatedImage', value: "https://162d-197-134-173-20.ngrok-free.app/storage/${state.getProfileDataModel.data!.profilePhotoPath!}");
             }
-
           },
           builder: (context, state) {
             final profileCubit = BlocProvider.of<GetProfileDataCubit>(context);
@@ -99,6 +93,8 @@ class ProfileOutScreen extends StatelessWidget {
                         ),
                       ),
                     ):
+                    state is GetProfileDataLoadingState?
+                    SliverToBoxAdapter(child: Center(child: CircularProgressIndicator())):
                     SliverToBoxAdapter(
                       child: Center(
                         child: CustomImagePickerAvatar(
@@ -142,6 +138,7 @@ class ProfileOutScreen extends StatelessWidget {
                                 size: 15.sp),
                           ),
                         )):
+
                     SliverToBoxAdapter(
                         child: Center(
                           child: Text(

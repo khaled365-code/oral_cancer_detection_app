@@ -15,6 +15,7 @@ import 'package:graduation_project/features/community/data/models/new_all_posts_
 import 'package:graduation_project/features/community/presentation/widgets/retweet_bottom_sheet.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../../core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_khaled_styles.dart';
 import '../../../../core/utilis/image_constants.dart';
@@ -106,10 +107,10 @@ class PostContainer extends StatelessWidget {
                             shape: BoxShape.circle,
                             image: data.userdata!.profilePhotoUrl!=null? DecorationImage (
                               image: CachedNetworkImageProvider(
-                                  data.userdata!.profilePhotoUrl!, ),
+                                "https://162d-197-134-173-20.ngrok-free.app/storage/${data.userdata!.profilePhotoPath!}", ),
                               fit: BoxFit.fill
                             ):DecorationImage (
-                                image: AssetImage(ImageConstants.userDefaultImage),
+                                image: NetworkImage(BlocProvider.of<GetProfileDataCubit>(context).getOldImage()),
                                 fit: BoxFit.fill
                             )
                           )
@@ -209,7 +210,10 @@ class PostContainer extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 5.h,),
-                            data.post!.image!=null? CachedNetworkImage(imageUrl:data.post!.image!,fit: BoxFit.fill,):SizedBox.shrink(),
+                            data.post!.image!=null? CachedNetworkImage(
+                              imageUrl:"https://162d-197-134-173-20.ngrok-free.app${data.post!.image!}"
+                              ,fit: BoxFit.fill,)
+                                :SizedBox.shrink(),
                             SizedBox(height: 10.h,),
                             isPostDetailsScreen==false?
                             Row(

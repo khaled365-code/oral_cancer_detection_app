@@ -171,14 +171,14 @@ class AppRoutes {
       case Routes.doctor:
         return MaterialPageRoute(builder: (context) => const DoctorPage(),);
 
-      case Routes.editProfilescreen:
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => UpdateProfileCubit(profileRepo: ProfileRepoImplementation(
-                    api: DioConsumer(dio: Dio(), isTextModel:false, isImageModel: false))),
-            child: EditProfileScreen(),
-          ),
-        );
+      // case Routes.editProfilescreen:
+      //   return MaterialPageRoute(
+      //     builder: (context) => BlocProvider(
+      //       create: (context) => UpdateProfileCubit(profileRepo: ProfileRepoImplementation(
+      //               api: DioConsumer(dio: Dio(), isTextModel:false, isImageModel: false))),
+      //       child: EditProfileScreen(),
+      //     ),
+      //   );
       case Routes.settings:
         return MaterialPageRoute(builder: (context) => SettingsScreen(),);
       case Routes.searchNewsScreen:

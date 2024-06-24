@@ -30,6 +30,18 @@ class UpdateProfileWidget extends StatelessWidget {
       create: (context) => UpdateProfileCubit(profileRepo: ProfileRepoImplementation(api: DioConsumer(dio: Dio(), isTextModel: false, isImageModel: false))),
       child: BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
         listener: (context, state) {
+          if(state is UpdateProfileSuccessState)
+          {
+            showToast(msg: 'Profile Updated Successfully', toastStates: ToastStates.success);
+            BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
+            navigate(context: context, route: Routes.initialProfileScreen);
+
+          }
+          else if(state is UpdateProfileFailureState)
+          {
+
+            showToast(msg: state.errMessage, toastStates: ToastStates.error);
+          }
 
         },
         builder: (context, state) {
@@ -69,15 +81,12 @@ class UpdateProfileWidget extends StatelessWidget {
                               imagePick(imageSource: ImageSource.camera).then((value) =>
                                   updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
                               Navigator.pop(context);
-
                             },
                             galleryOnTap: () async
                             {
                               imagePick(imageSource: ImageSource.gallery).then((value) =>
                                   updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
-
                               Navigator.pop(context);
-
                             },
                           ),
                         ):
@@ -96,7 +105,6 @@ class UpdateProfileWidget extends StatelessWidget {
                             {
                               imagePick(imageSource: ImageSource.gallery).then((value) =>
                                   updateProfileCubit.uploadProfilePic(uploadedProfilePic: value!));
-
                               Navigator.pop(context);
 
                             },
@@ -186,14 +194,11 @@ class UpdateProfileWidget extends StatelessWidget {
                               {
                                 if(updateProfileCubit.nameController.text=='' &&
                                     updateProfileCubit.emailController.text==''&&
-                                    updateProfileCubit.updatedProfilePic==null&&
-                                    updateProfileCubit.dateOfBirthController.text==''&&
-                                    updateProfileCubit.genderController.text==''&&
-                                    updateProfileCubit.phoneController.text=='')
+                                    updateProfileCubit.updatedProfilePic==null
+                                    )
                                 {
                                   showToast(msg: 'No changes to update', toastStates: ToastStates.error);
                                 }
-
                                 else if(updateProfileCubit.nameController.text!=''&& updateProfileCubit.emailController.text!='')
                                 {
                                   updateProfileCubit.updateProfileFun(
@@ -201,8 +206,6 @@ class UpdateProfileWidget extends StatelessWidget {
                                       email: updateProfileCubit.emailController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
-                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
-                                   navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                                 else if(updateProfileCubit.nameController.text==''&& updateProfileCubit.emailController.text!='')
                                 {
@@ -210,8 +213,7 @@ class UpdateProfileWidget extends StatelessWidget {
                                       email: updateProfileCubit.emailController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
-                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
-                                  navigate(context: context, route:Routes.initialProfileScreen);
+
                                 }
                                 else if(updateProfileCubit.emailController.text==''&& updateProfileCubit.nameController.text!='')
                                 {
@@ -219,18 +221,13 @@ class UpdateProfileWidget extends StatelessWidget {
                                       name: updateProfileCubit.nameController.text,
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
-                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
-                                  navigate(context: context, route:Routes.initialProfileScreen);
                                 }
                                 else
                                 {
                                   updateProfileCubit.updateProfileFun(
                                       updatedPhoto: updateProfileCubit.updatedProfilePic
                                   );
-                                  BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
-                                  navigate(context: context, route:Routes.initialProfileScreen);
                                 }
-
                               },
                               child: ResuableText(
                                 text: 'Update',
@@ -241,8 +238,6 @@ class UpdateProfileWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-
-
 
                       ]),
                 ),

@@ -49,7 +49,7 @@ class CommentContainer extends StatelessWidget {
                       height: 55.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle
-                      ), child:  CachedNetworkImage(imageUrl:comments.userdata!.profilePhotoUrl!,fit: BoxFit.contain,)
+                      ), child:  CachedNetworkImage(imageUrl:"https://162d-197-134-173-20.ngrok-free.app/storage/${comments.userdata!.profilePhotoPath!}",fit: BoxFit.contain,)
                     ),
                     Container(
                       width: 1.w,

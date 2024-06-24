@@ -189,7 +189,9 @@ class CommentScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage (
-                                image: CachedNetworkImageProvider(CacheHelper().getData(key: ApiKeys.profile_photo_url).toString()),
+                                image: CachedNetworkImageProvider(
+                                    CacheHelper().getData(key: 'updatedImage')
+                                ),
                                 fit: BoxFit.fill
                             )
                         ),

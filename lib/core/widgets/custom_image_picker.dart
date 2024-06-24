@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/widgets/resuable_text.dart';
+import '../../features/profile/presentation/widgets/update_profile_widget.dart';
 import '../routes/routes.dart';
 import '../utilis/app_colors.dart';
 
@@ -77,9 +78,10 @@ class CustomImagePickerAvatar extends StatelessWidget {
               start: hasStart? (smallContainerStartValue??0).w:null,
 
               child: hasCustomChild ? GestureDetector(
-                  onTap: () async
+                   onTap: ()
                   {
-                    navigate(context: context, route: Routes.editProfilescreen);
+                    // navigate(context: context, route: Routes.editProfilescreen);
+                    showDialog(context: context, builder: (context) => UpdateProfileWidget(),);
 
                   },
                   child: customChild!) :
