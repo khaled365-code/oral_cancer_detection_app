@@ -12,9 +12,7 @@ void main() async
   WidgetsFlutterBinding.ensureInitialized();
  await CacheHelper().init();
   bool seenOnBorading=CacheHelper().getData(key: 'seenOnboarding')??false;
-  runApp(DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => MyApp(seenOnBoard: seenOnBorading,)),);
+  runApp( MyApp(seenOnBoard: seenOnBorading,),);
   Bloc.observer=MyBlocObserver();
 
 }

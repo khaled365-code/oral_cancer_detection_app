@@ -90,6 +90,9 @@ flutter_native_splash:
   icon_background_color_dark: "#FFFFFF"
 
 
+
+
+
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
 flutter_launcher_icons:

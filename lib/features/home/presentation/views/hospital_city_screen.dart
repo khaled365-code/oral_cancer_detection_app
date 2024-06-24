@@ -12,7 +12,7 @@ class HospitalCity extends StatefulWidget{
 }
 
 class _HospitalCityState extends State<HospitalCity> {
-  final cities = ['Cairo','Gharbia','Shibin El Kom','Dakahlia','Upper Egypt'];
+  final cities = ['Cairo','Gharbia','Menofia','Dakahlia','Upper Egypt'];
   int selectedIndex = 0;
 
   final Map<String, List<Hospital>> cityHospitals = {
@@ -49,7 +49,7 @@ class _HospitalCityState extends State<HospitalCity> {
         location:'Tanta',
       ),
     ],
-    'Shibin El Kom': [
+    'Menofia': [
       Hospital(
         name:'Shibin El Kom Cancer Institute',
         image: ImageConstants.sibienHos,

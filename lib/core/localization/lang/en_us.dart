@@ -189,7 +189,8 @@ final Map<String, String> enUs =
   'NonCancer':'Non Cancer',
   'ThereisaQuestionYouDidnotAnswer':'There is a question you did not answer! please check it',
   'checkYourSymptoms':'Check  your Symptoms',
-  'YourResultWillInclude: ':"Your result will include: "
+  'YourResultWillInclude: ':"Your result will include: ",
+
 
 
 

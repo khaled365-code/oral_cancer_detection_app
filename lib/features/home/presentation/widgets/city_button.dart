@@ -28,11 +28,14 @@ class CityNameButton extends StatelessWidget{
         ),
         width:MediaQuery.of(context).size.width *0.30,
         //height:60.h,
-        child: Center(child: Text(cityName,
-          textAlign: TextAlign.center,
-          style: AppTextStyles.font20.copyWith(
-              color: isSelected?AppColors.background:AppColors.primary,
-              fontWeight: FontWeight.w500),
+        child: Center(child: Padding(
+          padding:EdgeInsets.only(left: 10.w,right: 10.w),
+          child: Text(cityName,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.font20.copyWith(
+                color: isSelected?AppColors.background:AppColors.primary,
+                fontWeight: FontWeight.w500),
+          ),
         ),
         ),
       ),
