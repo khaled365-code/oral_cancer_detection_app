@@ -6,7 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
@@ -37,7 +39,7 @@ class ProfileOutScreen extends StatelessWidget {
                   child: DefaultAppBar(
                     leading: GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        navigate(context: context, route: Routes.home);
                       },
                       child: Container(
                         width: 80.w,
@@ -96,7 +98,7 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              CacheHelper().getData(key: ApiKeys.profile_photo_url)),
+                         CacheHelper().getData(key: ApiKeys.profile_photo_url)),  //getOldImage()),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -193,10 +195,10 @@ class ProfileOutScreen extends StatelessWidget {
           },
         );
   }
-  // String getOldImage(){
-  //   return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
-  //
-  // }
+  String getOldImage(){
+    return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
+
+  }
 
 
 }
