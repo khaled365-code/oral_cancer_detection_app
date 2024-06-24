@@ -14,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
     this.prefixIcon,
     this.inputType,
     this.onChangeee,
-    this.readOnly=false,
+    this.readOnly=false, this.onSubmitted,
   }) : super(key: key);
 
   final String? labelText;
@@ -25,6 +25,7 @@ class CustomTextFormField extends StatefulWidget {
   final Icon? prefixIcon;
   final TextInputType? inputType;
   final Function(String)? onChangeee;
+  final Function(String)? onSubmitted;
   final bool readOnly;
 
   @override
@@ -48,6 +49,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       ),
       keyboardType:widget.inputType,
       onChanged:widget.onChangeee,
+      onFieldSubmitted: widget.onSubmitted,
       obscureText: widget.obscureValue!,
       decoration: InputDecoration(
         labelText: widget.labelText,

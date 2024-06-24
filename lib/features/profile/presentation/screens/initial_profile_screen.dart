@@ -6,7 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/api/api_keys.dart';
 import 'package:graduation_project/core/cache/cache_helper.dart';
+import 'package:graduation_project/core/commons/functions.dart';
 import 'package:graduation_project/core/commons/global_cubits/get_profile_data_cubit/profile_cubit.dart';
+import 'package:graduation_project/core/routes/routes.dart';
 import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
@@ -37,7 +39,7 @@ class ProfileOutScreen extends StatelessWidget {
                   child: DefaultAppBar(
                     leading: GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        navigate(context: context, route: Routes.home);
                       },
                       child: Container(
                         width: 80.w,
