@@ -13,6 +13,8 @@ import 'package:graduation_project/core/utilis/app_khaled_styles.dart';
 import 'package:graduation_project/core/widgets/default_app_bar.dart';
 import 'package:graduation_project/core/widgets/custom_image_picker.dart';
 import 'package:graduation_project/features/profile/presentation/widgets/profile_item_widget.dart';
+import '../../../../core/commons/functions.dart';
+import '../../../../core/routes/routes.dart';
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/image_constants.dart';
 import '../../data/models/get_profile_data_model/profile_data_model.dart';
@@ -42,7 +44,7 @@ class ProfileOutScreen extends StatelessWidget {
                   child: DefaultAppBar(
                     leading: GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        navigate(context: context, route: Routes.home);
                       },
                       child: Container(
                         width: 80.w,
