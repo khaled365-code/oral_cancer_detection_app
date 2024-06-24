@@ -230,6 +230,7 @@ class UpdateProfileWidget extends StatelessWidget {
                                   BlocProvider.of<GetProfileDataCubit>(context).getProfileDataFun();
                                   navigate(context: context, route:Routes.initialProfileScreen);
                                 }
+
                               },
                               child: ResuableText(
                                 text: 'Update',

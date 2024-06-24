@@ -263,7 +263,7 @@ class EditProfileScreen extends StatelessWidget {
                   ),
                 ):
                 Padding(
-                  padding: EdgeInsetsDirectional.only(top: 70.h,start: 20.w,end: 20.w),
+                  padding: EdgeInsetsDirectional.only(top: 30.h,start: 20.w,end: 20.w),
                   child: SharedButton(
                       height: 50,
                       width: 510,

@@ -56,7 +56,7 @@ class AuthRepos {
       CacheHelper().saveData(key: ApiKeys.id, value:decodedToken["sub"]);
       CacheHelper().saveData(key: ApiKeys.name, value: user.user!.name);
       CacheHelper().saveData(key: ApiKeys.email, value: user.user!.email);
-      CacheHelper().saveData(key: ApiKeys.profile_photo_url, value: user.user!.profilePhotoUrl!);
+      CacheHelper().saveData(key: ApiKeys.profile_photo_url, value: user.user!.profilePhotoUrl);
       CacheHelper().saveData(key: ApiKeys.created_at, value: user.user!.createdAt);
 
 

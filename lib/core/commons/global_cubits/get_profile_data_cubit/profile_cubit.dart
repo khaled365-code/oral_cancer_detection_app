@@ -50,6 +50,21 @@ class GetProfileDataCubit extends Cubit<GetProfileDataCubitState> {
 
   }
 
+  String getOldImage(){
+    if(CacheHelper().getData(key: ApiKeys.profile_photo_url)==null){
+      return'${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
+    }
+    else if(CacheHelper().getData(key: 'updatedImage')!=null){
+      return CacheHelper().getData(key: 'updatedImage');
+    }
+    else{
+      return 'https://as1.ftcdn.net/v2/jpg/05/17/79/88/1000_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg';
+
+    }
+
+
+  }
+
 
 
 }

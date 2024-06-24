@@ -1,4 +1,6 @@
 
+
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,9 @@ class ProfileOutScreen extends StatelessWidget {
 
         return BlocConsumer<GetProfileDataCubit, GetProfileDataCubitState>(
           listener: (context, state) {
+            if(state is GetProfileDataSucccessState){
+              CacheHelper().saveData(key: 'updatedImage', value: "https://162d-197-134-173-20.ngrok-free.app/storage/${state.getProfileDataModel.data!.profilePhotoPath!}");
+            }
 
           },
           builder: (context, state) {
@@ -96,7 +101,8 @@ class ProfileOutScreen extends StatelessWidget {
                       child: Center(
                         child: CustomImagePickerAvatar(
                           image: CachedNetworkImageProvider(
-                              CacheHelper().getData(key: ApiKeys.profile_photo_url)),
+                           profileCubit.getOldImage()
+                          ),
                           hasBottom: true,
                           hasEnd: true,
                           hasCustomChild: true,
@@ -123,6 +129,7 @@ class ProfileOutScreen extends StatelessWidget {
                       ),
                     ),
                     state is GetProfileDataSucccessState?
+
                     SliverToBoxAdapter(
                         child: Center(
                           child: Text(
@@ -193,10 +200,7 @@ class ProfileOutScreen extends StatelessWidget {
           },
         );
   }
-  // String getOldImage(){
-  //   return 'https://162d-197-134-173-20.ngrok-free.app/storage/${CacheHelper().getData(key: ApiKeys.profile_photo_url)}';
-  //
-  // }
+
 
 
 }

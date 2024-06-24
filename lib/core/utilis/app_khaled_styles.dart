@@ -18,7 +18,7 @@ class AppKhaledStyles {
   }) {
     return TextStyle(
       inherit: false,
-      color: color ?? AppColors.black,
+       color: color ?? AppColors.black,
       fontSize: (size ?? 14).sp,
       fontFamily: family ?? 'Helvetica',
       fontWeight: weight ?? FontWeight.w400,

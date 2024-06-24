@@ -43,7 +43,7 @@ class ProfileData {
   dynamic emailVerifiedAt;
   dynamic twoFactorConfirmedAt;
   dynamic currentTeamId;
-  dynamic profilePhotoPath;
+  String? profilePhotoPath;
   String? createdAt;
   String? updatedAt;
   String? role;
