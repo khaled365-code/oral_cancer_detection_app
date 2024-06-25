@@ -139,30 +139,30 @@ class _LoginBodyState extends State<LoginBody> {
                          ),
                        ],
                      ),
-                     Padding(
-                       padding:  EdgeInsetsDirectional.only(top: 20.h),
-                       child: GestureDetector(
-                         onTap: ()
-                         {
-                           navigate(context: context, route: Routes.home);
-                         },
-                         child: Container(
-                           width: 80.w,
-                           height: 50.h,
-                           decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(16),
-                             color: AppColors.c4C9EEB,
-                           ),
-                           child: Center(
-                             child: Text('Home',style: AppKhaledStyles.textStyle(
-                                 color: AppColors.black,
-                                 size: 15,
-                                 weight: FontWeight.w700
-                             ),),
-                           ),
-                         ),
-                       ),
-                     )
+                     // Padding(
+                     //   padding:  EdgeInsetsDirectional.only(top: 20.h),
+                     //   child: GestureDetector(
+                     //     onTap: ()
+                     //     {
+                     //       navigate(context: context, route: Routes.home);
+                     //     },
+                     //     child: Container(
+                     //       width: 80.w,
+                     //       height: 50.h,
+                     //       decoration: BoxDecoration(
+                     //         borderRadius: BorderRadius.circular(16),
+                     //         color: AppColors.c4C9EEB,
+                     //       ),
+                     //       child: Center(
+                     //         child: Text('Home',style: AppKhaledStyles.textStyle(
+                     //             color: AppColors.black,
+                     //             size: 15,
+                     //             weight: FontWeight.w700
+                     //         ),),
+                     //       ),
+                     //     ),
+                     //   ),
+                     // )
 
                      ],
 
