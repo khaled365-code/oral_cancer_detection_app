@@ -92,19 +92,19 @@ class _LoginBodyState extends State<LoginBody> {
                          const Icon(Icons.visibility,color:AppColors.background ,),
                        ),
                      ),
-                     SizedBox(height: 5.h,),
-                     TextButton(
-                       onPressed: () {
-                         navigate(context: context, route: Routes.resetNewPass);
-                       },
-                       child:Text("forget password".tr(context),
-                         style:AppTextStyles.font18.copyWith(
-                             color:AppColors.background,
-                             fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.underline,
-                         ),
-                       ),
-                     ),
+                     // SizedBox(height: 5.h,),
+                     // TextButton(
+                     //   onPressed: () {
+                     //     navigate(context: context, route: Routes.resetNewPass);
+                     //   },
+                     //   child:Text("forget password".tr(context),
+                     //     style:AppTextStyles.font18.copyWith(
+                     //         color:AppColors.background,
+                     //         fontWeight: FontWeight.w600,
+                     //        decoration: TextDecoration.underline,
+                     //     ),
+                     //   ),
+                     // ),
                      SizedBox(height: 16.h,),
                     state is SignInLoadingState?
                     CircularProgressIndicator():
@@ -130,39 +130,38 @@ class _LoginBodyState extends State<LoginBody> {
                            onTap: () {
                              navigate(context: context, route: Routes.registerScreen);
                            },
-                           child:Text("Sign Up".tr(context),
+                           child:Text(" Sign Up".tr(context),
                              style:AppTextStyles.font14.copyWith(
                                  color: AppColors.background,
-                                 fontFamily: 'lato',
-                                 decoration: TextDecoration.underline, ),
+                                 fontFamily: 'lato',),
                            ),
                          ),
                        ],
                      ),
-                     Padding(
-                       padding:  EdgeInsetsDirectional.only(top: 20.h),
-                       child: GestureDetector(
-                         onTap: ()
-                         {
-                           navigate(context: context, route: Routes.home);
-                         },
-                         child: Container(
-                           width: 80.w,
-                           height: 50.h,
-                           decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(16),
-                             color: AppColors.c4C9EEB,
-                           ),
-                           child: Center(
-                             child: Text('Home',style: AppKhaledStyles.textStyle(
-                                 color: AppColors.black,
-                                 size: 15,
-                                 weight: FontWeight.w700
-                             ),),
-                           ),
-                         ),
-                       ),
-                     )
+                     // Padding(
+                     //   padding:  EdgeInsetsDirectional.only(top: 20.h),
+                     //   child: GestureDetector(
+                     //     onTap: ()
+                     //     {
+                     //       navigate(context: context, route: Routes.home);
+                     //     },
+                     //     child: Container(
+                     //       width: 80.w,
+                     //       height: 50.h,
+                     //       decoration: BoxDecoration(
+                     //         borderRadius: BorderRadius.circular(16),
+                     //         color: AppColors.c4C9EEB,
+                     //       ),
+                     //       child: Center(
+                     //         child: Text('Home',style: AppKhaledStyles.textStyle(
+                     //             color: AppColors.black,
+                     //             size: 15,
+                     //             weight: FontWeight.w700
+                     //         ),),
+                     //       ),
+                     //     ),
+                     //   ),
+                     // )
 
                      ],
 

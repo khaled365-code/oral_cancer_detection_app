@@ -25,3 +25,6 @@ class LogoutFromSettingsSuccessState extends LogoutFromSettingsState {
 
 }
 
+class SetLogoutToNullState extends LogoutFromSettingsState {}
+
+

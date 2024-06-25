@@ -141,7 +141,7 @@ class GlobalCommunityBloc extends Cubit<GlobalCommunityBlocState> {
     addPostImage=null;
     emit(AddPostPictureToNullState());
   }
-  addNewPost({String? body}) async
+  addNewPost({String? body,XFile? retweetImage}) async
   {
     emit(AddPostLoadingState());
     final response=await communityRepoImplementation.uploadPost(

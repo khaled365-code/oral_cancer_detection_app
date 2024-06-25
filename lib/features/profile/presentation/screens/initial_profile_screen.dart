@@ -94,7 +94,9 @@ class ProfileOutScreen extends StatelessWidget {
                       ),
                     ):
                     state is GetProfileDataLoadingState?
-                    SliverToBoxAdapter(child: Center(child: CircularProgressIndicator())):
+                    SliverToBoxAdapter(child: Center(child: CircularProgressIndicator(
+                      color: AppColors.primary,
+                    ))):
                     SliverToBoxAdapter(
                       child: Center(
                         child: CustomImagePickerAvatar(

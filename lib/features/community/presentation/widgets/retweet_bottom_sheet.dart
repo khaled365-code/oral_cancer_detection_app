@@ -51,7 +51,8 @@ class RetweetBottomSheet extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () async
                       {
-                        await communityBloc.addNewPost(body: data.post!.body);
+                        await communityBloc.addNewPost(
+                            body: data.post!.body,);
                         communityBloc.getAllPostsFun();
                         Navigator.pop(context);
                       },

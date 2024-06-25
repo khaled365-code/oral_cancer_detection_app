@@ -111,12 +111,16 @@ class LogoutBottomSheet extends StatelessWidget {
                             onPressed: () async
                             {
                               // logoutCubit.logout();
-                                final prefs = await SharedPreferences.getInstance();
-                                await prefs.clear();
-                                exit(0);
+                              final prefs = await SharedPreferences.getInstance();
+                              await prefs.remove(ApiKeys.token);
+                              await Future.delayed(const Duration(milliseconds: 100));
+                              if (CacheHelper().getData(key: ApiKeys.token) == null) {
+                                print('Token removed successfully.'); // Or perform other actions
+                              } else {
+                                print('Error removing token.'); // Handle potential errors
+                              }
 
-
-
+                              exit(0);
                             },
                             hasBorderRadius: true,
                             borderRadiusValue: 25.r,

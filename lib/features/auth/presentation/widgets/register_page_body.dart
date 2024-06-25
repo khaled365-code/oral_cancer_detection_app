@@ -125,10 +125,9 @@ class _RegisterBodyState extends State<RegisterBody> {
                               onTap: (){
                                 navigate(context: context, route: Routes.loginScreen);
                               },
-                              child:Text("login".tr(context),
+                              child:Text(" login".tr(context),
                                 style:AppTextStyles.font14.copyWith(
                                     color: AppColors.background,
-                                    decoration: TextDecoration.underline,
                                     fontFamily: 'lato'),
                               ),
                             ),

@@ -20,4 +20,12 @@ class LogoutFromSettingsCubit extends Cubit<LogoutFromSettingsState> {
    response.fold((error) => emit(LogoutFromSettingsFailureState(errorMessage: error)),
            (success) => emit(LogoutFromSettingsSuccessState(successMessage: success)));
   }
+
+
+
+  setTokenToNull()
+  {
+    CacheHelper().saveData(key: ApiKeys.token, value: null);
+    emit(SetLogoutToNullState());
+  }
 }

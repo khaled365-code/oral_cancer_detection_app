@@ -105,7 +105,7 @@ class PostContainer extends StatelessWidget {
                           height: 55.w,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            image: data.userdata!.profilePhotoUrl!=null? DecorationImage (
+                            image: data.userdata!.profilePhotoPath!=null? DecorationImage (
                               image: CachedNetworkImageProvider(
                                 "https://162d-197-134-173-20.ngrok-free.app/storage/${data.userdata!.profilePhotoPath!}", ),
                               fit: BoxFit.fill

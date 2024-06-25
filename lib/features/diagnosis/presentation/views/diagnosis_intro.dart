@@ -17,7 +17,7 @@ class DiagnosisIntro extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal:16.w ,vertical: 12.h ),
+          padding: EdgeInsetsDirectional.only(start:16.w ,end: 16.w,top:0.h,bottom: 10.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -72,7 +72,7 @@ class DiagnosisIntro extends StatelessWidget {
                   "a doctor for further testing and evaluation to be fully sure...",
                 style: AppTextStyles.font16.copyWith(fontWeight: FontWeight.w400,
                     color: AppColors.c8A8A8A), ),
-              SizedBox(height:16.h,),
+              SizedBox(height:10.h,),
               Align(
                 alignment: Alignment.bottomRight,
                 child: GestureDetector(
